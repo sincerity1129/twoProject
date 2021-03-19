@@ -3,14 +3,15 @@ package project;
 public class test {
 
 	public static void main(String[] args) {
-		System.out.println("Å×½ºÆ®Áß");
+		System.out.println("ï¿½×½ï¿½Æ®ï¿½ï¿½");
 		String test;
-		System.out.println("±è°¡¿¬ ¼º°ø");
-		System.out.println("ÃÖ±Ù¿µ Àß ¸ð¸£°ÚÀ½ ¾î·Æ³×¿ä");
-		System.out.println("¹ÚÃ¢À± ¼º°ø. ");
-		System.out.println("¼º°ø?");
-		System.out.println("Å×½ºÆ®");
-		System.out.println("Å×½ºÆ® 2");
+		System.out.println("ï¿½è°¡ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½");
+		System.out.println("ï¿½Ö±Ù¿ï¿½ ï¿½ï¿½ ï¿½ð¸£°ï¿½ï¿½ï¿½ ï¿½ï¿½Æ³×¿ï¿½");
+		System.out.println("ï¿½ï¿½Ã¢ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½. ");
+		System.out.println("ï¿½ï¿½ï¿½ï¿½?");
+		System.out.println("ï¿½×½ï¿½Æ®");
+		System.out.println("ï¿½×½ï¿½Æ® 2");
+		System.out.println("ì •ìš©í˜„");
 	}
 
 }
