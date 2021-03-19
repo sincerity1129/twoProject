@@ -9,6 +9,7 @@ public class test {
 		System.out.println("박창윤 성공. ");
 		System.out.println("성공?");
 		System.out.println("테스트");
+		System.out.println("테스트 2");
 	}
 
 }
