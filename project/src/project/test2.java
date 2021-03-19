@@ -8,5 +8,6 @@ public class test2 {
 	 String pcy = "pcy";
 	 
 	 System.out.println(pcy);
+	 System.out.println("Å×½ºÆ®");
 	}
 }
