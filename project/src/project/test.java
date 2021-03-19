@@ -13,6 +13,8 @@ public class test {
 		// 김가연 주석 추가 깃허브 반영 예정
 		
 		// move branch feature/kgyeon
+		System.out.println("최");
+		
 	}
 
 }
