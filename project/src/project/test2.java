@@ -9,7 +9,7 @@ public class test2 {
 	 
 	 System.out.println(pcy);
 	 System.out.println("테스트");
-	 
+	 System.out.println("언우성공");
 	 System.out.println("김가연성공");
 	}
 }
