@@ -5,7 +5,7 @@ public class test {
 	public static void main(String[] args) {
 		String test;
 		System.out.println("김가연 성공");
-
+		System.out.println("최근영 ㅅㅅ");
 	}
 
 }
