@@ -4,11 +4,11 @@ public class test {
 
 	public static void main(String[] args) {
 		String test;
-		System.out.println("ï¿½è°¡ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½");
-		System.out.println("ï¿½Ö±Ù¿ï¿½ ï¿½ï¿½ ï¿½ğ¸£°ï¿½ï¿½ï¿½ ï¿½ï¿½Æ³×¿ï¿½");
-		System.out.println("ï¿½ï¿½Ã¢ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½. ");
-		System.out.println("ï¿½ï¿½ï¿½ï¿½?");
-		System.out.println("ì •ìš©í˜„ í™•ì¸");
+		System.out.println("±è°¡¿¬ ¼º°ø");
+		System.out.println("ÃÖ±Ù¿µ Àß ¸ğ¸£°ÚÀ½ ¾î·Æ³×¿ä");
+		System.out.println("¹ÚÃ¢À± ¼º°ø. ");
+		System.out.println("¼º°ø?");
+		System.out.println("Å×½ºÆ®");
 	}
 
 }
