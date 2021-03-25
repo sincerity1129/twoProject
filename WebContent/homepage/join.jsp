@@ -30,8 +30,6 @@
 	
 	<!-- footer 자리 맞추기 용도 -->
 <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-  
- 
 
 
   <footer class="py-5 bg-dark">
