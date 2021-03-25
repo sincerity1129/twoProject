@@ -18,22 +18,18 @@
 
 </head>
 <body>
-
-	<form action="">
-		ID : <input type = "text" name = "id"> <button type = "button"  id = "button">중복체크</button><br>
-		<div id = "success">사용 가능한 ID입니다.</div>
-		<div id = "fail">중복된 ID입니다.</div>
-		PW : <input type = "text" name = "pw"><br>
-		이름 : <input type = "text" naame = "name"><br>
-		<input type = "submit" value = "회원가입">
+	
+	<form action = "">
+	ID : <div id = "id"></div>
+	PW : <input type = "text" id = "pw"><br>
+	이름 : <input type = "text" id = "name"><br>
+	<input type ="submit" value = "정보 수정">
 	</form>
 	
-	<!-- footer 자리 맞추기 용도 -->
-<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-  
- 
-
-
+	
+	
+		<!-- footer 자리 맞추기 용도 -->
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
   <footer class="py-5 bg-dark">
     <div class="container">
       <p class="m-0 text-center text-white">Copyright &copy; Your Website 2020</p>
