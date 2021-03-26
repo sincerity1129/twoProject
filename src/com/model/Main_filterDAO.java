@@ -53,16 +53,17 @@ public void close() { // DB 연결 해제
 	}
 }
 
-public ArrayList<Main_filterDTO> search(String search) {
+public ArrayList<Main_filterDTO> search(Apt_name_searchDTO dto) {
 	
 	searchlist = new ArrayList<Main_filterDTO>(); // 기본 필터 검색
 	
 	conn();
 	
 	try {
-		String sql = "select * from maemae where apt_name = ?";
+		String sql = "select * from maemae where ? = ?";
 		psmt = conn.prepareStatement(sql);
-		psmt.setString(1, search);
+		psmt.setString(1, dto.getApt_name());
+		psmt.setString(2, dto.getSearch());
 		rs = psmt.executeQuery();
 		
 		while(rs.next()) {

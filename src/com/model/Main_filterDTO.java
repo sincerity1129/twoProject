@@ -13,17 +13,6 @@ public class Main_filterDTO {
 	private int apt_size;
 	private int floor;
 	
-	
-	
-	
-	
-	
-	
-	public Main_filterDTO(String apt_name) {
-		super();
-		this.apt_name = apt_name;
-	}
-	
 	public Main_filterDTO(int maemae_num, String dong, String price, int build_year, String apt_name, int year,
 			int month, int day, int apt_size, int floor) {
 		super();
@@ -62,7 +51,7 @@ public class Main_filterDTO {
 	public void setPrice(String price) {
 		this.price = price;
 	}
-	public int getBuild_year() {
+	public int searchlist() {
 		return build_year;
 	}
 	public void setBuild_year(int build_year) {
