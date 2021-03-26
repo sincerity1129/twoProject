@@ -29,11 +29,11 @@
 <body>
 
 	<%
+				Main_filterDAO dao = new Main_filterDAO();
 				MemberDTO info = (MemberDTO)session.getAttribute("info");
 				Main_filterDTO apt = (Main_filterDTO)session.getAttribute("aptinfo");
-		  
-				Main_filterDAO dao = new Main_filterDAO();
 				ArrayList<Main_filterDTO> searchlist = null;
+				
 				if(apt != null){
 				searchlist = dao.search(apt.getApt_name());
 				}
