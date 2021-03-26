@@ -19,14 +19,17 @@ public class SearchService implements FrontCommand {
 
 		request.setCharacterEncoding("EUC-KR");
 		String search = request.getParameter("search");		
-		String column = request.getParameter("type");		
 		
 		
 		Main_filterDAO dao = new Main_filterDAO();
-		ArrayList<Main_filterDTO> searchDTO = dao.search(search);		
+		ArrayList<Main_filterDTO> searchlist = dao.search(search);
 		
-		if(searchDTO != null) {
+		if(searchlist != null) {
 			System.out.println("검색 성공");
+			
+			HttpSession session = request.getSession();
+			session.setAttribute("aptinfo", searchlist);
+			System.out.println(session.getAttribute("aptinfo").getClass().getName());
 			
 		}
 		else {
