@@ -65,7 +65,7 @@ public ArrayList<Main_filterDTO> search(String search) {
 		psmt.setString(1, search);
 		rs = psmt.executeQuery();
 		
-		if(rs.next()) {
+		while(rs.next()) {
 			
 			int maemae_num = rs.getInt(1);
 			String dong = rs.getString(2);

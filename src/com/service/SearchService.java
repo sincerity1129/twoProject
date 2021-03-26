@@ -19,13 +19,13 @@ public class SearchService implements FrontCommand {
 
 		request.setCharacterEncoding("EUC-KR");
 		String search = request.getParameter("search");		
-		System.out.println(search);
+		
 		
 		Main_filterDAO dao = new Main_filterDAO();
 		ArrayList<Main_filterDTO> searchDTO = dao.search(search);
 		
-		System.out.println(searchDTO);
-		System.out.println(search);
+		
+		
 		
 		
 		if(searchDTO != null) {

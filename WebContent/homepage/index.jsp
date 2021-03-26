@@ -135,7 +135,9 @@
 
         <div class="row">
 					<%
+					
 					if (searchlist != null) {
+						System.out.print("asdf");
 					%>
 					<%
 					for (int i = 0; i < searchlist.size(); i++) {
