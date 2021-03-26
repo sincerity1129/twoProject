@@ -18,7 +18,7 @@
 
   <!-- Custom styles for this template -->
   <link href="css/shop-homepage.css" rel="stylesheet">
-  <link href="./main.css" rel="stylesheet">
+  <link href="./main.css" rel="stylesheet"> 
 
 </head>
 
