@@ -121,11 +121,7 @@
             	<h1>기본 필터</h1>
             	
             	<form action="SearchService.do" method = "post">
-<<<<<<< HEAD
             		아파트<input type = "radio" name = "apt_name" value = "apt_name">
-=======
-            		아파트<input type = "radio" name = "apt" value = "apt_name">
->>>>>>> branch 'master' of https://github.com/sincerity1129/project.git
 	            	동<input type = "radio" name = "dong" value = "dong">
 	            	검색 : <input type = "text" name = "search">
 	            	<input type = "submit" value = "검색">
@@ -139,23 +135,19 @@
         </div>
 
         <div id = "row">
-					searchlist = (ArrayList<Main_filterDTO>)session.getAttribute("searchlist");					
 					<%
-					System.out.print("성공!");
+					searchlist = (ArrayList<Main_filterDTO>)session.getAttribute("searchlist");
 					if (searchlist != null) {
-					System.out.print("성공이지만 내컴퓨터엔 DB 없음");
+					System.out.print("성공!!");
 					%>					
-
-					<table>
-					
+					<table>					
 					<%for (int i = 0; i < searchlist.size(); i++) {%>																	
 						<tr>
 							<td><%=i + 1%></td>
 							<td><%=searchlist.get(i).getApt_name()%></td>
 							<td><%=searchlist.get(i).getApt_size()%></td>
 							<td><%=searchlist.get(i).getYear()%></td>							
-						</tr>
-						
+						</tr>						
 					</table>
 					<%}}%>
 
