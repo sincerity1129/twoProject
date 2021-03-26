@@ -1,6 +1,10 @@
+<%@page import="java.util.ArrayList"%>
+<%@page import="com.model.Main_filterDAO"%>
+<%@page import="com.model.Main_filterDTO"%>
 <%@page import="com.model.MemberDTO"%>
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
     pageEncoding="EUC-KR"%>
+ 
 <!DOCTYPE html>
 <html>
 
@@ -25,8 +29,17 @@
 <body>
 
 	<%
-		MemberDTO info = (MemberDTO)session.getAttribute("info");
-				if(info != null){
+			MemberDTO info = (MemberDTO)session.getAttribute("info");
+			Main_filterDTO apt = (Main_filterDTO)session.getAttribute("aptinfo");
+		  
+				if(apt != null){
+				}
+				Main_filterDAO dao = new Main_filterDAO();
+				ArrayList<Main_filterDTO> searchlist = null;
+				
+				if(apt != null){
+				searchlist = dao.search(apt.getApt_name());
+			
 				}
 		%>
 
@@ -60,13 +73,10 @@
 							<li class="nav-item"><a class="nav-link" href = "LogoutService.do">로그아웃</a></li>
 							
 						<%} else {%>
+								<li class="nav-item"><a class="nav-link" href = "join.jsp">회원가입</a></li>
 								<li class="nav-item"><a class="nav-link" href="login.jsp">로그인</a></li>
 						<%} %>
 							<!-- 로그인 후 Logout.jsp로 이동할 수 있는'로그아웃'링크와 '개인정보수정'링크를 출력하시오. -->
-
-						
-         
-          
          
          
         </ul>
@@ -111,8 +121,14 @@
           <div class="carousel-inner" role="listbox">
             <div class="carousel-item active">
             	<h1>기본 필터</h1>
-            	검색 : <input type = "text" name = "search">
-			
+            	
+            	<form action="SearchService.do" method = "post">
+            		아파트<input type = "radio" name = "type" value = "apt">
+	            	동<input type = "radio" name = "type" value = "dong">
+	            	검색 : <input type = "text" name = "search">
+	            	<input type = "submit" value = "검색">
+				</form>
+				
               <!--  <img class="d-block img-fluid" src="./img/white-img.jpg" alt="First slide"> 이미지 파일 넣는 곳-->
             </div>
             
@@ -121,104 +137,32 @@
         </div>
 
         <div class="row">
+					<%
+					
+					if (searchlist != null) {
+						System.out.print("asdf");
+					%>
+					<%
+					for (int i = 0; i < searchlist.size(); i++) {
+					
+					%>				
+					<table>
+						<tr>
+							<td><%=i + 1%></td>
+							<td><%=searchlist.get(i).getApt_name()%></td>
+							<td><%=searchlist.get(i).getApt_size()%></td>
+							<td><%=searchlist.get(i).getBuild_year()%></td>
+							
+						</tr>
+						
+					</table>
+					<%
+					}
+					}
+					%>
 
-          <div class="col-lg-4 col-md-6 mb-4">
-            <div class="card h-100">  
-              <a href="#"><img class="card-img-top" src="http://placehold.it/700x400" alt=""></a>
-              <div class="card-body">
-                <h4 class="card-title">
-                  <a href="#">Item One</a>
-                </h4>
-                <h5>$24.99</h5>
-                <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet numquam aspernatur!</p>
-              </div>
-              <div class="card-footer">
-                <small class="text-muted">&#9733; &#9733; &#9733; &#9733; &#9734;</small>
-              </div>
-            </div>
-          </div>
+				</div>
 
-          <div class="col-lg-4 col-md-6 mb-4">
-            <div class="card h-100">
-              <a href="#"><img class="card-img-top" src="http://placehold.it/700x400" alt=""></a>
-              <div class="card-body">
-                <h4 class="card-title">
-                  <a href="#">Item Two</a>
-                </h4>
-                <h5>$24.99</h5>
-                <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet numquam aspernatur! Lorem ipsum dolor sit amet.</p>
-              </div>
-              <div class="card-footer">
-                <small class="text-muted">&#9733; &#9733; &#9733; &#9733; &#9734;</small>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-lg-4 col-md-6 mb-4">
-            <div class="card h-100">
-              <a href="#"><img class="card-img-top" src="http://placehold.it/700x400" alt=""></a>
-              <div class="card-body">
-                <h4 class="card-title">
-                  <a href="#">Item Three</a>
-                </h4>
-                <h5>$24.99</h5>
-                <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet numquam aspernatur!</p>
-              </div>
-              <div class="card-footer">
-                <small class="text-muted">&#9733; &#9733; &#9733; &#9733; &#9734;</small>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-lg-4 col-md-6 mb-4">
-            <div class="card h-100">
-              <a href="#"><img class="card-img-top" src="http://placehold.it/700x400" alt=""></a>
-              <div class="card-body">
-                <h4 class="card-title">
-                  <a href="#">Item Four</a>
-                </h4>
-                <h5>$24.99</h5>
-                <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet numquam aspernatur!</p>
-              </div>
-              <div class="card-footer">
-                <small class="text-muted">&#9733; &#9733; &#9733; &#9733; &#9734;</small>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-lg-4 col-md-6 mb-4">
-            <div class="card h-100">
-              <a href="#"><img class="card-img-top" src="http://placehold.it/700x400" alt=""></a>
-              <div class="card-body">
-                <h4 class="card-title">
-                  <a href="#">Item Five</a>
-                </h4>
-                <h5>$24.99</h5>
-                <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet numquam aspernatur! Lorem ipsum dolor sit amet.</p>
-              </div>
-              <div class="card-footer">
-                <small class="text-muted">&#9733; &#9733; &#9733; &#9733; &#9734;</small>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-lg-4 col-md-6 mb-4">
-            <div class="card h-100">
-              <a href="#"><img class="card-img-top" src="http://placehold.it/700x400" alt=""></a>
-              <div class="card-body">
-                <h4 class="card-title">
-                  <a href="#">Item Six</a>
-                </h4>
-                <h5>$24.99</h5>
-                <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet numquam aspernatur!</p>
-              </div>
-              <div class="card-footer">
-                <small class="text-muted">&#9733; &#9733; &#9733; &#9733; &#9734;</small>
-              </div>
-            </div>
-          </div>
-
-        </div>
        
         <!-- /.row -->
 
@@ -232,11 +176,14 @@
   <!-- /.container -->
 
   <!-- Footer -->
+  <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
   <footer class="py-5 bg-dark">
     <div class="container">
       <p class="m-0 text-center text-white">Copyright &copy; Your Website 2020</p>
     </div>
     <!-- /.container -->
+    
+    
   </footer>
   
   
