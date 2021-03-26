@@ -33,7 +33,8 @@
 
 		MemberDTO info = (MemberDTO)session.getAttribute("info");
 		Main_filterDAO dao = new Main_filterDAO();
-		ArrayList<Main_filterDTO> searchlist = null;
+		ArrayList<Main_filterDTO> AptSearchList = null;
+		ArrayList<Main_filterDTO> dongsearchlist = null;
 		
 		if(info != null) {
 			/*여긴 기본필터가 아닌 맞춤필터 시에 필요한 부분 */
@@ -136,17 +137,17 @@
 
         <div id = "row">
 					<%
-					searchlist = (ArrayList<Main_filterDTO>)session.getAttribute("searchlist");
-					if (searchlist != null) {
+					AptSearchList = (ArrayList<Main_filterDTO>)session.getAttribute("AptSearchList");
+					if (AptSearchList != null) {
 					System.out.print("성공!!");
 					%>					
 					<table>					
-					<%for (int i = 0; i < searchlist.size(); i++) {%>																	
+					<%for (int i = 0; i < AptSearchList.size(); i++) {%>																	
 						<tr>
 							<td><%=i + 1%></td>
-							<td><%=searchlist.get(i).getApt_name()%></td>
-							<td><%=searchlist.get(i).getApt_size()%></td>
-							<td><%=searchlist.get(i).getYear()%></td>							
+							<td><%=AptSearchList.get(i).getApt_name()%></td>
+							<td><%=AptSearchList.get(i).getApt_size()%></td>
+							<td><%=AptSearchList.get(i).getYear()%></td>							
 						</tr>						
 					</table>
 					<%}}%>

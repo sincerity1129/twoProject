@@ -53,48 +53,6 @@ public void close() { // DB 연결 해제
 	}
 }
 
-public ArrayList<Main_filterDTO> search(Apt_name_searchDTO dto) {
-	
-	searchlist = new ArrayList<Main_filterDTO>(); // 기본 필터 검색
-	
-	conn();
-	
-	try {
-		String sql = "select * from maemae where ? = ?";
-		psmt = conn.prepareStatement(sql);
-		psmt.setString(1, dto.getApt_name());
-		psmt.setString(2, dto.getSearch());
-		rs = psmt.executeQuery();
-		
-		while(rs.next()) {
-			
-			int maemae_num = rs.getInt(1);
-			String dong = rs.getString(2);
-			String price = rs.getString(3);
-			int build_year = rs.getInt(4);
-			String apt_name= rs.getString(5);
-			int year = rs.getInt(6);
-			int month = rs.getInt(7);
-			int day = rs.getInt(8);
-			int apt_size = rs.getInt(9);
-			int floor = rs.getInt(10);
-			
-			
-			Mfdto = new Main_filterDTO(maemae_num,dong,price,build_year,apt_name,year,month,day,apt_size,floor);
-			searchlist.add(Mfdto);
-			
-		}
-		} catch (SQLException e) {
-			e.printStackTrace();
-		} finally {
-			close();
-		}
-		
-		return searchlist;
-		
-		}
-
-
 		public ArrayList<Main_filterDTO> aptsearch (String search) {
 			conn();
 			ArrayList<Main_filterDTO> searchlist = new ArrayList<>();

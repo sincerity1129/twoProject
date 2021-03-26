@@ -11,7 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 import com.service.JoinService;
 import com.service.LoginService;
 import com.service.LogoutService;
-import com.service.SearchService;
+import com.service.Apt_name_searchService;
 import com.service.UpdateService;
 
 @WebServlet("*.do")
@@ -37,7 +37,7 @@ public class Command extends HttpServlet {
 		}else if(resultURI.equals("homepage/UpdateService.do")) {
 			command = new UpdateService();
 		}else if(resultURI.equals("homepage/SearchService.do")) {
-			command = new SearchService();
+			command = new Apt_name_searchService();
 		}
 		
 		command.execute(request, response);
