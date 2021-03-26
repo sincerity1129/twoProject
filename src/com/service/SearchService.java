@@ -23,6 +23,9 @@ public class SearchService implements FrontCommand {
 		
 		Main_filterDAO dao = new Main_filterDAO();
 		ArrayList<Main_filterDTO> searchDTO = dao.search(search);
+		for(int i = 0; i<searchDTO.size(); i++) {
+			System.out.println(searchDTO.get(i).getApt_name());
+		}
 		
 		
 		
@@ -30,6 +33,9 @@ public class SearchService implements FrontCommand {
 		
 		if(searchDTO != null) {
 			System.out.println("검색 성공");
+			
+			HttpSession session = request.getSession();
+			session.setAttribute("aptinfo", searchDTO);
 			
 		}
 		else {

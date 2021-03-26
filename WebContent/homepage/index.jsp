@@ -29,12 +29,14 @@
 <body>
 
 	<%
-	MemberDTO info = (MemberDTO)session.getAttribute("info");
-	Main_filterDTO apt = (Main_filterDTO)session.getAttribute("info");
+			MemberDTO info = (MemberDTO)session.getAttribute("info");
+			Main_filterDTO apt = (Main_filterDTO)session.getAttribute("aptinfo");
+		  
 				if(apt != null){
 				}
 				Main_filterDAO dao = new Main_filterDAO();
 				ArrayList<Main_filterDTO> searchlist = null;
+				
 				if(apt != null){
 				searchlist = dao.search(apt.getApt_name());
 			
@@ -71,6 +73,7 @@
 							<li class="nav-item"><a class="nav-link" href = "LogoutService.do">로그아웃</a></li>
 							
 						<%} else {%>
+								<li class="nav-item"><a class="nav-link" href = "join.jsp">회원가입</a></li>
 								<li class="nav-item"><a class="nav-link" href="login.jsp">로그인</a></li>
 						<%} %>
 							<!-- 로그인 후 Logout.jsp로 이동할 수 있는'로그아웃'링크와 '개인정보수정'링크를 출력하시오. -->
