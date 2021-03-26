@@ -34,7 +34,7 @@
 		MemberDTO info = (MemberDTO)session.getAttribute("info");
 		Main_filterDAO dao = new Main_filterDAO();
 		ArrayList<Main_filterDTO> AptSearchList = null;
-		ArrayList<Main_filterDTO> dongsearchlist = null;
+		ArrayList<Main_filterDTO> DongSearchList = null;
 		
 		if(info != null) {
 			/*여긴 기본필터가 아닌 맞춤필터 시에 필요한 부분 */
@@ -121,7 +121,7 @@
             <div class="carousel-item active">
             	<h1>기본 필터</h1>
             	
-            	<form action="SearchService.do" method = "post">
+            	<form action="SearchList.do" method = "post">
             		아파트<input type = "radio" name = "apt_name" value = "apt_name">
 	            	동<input type = "radio" name = "dong" value = "dong">
 	            	검색 : <input type = "text" name = "search">
@@ -136,10 +136,26 @@
         </div>
 
         <div id = "row">
+					<%					
+					DongSearchList = (ArrayList<Main_filterDTO>)session.getAttribute("DongSearchList");					
+					if (DongSearchList != null) {
+						System.out.print("동 성공!!");
+						%>					
+						<table>					
+						<%for (int i = 0; i < DongSearchList.size(); i++) {%>																	
+							<tr>
+								<td><%=i + 1%></td>
+								<td><%=DongSearchList.get(i).getApt_name()%></td>
+								<td><%=DongSearchList.get(i).getApt_size()%></td>
+								<td><%=DongSearchList.get(i).getYear()%></td>							
+							</tr>						
+						</table>
+						<%}}%>
+					
 					<%
 					AptSearchList = (ArrayList<Main_filterDTO>)session.getAttribute("AptSearchList");
 					if (AptSearchList != null) {
-					System.out.print("성공!!");
+					System.out.print("아파트 성공!");
 					%>					
 					<table>					
 					<%for (int i = 0; i < AptSearchList.size(); i++) {%>																	
