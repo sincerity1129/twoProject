@@ -12,7 +12,6 @@ public class Main_filterDTO {
 	private int day;
 	private int apt_size;
 	private int floor;
-
 	
 	public Main_filterDTO(int maemae_num, String dong, String price, int build_year, String apt_name, int year,
 			int month, int day, int apt_size, int floor) {
@@ -88,9 +87,5 @@ public class Main_filterDTO {
 	public void setFloor(int floor) {
 		this.floor = floor;
 	}
-	public void setFloor(String columns) {
-		this.columns = columns;
-	}
-	
 
 }
