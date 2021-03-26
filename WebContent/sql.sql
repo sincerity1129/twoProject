@@ -8,9 +8,14 @@ create table budong_member(
 
 select * from budong_member
 
-insert into budong_member values('smhrd','123','smhrd')
+insert into budong_member values('123','123','123')
+insert into budong_member values('smart','123','smart')
+insert into budong_member values('admin','admin','admin')
+
 
 select * from BUDONG_MEMBER
+
+alert delete budong_member where id = 'smhrd'
 
 drop table junwall
 

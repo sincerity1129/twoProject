@@ -1,3 +1,4 @@
+<%@page import="com.model.MemberDTO"%>
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
     pageEncoding="EUC-KR"%>
 <!DOCTYPE html>
@@ -23,6 +24,12 @@
 
 <body>
 
+	<%
+		MemberDTO info = (MemberDTO)session.getAttribute("info");
+				if(info != null){
+				}
+		%>
+
   <!-- Navigation -->
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
     <div class="container">
@@ -40,15 +47,28 @@
             </a>
           </li>
           
-          <li class="nav-item">
-            <a class="nav-link" href="join.jsp">회원가입</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="login.jsp">로그인</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="mypage.jsp">마이페이지</a>
-          </li>
+          
+          				<li class = "nav-item">
+						<%if (info != null) {%>
+						
+							<%if(info.getId().equals("admin")) {%>
+							<a class="nav-link" href = "select.jsp">회원정보 관리</a>
+							<%}%>
+							</li>
+							
+							<li class="nav-item"><a class="nav-link" href = "mypage.jsp">마이페이지</a></li>
+							<li class="nav-item"><a class="nav-link" href = "LogoutService.do">로그아웃</a></li>
+							
+						<%} else {%>
+								<li class="nav-item"><a class="nav-link" href="login.jsp">로그인</a></li>
+						<%} %>
+							<!-- 로그인 후 Logout.jsp로 이동할 수 있는'로그아웃'링크와 '개인정보수정'링크를 출력하시오. -->
+
+						
+         
+          
+         
+         
         </ul>
       </div>
     </div>
@@ -70,9 +90,13 @@
 
         <h1 class="my-4">필터</h1>
         <div class="list-group">
-          <a href="#" class="list-group-item">기본 필터</a>
           <a href="#" class="list-group-item">맞춤 필터</a>
-          <a href="#" class="list-group-item">가격 예측</a>
+          <a href="#" class="list-group-item">임대 아파트</a>
+        </div>
+        
+        <h1 class="my-4">가격 예측</h1>
+        <div class="list-group">
+          <a href="price.jsp" class="list-group-item">가격 예측</a>
         </div>
 
       </div>
@@ -85,7 +109,10 @@
            
           </ol>
           <div class="carousel-inner" role="listbox">
-            <div class="carousel-item active">찾으시는 매물을 검색하세요.
+            <div class="carousel-item active">
+            	<h1>기본 필터</h1>
+            	검색 : <input type = "text" name = "search">
+			
               <!--  <img class="d-block img-fluid" src="./img/white-img.jpg" alt="First slide"> 이미지 파일 넣는 곳-->
             </div>
             
@@ -210,7 +237,6 @@
       <p class="m-0 text-center text-white">Copyright &copy; Your Website 2020</p>
     </div>
     <!-- /.container -->
-    asdasdasdasd
   </footer>
   
   

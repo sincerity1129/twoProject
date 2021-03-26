@@ -18,26 +18,19 @@
 
 </head>
 <body>
-
-	<form action="JoinService.do" method = "post">
-		ID : <input type = "text" name = "id"> <button type = "button"  id = "button">중복체크</button><br>
-		<div id = "success">사용 가능한 ID입니다.</div>
-		<div id = "fail">중복된 ID입니다.</div>
-		PW : <input type = "text" name = "pw"><br>
-		이름 : <input type = "text" name = "name"><br>
-		<input type = "submit" value = "회원가입">
-	</form>
+	<h1>가격 예측 시스템</h1>
 	
-	<!-- footer 자리 맞추기 용도 -->
-<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-
-
+	<li font = "bold">목록</li> 목록1<input type =  "radio" name ="info1">목록2<input type =  "radio" name ="info1">목록3<input type =  "radio" name ="info1">
+	
+		<!-- footer 자리 맞추기 용도 -->
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
   <footer class="py-5 bg-dark">
     <div class="container">
       <p class="m-0 text-center text-white">Copyright &copy; Your Website 2020</p>
     </div>
     <!-- /.container -->
   </footer>
+	
 
 </body>
 </html>

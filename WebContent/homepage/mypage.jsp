@@ -19,10 +19,10 @@
 </head>
 <body>
 	
-	<form action = "">
+	<form action = "UpdateService.do">
 	ID : <div id = "id"></div>
-	PW : <input type = "text" id = "pw"><br>
-	이름 : <input type = "text" id = "name"><br>
+	PW : <input type = "text" id = "pw" name = "pw"><br>
+	이름 : <input type = "text" id = "name" name = "name"><br>
 	<input type ="submit" value = "정보 수정">
 	</form>
 	

@@ -21,12 +21,14 @@
 
 <h1>팝업으로 띄우고싶다</h1>
 
-<div>
-	<form action="">
+<div class = "list-group">
+	
+	<form action="LoginService.do">
 		ID : <input type = "text" name = "id"><br>
 		PW : <input type = "text" name = "pw"><br>
 		<input type = "submit" value = "로그인"><br>
 	</form>
+	
 </div>
 
 
