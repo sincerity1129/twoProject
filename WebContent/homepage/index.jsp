@@ -30,18 +30,6 @@
 <body>
 
 	<%
-<<<<<<< HEAD
-				Main_filterDAO dao = new Main_filterDAO();
-				MemberDTO info = (MemberDTO)session.getAttribute("info");
-				Main_filterDTO apt = (Main_filterDTO)session.getAttribute("aptinfo");
-				ArrayList<Main_filterDTO> searchlist = null;
-				
-				if(apt != null){
-				searchlist = dao.search(apt.getApt_name());
-				}
-			
-=======
-
 		MemberDTO info = (MemberDTO)session.getAttribute("info");
 		Main_filterDAO dao = new Main_filterDAO();
 		ArrayList<Main_filterDTO> AptSearchList = null;
@@ -50,8 +38,7 @@
 		if(info != null) {
 			/*여긴 기본필터가 아닌 맞춤필터 시에 필요한 부분 */
 		}
->>>>>>> branch 'master' of https://github.com/sincerity1129/project.git
-				
+			
 		%>
 
   <!-- Navigation -->
