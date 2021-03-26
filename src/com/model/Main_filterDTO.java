@@ -12,9 +12,7 @@ public class Main_filterDTO {
 	private int day;
 	private int apt_size;
 	private int floor;
-	
-	
-	
+	private String columns;
 	
 	
 	
@@ -98,7 +96,9 @@ public class Main_filterDTO {
 	public void setFloor(int floor) {
 		this.floor = floor;
 	}
-	
+	public void setFloor(String columns) {
+		this.columns = columns;
+	}
 	
 
 }

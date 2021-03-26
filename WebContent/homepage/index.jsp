@@ -29,16 +29,10 @@
 <body>
 
 	<%
-	MemberDTO info = (MemberDTO)session.getAttribute("info");
-	Main_filterDTO apt = (Main_filterDTO)session.getAttribute("info");
-				if(apt != null){
-				}
+	MemberDTO info = (MemberDTO)session.getAttribute("info");			
 				Main_filterDAO dao = new Main_filterDAO();
 				ArrayList<Main_filterDTO> searchlist = null;
-				if(apt != null){
-				searchlist = dao.search(apt.getApt_name());
-			
-				}
+				
 		%>
 
   <!-- Navigation -->
@@ -120,8 +114,8 @@
             	<h1>기본 필터</h1>
             	
             	<form action="SearchService.do" method = "post">
-            		아파트<input type = "radio" name = "type" value = "apt">
-	            	동<input type = "radio" name = "type" value = "dong">
+            		아파트<input type = "radio" name = "apt" value = "apt_name">
+	            	동<input type = "radio" name = "dong" value = "dong">
 	            	검색 : <input type = "text" name = "search">
 	            	<input type = "submit" value = "검색">
 				</form>
@@ -136,7 +130,7 @@
         <div class="row">
 					<%
 					
-					if (searchlist != null) {
+					if (searchlist != null ) {
 						System.out.print("asdf");
 					%>
 					<%
