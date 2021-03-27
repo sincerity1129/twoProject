@@ -1,3 +1,4 @@
+<%@page import="com.model.Apt_name_searchDTO"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="com.model.Main_filterDAO"%>
 <%@page import="com.model.Main_filterDTO"%>
@@ -29,16 +30,15 @@
 <body>
 
 	<%
-				MemberDTO info = (MemberDTO)session.getAttribute("info");
-				Main_filterDTO apt = (Main_filterDTO)session.getAttribute("aptinfo");
-		  
-				Main_filterDAO dao = new Main_filterDAO();
-				ArrayList<Main_filterDTO> searchlist = null;
-				if(apt != null){
-				searchlist = dao.search(apt.getApt_name());
-				}
+		MemberDTO info = (MemberDTO)session.getAttribute("info");
+		Main_filterDAO dao = new Main_filterDAO();
+		ArrayList<Main_filterDTO> AptSearchList = null;
+		ArrayList<Main_filterDTO> DongSearchList = null;
+		
+		if(info != null) {
+			/*여긴 기본필터가 아닌 맞춤필터 시에 필요한 부분 */
+		}
 			
-				
 		%>
 
   <!-- Navigation -->
@@ -121,8 +121,8 @@
             	<h1>기본 필터</h1>
             	
             	<form action="SearchService.do" method = "post">
-            		아파트<input type = "radio" name = "type" value = "apt">
-	            	동<input type = "radio" name = "type" value = "dong">
+            		아파트<input type = "radio" name = "apt_name" value = "apt_name">
+	            	동<input type = "radio" name = "dong" value = "dong">
 	            	검색 : <input type = "text" name = "search">
 	            	<input type = "submit" value = "검색">
 				</form>
@@ -134,30 +134,38 @@
           
         </div>
 
-        <div class="row">
-					<%
+        <div id = "row">
+					<%					
+					DongSearchList = (ArrayList<Main_filterDTO>)session.getAttribute("DongSearchList");					
+					if (DongSearchList != null) {
+						System.out.print("동 성공!!");
+						%>					
+						<table>					
+						<%for (int i = 0; i < DongSearchList.size(); i++) {%>																	
+							<tr>
+								<td><%=i + 1%></td>
+								<td><%=DongSearchList.get(i).getApt_name()%></td>
+								<td><%=DongSearchList.get(i).getApt_size()%></td>
+								<td><%=DongSearchList.get(i).getYear()%></td>							
+							</tr>						
+						</table>
+						<%}}%>
 					
-					if (searchlist != null) {
-						System.out.print("asdf");
-					%>
 					<%
-					for (int i = 0; i < searchlist.size(); i++) {
-					
-					%>				
-					<table>
+					AptSearchList = (ArrayList<Main_filterDTO>)session.getAttribute("AptSearchList");
+					if (AptSearchList != null) {
+					System.out.print("아파트 성공!");
+					%>					
+					<table>					
+					<%for (int i = 0; i < AptSearchList.size(); i++) {%>																	
 						<tr>
 							<td><%=i + 1%></td>
-							<td><%=searchlist.get(i).getApt_name()%></td>
-							<td><%=searchlist.get(i).getApt_size()%></td>
-							<td><%=searchlist.get(i).getBuild_year()%></td>
-							
-						</tr>
-						
+							<td><%=AptSearchList.get(i).getApt_name()%></td>
+							<td><%=AptSearchList.get(i).getApt_size()%></td>
+							<td><%=AptSearchList.get(i).getYear()%></td>							
+						</tr>						
 					</table>
-					<%
-					}
-					}
-					%>
+					<%}}%>
 
 				</div>
 

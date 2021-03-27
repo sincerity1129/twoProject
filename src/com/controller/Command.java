@@ -27,7 +27,6 @@ public class Command extends HttpServlet {
 		System.out.println(URI);
 		String resultURI = URI.substring(path.length()+1);
 		
-		
 		if(resultURI.equals("homepage/JoinService.do")) {
 			command = new JoinService();
 		}else if(resultURI.equals("homepage/LoginService.do")) {
