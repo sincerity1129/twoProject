@@ -134,6 +134,9 @@ table {
 					</ol>
 					<div class="carousel-inner" role="listbox">
 						<div class="carousel-item active">
+						
+						이거커밋하면 에러날거같은데....
+						일단 해볼게요ㅔ넹
 
 
 
@@ -203,28 +206,12 @@ table {
 
 						<%
 					AptSearchList = (ArrayList<Main_filterDTO>)session.getAttribute("AptSearchList");
+						
 					if (AptSearchList != null) {
 					System.out.print("아파트 성공!");
 					System.out.print(AptSearchList.size());
-<<<<<<< HEAD
-					%>					
-					<table border = "1">					
-					<%for (int i = 0; i < AptSearchList.size(); i++) {%>																	
-						<tr>
-							<td><%=i + 1%></td>
-							<td><%=AptSearchList.get(i).getMaemae_num()%></td>
-							<td><%=AptSearchList.get(i).getDong()%></td>
-							<td><%=AptSearchList.get(i).getPrice()%></td>
-							<td><%=AptSearchList.get(i).getYear()%></td>
-							<td><%=AptSearchList.get(i).getMonth()%></td>
-							<td><%=AptSearchList.get(i).getDay()%></td>
-							<td><%=AptSearchList.get(i).getApt_size()%></td>
-							<td><%=AptSearchList.get(i).getFloor()%></td>
-						</tr>						
-					<%}}%>
-					</table>
-=======
-					%>
+					
+
 						<table>
 							<tr>
 								<td>즐겨찾기</td>
@@ -260,7 +247,6 @@ table {
 						<%}%>
 					</div>
 
->>>>>>> branch 'master' of https://github.com/sincerity1129/project.git
 
 				</div>
 
