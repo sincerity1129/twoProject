@@ -161,8 +161,16 @@
 					<%for (int i = 0; i < AptSearchList.size(); i++) {%>																	
 						<tr>
 							<td><%=i + 1%></td>
-							<td><%=AptSearchList.get(i).getApt_name()%></td>
-							<td><%=AptSearchList.get(i).getApt_size()%></td>
+							<td><%=AptSearchList.get(i).getMaemae_num()()%></td>
+							<td><%=AptSearchList.get(i).getDong()%></td>
+							<td><%=AptSearchList.get(i).getPrice()%></td>
+							<td><%=AptSearchList.get(i).getYear()%></td>
+							<td><%=AptSearchList.get(i).getMonth()%></td>
+							<td><%=AptSearchList.get(i).getDay()%></td>
+							<td><%=AptSearchList.get(i).getYear()%></td>
+							<td><%=AptSearchList.get(i).getYear()%></td>
+							<td><%=AptSearchList.get(i).getYear()%></td>
+							<td><%=AptSearchList.get(i).getYear()%></td>
 							<td><%=AptSearchList.get(i).getYear()%></td>							
 						</tr>						
 					</table>
