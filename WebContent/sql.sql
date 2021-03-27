@@ -13,6 +13,7 @@ SELECT * FROM FACILITY;
 select * from maemae where APT_name = '충장아트원'
 
 select * from maemae where APT_NAME ='충장아트원';
+
 /*회원테이블 만들기
  * MEM_NUM 이거 대신에 MEM_ID로 특정
  * 그리고 회원정보에 몇가지 더 추가하면 좋을 것으로 생각됨 
@@ -135,7 +136,7 @@ WHERE MAE.DONG=PK.DONG;
 SELECT FAC.FACILITY, MAE.DONG, MAE.APT_NAME, MAE.PRICE, MAE.BUILD_YEAR,
 	   MAE.YEAR, MAE.MONTH, MAE.DAY, MAE.APT_SIZE, MAE.FLOOR	   
 FROM MAEMAE MAE, FACILITY FAC
-WHERE MAE.APT_NAME=FAC.APT_NAME;
+WHERE MAE.DONG=FAC.DONG;
 
 /*매매&도서관테이블 조인
  *LIB.CLOSE의 경우 LIB.이 빠져 있어 여기만 수정하였습니다 

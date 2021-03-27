@@ -24,6 +24,20 @@
   <!-- Custom styles for this template -->
   <link href="css/shop-homepage.css" rel="stylesheet">
   <link href="./main.css" rel="stylesheet"> 
+  
+  <style type="text/css">
+  table, td{
+border: 1px solid red
+}
+
+table{
+width:60%;
+height: 100px;
+margin: auto;
+
+text-align: center;
+}
+  </style>
 
 </head>
 
@@ -94,15 +108,22 @@
       <div class="col-lg-3">
       	
 
-        <h1 class="my-4">필터</h1>
+        <h1 class="my-4">기본 필터</h1>
         <div class="list-group">
-          <a href="#" class="list-group-item">맞춤 필터</a>
-          <a href="#" class="list-group-item">임대 아파트</a>
+          <a href="#" class="list-group-item">매물</a>
+          <a href="#" class="list-group-item">전 월세</a>
+        </div>
+        
+        <h1 class="my-4">특별 필터</h1>
+        <div class="list-group">
+          <a href="price.jsp" class="list-group-item">맞춤</a>
+          <a href="price.jsp" class="list-group-item">임대</a>
         </div>
         
         <h1 class="my-4">가격 예측</h1>
         <div class="list-group">
           <a href="price.jsp" class="list-group-item">가격 예측</a>
+          <a href="price.jsp" class="list-group-item">임대</a>
         </div>
 
       </div>
@@ -116,11 +137,14 @@
           </ol>
           <div class="carousel-inner" role="listbox">
             <div class="carousel-item active">
-            	<h1>기본 필터</h1>
+            
+            	<div id = "filter"><h1>필터이름</h1></div>
             	
             	<form action="SearchService.do" method = "post">
-            		아파트<input type = "radio" name = "apt_name" value = "apt_name">
-	            	동<input type = "radio" name = "dong" value = "dong">
+            		
+            		<!-- radio를 사 -->
+            		아파트<input type = "radio" name = "table" value = "apt_name">
+	            	동<input type = "radio" name = "table" value = "dong">
 	            	검색 : <input type = "text" name = "search">
 	            	<input type = "submit" value = "검색">
 				</form>
@@ -137,17 +161,41 @@
 					DongSearchList = (ArrayList<Main_filterDTO>)session.getAttribute("DongSearchList");					
 					if (DongSearchList != null) {
 						System.out.print("동 성공!!");
+						System.out.print(DongSearchList.size());
+						
+						
 						%>					
-						<table>					
-						<%for (int i = 0; i < DongSearchList.size(); i++) {%>																	
-							<tr>
-								<td><%=i + 1%></td>
-								<td><%=DongSearchList.get(i).getApt_name()%></td>
-								<td><%=DongSearchList.get(i).getApt_size()%></td>
-								<td><%=DongSearchList.get(i).getYear()%></td>							
-							</tr>						
-						</table>
-						<%}}%>
+						<table>		
+						<tr>
+							<td>즐겨찾기</td>
+							<td>번호</td>
+							<td>매매 번호</td>
+							<td>아파트 이름</td>
+							<td>동 이름</td>
+							<td>가격</td>
+							<td>거래 년도</td>
+							<td>월</td>
+							<td>일</td>
+							<td>평수</td>
+							<td>층</td>
+						</tr>
+										
+					<%for (int i = 0; i < DongSearchList.size(); i++) {%>																	
+						<tr>
+							<td><input type = "checkbox" value = ""></td>
+							<td><%=i + 1%></td>
+							<td><%=DongSearchList.get(i).getMaemae_num()%></td>
+							<td><%=DongSearchList.get(i).getApt_name()%></td>
+							<td><%=DongSearchList.get(i).getDong()%></td>
+							<td><%=DongSearchList.get(i).getPrice()%></td>
+							<td><%=DongSearchList.get(i).getYear()%></td>
+							<td><%=DongSearchList.get(i).getMonth()%></td>
+							<td><%=DongSearchList.get(i).getDay()%></td>
+							<td><%=DongSearchList.get(i).getApt_size()%></td>
+							<td><%=DongSearchList.get(i).getFloor()%></td>
+						</tr>						
+					<%}}%>
+					</table>
 					
 					<%
 					AptSearchList = (ArrayList<Main_filterDTO>)session.getAttribute("AptSearchList");
@@ -155,11 +203,27 @@
 					System.out.print("아파트 성공!");
 					System.out.print(AptSearchList.size());
 					%>					
-					<table>					
+					<table>		
+						<tr>
+							<td>즐겨찾기</td>
+							<td>번호</td>
+							<td>매매 번호</td>
+							<td>아파트 이름</td>
+							<td>동 이름</td>
+							<td>가격</td>
+							<td>거래 년도</td>
+							<td>월</td>
+							<td>일</td>
+							<td>평수</td>
+							<td>층</td>
+						</tr>
+										
 					<%for (int i = 0; i < AptSearchList.size(); i++) {%>																	
 						<tr>
+							<td><input type = "checkbox" value = "1"></td>
 							<td><%=i + 1%></td>
 							<td><%=AptSearchList.get(i).getMaemae_num()%></td>
+							<td><%=AptSearchList.get(i).getApt_name()%></td>
 							<td><%=AptSearchList.get(i).getDong()%></td>
 							<td><%=AptSearchList.get(i).getPrice()%></td>
 							<td><%=AptSearchList.get(i).getYear()%></td>

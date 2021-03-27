@@ -23,14 +23,14 @@ public class SearchService implements FrontCommand {
 
 		request.setCharacterEncoding("EUC-KR");
 		String search = request.getParameter("search");		
-		String apt_name = request.getParameter("apt_name");		
-		String dong = request.getParameter("dong");		
+		String table = request.getParameter("table");			
+		System.out.println(search);
 	
 		
 
-		if(dong != null) {
+		if(table.equals("dong")) {
 			Dong_searchDAO dao = new Dong_searchDAO();
-			Dong_searchDTO dto = new Dong_searchDTO(search, dong);
+			Dong_searchDTO dto = new Dong_searchDTO(search);
 			ArrayList<Main_filterDTO> DongSearchList = dao.search(dto);
 
 			
@@ -46,9 +46,9 @@ public class SearchService implements FrontCommand {
 		}
 		
 
-		if(apt_name != null) {
+		if(table.equals("apt_name")) {
 		Apt_name_searchDAO dao = new Apt_name_searchDAO();
-		Apt_name_searchDTO dto = new Apt_name_searchDTO(search, apt_name);
+		Apt_name_searchDTO dto = new Apt_name_searchDTO(search);
 		ArrayList<Main_filterDTO> AptSearchList = dao.search(dto);
 		
 		if(AptSearchList != null) {
