@@ -121,7 +121,7 @@
             <div class="carousel-item active">
             	<h1>기본 필터</h1>
             	
-            	<form action="SearchList.do" method = "post">
+            	<form action="SearchService.do" method = "post">
             		아파트<input type = "radio" name = "apt_name" value = "apt_name">
 	            	동<input type = "radio" name = "dong" value = "dong">
 	            	검색 : <input type = "text" name = "search">

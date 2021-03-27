@@ -16,7 +16,7 @@ import com.model.Dong_searchDTO;
 import com.model.Main_filterDAO;
 import com.model.Main_filterDTO;
 
-public class searchService implements FrontCommand {
+public class SearchService implements FrontCommand {
 
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
