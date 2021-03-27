@@ -10,6 +10,8 @@ DROP TABLE MY_RENT;
 
 SELECT * FROM FACILITY;
 
+select * from maemae where APT_name = '충장아트원'
+
 select * from maemae where APT_NAME ='충장아트원';
 /*회원테이블 만들기
  * MEM_NUM 이거 대신에 MEM_ID로 특정

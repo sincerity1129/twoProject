@@ -59,11 +59,13 @@ public ArrayList<Main_filterDTO> search(Apt_name_searchDTO dto) {
 	conn();
 	
 	try {
-		String sql = "select * from maemae where ? = ?";
+		String sql = "select * from maemae where APT_name = ?";
 		psmt = conn.prepareStatement(sql);
-		psmt.setString(1, dto.getApt_name());
-		psmt.setString(2, dto.getSearch());
+		//psmt.setString(1, dto.getApt_name());
+		psmt.setString(1, dto.getSearch());
 		rs = psmt.executeQuery();
+		
+		System.out.println(rs.next());
 		
 		while(rs.next()) {
 			
@@ -81,6 +83,8 @@ public ArrayList<Main_filterDTO> search(Apt_name_searchDTO dto) {
 			
 			Mfdto = new Main_filterDTO(maemae_num,dong,price,build_year,apt_name,year,month,day,apt_size,floor);
 			AptSearchList.add(Mfdto);
+			
+			
 			
 		}
 		} catch (SQLException e) {
