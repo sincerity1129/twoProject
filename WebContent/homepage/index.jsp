@@ -159,7 +159,7 @@
 					<%for (int i = 0; i < AptSearchList.size(); i++) {%>																	
 						<tr>
 							<td><%=i + 1%></td>
-							<td><%=AptSearchList.get(i).getMaemae_num()()%></td>
+							<td><%=AptSearchList.get(i).getMaemae_num()%></td>
 							<td><%=AptSearchList.get(i).getDong()%></td>
 							<td><%=AptSearchList.get(i).getPrice()%></td>
 							<td><%=AptSearchList.get(i).getYear()%></td>
