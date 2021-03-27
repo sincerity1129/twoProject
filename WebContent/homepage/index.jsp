@@ -72,14 +72,12 @@ table {
 
 					<%if (info != null) {%>
 					<li class="nav-item">
-						<%if(info.getId().equals("admin")) {%> <a class="nav-link"
-						href="select.jsp">회원정보 관리</a> <%}%>
+						<%if(info.getId().equals("admin")) {%> <a class="nav-link" href="select.jsp">회원정보 관리</a> <%}%>
 					</li>
 
 
 					<li class="nav-item"><a class="nav-link" href="mypage.jsp">마이페이지</a></li>
-					<li class="nav-item"><a class="nav-link"
-						href="LogoutService.do">로그아웃</a></li>
+					<li class="nav-item"><a class="nav-link" href="LogoutService.do">로그아웃</a></li>
 
 					<%} else {%>
 					<li class="nav-item"><a class="nav-link" href="join.jsp">회원가입</a></li>
@@ -104,22 +102,19 @@ table {
 
 				<h1 class="my-4">기본 필터</h1>
 				<div class="list-group">
-					<a href="#" class="list-group-item" id="check1">매물</a> <a href="#"
-						class="list-group-item" id="check2">전 월세</a>
+					<a href="#" class="list-group-item" id="check1">매물</a> <a href="#" class="list-group-item" id="check2">전 월세</a>
 				</div>
 
 
 
 				<h1 class="my-4">특별 필터</h1>
 				<div class="list-group">
-					<a href="price.jsp" class="list-group-item">맞춤</a> <a
-						href="price.jsp" class="list-group-item">임대</a>
+					<a href="price.jsp" class="list-group-item">맞춤</a> <a href="price.jsp" class="list-group-item">임대</a>
 				</div>
 
 				<h1 class="my-4">가격 예측</h1>
 				<div class="list-group">
-					<a href="price.jsp" class="list-group-item">가격 예측</a> <a
-						href="price.jsp" class="list-group-item">임대</a>
+					<a href="price.jsp" class="list-group-item">가격 예측</a> <a href="price.jsp" class="list-group-item">임대</a>
 				</div>
 
 			</div>
@@ -127,8 +122,7 @@ table {
 
 			<div class="col-lg-9">
 
-				<div id="carouselExampleIndicators" class="carousel slide my-4"
-					data-ride="carousel">
+				<div id="carouselExampleIndicators" class="carousel slide my-4" data-ride="carousel">
 					<ol class="carousel-indicators">
 
 					</ol>
@@ -145,10 +139,8 @@ table {
 								<form action="SearchService.do" method="post">
 
 									<!-- radio를 사 -->
-									아파트<input type="radio" name="table" value="apt_name"> 동<input
-										type="radio" name="table" value="dong"> 검색 : <input
-										type="text" name="search"> <input type="submit"
-										value="검색">
+									아파트<input type="radio" name="table" value="apt_name"> 동<input type="radio" name="table" value="dong"> 
+									검색 : <input type="text" name="search"> <input type="submit" value="검색">
 								</form>
 
 								<!--  <img class="d-block img-fluid" src="./img/white-img.jpg" alt="First slide"> 이미지 파일 넣는 곳-->
@@ -282,7 +274,7 @@ table {
 	<br>
 	<footer class="py-5 bg-dark">
 		<div class="container">
-			<p class="m-0 text-center text-white">Copyright & copy YourWebsite 2020</p>
+			<p class="m-0 text-center text-white">Copyright & copy; YourWebsite 2020</p>
 		</div>
 		<!-- /.container -->
 
