@@ -25,6 +25,7 @@ public class SearchService implements FrontCommand {
 		String search = request.getParameter("search");		
 		String apt_name = request.getParameter("apt_name");		
 		String dong = request.getParameter("dong");		
+	
 		
 
 		if(dong != null) {
@@ -34,7 +35,7 @@ public class SearchService implements FrontCommand {
 
 			
 			if(DongSearchList != null) {
-				System.out.println("동 검색성공");
+				System.out.println("동 검색을성공");
 				HttpSession session = request.getSession();
 				session.setAttribute("DongSearchList",DongSearchList);
 			}
