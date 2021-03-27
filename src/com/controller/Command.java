@@ -11,7 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 import com.service.JoinService;
 import com.service.LoginService;
 import com.service.LogoutService;
-import com.service.searchService;
+import com.service.SearchService;
 import com.service.UpdateService;
 
 @WebServlet("*.do")
@@ -24,9 +24,8 @@ public class Command extends HttpServlet {
 		String URI = request.getRequestURI();
 		String path = request.getContextPath();
 		FrontCommand command = null;
-		System.out.println(URI);
+
 		String resultURI = URI.substring(path.length()+1);
-		
 		
 		if(resultURI.equals("homepage/JoinService.do")) {
 			command = new JoinService();
@@ -36,8 +35,8 @@ public class Command extends HttpServlet {
 			command = new LogoutService();
 		}else if(resultURI.equals("homepage/UpdateService.do")) {
 			command = new UpdateService();
-		}else if(resultURI.equals("homepage/SearchList.do")) {
-			command = new searchService();
+		}else if(resultURI.equals("homepage/SearchService.do")) {
+			command = new SearchService();
 		}
 		
 		command.execute(request, response);

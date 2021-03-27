@@ -16,7 +16,7 @@ import com.model.Dong_searchDTO;
 import com.model.Main_filterDAO;
 import com.model.Main_filterDTO;
 
-public class searchService implements FrontCommand {
+public class SearchService implements FrontCommand {
 
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -26,11 +26,12 @@ public class searchService implements FrontCommand {
 		String apt_name = request.getParameter("apt_name");		
 		String dong = request.getParameter("dong");		
 		
-		
+
 		if(dong != null) {
 			Dong_searchDAO dao = new Dong_searchDAO();
 			Dong_searchDTO dto = new Dong_searchDTO(search, dong);
 			ArrayList<Main_filterDTO> DongSearchList = dao.search(dto);
+
 			
 			if(DongSearchList != null) {
 				System.out.println("동 검색성공");
@@ -51,8 +52,10 @@ public class searchService implements FrontCommand {
 		
 		if(AptSearchList != null) {
 			System.out.println("아파트 검색 성공");
+
 			HttpSession session = request.getSession();
 			session.setAttribute("AptSearchList",AptSearchList);
+			
 		}
 		else {
 			System.out.println("아파트 검색 실패");
