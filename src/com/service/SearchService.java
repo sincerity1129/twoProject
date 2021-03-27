@@ -52,9 +52,10 @@ public class SearchService implements FrontCommand {
 		
 		if(AptSearchList != null) {
 			System.out.println("아파트 검색 성공");
-			HttpSession session = request.getSession();
 
+			HttpSession session = request.getSession();
 			session.setAttribute("AptSearchList",AptSearchList);
+			
 		}
 		else {
 			System.out.println("아파트 검색 실패");

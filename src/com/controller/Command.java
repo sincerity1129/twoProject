@@ -24,7 +24,7 @@ public class Command extends HttpServlet {
 		String URI = request.getRequestURI();
 		String path = request.getContextPath();
 		FrontCommand command = null;
-		System.out.println(URI);
+
 		String resultURI = URI.substring(path.length()+1);
 		
 		if(resultURI.equals("homepage/JoinService.do")) {
