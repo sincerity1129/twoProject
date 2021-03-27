@@ -155,7 +155,7 @@
 					System.out.print("아파트 성공!");
 					System.out.print(AptSearchList.size());
 					%>					
-					<table>					
+					<table border = "1">					
 					<%for (int i = 0; i < AptSearchList.size(); i++) {%>																	
 						<tr>
 							<td><%=i + 1%></td>
