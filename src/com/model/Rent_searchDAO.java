@@ -51,16 +51,25 @@ public void close() { // DB 연결 해제
 	}
 }
 
-public ArrayList<Rent_searchDTO> search(Rent_searchDTO dto) {
+public ArrayList<Rent_searchDTO> search(Rent_searchDTO dto,String search) {
 	
 	rent_list = new ArrayList<Rent_searchDTO>(); // 기본 필터 검색
 	
 	conn();
 	
+	
+	
 	try {
-		String sql = "select * from rent where APT_name = ?";
-		psmt = conn.prepareStatement(sql);
-		psmt.setString(1, dto.getApt_name());
+		if(search.equals("apt_name")) {
+			String sql = "select * from rent where APT_name = ?";
+			psmt = conn.prepareStatement(sql);
+			psmt.setString(1, dto.getApt_name());
+		}
+		else if(search.equals("dong")) {
+			String sql = "select * from rent where dong_name = ?";
+			psmt = conn.prepareStatement(sql);
+			psmt.setString(1, dto.getDong());
+		}
 		rs = psmt.executeQuery();
 		
 		System.out.println(rs.next());
@@ -82,8 +91,6 @@ public ArrayList<Rent_searchDTO> search(Rent_searchDTO dto) {
 			
 			dto = new Rent_searchDTO(rent_num,dong,build_year,deposit,loyer,apt_name,year,month,day,apt_size,floor);
 			rent_list.add(dto);
-			
-			
 			
 		}
 		} catch (SQLException e) {
