@@ -119,7 +119,7 @@ table {
 
 				<h1 class="my-4">특별 필터</h1>
 				<div class="list-group">
-					<a href="" class="list-group-item">맞춤</a> 
+					<a href="" class="list-group-item" id = "check3">맞춤</a> 
 					<a href="" class="list-group-item">임대</a>
 				</div>
 
@@ -310,6 +310,15 @@ table {
 				<div id = "mat">
 					
 					
+					<select name="mat">
+					    <option value="crim">범죄자</option>
+					    <option value="elec">전기차 충전소</option>
+					    <option value="metro">지하철</option>
+					    <option value="movie">영화관</option>
+					</select>
+					
+			
+					
 				
 				
 				
@@ -369,16 +378,20 @@ table {
   
   
    $('#check1').on('click',function(){
-	  console.log("클릭1");
 	  $('#basic').css('display','block');
 	  $('#junwall').css('display','none'); 
-	  
+	  $('#mat').css('display','none');
   });
 	
   $('#check2').on('click', function(){
-	  console.log("클릭2");
 	  $('#basic').css('display','none');
 	  $('#junwall').css('display','block');
+	  $('#mat').css('display','none');
+  });
+  $('#check3').on('click', function(){
+	  $('#basic').css('display','none');
+	  $('#junwall').css('display','none');
+	  $('#mat').css('display','block');
 	  
   });
     
