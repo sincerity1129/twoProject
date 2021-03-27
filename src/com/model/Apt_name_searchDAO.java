@@ -59,7 +59,7 @@ public ArrayList<Main_filterDTO> search(Apt_name_searchDTO dto) {
 	conn();
 	
 	try {
-		String sql = "select * from maemae where ? = ?";
+		String sql = "select * from maemae where ? like "+"'"+"%?%"+"'";
 		psmt = conn.prepareStatement(sql);
 		psmt.setString(1, dto.getApt_name());
 		psmt.setString(2, dto.getSearch());
