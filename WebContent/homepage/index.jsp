@@ -1,8 +1,9 @@
-<%-- <%@page import="com.model.Apt_name_searchDTO"%>
+<%@page import="com.model.Rent_searchDTO"%>
+<%@page import="com.model.Apt_name_searchDTO"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="com.model.Main_filterDAO"%>
 <%@page import="com.model.Main_filterDTO"%>
-<%@page import="com.model.MemberDTO"%> --%>
+<%@page import="com.model.MemberDTO"%>
 <%@ page language="java" contentType="text/html; charset=EUC-KR" pageEncoding="EUC-KR"%>
 
 <!DOCTYPE html>
@@ -18,15 +19,16 @@
 <title>APT Homepage</title>
 
 <!-- Bootstrap core CSS -->
-<!-- <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet"> -->
+<link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
 <!-- Custom styles for this template -->
-<!-- <link href="css/shop-homepage.css" rel="stylesheet">
-<link href="./main.css" rel="stylesheet"> -->
+<link href="css/shop-homepage.css" rel="stylesheet">
+<link href="./main.css" rel="stylesheet">
 
-<!-- <style type="text/css">
+<style type="text/css">
+
 table, td {
-	border: 1px solid red;
+	border: 1px solid black;
 }
 
 table {
@@ -35,17 +37,24 @@ table {
 	margin: auto;
 	text-align: center;
 }
-</style> -->
+
+#basic , #junwall{
+	display : none;
+}
+
+</style>
 
 </head>
 
 <body>
 
-	<%-- <%
+	<%
 		MemberDTO info = (MemberDTO)session.getAttribute("info");
 		Main_filterDAO dao = new Main_filterDAO();
 		ArrayList<Main_filterDTO> AptSearchList = null;
 		ArrayList<Main_filterDTO> DongSearchList = null;
+		ArrayList<Rent_searchDTO> RentSearchList = null;
+		
 		
 		if(info != null) {
 			/*여긴 기본필터가 아닌 맞춤필터 시에 필요한 부분 */
@@ -100,46 +109,34 @@ table {
 			<div class="col-lg-3">
 
 
-				<h1 class="my-4">기본 필터</h1>
+				<h1 class="my-4">매물</h1>
 				<div class="list-group">
-					<a href="#" class="list-group-item" id="check1">매물</a> <a href="#"
-						class="list-group-item" id="check2">전 월세</a>
+					<a href="#" class="list-group-item" id="check1">매물</a>
+					 <a href="#" class="list-group-item" id="check2">전 월세</a>
 				</div>
 
 
 
 				<h1 class="my-4">특별 필터</h1>
 				<div class="list-group">
-					<a href="price.jsp" class="list-group-item">맞춤</a> <a
-						href="price.jsp" class="list-group-item">임대</a>
+					<a href="" class="list-group-item">맞춤</a> 
+					<a href="" class="list-group-item">임대</a>
 				</div>
 
 				<h1 class="my-4">가격 예측</h1>
 				<div class="list-group">
-					<a href="price.jsp" class="list-group-item">가격 예측</a> <a
-						href="price.jsp" class="list-group-item">임대</a>
+					<a href="price.jsp" class="list-group-item">가격 예측</a>
 				</div>
 
 			</div>
 			<!-- /.col-lg-3 -->
 
-			<div class="col-lg-9">
-
-				<div id="carouselExampleIndicators" class="carousel slide my-4"
-					data-ride="carousel">
-					<ol class="carousel-indicators">
-
-					</ol>
-					<div class="carousel-inner" role="listbox">
-						<div class="carousel-item active">
+			
 
 
-
+						<!-- 매매 -->
 							<div id="basic">
-								<div id="filter">
-									<h1>필터이름</h1>
-								</div>
-
+									<h1>매물</h1>
 								<form action="SearchService.do" method="post">
 
 									<!-- radio를 사 -->
@@ -155,6 +152,7 @@ table {
 						</div>
 
 					</div>
+					<div id="basic">
 
 					<div id="row">
 						<%					
@@ -200,6 +198,7 @@ table {
 						<%}%>
 
 						<%
+						
 					AptSearchList = (ArrayList<Main_filterDTO>)session.getAttribute("AptSearchList");
 					if (AptSearchList != null) {
 					System.out.print("아파트 성공!");
@@ -238,12 +237,84 @@ table {
 						</table>
 						<%}%>
 					</div>
+					
 
 
 				</div>
 
-				<div id="mat">확인용</div>
+			<!-- 전 월세 -->
+				<div id="junwall">
+						<h1>전 월세</h1>
+								<form action="RentSearchService.do" method="post">
 
+									<!-- radio를 사 -->
+									아파트<input type="radio" name="table" value="apt_name"> 동<input
+										type="radio" name="table" value="dong"> 검색 : <input
+										type="text" name="rent_search"> <input type="submit"
+										value="검색">
+								</form>
+
+								<!--  <img class="d-block img-fluid" src="./img/white-img.jpg" alt="First slide"> 이미지 파일 넣는 곳-->
+							</div>
+
+						</div>
+
+					</div>
+
+					<div id="row">
+						<%					
+						RentSearchList = (ArrayList<Rent_searchDTO>)session.getAttribute("RentSearchList");					
+					if (RentSearchList != null) {%>
+						<table>
+							<tr>
+								<td>즐겨찾기</td>
+								<td>번호</td>
+								<td>동</td>
+								<td>빌드 번호</td>
+								<td>보증금</td>
+								<td>월세</td>
+								<td>아파트 이름</td>
+								<td>건축 년도</td>
+								<td>거래 년도</td>
+								<td>월</td>
+								<td>일</td>
+								<td>평 수</td>
+								<td>층</td>
+							</tr>
+							<%for (int i = 0; i < RentSearchList.size(); i++) {%>
+							<tr>
+								<td><input type="checkbox" value=""></td>
+								<td><%=i + 1%></td>
+								<td><%=RentSearchList.get(i).getDong()%></td>
+								<td><%=RentSearchList.get(i).getBuild_year()%></td>
+								<td><%=RentSearchList.get(i).getDeposit()%></td>
+								<td><%=RentSearchList.get(i).getLoyer()%></td>
+								<td><%=RentSearchList.get(i).getApt_name()%></td>
+								<td><%=RentSearchList.get(i).getBuild_year()%></td>
+								<td><%=RentSearchList.get(i).getYear()%></td>
+								<td><%=RentSearchList.get(i).getMonth()%></td>
+								<td><%=RentSearchList.get(i).getDate()%></td>
+								<td><%=RentSearchList.get(i).getApt_size()%></td>
+								<td><%=RentSearchList.get(i).getFloor()%></td>
+							</tr>
+
+							<%}%>
+						</table>
+						<%}%>
+
+						
+					</div>
+				</div>
+				
+				<!-- 맞춤 -->
+				<div id = "mat">
+					
+					
+				
+				
+				
+				</div>
+				<!-- 맞춤 -->
 
 				<!-- /.row -->
 
@@ -255,8 +326,6 @@ table {
 
 	</div>
 	<!-- /.container -->
-
-	<button id="check3">체크확인</button>
 
 
 	<!-- Footer -->
@@ -285,54 +354,34 @@ table {
 
 
 	</footer>
- --%>
+ 
 
 	<button id="check3">체크확인</button>
 
 	<!-- Bootstrap core JavaScript -->
-	<!-- <script src="vendor/jquery/jquery.min.js"></script>
-	<script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script> -->
+	<script src="vendor/jquery/jquery.min.js"></script>
+	<script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 	<script src="./vendor/jquery/jquery-3.6.0.min.js"></script>
 	<script type="text/javascript">
   
   	
-  $('#check3').on('click', function(){
-	  
-	  console.log("클릭3");
-  });
-  
-  $('#check1').click(function(){
-	 $('#basic').hide(); 
-  });
   
   
-   $('#check1').click(function(){
+  
+   $('#check1').on('click',function(){
 	  console.log("클릭1");
-	  $('#basic').css(display : "block");
-	 
-	 $('#mat').css(
-			
-		 display : "none";
-		 
-	 ); 
+	  $('#basic').css('display','block');
+	  $('#junwall').css('display','none'); 
 	  
   });
 	
   $('#check2').on('click', function(){
 	  console.log("클릭2");
-	  $('#basic').css(display :none);
-	  
-	  
-	 $('#mat').css(
-		
-		 display : block;
-		 
-	 ); */
+	  $('#basic').css('display','none');
+	  $('#junwall').css('display','block');
 	  
   });
-   
-  
-  
+    
   </script>
 
 </body>

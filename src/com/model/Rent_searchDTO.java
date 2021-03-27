@@ -16,6 +16,15 @@ public class Rent_searchDTO {
 	
 	
 	
+	
+	
+	public Rent_searchDTO(String dong) {
+		super();
+		this.dong = dong;
+	}
+
+
+
 	public Rent_searchDTO(int rent_num, String dong, int build_year, String deposit, String loyer, String apt_name,
 			int year, int month, int date, int apt_size, int floor) {
 

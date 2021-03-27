@@ -51,28 +51,28 @@ public void close() { // DB 연결 해제
 	}
 }
 
-public ArrayList<Rent_searchDTO> search(Rent_searchDTO dto,String search) {
+public ArrayList<Rent_searchDTO> search(String input,String search) {
 	
 	rent_list = new ArrayList<Rent_searchDTO>(); // 기본 필터 검색
 	
 	conn();
 	
-	
+	System.out.println(input);
 	
 	try {
 		if(search.equals("apt_name")) {
 			String sql = "select * from rent where APT_name = ?";
 			psmt = conn.prepareStatement(sql);
-			psmt.setString(1, dto.getApt_name());
+			psmt.setString(1, input);
 		}
 		else if(search.equals("dong")) {
-			String sql = "select * from rent where dong_name = ?";
+			String sql = "select * from rent where dong = ?";
 			psmt = conn.prepareStatement(sql);
-			psmt.setString(1, dto.getDong());
+			psmt.setString(1, input);
 		}
 		rs = psmt.executeQuery();
 		
-		System.out.println(rs.next());
+		System.out.println("re.next = "+rs.next());
 		
 		while(rs.next()) {
 			
