@@ -5,11 +5,15 @@ public class Apt_name_searchDTO {
 	private String search;
 	private String apt_name;
 	
+	public Apt_name_searchDTO(String search) {
+		super();
+		this.search = search;
+	}
+
 	public Apt_name_searchDTO(String search, String apt_name) {
 		super();
 		this.search = search;
-		this.apt_name = apt_name;
-	}
+		this.apt_name = apt_name;	}
 
 	public String getSearch() {
 		return search;

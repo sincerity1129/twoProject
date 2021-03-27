@@ -5,6 +5,13 @@ public class Dong_searchDTO {
 	private String search;
 	private String dong;
 	
+	
+	
+	public Dong_searchDTO(String search) {
+		super();
+		this.search = search;
+	}
+
 	public Dong_searchDTO(String search, String dong) {
 		super();
 		this.search = search;
