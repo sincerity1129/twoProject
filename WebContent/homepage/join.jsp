@@ -17,6 +17,7 @@
   <link href="./main.css" rel="stylesheet">
 
 </head>
+
 <body>
 
 	<form action="JoinService.do" method = "post">
