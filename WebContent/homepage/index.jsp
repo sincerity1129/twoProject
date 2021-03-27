@@ -155,6 +155,7 @@
 					AptSearchList = (ArrayList<Main_filterDTO>)session.getAttribute("AptSearchList");
 					if (AptSearchList != null) {
 					System.out.print("아파트 성공!");
+					System.out.print(AptSearchList.size());
 					%>					
 					<table>					
 					<%for (int i = 0; i < AptSearchList.size(); i++) {%>																	
