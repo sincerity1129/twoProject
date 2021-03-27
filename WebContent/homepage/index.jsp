@@ -1,10 +1,9 @@
-<%@page import="com.model.Apt_name_searchDTO"%>
+<%-- <%@page import="com.model.Apt_name_searchDTO"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="com.model.Main_filterDAO"%>
 <%@page import="com.model.Main_filterDTO"%>
-<%@page import="com.model.MemberDTO"%>
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-	pageEncoding="EUC-KR"%>
+<%@page import="com.model.MemberDTO"%> --%>
+<%@ page language="java" contentType="text/html; charset=EUC-KR" pageEncoding="EUC-KR"%>
 
 <!DOCTYPE html>
 <html>
@@ -12,21 +11,20 @@
 <head>
 
 <meta charset="utf-8">
-<meta name="viewport"
-	content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="description" content="">
 <meta name="author" content="">
 
 <title>APT Homepage</title>
 
 <!-- Bootstrap core CSS -->
-<link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+<!-- <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet"> -->
 
 <!-- Custom styles for this template -->
-<link href="css/shop-homepage.css" rel="stylesheet">
-<link href="./main.css" rel="stylesheet">
+<!-- <link href="css/shop-homepage.css" rel="stylesheet">
+<link href="./main.css" rel="stylesheet"> -->
 
-<style type="text/css">
+<!-- <style type="text/css">
 table, td {
 	border: 1px solid red;
 }
@@ -37,13 +35,13 @@ table {
 	margin: auto;
 	text-align: center;
 }
-</style>
+</style> -->
 
 </head>
 
 <body>
 
-	<%
+	<%-- <%
 		MemberDTO info = (MemberDTO)session.getAttribute("info");
 		Main_filterDAO dao = new Main_filterDAO();
 		ArrayList<Main_filterDTO> AptSearchList = null;
@@ -207,7 +205,6 @@ table {
 					AptSearchList = (ArrayList<Main_filterDTO>)session.getAttribute("AptSearchList");
 					if (AptSearchList != null) {
 					System.out.print("아파트 성공!");
-					System.out.print(AptSearchList.size());
 					%>
 						<table>
 							<tr>
@@ -290,13 +287,14 @@ table {
 
 
 	</footer>
+ --%>
 
-
+	<button id="check3">체크확인</button>
 
 	<!-- Bootstrap core JavaScript -->
-	<script src="vendor/jquery/jquery.min.js"></script>
-	<script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-	<script src="vendor/jquery/jquery-3.6.0.min.js"></script>
+	<!-- <script src="vendor/jquery/jquery.min.js"></script>
+	<script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script> -->
+	<script src="./vendor/jquery/jquery-3.6.0.min.js"></script>
 	<script type="text/javascript">
   
   	
@@ -310,39 +308,31 @@ table {
   });
   
   
-  $('#check1').click(function(){
+   $('#check1').click(function(){
 	  console.log("클릭1");
-	 $('#basic').css({
-		
-		 display : "block";
-		 
-	 });
+	  $('#basic').css(display : "block");
 	 
-	 $('#mat').css({
+	 $('#mat').css(
 			
 		 display : "none";
 		 
-	 });
+	 ); 
 	  
   });
 	
   $('#check2').on('click', function(){
 	  console.log("클릭2");
-	  $('#basic').css({
-			
-			 display :none;
-			 
-	 });
+	  $('#basic').css(display :none);
 	  
 	  
-	 $('#mat').css({
+	 $('#mat').css(
 		
 		 display : block;
 		 
-	 });
+	 ); */
 	  
   });
-  
+   
   
   
   </script>
