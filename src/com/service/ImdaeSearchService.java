@@ -9,30 +9,28 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import com.controller.FrontCommand;
-import com.model.Mat_search_DAO;
+import com.model.ImdaeSearchDAO;
+import com.model.ImdaeSearchDTO;
 
-public class MatSearchService implements FrontCommand {
+public class ImdaeSearchService implements FrontCommand {
 
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
 		request.setCharacterEncoding("EUC-KR");
 		
-		String imdae_search = request.getParameter("mat_search");	
-		
+			String imdae_search = request.getParameter("imdae_search");
+			String search_type = request.getParameter("search_type");
 		
 			
 			System.out.println("imdae_search = "+imdae_search);
 	
-			ImdaeSearchDAO dao = new Mat_search_DAO();
+			ImdaeSearchDAO dao = new ImdaeSearchDAO();
 			
-			ArrayList<ImdaeSearchDTO> MatSearchList = dao.search2(imdae_search);
+			ArrayList<ImdaeSearchDTO> ImdaeSearchList = dao.search(imdae_search,search_type);
 			
 			HttpSession session = request.getSession();
-			session.setAttribute("mat_search",MatSearchList);
-			
-			HttpSession session2 = request.getSession();
-			session2.setAttribute("mat_select",mat_select);
+			session.setAttribute("ImdaeSearchList",ImdaeSearchList);
 
 			response.sendRedirect("index.jsp");	
 		

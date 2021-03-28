@@ -8,6 +8,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.service.ImdaeSearchService;
 import com.service.JoinService;
 import com.service.LoginService;
 import com.service.LogoutService;
@@ -42,6 +43,8 @@ public class Command extends HttpServlet {
 			command = new RentSearchService();
 		}else if(resultURI.equals("homepage/MatSearchService.do")) {
 			command = new MatSearchService();
+		}else if(resultURI.equals("homepage/ImdaeSearchService.do")) {
+			command = new ImdaeSearchService();
 		}
 		
 		command.execute(request, response);
