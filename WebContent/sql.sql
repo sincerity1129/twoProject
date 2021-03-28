@@ -32,10 +32,8 @@ ALTER TABLE APT_MEMBER ADD MEM_DONG VARCHAR2(50);
 DROP SEQUENCE MEMBER_NUM
 CREATE SEQUENCE MEMBER_NUM START WITH 1 INCREMENT BY 1;
 SELECT LAST_NUMBER FROM USER_SEQUENCES WHERE SEQUENCE_NAME = 'MEMBER_NUM';
-<<<<<<< HEAD
-=======
+
 INSERT INTO APT_MEMBER VALUES(MEMBER_NUM.NEXTVAL,'abcd','123','홍길동','010-1111-222','1999.01.01','봉선동');
->>>>>>> branch 'master' of https://github.com/sincerity1129/project.git
 SELECT * FROM APT_MEMBER;
 
 /*전월세테이블 만들기*/
@@ -54,13 +52,6 @@ CREATE TABLE RENT(
 	CONSTRAINT RENT_RENT_NUM_PK PRIMARY KEY(RENT_NUM)
 );
 
-<<<<<<< HEAD
-/*전월세 시퀀스 생성*/
-CREATE SEQUENCE RENT_NUM START WITH 1 INCREMENT BY 1;
-SELECT LAST_NUMBER FROM USER_SEQUENCES WHERE SEQUENCE_NAME = 'RENT_NUM';
-
-SELECT * FROM RENT;
-=======
 /* 전월세/매매 시퀀스 생성 입력을 하는 테이블이 아니고 조회를 하는 테이블이기 때문에 굳이 시퀀스생성을 할 필요가 없어보여서 삭제 */
 /* 즐겨찾기 기능 */
 
@@ -87,7 +78,6 @@ SELECT LAST_NUMBER FROM USER_SEQUENCES WHERE SEQUENCE_NAME = 'MY_NUM';
 /*인설트가 안됨 왜??*/
 INSERT INTO MY_FAVORIT VALUES(MY_NUM.NEXTVAL,'TEST',15,NULL,NULL);
 
->>>>>>> branch 'master' of https://github.com/sincerity1129/project.git
 
 /*매매테이블 만들기*/
 CREATE TABLE MAEMAE(
@@ -112,10 +102,6 @@ CREATE TABLE MAEMAE(
 /*매매 시퀀스 생성
 CREATE SEQUENCE MAEMAE_NUM START WITH 1 INCREMENT BY 1;
 SELECT LAST_NUMBER FROM USER_SEQUENCES WHERE SEQUENCE_NAME = 'MAEMAE_NUM';
-<<<<<<< HEAD
-
-SELECT * FROM MAEMAE;
-=======
 INSERT INTO MAEMAE VALUES(MAEMAE_NUM.NEXTVAL, '4', '3',4,'5',6,7,8,9,10,11,12,13,'14','15');
 SELECT * FROM MAEMAE;*/
 
@@ -135,7 +121,6 @@ CREATE TABLE IMDAE_APT(
 );
 
 select * from imdae_apt;
->>>>>>> branch 'master' of https://github.com/sincerity1129/project.git
 
 /*학교테이블 만들기*/
 CREATE TABLE SCHOOL(
@@ -215,14 +200,9 @@ references APT_MEMBER(MEM_ID)
 
 /*매매 즐겨찾기 기능 확인*/
 
-<<<<<<< HEAD
-=======
-/*insert가 안됨..왜?*/
-SELECT * FROM MAEMAE;
 INSERT INTO MY_MAEMAE VALUES(1,'smhrd3');
 
 
->>>>>>> branch 'master' of https://github.com/sincerity1129/project.git
 SELECT * FROM MY_MAEMAE
 
 SELECT MAEMAE_NUM,DONG,PRICE,BUILD_YEAR,APT_NAME,YEAR,

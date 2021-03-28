@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 import com.service.JoinService;
 import com.service.LoginService;
 import com.service.LogoutService;
+import com.service.MatSearchService;
 import com.service.RentSearchService;
 import com.service.SearchService;
 import com.service.UpdateService;
@@ -39,7 +40,8 @@ public class Command extends HttpServlet {
 			command = new SearchService();
 		}else if(resultURI.equals("homepage/RentSearchService.do")) {
 			command = new RentSearchService();
-			
+		}else if(resultURI.equals("homepage/MatSearchService.do")) {
+			command = new MatSearchService();
 		}
 		
 		command.execute(request, response);

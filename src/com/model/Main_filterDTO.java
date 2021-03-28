@@ -20,14 +20,6 @@ public class Main_filterDTO {
 	
 	
 	
-	
-	
-	
-
-	
-
-
-
 
 	public Main_filterDTO(int maemae_num, String dong, String price, int build_year, String apt_name, int year,
 			int month, int day, int apt_size, int floor) {
@@ -43,12 +35,6 @@ public class Main_filterDTO {
 		this.apt_size = apt_size;
 		this.floor = floor;
 	}
-	
-	
-	
-
-	
-	
 	
 	
 

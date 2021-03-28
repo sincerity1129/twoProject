@@ -126,4 +126,52 @@ public ArrayList<Main_filterDTO> search(String input,String search) {
 		return mat_list;
 }
 
+public ArrayList<Main_filterDTO> search2(String input) {
+	
+	mat_list = new ArrayList<Main_filterDTO>(); // 기본 필터 검색
+	
+	conn();
+	
+	
+	try {
+		String sql = "select * from maemae where dong = ?";
+		psmt = conn.prepareStatement(sql);
+		psmt.setString(1, input);
+		rs = psmt.executeQuery();
+
+		System.out.println("re.next = " + rs.next());
+
+		while (rs.next()) {
+
+			int rent_num = rs.getInt(1);
+			String dong = rs.getString(2);
+			String price = rs.getString(3);
+			int build_year = rs.getInt(4);
+			String apt_name = rs.getString(5);
+			int year = rs.getInt(6);
+			int month = rs.getInt(7);
+			int day = rs.getInt(8);
+			int apt_size = rs.getInt(9);
+			int floor = rs.getInt(10);
+			int crime = rs.getInt(11);
+			int charge = rs.getInt(12);
+			int starbucks = rs.getInt(13);
+			String subway = rs.getString(14);
+			String movie = rs.getString(15);
+			
+			
+			
+			dto = new Main_filterDTO(rent_num,dong,price,build_year,apt_name,year,month,day,apt_size,floor,crime,charge,starbucks,subway,movie);
+			mat_list.add(dto);
+			
+		}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close();
+		}
+		
+		return mat_list;
+}
+
 }
