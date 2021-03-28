@@ -174,6 +174,7 @@ table {
 								<td>아파트 이름</td>
 								<td>동 이름</td>
 								<td>가격</td>
+								<td>건축 년도</td>
 								<td>거래 년도</td>
 								<td>월</td>
 								<td>일</td>
@@ -189,6 +190,7 @@ table {
 								<td><%=DongSearchList.get(i).getApt_name()%></td>
 								<td><%=DongSearchList.get(i).getDong()%></td>
 								<td><%=DongSearchList.get(i).getPrice()%></td>
+								<td><%=DongSearchList.get(i).getBuild_year()%></td>
 								<td><%=DongSearchList.get(i).getYear()%></td>
 								<td><%=DongSearchList.get(i).getMonth()%></td>
 								<td><%=DongSearchList.get(i).getDay()%></td>
@@ -214,6 +216,7 @@ table {
 								<td>아파트 이름</td>
 								<td>동 이름</td>
 								<td>가격</td>
+								<td>건축 년도</td>
 								<td>거래 년도</td>
 								<td>월</td>
 								<td>일</td>
@@ -229,6 +232,7 @@ table {
 								<td><%=AptSearchList.get(i).getApt_name()%></td>
 								<td><%=AptSearchList.get(i).getDong()%></td>
 								<td><%=AptSearchList.get(i).getPrice()%></td>
+								<td><%=AptSearchList.get(i).getBuild_year()%></td>
 								<td><%=AptSearchList.get(i).getYear()%></td>
 								<td><%=AptSearchList.get(i).getMonth()%></td>
 								<td><%=AptSearchList.get(i).getDay()%></td>
@@ -314,14 +318,17 @@ table {
 					
 					
 					<select name="mat">
-					    <option value="crim">범죄자</option>
-					    <option value="elec">전기차 충전소</option>
-					    <option value="metro">지하철</option>
+					    <option value="crime">범죄자</option>
+					    <option value="charge">전기차 충전소</option>
+					    <option value="subway">지하철</option>
+					    <option value="coffee">스타벅스</option>
 					    <option value="movie">영화관</option>
 					</select>
 					
 			
 					
+				
+				
 				
 				
 				

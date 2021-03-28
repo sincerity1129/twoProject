@@ -12,7 +12,23 @@ public class Main_filterDTO {
 	private int day;
 	private int apt_size;
 	private int floor;
+	private int crime;
+	private int charge;
+	private int starbucks;
+	private String subway;
+	private String movie;
 	
+	
+	
+	
+	
+	
+
+	
+
+
+
+
 	public Main_filterDTO(int maemae_num, String dong, String price, int build_year, String apt_name, int year,
 			int month, int day, int apt_size, int floor) {
 		super();
@@ -27,6 +43,99 @@ public class Main_filterDTO {
 		this.apt_size = apt_size;
 		this.floor = floor;
 	}
+	
+	
+	
+
+	
+	
+	
+	
+
+	public Main_filterDTO(int maemae_num, String dong, String price, int build_year, String apt_name, int year,
+			int month, int day, int apt_size, int floor, int crime, int charge, int starbucks, String subway,
+			String movie) {
+		super();
+		this.maemae_num = maemae_num;
+		this.dong = dong;
+		this.price = price;
+		this.build_year = build_year;
+		this.apt_name = apt_name;
+		this.year = year;
+		this.month = month;
+		this.day = day;
+		this.apt_size = apt_size;
+		this.floor = floor;
+		this.crime = crime;
+		this.charge = charge;
+		this.starbucks = starbucks;
+		this.subway = subway;
+		this.movie = movie;
+	}
+
+
+
+
+
+
+
+
+
+	public int getCrime() {
+		return crime;
+	}
+
+
+	public void setCrime(int crime) {
+		this.crime = crime;
+	}
+
+
+	public int getCharge() {
+		return charge;
+	}
+
+
+	public void setCharge(int charge) {
+		this.charge = charge;
+	}
+
+
+	public int getStarbucks() {
+		return starbucks;
+	}
+
+
+	public void setStarbucks(int starbucks) {
+		this.starbucks = starbucks;
+	}
+
+
+	public String getSubway() {
+		return subway;
+	}
+
+
+	public void setSubway(String subway) {
+		this.subway = subway;
+	}
+
+
+	public String getMovie() {
+		return movie;
+	}
+
+
+	public void setMovie(String movie) {
+		this.movie = movie;
+	}
+
+
+	public int getBuild_year() {
+		return build_year;
+	}
+
+
 	public int getApt_size() {
 		return apt_size;
 	}
