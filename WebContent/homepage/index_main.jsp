@@ -171,7 +171,6 @@ table {
 					DongSearchList = (ArrayList<Main_filterDTO>) session.getAttribute("DongSearchList");
 					if (DongSearchList != null) {
 						System.out.print("µ¿ ¼º°ø!!");
-						System.out.print(DongSearchList.size());
 					%>
 					<table>
 						<tr>
@@ -361,7 +360,6 @@ table {
 
 					<%
 					mat_select = (String) session.getAttribute("mat_select");
-					System.out.print("mat_select"+mat_select);
 					MatSearchList = (ArrayList<Main_filterDTO>) session.getAttribute("mat_search");
 					if (MatSearchList != null) {
 					%>

@@ -163,6 +163,8 @@ table {
 							value="검색">
 					</form>
 					
+					<%if(info !=null) {%>
+					
 					<form action= "FavoriteService.do" method = "post">
 						<select name = "select">
 							<option value = "maemae">매매번호</option>
@@ -172,6 +174,7 @@ table {
 							즐겨찾기<input type ="text" name ="mameae_insert">
 							<input type = "submit" value = "추가">
 					</form>
+					<%} %>
 
 
 
@@ -369,7 +372,6 @@ table {
 
 					<%
 					mat_select = (String) session.getAttribute("mat_select");
-					System.out.print("mat_select"+mat_select);
 					MatSearchList = (ArrayList<Main_filterDTO>) session.getAttribute("mat_search");
 					if (MatSearchList != null) {
 					%>

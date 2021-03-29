@@ -18,19 +18,22 @@ public class FavoriteService implements FrontCommand {
 	public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		HttpSession session = request.getSession();
-		
 		response.setCharacterEncoding("EUC-KR");
 		
 		String num = request.getParameter("maemae_insert");
 		String select = request.getParameter("select");
 		MemberDTO info = (MemberDTO)session.getAttribute("info");
-		System.out.print(info.getId());
+		System.out.print("id"+info.getId());
+		
 		
 		FavoriteDAO dao = new FavoriteDAO();
-		dao.insert(select, num, info.getId());
+		int cnt = dao.insert(select, num, info.getId());
 		
+		if (cnt != 0) {
+			System.out.println("추가성공");
+		}
 		
-		response.sendRedirect("index_main.jsp");
+		response.sendRedirect("index_maemae.jsp");
 	}
 
 }
