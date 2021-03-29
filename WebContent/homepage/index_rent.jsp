@@ -86,6 +86,7 @@ table > tr>td{
 						<a class="nav-link" href="select.jsp">회원정보 관리</a> 
 						<%}%>
 					</li>
+					<li class="nav-item"><a class="nav-link" href="favorite.jsp">즐겨찾기</a></li>
 					<li class="nav-item"><a class="nav-link" href="mypage.jsp">마이페이지</a></li>
 					<li class="nav-item"><a class="nav-link"
 						href="LogoutService.do">로그아웃</a></li>
@@ -243,10 +244,10 @@ table > tr>td{
 					
 					<%if(info !=null) {%>					
 					<form action= "FavoriteService.do" method = "post">
-						<select name = "select">
+						<select name = "type">
 							<option value = "rent" selected="selected">임대번호</option>
 						</select>						
-							즐겨찾기<input type ="text" name ="maemae_insert">
+							즐겨찾기<input type ="text" name ="num">
 							<input type = "submit" value = "추가">
 					</form>
 					<%} %>
