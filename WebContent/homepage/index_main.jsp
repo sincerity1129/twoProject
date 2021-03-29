@@ -20,7 +20,7 @@
 <meta name="author" content="">
 
 <title>Shop Homepage - Start Bootstrap Template</title>
- 
+
 <!-- Bootstrap core CSS -->
 <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
@@ -38,9 +38,8 @@ table {
 	text-align: center;
 }
 
-#basic, #junwall, #mat,#imdae{
+#basic, #junwall, #mat, #imdae {
 	display: none;
-	
 }
 </style>
 
@@ -73,13 +72,11 @@ table {
 
 						if (info != null) {
 							/*여긴 기본필터가 아닌 맞춤필터 시에 필요한 부분 */
-						}%> 
-						<%if (info != null) {%>
+						}%> <%if (info != null) {%>
 					
 					<li class="nav-item">
-						<%if (info.getId().equals("admin")) {%> 
-						<a class="nav-link" href="select.jsp">회원정보 관리</a> 
-						<%}%>
+						<%if (info.getId().equals("admin")) {%> <a class="nav-link"
+						href="select.jsp">회원정보 관리</a> <%}%>
 					</li>
 					<li class="nav-item"><a class="nav-link" href="mypage.jsp">마이페이지</a></li>
 					<li class="nav-item"><a class="nav-link"
@@ -108,27 +105,28 @@ table {
 
 				<h1 class="my-4">매물</h1>
 				<div class="list-group">
-					<a href="index_maemae.jsp" class="list-group-item" id="check1">매물</a> 
-					<a href="index_rent.jsp" class="list-group-item" id="check2">전 월세</a>
+					<a href="index_maemae.jsp" class="list-group-item" id="check1">매물</a>
+					<a href="index_rent.jsp" class="list-group-item" id="check2">전
+						월세</a>
 				</div>
-				
+
 				<h1 class="my-4">특별 필터</h1>
 				<div class="list-group">
 					<a href="index_mat.jsp" class="list-group-item" id="check3">맞춤</a>
 					<%if(info != null){%>
 					<a href="index_imdae.jsp" class="list-group-item" id="check4">임대</a>
 					<%}else {%>
-						<a href="" class="list-group-item" id="check4">임대</a>
-						<%}%>
-					
+					<a href="" class="list-group-item" id="check4">임대</a>
+					<%}%>
+
 				</div>
 				<h1 class="my-4">가격 예측</h1>
 				<div class="list-group">
 					<%if(info != null){ %>
 					<a href="price.jsp" class="list-group-item" id="check2">가격 예측</a>
 					<%}else {%>
-						<a href="" class="list-group-item" id="check2">가격 예측</a>
-						<%}%>
+					<a href="" class="list-group-item" id="check2">가격 예측</a>
+					<%}%>
 				</div>
 
 			</div>
@@ -146,10 +144,10 @@ table {
 					<h1>매물</h1>
 					<form action="SearchService.do" method="post">
 						<!-- radio를 사 -->
-						아파트<input type="radio" name="table" value="apt_name">
-						 동<input type="radio" name="table" value="dong"> 
-							검색 : <input type="text" name="search"> 
-							<input type="submit" value="검색">
+						아파트<input type="radio" name="table" value="apt_name"> 동<input
+							type="radio" name="table" value="dong"> 검색 : <input
+							type="text" name="search"> <input type="submit"
+							value="검색">
 					</form>
 
 					<%DongSearchList = (ArrayList<Main_filterDTO>) session.getAttribute("DongSearchList");
@@ -236,10 +234,10 @@ table {
 					<h1>전 월세</h1>
 					<form action="RentSearchService.do" method="post">
 						<!-- radio를 사 -->
-						아파트<input type="radio" name="table" value="apt_name"> 
-						동<input	type="radio" name="table" value="dong"> 
-							검색 : <input type="text" name="rent_search"> 
-							<input type="submit" value="검색">
+						아파트<input type="radio" name="table" value="apt_name"> 동<input
+							type="radio" name="table" value="dong"> 검색 : <input
+							type="text" name="rent_search"> <input type="submit"
+							value="검색">
 					</form>
 
 					<!--  <img class="d-block img-fluid" src="./img/white-img.jpg" alt="First slide"> 이미지 파일 넣는 곳-->
@@ -297,13 +295,13 @@ table {
 							<option value="subway">지하철</option>
 							<option value="coffee">스타벅스</option>
 							<option value="movie">영화관</option>
-						</select> 동으로 검색 : <input type="text" name="mat_search"> 
-							<%if(info != null){%>
+						</select> 동으로 검색 : <input type="text" name="mat_search">
+						<%if(info != null){%>
 						<input type="submit" value="검색">
 						<%}else{%>
-							로그인하여 검색기능 잠금해제.
+						로그인하여 검색기능 잠금해제.
 						<%}%>
-						
+
 					</form>
 
 					<!--  <img class="d-block img-fluid" src="./img/white-img.jpg" alt="First slide"> 이미지 파일 넣는 곳-->
@@ -390,10 +388,10 @@ table {
 					<form action="ImdaeSearchService.do" method="post">
 
 						<!-- radio를 사 -->
-						구<input type="radio" name="search_type" value="region"> 
-						동<input	type="radio" name="search_type" value="dong"> 
-							검색 : <input type="text" name="imdae_search"> 
-							<input type="submit" value="검색">
+						구<input type="radio" name="search_type" value="region"> 동<input
+							type="radio" name="search_type" value="dong"> 검색 : <input
+							type="text" name="imdae_search"> <input type="submit"
+							value="검색">
 					</form>
 
 					<%ImdaeSearchList = (ArrayList<ImdaeSearchDTO>) session.getAttribute("ImdaeSearchList");
@@ -446,8 +444,8 @@ table {
 
 	</div>
 	<!-- /.container -->
-	
-	
+
+
 	<br>
 	<br>
 	<br>

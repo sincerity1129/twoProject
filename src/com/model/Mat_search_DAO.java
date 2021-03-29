@@ -14,7 +14,16 @@ public class Mat_search_DAO {
 	int cnt = 0;
 	ResultSet rs = null;
 	Main_filterDTO dto = null;
+	SchoolDTO sdto = null;
+	ParkDTO pdto = null;
+	FacilityDTO fdto = null;
+	LibDTO ldto = null;
+	
 	ArrayList<Main_filterDTO> mat_list = null;
+	ArrayList<SchoolDTO> sch_list = null;
+	ArrayList<ParkDTO> park_list = null;
+	ArrayList<FacilityDTO> fac_list = null;
+	ArrayList<LibDTO> lib_list = null;
 	
 public void conn() { // DB 연결
 
@@ -126,6 +135,8 @@ public ArrayList<Main_filterDTO> search(String input,String search) {
 		return mat_list;
 }
 */
+
+
 public ArrayList<Main_filterDTO> search2(String input) {
 	
 	mat_list = new ArrayList<Main_filterDTO>(); // 기본 필터 검색
@@ -172,5 +183,194 @@ public ArrayList<Main_filterDTO> search2(String input) {
 		
 		return mat_list;
 }
+
+public ArrayList<SchoolDTO> schSearch(String input) {
+	
+	sch_list = new ArrayList<SchoolDTO>(); // 기본 필터 검색
+	
+	conn();
+	
+	
+	try {
+		String sql = "SELECT SCH.SCHOOL_NAME, SCH.SCHOOL_ADDR, MAE.DONG, MAE.APT_NAME, \r\n"
+				+ "MAE.PRICE, MAE.BUILD_YEAR,MAE.YEAR, MAE.MONTH, MAE.DAY, MAE.APT_SIZE, MAE.FLOOR	   \r\n"
+				+ "FROM MAEMAE MAE, SCHOOL SCH\r\n"
+				+ "WHERE MAE.DONG=SCH.DONG\r\n"
+				+ "and mae.dong = ?";	
+		psmt = conn.prepareStatement(sql);
+		psmt.setString(1, input);
+		rs = psmt.executeQuery();
+
+		System.out.println("re.next = " + rs.next());
+
+		while (rs.next()) {
+
+			String school_name = rs.getString(1);
+			String school_addr = rs.getString(2);
+			String dong = rs.getString(3);
+			String apt_name= rs.getString(4);
+			String price = rs.getString(5);
+			int build_year = rs.getInt(6);
+			int year= rs.getInt(7);
+			int month = rs.getInt(8);
+			int day = rs.getInt(9);
+			int apt_size = rs.getInt(10);
+			int floor = rs.getInt(11);
+			
+			
+			
+			sdto = new SchoolDTO(school_name,school_addr,dong,apt_name,price,build_year,year,month,day,apt_size,floor);
+			mat_list.add(dto);
+			
+		}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close();
+		}
+		
+		return sch_list;
+}
+public ArrayList<ParkDTO> parkSearch(String input) {
+	
+	park_list = new ArrayList<ParkDTO>(); // 기본 필터 검색
+	
+	conn();
+	
+	
+	try {
+		String sql = "SELECT PK.PARK_DIV, PK.PARK_SIZE, MAE.DONG, MAE.APT_NAME, \r\n"
+				+ "	   MAE.PRICE, MAE.BUILD_YEAR, MAE.YEAR, MAE.MONTH, MAE.DAY, MAE.APT_SIZE, MAE.FLOOR	   \r\n"
+				+ "FROM MAEMAE MAE, PARK PK\r\n"
+				+ "WHERE MAE.DONG=PK.DONG and mae.dong = ?";	
+		psmt = conn.prepareStatement(sql);
+		psmt.setString(1, input);
+		rs = psmt.executeQuery();
+
+		System.out.println("re.next = " + rs.next());
+
+		while (rs.next()) {
+
+			String park_div = rs.getString(1);
+			String park_size = rs.getString(2);
+			String dong = rs.getString(3);
+			String apt_name= rs.getString(4);
+			String price = rs.getString(5);
+			int build_year = rs.getInt(6);
+			int year= rs.getInt(7);
+			int month = rs.getInt(8);
+			int day = rs.getInt(9);
+			int apt_size = rs.getInt(10);
+			int floor = rs.getInt(11);
+			
+			
+			
+			pdto = new ParkDTO(dong,park_div,park_size,apt_name,price,build_year,year,month,day,apt_size,floor);
+			park_list.add(pdto);
+			
+		}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close();
+		}
+		
+		return park_list;
+}
+public ArrayList<FacilityDTO> facSearch(String input) {
+	
+	fac_list = new ArrayList<FacilityDTO>(); // 기본 필터 검색
+	
+	conn();
+	
+	
+	try {
+		String sql = "SELECT FAC.FACILITY, MAE.DONG, MAE.APT_NAME, MAE.PRICE, MAE.BUILD_YEAR,\r\n"
+				+ "	   MAE.YEAR, MAE.MONTH, MAE.DAY, MAE.APT_SIZE, MAE.FLOOR	   \r\n"
+				+ "FROM MAEMAE MAE, FACILITY FAC\r\n"
+				+ "WHERE MAE.DONG=FAC.DONG"
+				+ "and mae.dong = ?";	
+		psmt = conn.prepareStatement(sql);
+		psmt.setString(1, input);
+		rs = psmt.executeQuery();
+
+		System.out.println("re.next = " + rs.next());
+
+		while (rs.next()) {
+
+			String facility = rs.getString(1);
+			String dong = rs.getString(2);
+			String apt_name= rs.getString(3);
+			String price = rs.getString(4);
+			int build_year = rs.getInt(5);
+			int year= rs.getInt(6);
+			int month = rs.getInt(7);
+			int day = rs.getInt(8);
+			int apt_size = rs.getInt(9);
+			int floor = rs.getInt(10);
+			
+			
+			
+			fdto = new FacilityDTO(dong,apt_name,facility,,price,build_year,year,month,day,apt_size,floor);
+			fac_list.add(fdto);
+			
+		}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close();
+		}
+		
+		return fac_list;
+}
+public ArrayList<LibDTO> libSearch(String input) {
+	
+	lib_list = new ArrayList<LibDTO>(); // 기본 필터 검색
+	
+	conn();
+	
+	
+	try {
+		String sql = "SELECT LIB.LIB_NAME, LIB.CLOSE, MAE.DONG, MAE.APT_NAME, MAE.PRICE, MAE.BUILD_YEAR,\r\n"
+				+ "	   MAE.YEAR, MAE.MONTH, MAE.DAY, MAE.APT_SIZE, MAE.FLOOR	   \r\n"
+				+ "FROM MAEMAE MAE, LIBRARY LIB\r\n"
+				+ "WHERE MAE.DONG=LIB.DONG"
+				+ "and mae.dong = ?";	
+		psmt = conn.prepareStatement(sql);
+		psmt.setString(1, input);
+		rs = psmt.executeQuery();
+
+		System.out.println("re.next = " + rs.next());
+
+		while (rs.next()) {
+
+			String lib_name = rs.getString(1);
+			String close = rs.getString(2);
+			String dong = rs.getString(3);
+			String apt_name= rs.getString(4);
+			String price = rs.getString(5);
+			int build_year = rs.getInt(6);
+			int year= rs.getInt(7);
+			int month = rs.getInt(8);
+			int day = rs.getInt(9);
+			int apt_size = rs.getInt(10);
+			int floor = rs.getInt(11);
+			
+			
+			
+			ldto = new LibDTO(dong,lib_name,close,apt_name,price,build_year,year,month,day,apt_size,floor);
+			lib_list.add(ldto);
+			
+		}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close();
+		}
+		
+		return lib_list;
+}
+
+
 
 }

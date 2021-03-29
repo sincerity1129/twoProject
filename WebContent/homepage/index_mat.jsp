@@ -294,7 +294,7 @@ table {
 
 
 				<!-- 맞춤 -->
-
+				<!--  기본 맞춤 필터 -->
 				<div id="mat">
 					<h1>맞춤</h1>
 
@@ -305,6 +305,10 @@ table {
 							<option value="subway">지하철</option>
 							<option value="coffee">스타벅스</option>
 							<option value="movie">영화관</option>
+							<option value="school">학교</option>
+							<option value="fac">실내시설</option>
+							<option value="lib">도서관</option>
+							<option value="park">공원</option>
 						</select> 동으로 검색 : <input type="text" name="mat_search"> 
 							<%if(info != null){%>
 						<input type="submit" value="검색">
@@ -319,6 +323,8 @@ table {
 					<%mat_select = (String) session.getAttribute("mat_select");
 					System.out.print("mat_select"+mat_select);
 					MatSearchList = (ArrayList<Main_filterDTO>) session.getAttribute("mat_search");
+					
+					
 					if (MatSearchList != null) {%>
 					<table>
 						<tr>
@@ -339,6 +345,19 @@ table {
 							<%if (mat_select.equals("movie")) {%>
 							<td>영화관</td>
 							<%}%>
+							<%if (mat_select.equals("school")) {%>
+							<td>영화관</td>
+							<%}%>
+							<%if (mat_select.equals("fac")) {%>
+							<td>실내 시설</td>
+							<%}%>
+							<%if (mat_select.equals("park")) {%>
+							<td>공원</td>
+							<%}%>
+							<%else if (mat_select.equals("lib")) {%>
+							<td>도서관</td>
+							<%}%>
+
 							<td>매매 번호</td>
 							<td>동</td>
 							<td>가격</td>
