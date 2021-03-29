@@ -38,8 +38,9 @@ public class JoinService implements FrontCommand {
 		}
 		else {
 			System.out.println("회원가입 실패");
+			response.sendRedirect("index_main.jsp");
 		}
-		response.sendRedirect("index_main.jsp");
+		
 
 	}
 

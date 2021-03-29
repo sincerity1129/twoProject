@@ -50,7 +50,7 @@ public class MemberDAO {
 public int  join(MemberDTO dto) { //회원가입
 		conn();
 		try {
-			String sql = "insert into APT_MEMBER values (?,?,?,?,?,?)";
+			String sql = "insert into APT_MEMBER values (MEMBER_NUM.NEXTVAL,?,?,?,?,?,?)";
 			psmt = conn.prepareStatement(sql);
 			psmt.setString(1, dto.getId()); //아이디
 			psmt.setString(2, dto.getPw()); //비밀번호
@@ -72,7 +72,7 @@ public int  join(MemberDTO dto) { //회원가입
 public MemberDTO login(MemberDTO dto) { //로그인
 	conn();
 	try {
-		String sql = "select * from APT_MEMBER where id = ? and pw = ?";
+		String sql = "select * from APT_MEMBER where mem_id = ? and mem_pw = ?";
 		psmt = conn.prepareStatement(sql);
 		psmt.setString(1, dto.getId());
 		psmt.setString(2, dto.getPw());
@@ -99,7 +99,7 @@ public MemberDTO login(MemberDTO dto) { //로그인
 public int update(MemberDTO dto) { //정보수정
 	conn();
 	try {
-		String sql = "update APT_MEMBER set pw = ?, name = ?, tel=?, birth=?, addr=? where id = ?";
+		String sql = "update APT_MEMBER set mem_pw = ?, mem_name = ?, mem_tel=?, mem_age=?, mem_dong=? where mem_id = ?";
 		psmt = conn.prepareStatement(sql);
 		psmt.setString(1, dto.getPw());
 		psmt.setString(2, dto.getName());
@@ -135,8 +135,8 @@ public ArrayList<MemberDTO> select(){
 			
 			/*info라는 dto에 정보를 담에서 list에 저장*/
 			info = new MemberDTO(id,pw,name,tel,birth,addr);
-		}
 			list.add(info); 
+		}
 		} catch (SQLException e) {
 			e.printStackTrace();
 		} finally {
