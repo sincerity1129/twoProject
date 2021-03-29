@@ -29,12 +29,6 @@ public class FavoriteService implements FrontCommand {
 		FavoriteDAO dao = new FavoriteDAO();
 		dao.insert(select, num, info.getId());
 		
-		if(info != null) {
-			System.out.println("추가 성공");
-		}
-		else {
-			System.out.println("추가 실패");
-		}
 		
 		response.sendRedirect("index_main.jsp");
 	}

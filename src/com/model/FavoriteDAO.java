@@ -66,9 +66,12 @@ public int  insert(String type, String obj, String id) { //즐겨찾기 추가
 			
 			cnt = psmt.executeUpdate();
 			
+			if(cnt!=0) {
+				System.out.println("추가 성공");
+			}
+			
 		} catch (SQLException e) {
 			e.printStackTrace();
-			System.out.println("확인2");
 		}finally {
 			close();
 		}
