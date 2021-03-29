@@ -70,6 +70,7 @@ CREATE TABLE A_MAEMAE(
 
 ALTER TABLE MAEMAE ALTER COLUMN MAEMAE_NUM VARCHAR2(20) NOT NULL;
 
+SELECT * FROM A_MAEMAE;
 /*임대아파트 테이블 만들기 */
 CREATE TABLE IMDAE_APT(
 	IMDAE_NUM VARCHAR2(20) NOT NULL,
@@ -152,7 +153,15 @@ WHERE MAE.DONG=LIB.DONG
 /*매매 즐겨찾기 테이블*/
 CREATE TABLE MY_MAEMAE(
 	MY_MAEMAE_NUM VARCHAR2(20) NOT NULL,
+<<<<<<< HEAD
 	MAEMAE_MEM_ID VARCHAR2(20) NOT NULL
+=======
+	MAEMAE_MEM_ID VARCHAR2(20) NOT NULL,
+constraint MY_MAEMAE_MY_MAEMAE_NUM_FK1 foreign key(MY_MAEMAE_NUM)
+references A_MAEMAE(MAEMAE_NUM),
+constraint MY_MAEMAE_MAEMAE_MEM_ID_FK2 foreign key(MAEMAE_MEM_ID)
+references A_MEMBER(MEM_ID)
+>>>>>>> branch 'master' of https://github.com/sincerity1129/project.git
 );
 select * from my_maemae where  MAEMAE_MEM_ID = 'qwe';
 /*매매 즐겨찾기 기능 확인*/
@@ -174,7 +183,7 @@ CREATE TABLE MY_RENT(
 	MY_RENT_NUM VARCHAR2(20) NOT NULL,
 	RENT_MEM_ID VARCHAR2(20) NOT NULL,
 constraint MY_RENT_MY_RENT_NUM_FK1 foreign key(MY_RENT_NUM)
-references RENT(RENT_NUM),
+references A_RENT(RENT_NUM),
 constraint MY_RENT_RENT_MEM_ID_FK2 foreign key(RENT_MEM_ID)
 references A_MEMBER(MEM_ID)
 );
