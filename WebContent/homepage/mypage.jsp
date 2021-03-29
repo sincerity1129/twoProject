@@ -99,7 +99,7 @@
 					<div class="card">
 						<div class="card-header">회원정보수정</div>
 						<div class="card-body">
-							<form name="my-form" onsubmit="return validform()" action="UpdateServiceCon.do" method="post">
+							<form name="my-form" onsubmit="return validform()" action="UpdateService.do" method="post">
 							<%if(loginDto!=null){ %>
 								<li><%=loginDto.getId() %>님 정보수정</li>
 							<%} %>
