@@ -16,7 +16,7 @@ public class LogoutService implements FrontCommand {
 		HttpSession session = request.getSession();
 		session.removeAttribute("info");
 		
-		response.sendRedirect("index.jsp");
+		response.sendRedirect("index_main.jsp");
 			
 	}
 

@@ -42,7 +42,7 @@ public class SearchService implements FrontCommand {
 			else {
 				System.out.println("동 검색성공");
 			}
-			response.sendRedirect("index.jsp");	
+			response.sendRedirect("index_maemae.jsp");	
 		}
 		
 
@@ -61,7 +61,7 @@ public class SearchService implements FrontCommand {
 		else {
 			System.out.println("아파트 검색 실패");
 		}
-		response.sendRedirect("index.jsp");	
+		response.sendRedirect("index_maemae.jsp");
 	}
 	}
 }

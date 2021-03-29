@@ -32,7 +32,7 @@ public class JoinService implements FrontCommand {
 			System.out.println("회원가입 성공");
 			HttpSession session = request.getSession();
 			session.setAttribute("id", id);
-			response.sendRedirect("index.jsp");
+			response.sendRedirect("ex01.jsp");
 		}
 		else {
 			System.out.println("회원가입 실패");

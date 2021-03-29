@@ -34,7 +34,7 @@ public class UpdateService implements FrontCommand {
 			
 			System.out.println("회원정보 수정 성공");
 			session.setAttribute("info",info);
-			response.sendRedirect("index.jsp");
+			response.sendRedirect("index_main.jsp");
 		}
 		else {
 			System.out.println("회원정보 수정 실패");

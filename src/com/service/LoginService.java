@@ -32,7 +32,7 @@ public class LoginService implements FrontCommand {
 			System.out.println("로그인 실패");
 		}
 		
-		response.sendRedirect("index.jsp");
+		response.sendRedirect("index_main.jsp");
 	}
 
 }

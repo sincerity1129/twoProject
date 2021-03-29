@@ -36,7 +36,7 @@ public class MatSearchService implements FrontCommand {
 			HttpSession session2 = request.getSession();
 			session2.setAttribute("mat_select",mat_select);
 
-			response.sendRedirect("index.jsp");	
+			response.sendRedirect("index_mat.jsp");	
 		
 	}
 }

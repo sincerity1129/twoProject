@@ -7,6 +7,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import com.service.ImdaeSearchService;
 import com.service.JoinService;
@@ -29,6 +30,11 @@ public class Command extends HttpServlet {
 		FrontCommand command = null;
 		String resultURI = URI.substring(path.length()+1);
 		
+		HttpSession session = request.getSession();
+		session.setAttribute("maemae",1);
+		
+		
+		
 		if(resultURI.equals("homepage/JoinService.do")) {
 			command = new JoinService();
 		}else if(resultURI.equals("homepage/LoginService.do")) {
@@ -46,6 +52,10 @@ public class Command extends HttpServlet {
 		}else if(resultURI.equals("homepage/ImdaeSearchService.do")) {
 			command = new ImdaeSearchService();
 		}
+		
+		
+		
+		
 		
 		command.execute(request, response);
 	}

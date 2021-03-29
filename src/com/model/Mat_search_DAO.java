@@ -134,9 +134,8 @@ public ArrayList<Main_filterDTO> search2(String input) {
 	
 	
 	try {
-		String sql = "select * from maemae where dong = ?";
-		psmt = conn.prepareStatement(sql);
-		psmt.setString(1, input);
+		String sql = "select * from maemae where dong like ";	
+		psmt = conn.prepareStatement(sql+"\'%"+input+"%\'");
 		rs = psmt.executeQuery();
 
 		System.out.println("re.next = " + rs.next());

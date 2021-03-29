@@ -32,7 +32,7 @@ public class ImdaeSearchService implements FrontCommand {
 			HttpSession session = request.getSession();
 			session.setAttribute("ImdaeSearchList",ImdaeSearchList);
 
-			response.sendRedirect("index.jsp");	
+			response.sendRedirect("index_imdae.jsp");	
 		
 	}
 }

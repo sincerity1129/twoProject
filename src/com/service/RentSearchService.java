@@ -33,7 +33,7 @@ public class RentSearchService implements FrontCommand {
 			HttpSession session = request.getSession();
 			session.setAttribute("RentSearchList",RentSearchList);
 
-			response.sendRedirect("index.jsp");	
+			response.sendRedirect("index_rent.jsp");	
 		
 	}
 }

@@ -42,7 +42,10 @@ table {
 }
 
 #basic, #junwall, #mat, #imdae {
-	display: none;
+	display : none;
+}
+div{
+	
 }
 </style>
 
@@ -123,33 +126,22 @@ table {
 
 			<div class="col-lg-3">
 
-
 				<h1 class="my-4">매물</h1>
 				<div class="list-group">
-
-					<a href="#" class="list-group-item" id="check1">매물</a> <a href="#"
+					<a href="index_maemae.jsp" class="list-group-item" id="check1">매물</a> <a href="index_rent.jsp"
 						class="list-group-item" id="check2">전 월세</a>
-
 				</div>
-
-
-
 				<h1 class="my-4">특별 필터</h1>
 				<div class="list-group">
-					<a href="" class="list-group-item" id="check3">맞춤</a> <a href=""
+					<a href="index_mat.jsp" class="list-group-item" id="check3">맞춤</a> <a href="index_imdae.jsp"
 						class="list-group-item" id="check4">임대</a>
-
 				</div>
-
 				<h1 class="my-4">가격 예측</h1>
 				<div class="list-group">
-
-					<a href="price.jsp" class="list-group-item">가격 예측</a>
-
+					<a href="price.jsp" class="list-group-item" id="check2">가격 예측</a>
 				</div>
 
 			</div>
-			<!-- /.col-lg-3 -->
 		</div>
 	</div>
 
@@ -158,7 +150,7 @@ table {
 
 
 	<!-- 매매 -->
-	<div id="basic">
+	<div id="basic" class = "raw">
 		<h1>매물</h1>
 		<form action="SearchService.do" method="post">
 
@@ -169,10 +161,7 @@ table {
 		</form>
 
 	</div>
-
-	</div>
-
-	</div>
+	
 
 	<div id="basic">
 
@@ -546,41 +535,13 @@ table {
 	</footer>
 
 
-	<button id="check3">체크확인</button>
 
 	<!-- Bootstrap core JavaScript -->
 	<script src="vendor/jquery/jquery.min.js"></script>
 	<script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 	<script src="./vendor/jquery/jquery-3.6.0.min.js"></script>
 	<script type="text/javascript">
-		$('#check1').on('click', function() {
-			$('#basic').css('display', 'block');
-			$('#junwall').css('display', 'none');
-			$('#mat').css('display', 'none');
-			$('#imdae').css('display', 'none');
-		});
-
-		$('#check2').on('click', function() {
-			$('#basic').css('display', 'none');
-			$('#junwall').css('display', 'block');
-			$('#mat').css('display', 'none');
-			$('#imdae').css('display', 'none');
-		});
-
-		$('#check3').on('click', function() {
-			$('#basic').css('display', 'none');
-			$('#junwall').css('display', 'none');
-			$('#mat').css('display', 'block');
-			$('#imdae').css('display', 'none');
-		});
 		
-		
-		$('#check4').on('click', function() {
-			$('#basic').css('display', 'none');
-			$('#junwall').css('display', 'none');
-			$('#mat').css('display', 'none');
-			$('#imdae').css('display', 'block');
-		});
 		
 	</script>
 
