@@ -67,10 +67,6 @@ public class FavoriteDAO {
 
 			cnt = psmt.executeUpdate();
 
-			if (cnt != 0) {
-				System.out.println("추가 성공");
-			}
-
 		} catch (SQLException e) {
 			e.printStackTrace();
 		} finally {
