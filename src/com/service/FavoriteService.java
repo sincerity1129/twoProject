@@ -8,8 +8,11 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import org.apache.catalina.ha.backend.Sender;
+
 import com.controller.FrontCommand;
 import com.model.FavoriteDAO;
+import com.model.FavoriteDTO;
 import com.model.MemberDTO;
 
 public class FavoriteService implements FrontCommand {
@@ -22,22 +25,22 @@ public class FavoriteService implements FrontCommand {
 		
 		response.setCharacterEncoding("EUC-KR");
 		
-		String select = request.getParameter("select");
-		
-		System.out.println(select);
-		
+		String type = request.getParameter("type");
+		String num = request.getParameter("num");		
 		MemberDTO info = (MemberDTO)session.getAttribute("info");
-		System.out.print("id"+info.getId());
 		
-		FavoriteDAO dao = new FavoriteDAO();
+		FavoriteDTO dto = new FavoriteDTO(info.getId(),type, num);
+		FavoriteDAO dao = new FavoriteDAO();			
 		
+		int cnt = dao.insert(dto);
 		
-		
-		if(select.equals("maemae")) {
-		response.sendRedirect("index_maemae.jsp");
-		}else if (select.equals("rent")) {
-			response.sendRedirect("index_rent.jsp");	
+		if(cnt>0) {
+			System.out.println("즐겨찾기 성공");
+		}else {
+			System.out.println("즐겨찾기 실패");
 		}
+			
+		response.sendRedirect("index_maemae.jsp");
 	}
 	
 		

@@ -164,8 +164,8 @@ constraint MY_MAEMAE_MY_MAEMAE_NUM_FK1 foreign key(MY_MAEMAE_NUM)
 references A_MAEMAE(MAEMAE_NUM),
 constraint MY_MAEMAE_MAEMAE_MEM_ID_FK2 foreign key(MAEMAE_MEM_ID)
 references A_MEMBER(MEM_ID)
-);
-select * from my_maemae where  MAEMAE_MEM_ID = 'qwe';
+)
+select * from my_maemae where  MAEMAE_MEM_ID = 'smart';
 /*매매 즐겨찾기 기능 확인*/
 INSERT INTO MY_MAEMAE VALUES(1,'smhrd3');
 
@@ -174,10 +174,10 @@ SELECT * FROM MY_MAEMAE
 
 SELECT MAEMAE_NUM,DONG,PRICE,BUILD_YEAR,APT_NAME,YEAR,
 	   MONTH,DAY,APT_SIZE,FLOOR
-FROM   MAEMAE
+FROM   A_MAEMAE
 WHERE  MAEMAE_NUM IN (SELECT MY_MAEMAE_NUM
 					 FROM MY_MAEMAE 
-					 WHERE MAEMAE_MEM_ID IN 'abcd');
+					 WHERE MAEMAE_MEM_ID IN 'smart');
 	
 
 /*전월세 즐겨찾기 테이블*/
