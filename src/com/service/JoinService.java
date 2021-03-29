@@ -34,12 +34,10 @@ public class JoinService implements FrontCommand {
 			System.out.println("회원가입 성공");
 			HttpSession session = request.getSession();
 			session.setAttribute("id", id);
-			response.sendRedirect("index_main.jsp");
 		}
 		else {
 			System.out.println("회원가입 실패");
 		}
-		response.sendRedirect("index_main.jsp");
 
 	}
 

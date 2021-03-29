@@ -50,7 +50,7 @@ public class MemberDAO {
 public int  join(MemberDTO dto) { //회원가입
 		conn();
 		try {
-			String sql = "insert into APT_MEMBER values (?,?,?,?,?,?)";
+			String sql = "insert into APT_MEMBER values (MEMBER_NUM.NEXTVAL, ?,?,?,?,?,?)";
 			psmt = conn.prepareStatement(sql);
 			psmt.setString(1, dto.getId()); //아이디
 			psmt.setString(2, dto.getPw()); //비밀번호
