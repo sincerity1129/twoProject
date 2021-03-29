@@ -153,7 +153,7 @@ table {
 							<option value = "maemae" selected="selected">매매번호</option>
 							<option value = "rent">임대번호</option>
 						</select>						
-							즐겨찾기<input type ="text" name ="maemae_insert">
+							즐겨찾기<input type ="text" name ="MAEMAE_NUM">
 							<input type = "submit" value = "추가">
 					</form>
 					<%} %>
