@@ -37,7 +37,12 @@ public class JoinService implements FrontCommand {
 		}
 		else {
 			System.out.println("회원가입 실패");
+			response.sendRedirect("index_main.jsp");
 		}
+<<<<<<< HEAD
+=======
+		
+>>>>>>> branch 'master' of https://github.com/sincerity1129/project.git
 
 	}
 
