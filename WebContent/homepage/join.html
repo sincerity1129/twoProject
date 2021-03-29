@@ -109,7 +109,7 @@ body{
 									<label for="email_address"
 										class="col-md-4 col-form-label text-md-right">비밀번호</label>
 									<div class="col-md-6">
-										<input type="text" id="pw" class="form-control" name="pw">
+										<input type="password" id="pw" class="form-control" name="pw">
 									</div>
 								</div>
 
@@ -188,15 +188,15 @@ function validform() {
         return false;
     }else if (d==null || d=="")
     {
-        alert("전화번호를 입력해주세요! ex)010-1111-2222");
+        alert("전화번호를 입력해주세요!");
         return false;
     }else if (e==null || e=="")
     {
-        alert("생년월일을 입력해주세요! ex)1991.01.01");
+        alert("생년월일을 입력해주세요!");
         return false;
     }else if (f==null || f=="")
     {
-        alert("주소(법정동)를 입력해주세요! ex)봉선동");
+        alert("주소(동)를 입력해주세요!");
         return false;
     }
 

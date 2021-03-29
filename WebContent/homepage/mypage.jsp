@@ -1,5 +1,7 @@
 <!DOCTYPE html>
 <%@page import="com.model.MemberDTO"%>
+<%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="utf-8"%>
+
 <html>
 <head>
 <!-- Required meta tags -->
@@ -101,7 +103,7 @@
 						<div class="card-body">
 							<form name="my-form" onsubmit="return validform()" action="UpdateService.do" method="post">
 							<%if(loginDto!=null){ %>
-								<li><%=loginDto.getId() %>님 정보수정</li>
+								<li><%=loginDto.getName()%>님 정보수정</li>
 							<%} %>
 							
 								<div class="form-group row">
