@@ -33,6 +33,8 @@
 						ArrayList<Rent_searchDTO> RentSearchList = null;
 						ArrayList<Main_filterDTO> MatSearchList = null;
 						ArrayList<ImdaeSearchDTO> ImdaeSearchList = null;
+						ArrayList<Main_filterDTO> FavoriteList = null;
+						
 						String mat_select = null;
 
 						if (info != null) {
@@ -40,8 +42,8 @@
 						}%>
 
 
-				 <%DongSearchList = (ArrayList<Main_filterDTO>) session.getAttribute("DongSearchList");
-					if (DongSearchList != null) {%>
+				 <%FavoriteList = (ArrayList<Main_filterDTO>) session.getAttribute("list");
+					if (FavoriteList != null) {%>
 					<table>
 						<tr>
 							<td>Áñ°ÜÃ£±â</td>
@@ -58,7 +60,7 @@
 							<td>Ãþ</td>
 						</tr>
 
-						<%for (int i = 0; i < DongSearchList.size(); i++) {%>
+						<%for (int i = 0; i < FavoriteList.size(); i++) {%>
 						<tr>
 							<td><input type="checkbox" value=""></td>
 							<td><%=i + 1%></td>

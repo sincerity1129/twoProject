@@ -178,6 +178,7 @@ table {
 							<td>ÀÏ</td>
 							<td>Æò¼ö</td>
 							<td>Ãþ</td>
+							
 						</tr>
 
 						<%for (int i = 0; i < DongSearchList.size(); i++) {%>
