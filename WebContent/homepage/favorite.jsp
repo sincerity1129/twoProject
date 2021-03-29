@@ -40,7 +40,6 @@
 
 						<%for (int i = 0; i < MeaList.size(); i++) {%>
 						<tr>
-							<td><input type="checkbox" value=""></td>
 							<td><%=i + 1%></td>
 							<td><%=MeaList.get(i).getMaemae_num()%></td>
 							<td><%=MeaList.get(i).getApt_name()%></td>
@@ -79,7 +78,6 @@
 
 						<%for (int i = 0; i < RentList.size(); i++) {%>
 						<tr>
-							<td><input type="checkbox" value=""></td>
 							<td><%=i + 1%></td>
 							<td><%=RentList.get(i).getRent_num()%></td>
 							<td><%=RentList.get(i).getApt_name()%></td>
