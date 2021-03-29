@@ -45,10 +45,10 @@ table {
 						<tr>
 							<td>번호</td>
 							<td>매매번호</td>
-							<td>동</td>
-							<td>가격</td>
-							<td>건축년도</td>
 							<td>아파트이름</td>
+							<td>가격</td>
+							<td>동</td>
+							<td>건축 년도</td>
 							<td>거래 년도</td>
 							<td>월</td>
 							<td>일</td>
