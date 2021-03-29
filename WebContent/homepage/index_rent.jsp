@@ -99,8 +99,8 @@ table > tr>td{
 					<%
 					} else {
 					%>
-					<li class="nav-item"><a class="nav-link" href="join.jsp">회원가입</a></li>
-					<li class="nav-item"><a class="nav-link" href="login.jsp">로그인</a></li>
+					<li class="nav-item"><a class="nav-link" href="join.html">회원가입</a></li>
+					<li class="nav-item"><a class="nav-link" href="login.html">로그인</a></li>
 					<%
 					}
 					%>
@@ -128,12 +128,21 @@ table > tr>td{
 				</div>
 				<h1 class="my-4">특별 필터</h1>
 				<div class="list-group">
-					<a href="index_mat.jsp" class="list-group-item" id="check3">맞춤</a> <a href="index_imdae.jsp"
-						class="list-group-item" id="check4">임대</a>
+					<a href="index_mat.jsp" class="list-group-item" id="check3">맞춤</a>
+					<%if(info != null){ %>
+					<a href="index_imdae.jsp" class="list-group-item" id="check4">임대</a>
+					<%} %><%else {%>
+						<a href="" class="list-group-item" id="check4">임대</a>
+						<%} %>
+					
 				</div>
 				<h1 class="my-4">가격 예측</h1>
 				<div class="list-group">
+					<%if(info != null){ %>
 					<a href="price.jsp" class="list-group-item" id="check2">가격 예측</a>
+					<%} %><%else {%>
+						<a href="" class="list-group-item" id="check2">가격 예측</a>
+						<%} %>
 				</div>
 
 			</div>

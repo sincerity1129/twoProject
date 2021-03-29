@@ -95,8 +95,8 @@ table {
 					<%
 					} else {
 					%>
-					<li class="nav-item"><a class="nav-link" href="join.jsp">회원가입</a></li>
-					<li class="nav-item"><a class="nav-link" href="login.jsp">로그인</a></li>
+					<li class="nav-item"><a class="nav-link" href="join.html">회원가입</a></li>
+					<li class="nav-item"><a class="nav-link" href="login.html">로그인</a></li>
 					<%
 					}
 					%>
@@ -124,12 +124,21 @@ table {
 				</div>
 				<h1 class="my-4">특별 필터</h1>
 				<div class="list-group">
-					<a href="index_mat.jsp" class="list-group-item" id="check3">맞춤</a> <a href="index_imdae.jsp"
-						class="list-group-item" id="check4">임대</a>
+					<a href="index_mat.jsp" class="list-group-item" id="check3">맞춤</a>
+					<%if(info != null){ %>
+					<a href="index_imdae.jsp" class="list-group-item" id="check4">임대</a>
+					<%} %><%else {%>
+						<a href="" class="list-group-item" id="check4">임대</a>
+						<%} %>
+					
 				</div>
 				<h1 class="my-4">가격 예측</h1>
 				<div class="list-group">
+					<%if(info != null){ %>
 					<a href="price.jsp" class="list-group-item" id="check2">가격 예측</a>
+					<%} %><%else {%>
+						<a href="" class="list-group-item" id="check2">가격 예측</a>
+						<%} %>
 				</div>
 
 			</div>
@@ -152,6 +161,16 @@ table {
 							type="radio" name="table" value="dong"> 검색 : <input
 							type="text" name="search"> <input type="submit"
 							value="검색">
+					</form>
+					
+					<form action= "FavoriteService.do" method = "post">
+						<select name = "select">
+							<option value = "maemae">매매번호</option>
+							<option value = "rent">임대번호</option>
+						</select>
+						
+							즐겨찾기<input type ="text" name ="mameae_insert">
+							<input type = "submit" value = "추가">
 					</form>
 
 

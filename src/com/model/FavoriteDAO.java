@@ -13,8 +13,8 @@ public class FavoriteDAO {
 	PreparedStatement psmt = null;
 	int cnt = 0;
 	ResultSet rs = null;
-	ImdaeSearchDTO dto = null;
-	ArrayList<ImdaeSearchDTO> imdae_list = null;
+	Main_filterDTO dto = null;
+	ArrayList<Main_filterDTO> favorite_list = null;
 	String sql = null;
 
 	public void conn() { // DB 연결
@@ -50,16 +50,20 @@ public class FavoriteDAO {
 		}
 	}
 	
-public int  insert(String type, String obj) { //즐겨찾기 추가
+public int  insert(String type, String obj, String id) { //즐겨찾기 추가
 		
 		conn();
 		try {
-			if(type.equals(""))
-			String sql = "insert into MY_FAVORIT values (?,?,?)";
+			if(type.equals("maemae")) {
+			sql = "insert into MY_maemae values (?,?)";
+			}
+			else if(type.equals("rent")) {
+				sql = "insert into MY_rent values (?,?)";
+			}
 			psmt = conn.prepareStatement(sql);
-			psmt.setString(1, dto.getId());
-			psmt.setString(2, dto.getPw());
-			psmt.setString(3, dto.getName());
+			psmt.setString(1, obj);
+			psmt.setString(2, id);
+			
 			cnt = psmt.executeUpdate();
 			
 		} catch (SQLException e) {

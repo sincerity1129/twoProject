@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import com.service.FavoriteService;
 import com.service.ImdaeSearchService;
 import com.service.JoinService;
 import com.service.LoginService;
@@ -51,7 +52,9 @@ public class Command extends HttpServlet {
 			command = new MatSearchService();
 		}else if(resultURI.equals("homepage/ImdaeSearchService.do")) {
 			command = new ImdaeSearchService();
-		}
+		}else if(resultURI.equals("homepage/FavoriteService.do")) {
+			command = new FavoriteService();
+		}	
 		
 		
 		
