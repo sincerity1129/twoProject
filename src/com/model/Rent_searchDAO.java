@@ -52,7 +52,8 @@ public void close() { // DB 연결 해제
 }
 
 public ArrayList<Rent_searchDTO> search(String input,String search) {
-	
+
+	String sql = null;
 	rent_list = new ArrayList<Rent_searchDTO>(); // 기본 필터 검색
 	
 	conn();
@@ -61,15 +62,12 @@ public ArrayList<Rent_searchDTO> search(String input,String search) {
 	
 	try {
 		if(search.equals("apt_name")) {
-			String sql = "select * from rent where APT_name = ?";
-			psmt = conn.prepareStatement(sql);
-			psmt.setString(1, input);
+			sql = "select * from rent where apt_name like ";	
 		}
 		else if(search.equals("dong")) {
-			String sql = "select * from rent where dong = ?";
-			psmt = conn.prepareStatement(sql);
-			psmt.setString(1, input);
+			sql = "select * from rent where dong like";
 		}
+		psmt = conn.prepareStatement(sql+"\'%"+input+"%\'");
 		rs = psmt.executeQuery();
 		
 		System.out.println("re.next = "+rs.next());

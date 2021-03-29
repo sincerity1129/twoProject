@@ -59,10 +59,8 @@ public ArrayList<Main_filterDTO> search(Dong_searchDTO dto) {
 	conn();
 	
 	try {
-		String sql = "select * from maemae where Dong_name = ?";
-		psmt = conn.prepareStatement(sql);
-		//psmt.setString(1, dto.getDong());
-		psmt.setString(1, dto.getSearch());
+		String sql = "select * from maemae where Dong_name like";
+		psmt = conn.prepareStatement(sql+"\'%"+dto.getSearch()+"%\'");
 		rs = psmt.executeQuery();
 		
 		while(rs.next()) {
