@@ -50,11 +50,8 @@ public class MemberDAO {
 public int  join(MemberDTO dto) { //회원가입
 		conn();
 		try {
-<<<<<<< HEAD
 			String sql = "insert into APT_MEMBER values (MEMBER_NUM.NEXTVAL, ?,?,?,?,?,?)";
-=======
-			String sql = "insert into APT_MEMBER values (MEMBER_NUM.NEXTVAL,?,?,?,?,?,?)";
->>>>>>> branch 'master' of https://github.com/sincerity1129/project.git
+
 			psmt = conn.prepareStatement(sql);
 			psmt.setString(1, dto.getId()); //아이디
 			psmt.setString(2, dto.getPw()); //비밀번호
