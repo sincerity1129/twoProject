@@ -1,3 +1,7 @@
+<%@page import="com.model.SchoolDTO"%>
+<%@page import="com.model.ParkDTO"%>
+<%@page import="com.model.LibDTO"%>
+<%@page import="com.model.FacilityDTO"%>
 <%@page import="com.model.ImdaeSearchDTO"%>
 <%@page import="com.model.Rent_searchDTO"%>
 <%@page import="com.model.Apt_name_searchDTO"%>
@@ -69,6 +73,11 @@ table {
 						ArrayList<Rent_searchDTO> RentSearchList = null;
 						ArrayList<Main_filterDTO> MatSearchList = null;
 						ArrayList<ImdaeSearchDTO> ImdaeSearchList = null;
+						ArrayList<SchoolDTO> SchoolList = null;
+						ArrayList<ParkDTO> ParkList = null;
+						ArrayList<LibDTO> LibList = null;
+						ArrayList<FacilityDTO> FacList = null;
+						
 						String mat_select = null;
 
 						if (info != null) {
@@ -136,163 +145,7 @@ table {
 			<!-- 매매 -->
 			<div class="col-lg-9">
 
-				<div id="basic" class="raw">
-					<h1>매물</h1>
-					<form action="SearchService.do" method="post">
-
-						<!-- radio를 사 -->
-						아파트<input type="radio" name="table" value="apt_name"> 
-						동<input	type="radio" name="table" value="dong"> 
-							검색 : <input type="text" name="search"> 
-							<input type="submit" value="검색">
-					</form>
-
-
-
-					<%DongSearchList = (ArrayList<Main_filterDTO>) session.getAttribute("DongSearchList");
-					if (DongSearchList != null) {
-						System.out.print("동 성공!!");
-						System.out.print(DongSearchList.size());%>
-					<table>
-						<tr>
-							<td>즐겨찾기</td>
-							<td>번호</td>
-							<td>매매 번호</td>
-							<td>아파트 이름</td>
-							<td>동 이름</td>
-							<td>가격</td>
-							<td>건축 년도</td>
-							<td>거래 년도</td>
-							<td>월</td>
-							<td>일</td>
-							<td>평수</td>
-							<td>층</td>
-						</tr>
-
-						<%for (int i = 0; i < DongSearchList.size(); i++) {%>
-						<tr>
-							<td><input type="checkbox" value=""></td>
-							<td><%=i + 1%></td>
-							<td><%=DongSearchList.get(i).getMaemae_num()%></td>
-							<td><%=DongSearchList.get(i).getApt_name()%></td>
-							<td><%=DongSearchList.get(i).getDong()%></td>
-							<td><%=DongSearchList.get(i).getPrice()%></td>
-							<td><%=DongSearchList.get(i).getBuild_year()%></td>
-							<td><%=DongSearchList.get(i).getYear()%></td>
-							<td><%=DongSearchList.get(i).getMonth()%></td>
-							<td><%=DongSearchList.get(i).getDay()%></td>
-							<td><%=DongSearchList.get(i).getApt_size()%></td>
-							<td><%=DongSearchList.get(i).getFloor()%></td>
-						</tr>
-
-						<%}%>
-					</table>
-					<%}%>
-
-					<%AptSearchList = (ArrayList<Main_filterDTO>) session.getAttribute("AptSearchList");
-					if (AptSearchList != null) {
-						System.out.print("아파트 성공!");%>
-					<table>
-						<tr>
-							<td>즐겨찾기</td>
-							<td>번호</td>
-							<td>매매 번호</td>
-							<td>아파트 이름</td>
-							<td>동 이름</td>
-							<td>가격</td>
-							<td>건축 년도</td>
-							<td>거래 년도</td>
-							<td>월</td>
-							<td>일</td>
-							<td>평수</td>
-							<td>층</td>
-						</tr>
-
-						<%for (int i = 0; i < AptSearchList.size(); i++) {%>
-						<tr>
-							<td><input type="checkbox" value="1"></td>
-							<td><%=i + 1%></td>
-							<td><%=AptSearchList.get(i).getMaemae_num()%></td>
-							<td><%=AptSearchList.get(i).getApt_name()%></td>
-							<td><%=AptSearchList.get(i).getDong()%></td>
-							<td><%=AptSearchList.get(i).getPrice()%></td>
-							<td><%=AptSearchList.get(i).getBuild_year()%></td>
-							<td><%=AptSearchList.get(i).getYear()%></td>
-							<td><%=AptSearchList.get(i).getMonth()%></td>
-							<td><%=AptSearchList.get(i).getDay()%></td>
-							<td><%=AptSearchList.get(i).getApt_size()%></td>
-							<td><%=AptSearchList.get(i).getFloor()%></td>
-						</tr>
-
-						<%}%>
-					</table>
-					<%}%>
-				</div>
-
-
-
-
-				<!-- 전 월세 -->
-				<div id="junwall">
-					<h1>전 월세</h1>
-					<form action="RentSearchService.do" method="post">
-						<!-- radio를 사 -->
-						아파트<input type="radio" name="table" value="apt_name"> 
-						동<input	type="radio" name="table" value="dong"> 
-							검색 : <input type="text" name="rent_search"> 
-							<input type="submit" value="검색">
-					</form>
-
-					<!--  <img class="d-block img-fluid" src="./img/white-img.jpg" alt="First slide"> 이미지 파일 넣는 곳-->
-
-
-					<div id="row">
-						<%RentSearchList = (ArrayList<Rent_searchDTO>) session.getAttribute("RentSearchList");
-						if (RentSearchList != null) {%>
-						<table>
-							<tr>
-								<td>즐겨찾기</td>
-								<td>번호</td>
-								<td>동</td>
-								<td>빌드 번호</td>
-								<td>보증금</td>
-								<td>월세</td>
-								<td>아파트 이름</td>
-								<td>건축 년도</td>
-								<td>거래 년도</td>
-								<td>월</td>
-								<td>일</td>
-								<td>평 수</td>
-								<td>층</td>
-							</tr>
-							<%for (int i = 0; i < RentSearchList.size(); i++) {%>
-							<tr>
-								<td><input type="checkbox" value=""></td>
-								<td><%=i + 1%></td>
-								<td><%=RentSearchList.get(i).getDong()%></td>
-								<td><%=RentSearchList.get(i).getBuild_year()%></td>
-								<td><%=RentSearchList.get(i).getDeposit()%></td>
-								<td><%=RentSearchList.get(i).getLoyer()%></td>
-								<td><%=RentSearchList.get(i).getApt_name()%></td>
-								<td><%=RentSearchList.get(i).getBuild_year()%></td>
-								<td><%=RentSearchList.get(i).getYear()%></td>
-								<td><%=RentSearchList.get(i).getMonth()%></td>
-								<td><%=RentSearchList.get(i).getDate()%></td>
-								<td><%=RentSearchList.get(i).getApt_size()%></td>
-								<td><%=RentSearchList.get(i).getFloor()%></td>
-							</tr>
-
-							<%}%>
-						</table>
-						<%}%>
-
-					</div>
-				</div>
-
-
-
-
-
+				
 				<!-- 맞춤 -->
 				<!--  기본 맞춤 필터 -->
 				<div id="mat">
@@ -322,7 +175,23 @@ table {
 
 					<%mat_select = (String) session.getAttribute("mat_select");
 					System.out.print("mat_select"+mat_select);
+					
+					
+					if(mat_select.equals("school")){
+						SchoolList = (ArrayList<SchoolDTO>) session.getAttribute("mat_search");
+					}
+					else if(mat_select.equals("fac")){
+						FacList = (ArrayList<FacilityDTO>) session.getAttribute("mat_search");
+					}
+					else if(mat_select.equals("park")){
+						ParkList = (ArrayList<ParkDTO>) session.getAttribute("mat_search");
+					}
+					else if(mat_select.equals("lib")){
+						LibList = (ArrayList<LibDTO>) session.getAttribute("mat_search");
+					}
+					else{
 					MatSearchList = (ArrayList<Main_filterDTO>) session.getAttribute("mat_search");
+					}
 					
 					
 					if (MatSearchList != null) {%>
@@ -354,7 +223,7 @@ table {
 							<%if (mat_select.equals("park")) {%>
 							<td>공원</td>
 							<%}%>
-							<%else if (mat_select.equals("lib")) {%>
+							<%if (mat_select.equals("lib")) {%>
 							<td>도서관</td>
 							<%}%>
 
@@ -388,7 +257,6 @@ table {
 							<%if (mat_select.equals("movie")) {%>
 							<td><%=MatSearchList.get(i).getMovie()%></td>
 							<%}%>
-
 							<td><%=MatSearchList.get(i).getMaemae_num()%></td>
 							<td><%=MatSearchList.get(i).getDong()%></td>
 							<td><%=MatSearchList.get(i).getPrice()%></td>
@@ -399,7 +267,45 @@ table {
 							<td><%=MatSearchList.get(i).getDay()%></td>
 							<td><%=MatSearchList.get(i).getApt_size()%></td>
 							<td><%=MatSearchList.get(i).getFloor()%></td>
+						</tr>
 
+						<%}%>
+					</table>
+					<%}%>
+
+				</div>
+				
+				
+				<!-- school -->
+				<%if (SchoolList != null) {%>
+					<table>
+						<tr>
+							<td>학교 이름</td>
+							<td>학교 주소</td>
+							<td>동</td>
+							<td>가격</td>
+							<td>이름</td>
+							<td>건축년도</td>
+							<td>거래 년도</td>
+							<td>월</td>
+							<td>일</td>
+							<td>평 수</td>
+							<td>층</td>
+						</tr>
+						<%for (int i = 0; i < SchoolList.size(); i++) {%>
+						<tr>
+							<td><%=i + 1%></td>
+							<td><%=SchoolList.get(i).getSchool_name()%></td>
+							<td><%=SchoolList.get(i).getScool_addr()%></td>
+							<td><%=SchoolList.get(i).getDong()%></td>
+							<td><%=SchoolList.get(i).getPrice()%></td>
+							<td><%=SchoolList.get(i).getBuild_year()%></td>
+							<td><%=SchoolList.get(i).getApt_name()%></td>
+							<td><%=SchoolList.get(i).getYear()%></td>
+							<td><%=SchoolList.get(i).getMonth()%></td>
+							<td><%=SchoolList.get(i).getDay()%></td>
+							<td><%=SchoolList.get(i).getApt_size()%></td>
+							<td><%=SchoolList.get(i).getFloor()%></td>
 						</tr>
 
 						<%}%>
@@ -409,6 +315,8 @@ table {
 				</div>
 
 				<!-- 맞춤 -->
+				
+				
 
 
 				<!-- 임대 -->

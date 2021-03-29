@@ -231,6 +231,7 @@ public ArrayList<SchoolDTO> schSearch(String input) {
 		
 		return sch_list;
 }
+
 public ArrayList<ParkDTO> parkSearch(String input) {
 	
 	park_list = new ArrayList<ParkDTO>(); // 기본 필터 검색
@@ -311,7 +312,7 @@ public ArrayList<FacilityDTO> facSearch(String input) {
 			
 			
 			
-			fdto = new FacilityDTO(dong,apt_name,facility,,price,build_year,year,month,day,apt_size,floor);
+			fdto = new FacilityDTO(dong,apt_name,facility,price,build_year,year,month,day,apt_size,floor);
 			fac_list.add(fdto);
 			
 		}
