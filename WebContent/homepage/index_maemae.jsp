@@ -157,7 +157,7 @@ table {
 					<form action="SearchService.do" method="post">
 
 						<!-- radio를 사 -->
-						아파트<input type="radio" name="table" value="apt_name"> 동<input
+						아파트<input type="radio" name="table" value="apt_name" checked="checked"> 동<input
 							type="radio" name="table" value="dong"> 검색 : <input
 							type="text" name="search"> <input type="submit"
 							value="검색">
@@ -167,7 +167,7 @@ table {
 					
 					<form action= "FavoriteService.do" method = "post">
 						<select name = "select">
-							<option value = "maemae">매매번호</option>
+							<option value = "maemae" selected="selected">매매번호</option>
 							<option value = "rent">임대번호</option>
 						</select>
 						

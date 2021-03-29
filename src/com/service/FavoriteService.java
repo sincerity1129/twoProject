@@ -36,7 +36,11 @@ public class FavoriteService implements FrontCommand {
 			System.out.println("추가성공");
 		}
 		
+		if(select.equals("maemae")) {
 		response.sendRedirect("index_maemae.jsp");
+		}else if (select.equals("rent")) {
+			response.sendRedirect("index_rent.jsp");	
+		}
 	}
 
 }

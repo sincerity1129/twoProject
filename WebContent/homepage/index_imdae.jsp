@@ -157,7 +157,7 @@ table {
 					<form action="SearchService.do" method="post">
 
 						<!-- radio를 사 -->
-						아파트<input type="radio" name="table" value="apt_name"> 동<input
+						아파트<input type="radio" name="table" value="apt_name" > 동<input
 							type="radio" name="table" value="dong"> 검색 : <input
 							type="text" name="search"> <input type="submit"
 							value="검색">
@@ -483,7 +483,7 @@ table {
 					<form action="ImdaeSearchService.do" method="post">
 
 						<!-- radio를 사 -->
-						구<input type="radio" name="search_type" value="region"> 동<input
+						구<input type="radio" name="search_type" value="region" checked="checked"> 동<input
 							type="radio" name="search_type" value="dong"> 검색 : <input
 							type="text" name="imdae_search"> <input type="submit"
 							value="검색">

@@ -274,12 +274,25 @@ table > tr>td{
 					<h1>전 월세</h1>
 					<form action="RentSearchService.do" method="post">
 						<!-- radio를 사 -->
-						아파트<input type="radio" name="table" value="apt_name"> 동<input
+						아파트<input type="radio" name="table" value="apt_name" checked="checked"> 동<input
 							type="radio" name="table" value="dong"> 검색 : <input
 							type="text" name="rent_search"> <input type="submit"
 							value="검색">
 					</form>
-
+					
+					<%if(info !=null) {%>
+					
+					<form action= "FavoriteService.do" method = "post">
+						<select name = "select">
+							<option value = "maemae">매매번호</option>
+							<option value = "rent" selected="selected">임대번호</option>
+						</select>
+						
+							즐겨찾기<input type ="text" name ="maemae_insert">
+							<input type = "submit" value = "추가">
+					</form>
+					<%} %>
+	
 					<!--  <img class="d-block img-fluid" src="./img/white-img.jpg" alt="First slide"> 이미지 파일 넣는 곳-->
 
 
@@ -293,7 +306,7 @@ table > tr>td{
 								<td>즐겨찾기</td>
 								<td>번호</td>
 								<td>동</td>
-								<td>빌드 번호</td>
+								<td>임대 번호</td>
 								<td>보증금</td>
 								<td>월세</td>
 								<td>아파트 이름</td>
@@ -311,7 +324,7 @@ table > tr>td{
 								<td><input type="checkbox" value=""></td>
 								<td><%=i + 1%></td>
 								<td><%=RentSearchList.get(i).getDong()%></td>
-								<td><%=RentSearchList.get(i).getBuild_year()%></td>
+								<td><%=RentSearchList.get(i).getRent_num()%></td>
 								<td><%=RentSearchList.get(i).getDeposit()%></td>
 								<td><%=RentSearchList.get(i).getLoyer()%></td>
 								<td><%=RentSearchList.get(i).getApt_name()%></td>
