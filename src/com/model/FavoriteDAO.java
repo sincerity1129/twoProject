@@ -57,8 +57,9 @@ public class FavoriteDAO {
 		try {
 			if (dto.getType().equals("maemae")) {
 				sql = "insert into MY_maemae values (?,?)";
-			} else if (dto.getType().equals("rent")) {
-				sql = "insert into MY_rent values (?,?)";
+			} 
+			else if (dto.getType().equals("rent")) {
+			sql = "insert into MY_rent values (?,?)";
 			}
 			psmt = conn.prepareStatement(sql);
 			psmt.setString(1, dto.getNum());
