@@ -77,32 +77,23 @@ table > tr>td{
 
 						if (info != null) {
 							/*여긴 기본필터가 아닌 맞춤필터 시에 필요한 부분 */
-						}
-						%> <%
- if (info != null) {
- %>
+						}%> 
+						
+						<%if (info != null) {%>
 					
 					<li class="nav-item">
-						<%
-						if (info.getId().equals("admin")) {
-						%> <a class="nav-link" href="select.jsp">회원정보 관리</a> <%
- }
- %>
+						<%if (info.getId().equals("admin")) {%> 
+						<a class="nav-link" href="select.jsp">회원정보 관리</a> 
+						<%}%>
 					</li>
-
-
 					<li class="nav-item"><a class="nav-link" href="mypage.jsp">마이페이지</a></li>
 					<li class="nav-item"><a class="nav-link"
 						href="LogoutService.do">로그아웃</a></li>
 
-					<%
-					} else {
-					%>
+					<%} else {%>
 					<li class="nav-item"><a class="nav-link" href="join.html">회원가입</a></li>
 					<li class="nav-item"><a class="nav-link" href="login.html">로그인</a></li>
-					<%
-					}
-					%>
+					<%}%>
 					<!-- 로그인 후 Logout.jsp로 이동할 수 있는'로그아웃'링크와 '개인정보수정'링크를 출력하시오. -->
 					</li>
 
@@ -117,31 +108,30 @@ table > tr>td{
 	<div class="container">
 
 		<div class="row">
-
 			<div class="col-lg-3">
-
 				<h1 class="my-4">매물</h1>
 				<div class="list-group">
-					<a href="index_maemae.jsp" class="list-group-item" id="check1">매물</a> <a href=""
-						class="list-group-item" id="check2">전 월세</a>
+					<a href="index_maemae.jsp" class="list-group-item" id="check1">매물</a> 
+					<a href="" class="list-group-item" id="check2">전 월세</a>
 				</div>
+				
 				<h1 class="my-4">특별 필터</h1>
 				<div class="list-group">
 					<a href="index_mat.jsp" class="list-group-item" id="check3">맞춤</a>
-					<%if(info != null){ %>
+					<%if(info != null){%>
 					<a href="index_imdae.jsp" class="list-group-item" id="check4">임대</a>
-					<%} %><%else {%>
+					<%}else {%>
 						<a href="" class="list-group-item" id="check4">임대</a>
-						<%} %>
+						<%}%>
 					
 				</div>
 				<h1 class="my-4">가격 예측</h1>
 				<div class="list-group">
-					<%if(info != null){ %>
+					<%if(info != null){%>
 					<a href="price.jsp" class="list-group-item" id="check2">가격 예측</a>
-					<%} %><%else {%>
+					<%}else {%>
 						<a href="" class="list-group-item" id="check2">가격 예측</a>
-						<%} %>
+						<%}%>
 				</div>
 
 			</div>
@@ -150,15 +140,9 @@ table > tr>td{
 
 			<!-- 매매 -->
 			<div class="col-lg-9">
-
-
-
-
 				<div id="basic" class="raw">
-
 					<h1>매물</h1>
 					<form action="SearchService.do" method="post">
-
 						<!-- radio를 사 -->
 						아파트<input type="radio" name="table" value="apt_name"> 동<input
 							type="radio" name="table" value="dong"> 검색 : <input
@@ -166,14 +150,10 @@ table > tr>td{
 							value="검색">
 					</form>
 
-
-
-					<%
-					DongSearchList = (ArrayList<Main_filterDTO>) session.getAttribute("DongSearchList");
+					<%DongSearchList = (ArrayList<Main_filterDTO>) session.getAttribute("DongSearchList");
 					if (DongSearchList != null) {
 						System.out.print("동 성공!!");
-						System.out.print(DongSearchList.size());
-					%>
+						System.out.print(DongSearchList.size());%>
 					<table>
 						<tr>
 							<td>즐겨찾기</td>
@@ -190,9 +170,7 @@ table > tr>td{
 							<td>층</td>
 						</tr>
 
-						<%
-						for (int i = 0; i < DongSearchList.size(); i++) {
-						%>
+						<%for (int i = 0; i < DongSearchList.size(); i++) {%>
 						<tr>
 							<td><input type="checkbox" value=""></td>
 							<td><%=i + 1%></td>
@@ -208,20 +186,13 @@ table > tr>td{
 							<td><%=DongSearchList.get(i).getFloor()%></td>
 						</tr>
 
-						<%
-						}
-						%>
+						<%}%>
 					</table>
-					<%
-					}
-					%>
+					<%}%>
 
-					<%
-					AptSearchList = (ArrayList<Main_filterDTO>) session.getAttribute("AptSearchList");
-
+					<%AptSearchList = (ArrayList<Main_filterDTO>) session.getAttribute("AptSearchList");
 					if (AptSearchList != null) {
-						System.out.print("아파트 성공!");
-					%>
+						System.out.print("아파트 성공!");%>
 					<table>
 						<tr>
 							<td>즐겨찾기</td>
@@ -238,9 +209,7 @@ table > tr>td{
 							<td>층</td>
 						</tr>
 
-						<%
-						for (int i = 0; i < AptSearchList.size(); i++) {
-						%>
+						<%for (int i = 0; i < AptSearchList.size(); i++) {%>
 						<tr>
 							<td><input type="checkbox" value="1"></td>
 							<td><%=i + 1%></td>
@@ -256,50 +225,39 @@ table > tr>td{
 							<td><%=AptSearchList.get(i).getFloor()%></td>
 						</tr>
 
-						<%
-						}
-						%>
+						<%}%>
 					</table>
-					<%
-					}
-					%>
+					<%}%>
 				</div>
-
-
-
 
 				<!-- 전 월세 -->
 				<div id="junwall">
 					<h1>전 월세</h1>
 					<form action="RentSearchService.do" method="post">
 						<!-- radio를 사 -->
-						아파트<input type="radio" name="table" value="apt_name" checked="checked"> 동<input
-							type="radio" name="table" value="dong"> 검색 : <input
-							type="text" name="rent_search"> <input type="submit"
-							value="검색">
+						아파트<input type="radio" name="table" value="apt_name" checked="checked"> 
+						동<input	type="radio" name="table" value="dong"> 
+							검색 : <input	type="text" name="rent_search"> 
+							<input type="submit" value="검색">
 					</form>
 					
-					<%if(info !=null) {%>
-					
+					<%if(info !=null) {%>					
 					<form action= "FavoriteService.do" method = "post">
 						<select name = "select">
 							<option value = "maemae">매매번호</option>
 							<option value = "rent" selected="selected">임대번호</option>
-						</select>
-						
+						</select>						
 							즐겨찾기<input type ="text" name ="maemae_insert">
 							<input type = "submit" value = "추가">
 					</form>
-					<%} %>
+					<%}%>
 	
 					<!--  <img class="d-block img-fluid" src="./img/white-img.jpg" alt="First slide"> 이미지 파일 넣는 곳-->
 
 
 					<div id="row">
-						<%
-						RentSearchList = (ArrayList<Rent_searchDTO>) session.getAttribute("RentSearchList");
-						if (RentSearchList != null) {
-						%>
+						<%RentSearchList = (ArrayList<Rent_searchDTO>) session.getAttribute("RentSearchList");
+						if (RentSearchList != null) {%>
 						<table>
 							<tr>
 								<td>즐겨찾기</td>
@@ -316,9 +274,7 @@ table > tr>td{
 								<td>평 수</td>
 								<td>층</td>
 							</tr>
-							<%
-							for (int i = 0; i < RentSearchList.size(); i++) {
-							%>
+							<%for (int i = 0; i < RentSearchList.size(); i++) {%>
 							<tr>
 								<td><input type="checkbox" value=""></td>
 								<td><%=i + 1%></td>
@@ -335,14 +291,9 @@ table > tr>td{
 								<td><%=RentSearchList.get(i).getFloor()%></td>
 							</tr>
 
-							<%
-							}
-							%>
+							<%}%>
 						</table>
-						<%
-						}
-						%>
-
+						<%}%>
 					</div>
 				</div>
 
@@ -354,7 +305,6 @@ table > tr>td{
 
 				<div id="mat">
 					<h1>맞춤</h1>
-
 					<form action="MatSearchService.do" method="post">
 						<select name="mat_select">
 							<option value="crime">범죄자 수</option>
@@ -365,7 +315,7 @@ table > tr>td{
 						</select> 동으로 검색 : <input type="text" name="mat_search"> 
 							<%if(info != null){%>
 						<input type="submit" value="검색">
-						<%}%><%else{%>
+						<%}else{%>
 							로그인하여 검색기능 잠금해제.
 						<%}%>
 						
@@ -373,51 +323,29 @@ table > tr>td{
 
 					<!--  <img class="d-block img-fluid" src="./img/white-img.jpg" alt="First slide"> 이미지 파일 넣는 곳-->
 
-					<%
-					mat_select = (String) session.getAttribute("mat_select");
+					<%mat_select = (String) session.getAttribute("mat_select");
 					System.out.print("mat_select"+mat_select);
 					MatSearchList = (ArrayList<Main_filterDTO>) session.getAttribute("mat_search");
-					if (MatSearchList != null) {
-					%>
+					if (MatSearchList != null) {%>
 					<table>
 						<tr>
 							<td>즐겨찾기</td>
 							<td>번호</td>
-							<%
-							if (mat_select.equals("crime")) {
-							%>
+							<%if (mat_select.equals("crime")) {%>
 							<td>범죄자 수</td>
-							<%
-							}
-							%>
-							<%
-							if (mat_select.equals("charge")) {
-							%>
+							<%}%>
+							<%if (mat_select.equals("charge")) {%>
 							<td>전기차 충전소</td>
-							<%
-							}
-							%>
-							<%
-							if (mat_select.equals("subway")) {
-							%>
+							<%}%>
+							<%if (mat_select.equals("subway")) {%>
 							<td>지하철</td>
-							<%
-							}
-							%>
-							<%
-							if (mat_select.equals("coffee")) {
-							%>
+							<%}%>
+							<%if (mat_select.equals("coffee")) {%>
 							<td>스타벅스</td>
-							<%
-							}
-							%>
-							<%
-							if (mat_select.equals("movie")) {
-							%>
+							<%}%>
+							<%if (mat_select.equals("movie")) {%>
 							<td>영화관</td>
-							<%
-							}
-							%>
+							<%}%>
 							<td>매매 번호</td>
 							<td>동</td>
 							<td>가격</td>
@@ -429,42 +357,25 @@ table > tr>td{
 							<td>평 수</td>
 							<td>층</td>
 						</tr>
-						<%
-						for (int i = 0; i < MatSearchList.size(); i++) {
-						%>
+						<%for (int i = 0; i < MatSearchList.size(); i++) {%>
 						<tr>
 							<td><input type="checkbox" value=""></td>
 							<td><%=i + 1%></td>
-							<%
-							if (mat_select.equals("crime")) {
-							%><td><%=MatSearchList.get(i).getCrime()%></td>
-							<%
-							}
-							%>
-							<%
-							if (mat_select.equals("charge")) {
-							%><td><%=MatSearchList.get(i).getCharge()%></td>
-							<%
-							}
-							%>
-							<%
-							if (mat_select.equals("subway")) {
-							%><td><%=MatSearchList.get(i).getSubway()%></td>
-							<%
-							}
-							%>
-							<%
-							if (mat_select.equals("coffee")) {
-							%><td><%=MatSearchList.get(i).getStarbucks()%></td>
-							<%
-							}
-							%>
-							<%
-							if (mat_select.equals("movie")) {
-							%><td><%=MatSearchList.get(i).getMovie()%></td>
-							<%
-							}
-							%>
+							<%if (mat_select.equals("crime")) {%>
+							<td><%=MatSearchList.get(i).getCrime()%></td>
+							<%}%>
+							<%if (mat_select.equals("charge")) {%>
+							<td><%=MatSearchList.get(i).getCharge()%></td>
+							<%}%>
+							<%if (mat_select.equals("subway")) {%>
+							<td><%=MatSearchList.get(i).getSubway()%></td>
+							<%}%>
+							<%if (mat_select.equals("coffee")) {%>
+							<td><%=MatSearchList.get(i).getStarbucks()%></td>
+							<%}%>
+							<%if (mat_select.equals("movie")) {%>
+							<td><%=MatSearchList.get(i).getMovie()%></td>
+							<%}%>
 
 							<td><%=MatSearchList.get(i).getMaemae_num()%></td>
 							<td><%=MatSearchList.get(i).getDong()%></td>
@@ -479,18 +390,13 @@ table > tr>td{
 
 						</tr>
 
-						<%
-						}
-						%>
+						<%}%>
 					</table>
-					<%
-					}
-					%>
+					<%}%>
 
 				</div>
 
 				<!-- 맞춤 -->
-
 
 				<!-- 임대 -->
 				<div id="imdae">
@@ -506,10 +412,8 @@ table > tr>td{
 					</form>
 
 
-					<%
-					ImdaeSearchList = (ArrayList<ImdaeSearchDTO>) session.getAttribute("ImdaeSearchList");
-					if (ImdaeSearchList != null) {
-					%>
+					<%ImdaeSearchList = (ArrayList<ImdaeSearchDTO>) session.getAttribute("ImdaeSearchList");
+					if (ImdaeSearchList != null) {%>
 
 					<table>
 						<tr>
@@ -528,9 +432,7 @@ table > tr>td{
 							<td>최초 입주</td>
 						</tr>
 
-						<%
-						for (int i = 0; i < ImdaeSearchList.size(); i++) {
-						%>
+						<%for (int i = 0; i < ImdaeSearchList.size(); i++) {%>
 						<tr>
 							<td><input type="checkbox" value=""></td>
 							<td><%=i + 1%></td>
@@ -547,13 +449,9 @@ table > tr>td{
 							<td><%=ImdaeSearchList.get(i).getMove_into_date()%></td>
 						</tr>
 
-						<%
-						}
-						%>
+						<%}%>
 					</table>
-					<%
-					}
-					%>
+					<%}%>
 
 
 

@@ -24,7 +24,7 @@
 		<input type ="submit" value = "조회">
 </form>
 
-<%
+					  <%
 						//전역 변수 만들어주기.
 						MemberDTO info = (MemberDTO) session.getAttribute("info");
 						Main_filterDAO dao = new Main_filterDAO();
@@ -37,14 +37,11 @@
 
 						if (info != null) {
 							/*여긴 기본필터가 아닌 맞춤필터 시에 필요한 부분 */
-						}
-						%>
+						}%>
 
 
-	<%
-					DongSearchList = (ArrayList<Main_filterDTO>) session.getAttribute("DongSearchList");
-					if (DongSearchList != null) {
-					%>
+				 <%DongSearchList = (ArrayList<Main_filterDTO>) session.getAttribute("DongSearchList");
+					if (DongSearchList != null) {%>
 					<table>
 						<tr>
 							<td>즐겨찾기</td>
@@ -61,9 +58,7 @@
 							<td>층</td>
 						</tr>
 
-						<%
-						for (int i = 0; i < DongSearchList.size(); i++) {
-						%>
+						<%for (int i = 0; i < DongSearchList.size(); i++) {%>
 						<tr>
 							<td><input type="checkbox" value=""></td>
 							<td><%=i + 1%></td>
@@ -79,13 +74,9 @@
 							<td><%=DongSearchList.get(i).getFloor()%></td>
 						</tr>
 
-						<%
-						}
-						%>
+						<%}%>
 					</table>
-					<%
-					}
-					%>
+					<%}%>
 
 </body>
 </html>

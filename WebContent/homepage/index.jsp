@@ -103,57 +103,44 @@ div{
 
 	<!-- 메뉴페이지 -->
 	<div class="container">
-
 		<div class="row">
-
 			<div class="col-lg-3">
-
 				<h1 class="my-4">매물</h1>
 				<div class="list-group">
-					<a href="index_maemae.jsp" class="list-group-item" id="check1">매물</a> <a href="index_rent.jsp"
-						class="list-group-item" id="check2">전 월세</a>
+					<a href="index_maemae.jsp" class="list-group-item" id="check1">매물</a> 
+					<a href="index_rent.jsp" class="list-group-item" id="check2">전 월세</a>
 				</div>
 				<h1 class="my-4">특별 필터</h1>
 				<div class="list-group">
-					<a href="index_mat.jsp" class="list-group-item" id="check3">맞춤</a> <a href="index_imdae.jsp"
-						class="list-group-item" id="check4">임대</a>
+					<a href="index_mat.jsp" class="list-group-item" id="check3">맞춤</a> 
+					<a href="index_imdae.jsp" class="list-group-item" id="check4">임대</a>
 				</div>
 				<h1 class="my-4">가격 예측</h1>
 				<div class="list-group">
 					<a href="price.jsp" class="list-group-item" id="check2">가격 예측</a>
 				</div>
-
 			</div>
 		</div>
 	</div>
-
-
-
-
 
 	<!-- 매매 -->
 	<div id="basic" class = "raw">
 		<h1>매물</h1>
 		<form action="SearchService.do" method="post">
-
 			<!-- radio를 사 -->
-			아파트<input type="radio" name="table" value="apt_name"> 동<input
-				type="radio" name="table" value="dong"> 검색 : <input
-				type="text" name="search"> <input type="submit" value="검색">
+			아파트<input type="radio" name="table" value="apt_name"> 
+			동<input	type="radio" name="table" value="dong"> 
+			검색 : <input type="text" name="search"> 
+			<input type="submit" value="검색">
 		</form>
-
 	</div>
 	
 
 	<div id="basic">
-
-
-		<%
-			DongSearchList = (ArrayList<Main_filterDTO>) session.getAttribute("DongSearchList");
+		<%DongSearchList = (ArrayList<Main_filterDTO>) session.getAttribute("DongSearchList");
 			if (DongSearchList != null) {
 				System.out.print("동 성공!!");
-				System.out.print(DongSearchList.size());
-			%>
+				System.out.print(DongSearchList.size());%>
 		<table>
 			<tr>
 				<td>즐겨찾기</td>
@@ -170,9 +157,7 @@ div{
 				<td>층</td>
 			</tr>
 
-			<%
-				for (int i = 0; i < DongSearchList.size(); i++) {
-				%>
+			<%for (int i = 0; i < DongSearchList.size(); i++) {%>
 			<tr>
 				<td><input type="checkbox" value=""></td>
 				<td><%=i + 1%></td>
@@ -188,20 +173,13 @@ div{
 				<td><%=DongSearchList.get(i).getFloor()%></td>
 			</tr>
 
-			<%
-				}
-				%>
+			<%}%>
 		</table>
-		<%
-			}
-			%>
+		<%}%>
 
-		<%
-			AptSearchList = (ArrayList<Main_filterDTO>) session.getAttribute("AptSearchList");
-
+		<%AptSearchList = (ArrayList<Main_filterDTO>) session.getAttribute("AptSearchList");
 			if (AptSearchList != null) {
-				System.out.print("아파트 성공!");
-			%>
+				System.out.print("아파트 성공!");%>
 		<table>
 			<tr>
 				<td>즐겨찾기</td>
@@ -218,9 +196,7 @@ div{
 				<td>층</td>
 			</tr>
 
-			<%
-				for (int i = 0; i < AptSearchList.size(); i++) {
-				%>
+			<%for (int i = 0; i < AptSearchList.size(); i++) {%>
 			<tr>
 				<td><input type="checkbox" value="1"></td>
 				<td><%=i + 1%></td>
@@ -236,37 +212,28 @@ div{
 				<td><%=AptSearchList.get(i).getFloor()%></td>
 			</tr>
 
-			<%
-				}
-				%>
+			<%}%>
 		</table>
-		<%
-			}
-			%>
+		<%}%>
 	</div>
-
-
-
 
 	<!-- 전 월세 -->
 	<div id="junwall">
 		<h1>전 월세</h1>
 		<form action="RentSearchService.do" method="post">
 			<!-- radio를 사 -->
-			아파트<input type="radio" name="table" value="apt_name"> 동<input
-				type="radio" name="table" value="dong"> 검색 : <input
-				type="text" name="rent_search"> <input type="submit"
-				value="검색">
+			아파트<input type="radio" name="table" value="apt_name"> 
+			동<input	type="radio" name="table" value="dong"> 
+			검색 : <input type="text" name="rent_search"> 
+			<input type="submit" value="검색">
 		</form>
 
 		<!--  <img class="d-block img-fluid" src="./img/white-img.jpg" alt="First slide"> 이미지 파일 넣는 곳-->
 
 
 		<div id="row">
-			<%
-			RentSearchList = (ArrayList<Rent_searchDTO>) session.getAttribute("RentSearchList");
-			if (RentSearchList != null) {
-			%>
+			<%RentSearchList = (ArrayList<Rent_searchDTO>) session.getAttribute("RentSearchList");
+			if (RentSearchList != null) {%>
 			<table>
 				<tr>
 					<td>즐겨찾기</td>
@@ -283,9 +250,7 @@ div{
 					<td>평 수</td>
 					<td>층</td>
 				</tr>
-				<%
-				for (int i = 0; i < RentSearchList.size(); i++) {
-				%>
+				<%for (int i = 0; i < RentSearchList.size(); i++) {%>
 				<tr>
 					<td><input type="checkbox" value=""></td>
 					<td><%=i + 1%></td>
@@ -302,27 +267,15 @@ div{
 					<td><%=RentSearchList.get(i).getFloor()%></td>
 				</tr>
 
-				<%
-				}
-				%>
+				<%}%>
 			</table>
-			<%
-			}
-			%>
-
+			<%}%>
 		</div>
 	</div>
-
-
-
-
-
+	
 	<!-- 맞춤 -->
-
 	<div id="mat">
-
 		<h1>맞춤</h1>
-
 		<select name="mat_select">
 			<option value="crime">범죄자</option>
 			<option value="charge">전기차 충전소</option>
@@ -332,16 +285,14 @@ div{
 		</select>
 
 		<form action="MatSearchService.do" method="post">
-			동으로 검색 : <input type="text" name="mat_search"> <input
-				type="submit" value="검색">
+			동으로 검색 : <input type="text" name="mat_search"> 
+			<input type="submit" value="검색">
 		</form>
 
 		<!--  <img class="d-block img-fluid" src="./img/white-img.jpg" alt="First slide"> 이미지 파일 넣는 곳-->
 
-		<%
-			MatSearchList = (ArrayList<Main_filterDTO>) session.getAttribute("mat_search");
-			if (MatSearchList != null) {
-			%>
+		<%MatSearchList = (ArrayList<Main_filterDTO>) session.getAttribute("mat_search");
+			if (MatSearchList != null) {%>
 		<table>
 			<tr>
 				<td>즐겨찾기</td>
@@ -358,32 +309,18 @@ div{
 				<td>평 수</td>
 				<td>층</td>
 			</tr>
-			<%
-				for (int i = 0; i < MatSearchList.size(); i++) {
-				%>
+			<%for (int i = 0; i < MatSearchList.size(); i++) {%>
 			<tr>
 				<td><input type="checkbox" value=""></td>
 				<td><%=i + 1%></td>
-
 				<td></td>
-				<%
-					if (false) {
-					%><td><%=MatSearchList.get(i).getCrime()%></td>
-				<%
-
-					%><td><%=MatSearchList.get(i).getCharge()%></td>
-				<%
-
-					%><td><%=MatSearchList.get(i).getStarbucks()%></td>
-				<%
-
-					%><td><%=MatSearchList.get(i).getSubway()%></td>
-				<%
-
-					%><td><%=MatSearchList.get(i).getMovie()%></td>
-				<%
-					}
-					%>
+				<%if (false) {%>
+				<td><%=MatSearchList.get(i).getCrime()%></td>
+				<td><%=MatSearchList.get(i).getCharge()%></td>
+				<td><%=MatSearchList.get(i).getStarbucks()%></td>
+				<td><%=MatSearchList.get(i).getSubway()%></td>
+				<td><%=MatSearchList.get(i).getMovie()%></td>
+				<%}%>
 
 				<td><%=MatSearchList.get(i).getMaemae_num()%></td>
 				<td><%=MatSearchList.get(i).getDong()%></td>
@@ -397,15 +334,9 @@ div{
 				<td><%=MatSearchList.get(i).getFloor()%></td>
 
 			</tr>
-
-			<%
-				}
-				%>
+			<%}%>
 		</table>
-		<%
-			}
-			%>
-
+		<%}%>
 	</div>
 
 	<!-- 맞춤 -->
@@ -413,23 +344,18 @@ div{
 
 	<!-- 임대 -->
 	<div id="imdae">
-
 		<h1>임대</h1>
 		<form action="ImdaeSearchService.do" method="post">
-
 			<!-- radio를 사 -->
-			아파트<input type="radio" name="search_type" value="apt_name"> 동<input
-				type="radio" name="search_type" value="dong"> 검색 : <input
-				type="text" name="imdae_search"> <input type="submit"
-				value="검색">
+			아파트<input type="radio" name="search_type" value="apt_name"> 
+			동<input	type="radio" name="search_type" value="dong"> 
+			검색 : <input type="text" name="imdae_search"> 
+			<input type="submit" value="검색">
 		</form>
 
 
-		<%
-			ImdaeSearchList = (ArrayList<ImdaeSearchDTO>) session.getAttribute("ImdaeSearchList");
-			if (ImdaeSearchList != null) {
-			%>
-
+		<%ImdaeSearchList = (ArrayList<ImdaeSearchDTO>) session.getAttribute("ImdaeSearchList");
+			if (ImdaeSearchList != null) {%>
 		<table>
 			<tr>
 				<td>즐겨찾기</td>
@@ -447,9 +373,7 @@ div{
 				<td>최초 입주</td>
 			</tr>
 
-			<%
-				for (int i = 0; i < ImdaeSearchList.size(); i++) {
-				%>
+			<%for (int i = 0; i < ImdaeSearchList.size(); i++) {%>
 			<tr>
 				<td><input type="checkbox" value=""></td>
 				<td><%=i + 1%></td>
@@ -466,18 +390,9 @@ div{
 				<td><%=ImdaeSearchList.get(i).getMove_into_date()%></td>
 			</tr>
 
-			<%
-				}
-				%>
+			<%}%>
 		</table>
-		<%
-			}
-			%>
-
-
-
-
-
+		<%}%>
 	</div>
 
 
