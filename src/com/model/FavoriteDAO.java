@@ -13,12 +13,11 @@ public class FavoriteDAO {
 	PreparedStatement psmt = null;
 	int cnt = 0;
 	ResultSet rs = null;
-	Main_filterDTO dto = null;
-	ArrayList<Main_filterDTO> favorite_list = null;
+	Main_filterDTO dto = null;	
+	ArrayList<Main_filterDTO> MeaList = null;
+	ArrayList<Rent_searchDTO> RentList = null;
 	String sql = null;
-	
-	ArrayList<String> sel_list = null;
-	String num = null;
+
 
 	public void conn() { // DB 연결
 
@@ -53,18 +52,17 @@ public class FavoriteDAO {
 		}
 	}
 
-	public int insert(String type, String obj, String id) { // 즐겨찾기 추가
-
+	public int insert(FavoriteDTO dto) { // 즐겨찾기 추가
 		conn();
 		try {
-			if (type.equals("maemae")) {
+			if (dto.getType().equals("maemae")) {
 				sql = "insert into MY_maemae values (?,?)";
-			} else if (type.equals("rent")) {
+			} else if (dto.getType().equals("rent")) {
 				sql = "insert into MY_rent values (?,?)";
 			}
 			psmt = conn.prepareStatement(sql);
-			psmt.setString(1, obj);
-			psmt.setString(2, id);
+			psmt.setString(1, dto.getNum());
+			psmt.setString(2, dto.getId());
 
 			cnt = psmt.executeUpdate();
 
@@ -81,31 +79,39 @@ public class FavoriteDAO {
 		return cnt;
 	}
 
-	public ArrayList<String> sel(String type, String input) {
+	public ArrayList<Main_filterDTO> Mea_view(MemberDTO info) {
 
-		sel_list = new ArrayList<String>();
-		
+		MeaList = new ArrayList<Main_filterDTO>();
 		conn();
-		
-		System.out.println("type : "+type);
-		System.out.println("input : "+input);
 		
 
 		try {
-			if (type.equals("maemae")) {
-				sql = "select * from my_maemae where  MAEMAE_MEM_ID = ?";
-			} else if (type.equals("rent")) {
-				sql = "select * from my_rent where  MAEMAE_MEM_ID = ?";
-			}
+				sql = "SELECT MAEMAE_NUM,DONG,PRICE,BUILD_YEAR,APT_NAME,YEAR, MONTH,DAY,APT_SIZE,FLOOR "
+						+ "FROM   A_MAEMAE "
+						+ "WHERE  MAEMAE_NUM IN (SELECT MY_MAEMAE_NUM "
+						+ "FROM MY_MAEMAE "
+						+ "WHERE MAEMAE_MEM_ID IN ?)";		
 			psmt = conn.prepareStatement(sql);
-			psmt.setString(1, input);
+			psmt.setString(1, info.getId());
 			rs = psmt.executeQuery();
 
 			System.out.println("rs.next = " + rs.next());
 
 			while (rs.next()) {
-				num = rs.getString(1);
-				sel_list.add(num);
+				int MAEMAE_NUM = rs.getInt(1);
+				String DONG = rs.getString(2);
+				String PRICE = rs.getString(3);
+				int BUILD_YEAR = rs.getInt(4);
+				String APT_NAME = rs.getString(5);
+				int YEAR = rs.getInt(6);
+				int MONTH = rs.getInt(7);
+				int DAY = rs.getInt(8);
+				int APT_SIZE = rs.getInt(9);
+				int FLOOR = rs.getInt(10);
+			
+				Main_filterDTO view = new Main_filterDTO(MAEMAE_NUM, DONG, PRICE, BUILD_YEAR, APT_NAME, YEAR, MONTH, DAY, APT_SIZE, FLOOR);
+				
+				MeaList.add(view);
 			}
 			
 		} catch (SQLException e) {
@@ -113,60 +119,52 @@ public class FavoriteDAO {
 		} finally {
 			close();
 		}
-		
-		System.out.println("sel_list : "+sel_list);
 
-		return sel_list;
+		return MeaList;
 	}
 
+	public ArrayList<Rent_searchDTO> Rent_view(MemberDTO info) {
 
-
-	public ArrayList<Main_filterDTO> list(String type, ArrayList<String> sel_list) {
-
-		favorite_list = new ArrayList<Main_filterDTO>(); // 기본 필터 검색
-
+		RentList = new ArrayList<Rent_searchDTO>();
 		conn();
+		
 
 		try {
-			if (type.equals("maemae")) {
-				for (int i = 0; i < sel_list.size(); i++) {
+				sql = "SELECT RENT_NUM,DONG,BUILD_YEAR,DEPOSIT,LOYER,APT_NAME,YEAR,MONTH,DAY,APT_SIZE,FLOOR "
+						+ "FROM   A_RENT "
+						+ "WHERE  RENT_NUM IN (SELECT MY_RENT_NUM "
+						+ "FROM MY_RENT "
+						+ "WHERE RENT_MEM_ID IN ?)";		
+			psmt = conn.prepareStatement(sql);
+			psmt.setString(1, info.getId());
+			rs = psmt.executeQuery();
 
-					sql = "select * from a_maemae where maemae_num = ?";
-					psmt = conn.prepareStatement(sql);
-					psmt.setString(1, sel_list.get(i));
+			System.out.println("rs.next = " + rs.next());
 
-					rs = psmt.executeQuery();
-
-					int maemae_num = rs.getInt(1);
-					String dong = rs.getString(2);
-					String price = rs.getString(3);
-					int build_year = rs.getInt(4);
-					String apt_name = rs.getString(5);
-					int year = rs.getInt(6);
-					int month = rs.getInt(7);
-					int day = rs.getInt(8);
-					int apt_size = rs.getInt(9);
-					int floor = rs.getInt(10);
-
-					dto = Main_filterDTO(maemae_num, dong, price, build_year, apt_name, year, month, day, apt_size,
-							floor);
-
-					while (rs.next()) {
-						favorite_list.add(dto);
-					}
-
-				}
+			while (rs.next()) {
+				int RENT_NUM = rs.getInt(1);
+				String DONG = rs.getString(2);
+				int BUILD_YEAR = rs.getInt(3);
+				String DEPOSIT = rs.getString(4);
+				String LOYER = rs.getString(5);
+				String APT_NAME = rs.getString(6);
+				int YEAR = rs.getInt(7);
+				int MONTH = rs.getInt(8);
+				int DAY = rs.getInt(9);
+				int APT_SIZE = rs.getInt(10);
+				int FLOOR = rs.getInt(10);
+			
+				Rent_searchDTO view = new Rent_searchDTO(RENT_NUM, DONG, BUILD_YEAR, DEPOSIT, LOYER, APT_NAME, YEAR, MONTH, DAY, APT_SIZE, FLOOR);
+				
+				RentList.add(view);
 			}
-
+			
 		} catch (SQLException e) {
 			e.printStackTrace();
 		} finally {
 			close();
 		}
 
-		return favorite_list;
+		return RentList;
 	}
-
-	
-
 }
