@@ -17,6 +17,7 @@ public class FavoriteDAO {
 	ArrayList<Main_filterDTO> favorite_list = null;
 	String sql = null;
 	ArrayList<String> sel_list = null;
+	String num = null;
 
 	public void conn() { // DB ¿¬°á
 
@@ -81,6 +82,8 @@ public class FavoriteDAO {
 
 	public ArrayList<String> sel(String type, String input) {
 
+		sel_list = new ArrayList<String>();
+		
 		conn();
 		
 		System.out.println("type : "+type);
@@ -100,7 +103,7 @@ public class FavoriteDAO {
 			System.out.println("rs.next = " + rs.next());
 
 			while (rs.next()) {
-				String num = rs.getString("1");
+				num = rs.getString("1");
 				sel_list.add(num);
 			}
 			
@@ -109,7 +112,8 @@ public class FavoriteDAO {
 		} finally {
 			close();
 		}
-		System.out.println(sel_list);
+		
+		System.out.println(sel_list.get(1));
 
 		return sel_list;
 	}
