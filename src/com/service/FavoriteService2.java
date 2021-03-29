@@ -32,6 +32,8 @@ public class FavoriteService2 implements FrontCommand {
 		ArrayList<String> sel = dao.sel(select, info.getId());
 
 		ArrayList<Main_filterDTO> list = dao.list(select, sel);
+		
+		System.out.println("È®ÀÎ¿ë : "+list);
 
 		session.setAttribute("list", list);
 

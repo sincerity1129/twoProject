@@ -16,6 +16,7 @@ public class FavoriteDAO {
 	Main_filterDTO dto = null;
 	ArrayList<Main_filterDTO> favorite_list = null;
 	String sql = null;
+	
 	ArrayList<String> sel_list = null;
 	String num = null;
 
@@ -103,7 +104,7 @@ public class FavoriteDAO {
 			System.out.println("rs.next = " + rs.next());
 
 			while (rs.next()) {
-				num = rs.getString("1");
+				num = rs.getString(1);
 				sel_list.add(num);
 			}
 			
@@ -113,7 +114,7 @@ public class FavoriteDAO {
 			close();
 		}
 		
-		System.out.println(sel_list.get(1));
+		System.out.println("sel_list : "+sel_list);
 
 		return sel_list;
 	}
@@ -166,10 +167,6 @@ public class FavoriteDAO {
 		return favorite_list;
 	}
 
-	private Main_filterDTO Main_filterDTO(int maemae_num, String dong, String price, int build_year, String apt_name,
-			int year, int month, int day, int apt_size, int floor) {
-		// TODO Auto-generated method stub
-		return null;
-	}
+	
 
 }
