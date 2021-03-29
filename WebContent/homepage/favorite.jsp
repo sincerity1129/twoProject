@@ -18,9 +18,9 @@
 </head>
 <body>
 					  <%					
-						MemberDTO info = (MemberDTO) session.getAttribute("info");
+						MemberDTO Mea_info = (MemberDTO) session.getAttribute("info");
 					  	FavoriteDAO dao = new FavoriteDAO();
-					  	ArrayList<Main_filterDTO> MeaList = dao.Mea_view(info);					  				  						  	
+					  	ArrayList<Main_filterDTO> MeaList = dao.Mea_view(Mea_info);					  				  						  	
 						%>
 					  <%if(MeaList != null) {%>
 						<table>
@@ -58,7 +58,8 @@
 					<%}%>
 
 
-				 <%ArrayList<Rent_searchDTO> RentList = dao.Rent_view(info);
+				 <%MemberDTO Rent_info = (MemberDTO) session.getAttribute("info");
+				 ArrayList<Rent_searchDTO> RentList = dao.Rent_view(Rent_info);
 					if (RentList != null) {%>
 					<table>
 						<tr>

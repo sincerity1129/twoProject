@@ -62,10 +62,10 @@ public ArrayList<Rent_searchDTO> search(String input,String search) {
 	
 	try {
 		if(search.equals("apt_name")) {
-			sql = "select * from rent where apt_name like ";	
+			sql = "select * from A_rent where apt_name like ";	
 		}
 		else if(search.equals("dong")) {
-			sql = "select * from rent where dong like";
+			sql = "select * from A_rent where dong like";
 		}
 		psmt = conn.prepareStatement(sql+"\'%"+input+"%\'");
 		rs = psmt.executeQuery();
