@@ -56,8 +56,9 @@ public int  join(MemberDTO dto) { //회원가입
 			psmt.setString(2, dto.getPw()); //비밀번호
 			psmt.setString(3, dto.getName()); //이름
 			psmt.setString(4, dto.getTel()); //전화번호
-			psmt.setString(4, dto.getBirth()); //생년월일
-			psmt.setString(4, dto.getAddr()); //주소(법정동)
+			psmt.setString(5, dto.getBirth()); //생년월일
+			psmt.setString(6, dto.getAddr()); //주소(법정동)
+			
 			cnt = psmt.executeUpdate();
 		} catch (SQLException e) {
 			e.printStackTrace();
