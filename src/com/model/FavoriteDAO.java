@@ -50,10 +50,11 @@ public class FavoriteDAO {
 		}
 	}
 	
-public int  insert(MemberDTO dto) { //회원가입
+public int  insert(String type, String obj) { //즐겨찾기 추가
 		
 		conn();
 		try {
+			if(type.equals(""))
 			String sql = "insert into MY_FAVORIT values (?,?,?)";
 			psmt = conn.prepareStatement(sql);
 			psmt.setString(1, dto.getId());

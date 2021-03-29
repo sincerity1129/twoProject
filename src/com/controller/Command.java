@@ -33,7 +33,7 @@ public class Command extends HttpServlet {
 		HttpSession session = request.getSession();
 		session.setAttribute("maemae",1);
 		
-		
+		System.out.println(resultURI);
 		
 		if(resultURI.equals("homepage/JoinService.do")) {
 			command = new JoinService();
