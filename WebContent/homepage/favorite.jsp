@@ -11,6 +11,24 @@
 <!DOCTYPE html>
 <html>
 <head>
+
+<style type="text/css">
+table, td {
+	border: 1px solid black;
+}
+
+table {
+	width: 60%;
+	height: 100px;
+	margin: auto;
+	text-align: center;
+}
+
+#basic, #junwall, #mat{
+	display: none;
+	
+}
+</style>
 <meta charset="EUC-KR">
 <title>Insert title here</title>
 
