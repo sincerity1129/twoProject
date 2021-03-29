@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import com.service.FavoriteService;
+import com.service.FavoriteService2;
 import com.service.ImdaeSearchService;
 import com.service.JoinService;
 import com.service.LoginService;
@@ -54,6 +55,8 @@ public class Command extends HttpServlet {
 			command = new ImdaeSearchService();
 		}else if(resultURI.equals("homepage/FavoriteService.do")) {
 			command = new FavoriteService();
+		}else if(resultURI.equals("homepage/FavoriteService2.do")) {
+			command = new FavoriteService2();
 		}	
 		
 		

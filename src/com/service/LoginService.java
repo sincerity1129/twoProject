@@ -39,7 +39,6 @@ public class LoginService implements FrontCommand {
 		
 		response.sendRedirect("index_main.jsp");
 		
-		FavoriteDAO fdao = new FavoriteDAO();
 		
 	}
 

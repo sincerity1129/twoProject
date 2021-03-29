@@ -5,7 +5,7 @@
 <%@page import="java.util.ArrayList"%>
 <%@page import="com.model.Main_filterDAO"%>
 <%@page import="com.model.Main_filterDTO"%>
-<%@page import="com.model.MemberDTO"%>
+<%@page import="com.model.MemberDTO"%>.
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
 	pageEncoding="EUC-KR"%>
 
