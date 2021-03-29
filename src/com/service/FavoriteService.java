@@ -34,13 +34,12 @@ public class FavoriteService implements FrontCommand {
 		
 		int cnt = dao.insert(dto);
 		
-		if(cnt>0) {
+		if(type.equals("maemae")) {
 			System.out.println("즐겨찾기 성공");
-		}else {
-			System.out.println("즐겨찾기 실패");
+			response.sendRedirect("index_maemae.jsp");
+		}else if(type.equals("rent")){
+			response.sendRedirect("index_rent.jsp");
 		}
-			
-		response.sendRedirect("index_maemae.jsp");
 	}
 	
 		

@@ -57,7 +57,7 @@ public void close() { // DB 연결 해제
 			conn();
 			ArrayList<Main_filterDTO> searchlist = new ArrayList<>();
 			try {
-				String sql = "select * from maemae where = ?";
+				String sql = "select * from A_maemae where = ?";
 				psmt = conn.prepareStatement(sql);
 				psmt.setString(1, search);
 				rs = psmt.executeQuery();

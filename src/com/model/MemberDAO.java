@@ -122,7 +122,7 @@ public ArrayList<MemberDTO> select(){
 	conn();
 	
 	try {
-		String sql="select * from a_member";
+		String sql="select * from A_member";
 		psmt=conn.prepareStatement(sql);
 		rs=psmt.executeQuery();
 		
