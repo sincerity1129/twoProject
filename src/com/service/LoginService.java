@@ -15,6 +15,9 @@ public class LoginService implements FrontCommand {
 
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
+		response.setCharacterEncoding("EUC-KR");
+		
 		String id = request.getParameter("id");
 		String pw = request.getParameter("pw");
 		

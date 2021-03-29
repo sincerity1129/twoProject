@@ -69,7 +69,7 @@ table {
 	<!-- Navigation -->
 	<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
 		<div class="container">
-			<a class="navbar-brand" href="#">조이름</a>
+			<a class="navbar-brand" href="#">Leader</a>
 			<button class="navbar-toggler" type="button" data-toggle="collapse"
 				data-target="#navbarResponsive" aria-controls="navbarResponsive"
 				aria-expanded="false" aria-label="Toggle navigation">
@@ -82,34 +82,17 @@ table {
 					<li class="nav-item active"><a class="nav-link" href="#">메인
 							<span class="sr-only">(current)</span>
 					</a></li>
-
-					<%
-					if (info != null) {
-					%>
-					<li class="nav-item">
-						<%
-						if (info.getId().equals("admin")) {
-						%> <a class="nav-link" href="select.jsp">회원정보 관리</a> <%
- }
- %>
-					</li>
-
-
-					<li class="nav-item"><a class="nav-link" href="mypage.jsp">마이페이지</a></li>
-					<li class="nav-item"><a class="nav-link"
-						href="LogoutService.do">로그아웃</a></li>
-
-					<%
-					} else {
-					%>
-					<li class="nav-item"><a class="nav-link" href="join.jsp">회원가입</a></li>
-					<li class="nav-item"><a class="nav-link" href="login.jsp">로그인</a></li>
-					<%
-					}
-					%>
-					<!-- 로그인 후 Logout.jsp로 이동할 수 있는'로그아웃'링크와 '개인정보수정'링크를 출력하시오. -->
-
-
+					<%if (info != null) {%>
+						<li class="nav-item">
+						<%if (info.getId().equals("admin")) {%> 
+							<a class="nav-link" href="select.jsp">회원정보 관리</a></li>
+						<%}%>
+							<li class="nav-item"><a class="nav-link" href="mypage.jsp">마이페이지</a></li>
+							<li class="nav-item"><a class="nav-link" href="LogoutService.do">로그아웃</a></li>
+						<%} else {%>
+							<li class="nav-item"><a class="nav-link" href="join.html">회원가입</a></li>
+							<li class="nav-item"><a class="nav-link" href="login.html">로그인</a></li>
+						<%}%>
 				</ul>
 			</div>
 		</div>

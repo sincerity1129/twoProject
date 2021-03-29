@@ -24,8 +24,12 @@ public class UpdateService implements FrontCommand {
 		String id = loginDto.getId();
 		String pw = request.getParameter("pw");
 		String name = request.getParameter("name");
+		String tel = request.getParameter("tel");
+		String birth = request.getParameter("birth");
+		String addr = request.getParameter("addr");
 		
-		MemberDTO info = new MemberDTO(id,pw,name);
+		
+		MemberDTO info = new MemberDTO(id,pw,name,tel,birth,addr);
 		MemberDAO dao = new MemberDAO();
 		
 		int cnt = dao.update(info);

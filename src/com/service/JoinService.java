@@ -22,10 +22,12 @@ public class JoinService implements FrontCommand {
 		String id = request.getParameter("id");
 		String pw = request.getParameter("pw");
 		String name = request.getParameter("name");
+		String tel = request.getParameter("tel");
+		String birth = request.getParameter("birth");
+		String addr = request.getParameter("addr");
 
-		MemberDTO dto = new MemberDTO(id,pw,name);
+		MemberDTO dto = new MemberDTO(id,pw,name,tel,birth,addr);
 		MemberDAO dao = new MemberDAO();
-		
 		int cnt = dao.join(dto);
 		
 		if(cnt>0) {
