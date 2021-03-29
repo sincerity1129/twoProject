@@ -22,6 +22,9 @@ public class FavoriteService implements FrontCommand {
 		
 		String num = request.getParameter("maemae_insert");
 		String select = request.getParameter("select");
+		
+		System.out.println(num);
+		System.out.println(select);
 		MemberDTO info = (MemberDTO)session.getAttribute("info");
 		System.out.print("id"+info.getId());
 		

@@ -171,7 +171,7 @@ table {
 							<option value = "rent">임대번호</option>
 						</select>
 						
-							즐겨찾기<input type ="text" name ="mameae_insert">
+							즐겨찾기<input type ="text" name ="maemae_insert">
 							<input type = "submit" value = "추가">
 					</form>
 					<%} %>
