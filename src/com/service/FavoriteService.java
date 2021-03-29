@@ -23,11 +23,11 @@ public class FavoriteService implements FrontCommand {
 		
 		String num = request.getParameter("maemae_insert");
 		String select = request.getParameter("select");
-		ArrayList<MemberDTO> info = (ArrayList<MemberDTO>)session.getAttribute("info");
-		System.out.print(info);
+		MemberDTO info = (MemberDTO)session.getAttribute("info");
+		System.out.print(info.getId());
 		
 		FavoriteDAO dao = new FavoriteDAO();
-		dao.insert(select,num,info.get(0).getId());
+		dao.insert(select, num, info.getId());
 		
 		if(info != null) {
 			System.out.println("추가 성공");

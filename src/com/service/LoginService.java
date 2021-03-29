@@ -8,6 +8,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import com.controller.FrontCommand;
+import com.model.FavoriteDAO;
 import com.model.MemberDAO;
 import com.model.MemberDTO;
 
@@ -20,6 +21,7 @@ public class LoginService implements FrontCommand {
 		
 		String id = request.getParameter("id");
 		String pw = request.getParameter("pw");
+		
 		
 		MemberDTO dto = new MemberDTO(id,pw);
 		MemberDAO dao = new MemberDAO();
@@ -36,6 +38,9 @@ public class LoginService implements FrontCommand {
 		}
 		
 		response.sendRedirect("index_main.jsp");
+		
+		FavoriteDAO fdao = new FavoriteDAO();
+		
 	}
 
 }
