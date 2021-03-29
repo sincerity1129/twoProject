@@ -251,15 +251,7 @@ table {
 							<input type="submit" value="검색">
 					</form>
 					
-					<%if(info !=null) {%>					
-					<form action= "FavoriteService.do" method = "post">
-						<select name = "select">
-							<option value = "rent" selected="selected">임대번호</option>
-						</select>						
-							즐겨찾기<input type ="text" name ="maemae_insert">
-							<input type = "submit" value = "추가">
-					</form>
-					<%} %>
+					
 					<!--  <img class="d-block img-fluid" src="./img/white-img.jpg" alt="First slide"> 이미지 파일 넣는 곳-->
 
 					<div id="row">
