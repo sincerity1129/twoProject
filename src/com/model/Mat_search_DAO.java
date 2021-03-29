@@ -50,7 +50,7 @@ public void close() { // DB 연결 해제
 		e.printStackTrace();
 	}
 }
-
+/*
 public ArrayList<Main_filterDTO> search(String input,String search) {
 	
 	mat_list = new ArrayList<Main_filterDTO>(); // 기본 필터 검색
@@ -125,7 +125,7 @@ public ArrayList<Main_filterDTO> search(String input,String search) {
 		
 		return mat_list;
 }
-
+*/
 public ArrayList<Main_filterDTO> search2(String input) {
 	
 	mat_list = new ArrayList<Main_filterDTO>(); // 기본 필터 검색

@@ -1,5 +1,4 @@
 <%@page import="com.model.ImdaeSearchDTO"%>
-<%@page import="jdk.internal.misc.FileSystemOption"%>
 <%@page import="com.model.Rent_searchDTO"%>
 <%@page import="com.model.Apt_name_searchDTO"%>
 <%@page import="java.util.ArrayList"%>
