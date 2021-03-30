@@ -19,13 +19,14 @@
 <meta name="description" content="">
 <meta name="author" content="">
 
-<title>Shop Homepage - Start Bootstrap Template</title>
+<title>광주아파트가격예측</title>
 
 <!-- Bootstrap core CSS -->
 <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
 <!-- Custom styles for this template -->
 <link href="css/shop-homepage.css" rel="stylesheet">
+</head>
 <style type="text/css">
 .navbar-brand{
 		font-size : 30px;
@@ -91,13 +92,11 @@
 	  vertical-align: top;
 	  border-bottom: 1px solid #ccc;
 	}
+	
 	#basic, #junwall, #mat, #imdae {
 		display: none;
 }
 </style>
-
-</head>
-
 <body>
 
 	<!-- Navigation -->
@@ -176,6 +175,7 @@
 				</div>
 			</div>
 		</div>
+	</div>
 	<!-- 메인페이지 -->
 	<!-- 매매 -->
 	<div class="col-lg-9">
@@ -275,11 +275,11 @@
 			<%}%>
 			</tbody>
 			</table>
-			<%}%>
-	</div>
+		<%}%>
+	</div> <!-- 매매 문닫기 -->
 
-		<!-- 전 월세 -->
-		<div id="junwall" class="raw">
+	<!-- 전 월세 -->
+	<div id="junwall" class="raw">
 			<h5>찾으시는 전세/월세집이 있으시나요?</h5><br>
 			<form action="RentSearchService.do" method="post">
 		<!-- 옵션선택 -->
@@ -336,10 +336,10 @@
 				</tbody>
 			</table>
 			<%}%>
-			</div>
+		</div> <!-- 전 월세문닫기 -->
 
-			<!-- 맞춤필터 -->
-			<div id="mat" class="raw">
+		<!-- 맞춤필터 -->
+		<div id="mat" class="raw">
 			<br><br>
 			<h5>원하는 조건을 선택하여서 조회해보세요!</h5><br>
 			<form action="MatSearchService.do" method="post">
@@ -356,12 +356,13 @@
 				</select>
 			<%if(info != null){%>
 				alert("로그인해주세요!");
-			<%}else{%>
+			<%}else{%> 
 				<span class='green_window'>
 					<input type="text" class='input_text' name="search" onkeydown="enterSearch()"
 							placeholder="동으로 검색하세요!">
 				</span>
 					<button type="submit" class="sch_smit">검색</button>
+					
 				</form>
 
 		<!-- 맞춤옵션 -->

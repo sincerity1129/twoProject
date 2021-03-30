@@ -85,7 +85,7 @@
 
 			<div class="collapse navbar-collapse" id="navbarSupportedContent">
 				<ul class="navbar-nav ml-auto">
-					<li class="nav-item"><a class="nav-link" href="index.jsp">메인화면</a>
+					<li class="nav-item"><a class="nav-link" href="index_main.jsp">메인화면</a>
 					</li>
 				</ul>
 			</div>
