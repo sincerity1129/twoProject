@@ -31,20 +31,72 @@
 <!-- Custom styles for this template -->
 <link href="css/shop-homepage.css" rel="stylesheet">
 <style type="text/css">
-table, td {
-	border: 1px solid black;
-}
-
-table {
-	width: 60%;
-	height: 100px;
-	margin: auto;
-	text-align: center;
-}
-
-#basic, #junwall,#imdae {
-	display: none;
+.navbar-brand{
+		font-size : 30px;
+		font-weight : bold;
+	}
+	.my-4{
+		font-weight : bold;
+	}
+	.green_window {
+		display: inline-block;
+		width: 500px; height: 40px;
+		border: 3px solid #1b5ac2;
+		background: white;
+	}
+	.input_text {
+		width: 480; height: 20px;
+		margin: 6px 0 0 9px;
+		border: 0;
+		line-height: 20px;
+		font-size: 14px;
+		outline: none;
+		float : left;
+	}
+	.sch_smit {
+		width: 100px; height: 40px;
+		margin: 0; border: 0;
+		vertical-align: top;
+		background: #1b5ac2;
+		color: white;
+		font-weight: bold;
+		border-radius: 1px;
+		cursor: pointer;
+	}
+	.SelectSearch{
+		width: 120px; height: 40px;
+		border: 3px solid #1b5ac2;
+		background: white;
+		vertical-align: top;
+	}
+	.unit{
+		text-align: right;
+		font-size : 12px;
+	}
 	
+	table {
+	  border-collapse: separate;
+	  border-spacing: 1px;
+	  text-align: left;
+	  line-height: 1.5;
+	  border-top: 1px solid #ccc;
+	  margin : 20px 10px;
+	}
+	th {
+	  width: 150px;
+	  padding: 10px;
+	  font-weight: bold;
+	  vertical-align: top;
+	  border-bottom: 1px solid #ccc;
+	}
+	td {
+	  width: 350px;
+	  padding: 10px;
+	  vertical-align: top;
+	  border-bottom: 1px solid #ccc;
+	}
+	#basic, #junwall,#imdae {
+		display: none;
 }
 </style>
 
@@ -148,28 +200,30 @@ table {
 				
 				<!-- 맞춤 -->
 				<!--  기본 맞춤 필터 -->
-				<div id="mat">
-					<h1>맞춤</h1>
-
-					<form action="MatSearchService.do" method="post">
-						<select name="mat_select">
-							<option value="crime">범죄자 수</option>
-							<option value="charge">전기차 충전소</option>
-							<option value="subway">지하철</option>
-							<option value="coffee">스타벅스</option>
-							<option value="movie">영화관</option>
-							<option value="school">학교</option>
-							<option value="fac">실내시설</option>
-							<option value="lib">도서관</option>
-							<option value="park">공원</option>
-						</select> 동으로 검색 : <input type="text" name="mat_search"> 
-							<%if(info != null){%>
-						<input type="submit" value="검색">
-						<%}else{%>
-							로그인하여 검색기능 잠금해제.
-						<%}%>
-						
-					</form>
+				<div id="mat" class="raw">
+			<br><br>
+			<h5>원하는 조건을 선택하여서 조회해보세요!</h5><br>
+			<form action="MatSearchService.do" method="post">
+				<select class='SelectSearch' name="mat_select">
+					<option value="crime">범죄자 수</option>
+					<option value="charge">전기차 충전소</option>
+					<option value="subway">지하철</option>
+					<option value="coffee">스타벅스</option>
+					<option value="movie">영화관</option>
+					<option value="school">학교</option>
+					<option value="fac">실내시설</option>
+					<option value="lib">도서관</option>
+					<option value="park">공원</option>
+				</select>
+			<%if(info != null) {%>
+				<span class='green_window'>
+					<input type="text" class='input_text' name="search" onkeydown="enterSearch()" placeholder="동으로 검색하세요!">
+				</span>
+					<button type="submit" class="sch_smit">검색</button>			
+			<%} else {%> 
+				alert("로그인해주세요!");
+				<%}%>	
+				</form>
 
 					<!--  <img class="d-block img-fluid" src="./img/white-img.jpg" alt="First slide"> 이미지 파일 넣는 곳-->
 

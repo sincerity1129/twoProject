@@ -27,24 +27,72 @@
 <!-- Custom styles for this template -->
 <link href="css/shop-homepage.css" rel="stylesheet">
 <style type="text/css">
-table, td {
-	border: 1px solid black;
-}
-
-table {
-	width: 60%;
-	height: 100px;
-	margin: auto;
-	text-align: center;
-}
-table > tr>td{
-	width:20%;
-	height : 10%;
-}
-
-#basic,#mat, #imdae {
-	display: none;
+.navbar-brand{
+		font-size : 30px;
+		font-weight : bold;
+	}
+	.my-4{
+		font-weight : bold;
+	}
+	.green_window {
+		display: inline-block;
+		width: 500px; height: 40px;
+		border: 3px solid #1b5ac2;
+		background: white;
+	}
+	.input_text {
+		width: 480; height: 20px;
+		margin: 6px 0 0 9px;
+		border: 0;
+		line-height: 20px;
+		font-size: 14px;
+		outline: none;
+		float : left;
+	}
+	.sch_smit {
+		width: 100px; height: 40px;
+		margin: 0; border: 0;
+		vertical-align: top;
+		background: #1b5ac2;
+		color: white;
+		font-weight: bold;
+		border-radius: 1px;
+		cursor: pointer;
+	}
+	.SelectSearch{
+		width: 120px; height: 40px;
+		border: 3px solid #1b5ac2;
+		background: white;
+		vertical-align: top;
+	}
+	.unit{
+		text-align: right;
+		font-size : 12px;
+	}
 	
+	table {
+	  border-collapse: separate;
+	  border-spacing: 1px;
+	  text-align: left;
+	  line-height: 1.5;
+	  border-top: 1px solid #ccc;
+	  margin : 20px 10px;
+	}
+	th {
+	  width: 150px;
+	  padding: 10px;
+	  font-weight: bold;
+	  vertical-align: top;
+	  border-bottom: 1px solid #ccc;
+	}
+	td {
+	  width: 350px;
+	  padding: 10px;
+	  vertical-align: top;
+	  border-bottom: 1px solid #ccc;
+	}
+	#basic,#mat, #imdae {
+		display: none;
 }
 </style>
 
@@ -232,15 +280,22 @@ table > tr>td{
 				</div>
 
 				<!-- 전 월세 -->
-				<div id="junwall">
-					<h1>전 월세</h1>
-					<form action="RentSearchService.do" method="post">
-						<!-- radio를 사 -->
-						아파트<input type="radio" name="table" value="apt_name" checked="checked"> 
-						동<input	type="radio" name="table" value="dong"> 
-							검색 : <input	type="text" name="rent_search"> 
-							<input type="submit" value="검색">
-					</form>
+				<div id="junwall" class="raw">
+			<h5>찾으시는 전세/월세집이 있으시나요?</h5><br>
+			<form action="RentSearchService.do" method="post">
+		<!-- 옵션선택 -->
+		<select class='SelectSearch' name="table">
+			<option value='apt_name'>아파트</option>
+			<option value='dong'>법정동</option>
+		</select>
+			<span class='green_window'>
+				<input type="text" class='input_text' name="search" onkeydown="enterSearch()"
+						placeholder="검색어를 입력하세요">
+			</span>
+				<button type="submit" class="sch_smit">검색</button>
+			</form>
+						
+		<div class="unit"> (단위 : 백만원)</div>
 					
 					<%if(info !=null) {%>					
 					<form action= "FavoriteService.do" method = "post">

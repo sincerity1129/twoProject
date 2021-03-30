@@ -197,8 +197,8 @@
 			<form action="SearchService.do" method="post">
 			<!-- 옵션선택 -->
 			<select class='SelectSearch' name="table">
-				<option value='dong'>법정동</option>
 				<option value='apt_name'>아파트</option>
+				<option value='dong'>법정동</option>
 			</select>
 			<span class='green_window'>
 				<input type="text" class='input_text' name="search" onkeydown="enterSearch()"
