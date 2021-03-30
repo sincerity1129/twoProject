@@ -220,7 +220,7 @@ public ArrayList<SchoolDTO> schSearch(String input) {
 			
 			
 			sdto = new SchoolDTO(school_name,school_addr,dong,apt_name,price,build_year,year,month,day,apt_size,floor);
-			mat_list.add(dto);
+			sch_list.add(sdto);
 			
 		}
 		} catch (SQLException e) {
@@ -286,11 +286,8 @@ public ArrayList<FacilityDTO> facSearch(String input) {
 	
 	
 	try {
-		String sql = "SELECT FAC.FACILITY, MAE.DONG, MAE.APT_NAME, MAE.PRICE, MAE.BUILD_YEAR,\r\n"
-				+ "	   MAE.YEAR, MAE.MONTH, MAE.DAY, MAE.APT_SIZE, MAE.FLOOR	   \r\n"
-				+ "FROM MAEMAE MAE, FACILITY FAC\r\n"
-				+ "WHERE MAE.DONG=FAC.DONG"
-				+ "and mae.dong = ?";	
+		String sql = "SELECT FAC.FACILITY, MAE.DONG, MAE.APT_NAME, MAE.PRICE, MAE.BUILD_YEAR,MAE.YEAR, MAE.MONTH, MAE.DAY, MAE.APT_SIZE, MAE.FLOOR FROM MAEMAE MAE, FACILITY FAC WHERE MAE.DONG=FAC.DONG and mae.dong = ?";
+					
 		psmt = conn.prepareStatement(sql);
 		psmt.setString(1, input);
 		rs = psmt.executeQuery();
@@ -332,11 +329,7 @@ public ArrayList<LibDTO> libSearch(String input) {
 	
 	
 	try {
-		String sql = "SELECT LIB.LIB_NAME, LIB.CLOSE, MAE.DONG, MAE.APT_NAME, MAE.PRICE, MAE.BUILD_YEAR,\r\n"
-				+ "	   MAE.YEAR, MAE.MONTH, MAE.DAY, MAE.APT_SIZE, MAE.FLOOR	   \r\n"
-				+ "FROM MAEMAE MAE, LIBRARY LIB\r\n"
-				+ "WHERE MAE.DONG=LIB.DONG"
-				+ "and mae.dong = ?";	
+		String sql = "SELECT LIB.LIB_NAME, LIB.CLOSE, MAE.DONG, MAE.APT_NAME, MAE.PRICE, MAE.BUILD_YEAR,MAE.YEAR, MAE.MONTH, MAE.DAY, MAE.APT_SIZE, MAE.FLOOR FROM MAEMAE MAE, LIBRARY LIB WHERE MAE.DONG=LIB.DONG and mae.dong = ?";	
 		psmt = conn.prepareStatement(sql);
 		psmt.setString(1, input);
 		rs = psmt.executeQuery();
