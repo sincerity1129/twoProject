@@ -74,7 +74,7 @@ public ArrayList<Rent_searchDTO> search(String input,String search) {
 		
 		while(rs.next()) {
 			
-			int rent_num = rs.getInt(1);
+			String rent_num = rs.getString(1);
 			String dong = rs.getString(2);
 			int build_year = rs.getInt(3);
 			String deposit= rs.getString(4);

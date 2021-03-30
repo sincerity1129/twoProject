@@ -2,7 +2,7 @@ package com.model;
 
 public class Rent_searchDTO {
 
-	private int rent_num;
+	private String rent_num;
 	private String dong;
 	private int build_year;
 	private String deposit;
@@ -25,7 +25,7 @@ public class Rent_searchDTO {
 
 
 
-	public Rent_searchDTO(int rent_num, String dong, int build_year, String deposit, String loyer, String apt_name,
+	public Rent_searchDTO(String rent_num, String dong, int build_year, String deposit, String loyer, String apt_name,
 			int year, int month, int date, int apt_size, int floor) {
 
 		this.rent_num = rent_num;
@@ -44,13 +44,13 @@ public class Rent_searchDTO {
 
 
 
-	public int getRent_num() {
+	public String getRent_num() {
 		return rent_num;
 	}
 
 
 
-	public void setRent_num(int rent_num) {
+	public void setRent_num(String rent_num) {
 		this.rent_num = rent_num;
 	}
 

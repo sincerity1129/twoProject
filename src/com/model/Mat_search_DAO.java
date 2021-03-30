@@ -153,7 +153,7 @@ public ArrayList<Main_filterDTO> search2(String input) {
 
 		while (rs.next()) {
 
-			int rent_num = rs.getInt(1);
+			String rent_num = rs.getString(1);
 			String dong = rs.getString(2);
 			String price = rs.getString(3);
 			int build_year = rs.getInt(4);

@@ -68,7 +68,7 @@ public ArrayList<Main_filterDTO> search(Apt_name_searchDTO dto) {
 		
 		while(rs.next()) {
 			
-			int maemae_num = rs.getInt(1);
+			String maemae_num = rs.getString(1);
 			String dong = rs.getString(2);
 			String price = rs.getString(3);
 			int build_year = rs.getInt(4);

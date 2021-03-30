@@ -2,7 +2,7 @@ package com.model;
 
 public class Main_filterDTO {
 	
-	private int maemae_num;
+	private String maemae_num;
 	private String dong;
 	private String price;
 	private int build_year;
@@ -21,7 +21,7 @@ public class Main_filterDTO {
 	
 	
 
-	public Main_filterDTO(int maemae_num, String dong, String price, int build_year, String apt_name, int year,
+	public Main_filterDTO(String maemae_num, String dong, String price, int build_year, String apt_name, int year,
 			int month, int day, int apt_size, int floor) {
 		super();
 		this.maemae_num = maemae_num;
@@ -38,7 +38,7 @@ public class Main_filterDTO {
 	
 	
 
-	public Main_filterDTO(int maemae_num, String dong, String price, int build_year, String apt_name, int year,
+	public Main_filterDTO(String maemae_num, String dong, String price, int build_year, String apt_name, int year,
 			int month, int day, int apt_size, int floor, int crime, int charge, int starbucks, String subway,
 			String movie) {
 		super();
@@ -128,10 +128,10 @@ public class Main_filterDTO {
 	public void setApt_size(int apt_size) {
 		this.apt_size = apt_size;
 	}
-	public int getMaemae_num() {
+	public String getMaemae_num() {
 		return maemae_num;
 	}
-	public void setMaemae_num(int maemae_num) {
+	public void setMaemae_num(String maemae_num) {
 		this.maemae_num = maemae_num;
 	}
 	public String getDong() {

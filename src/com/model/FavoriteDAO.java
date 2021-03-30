@@ -95,7 +95,7 @@ public class FavoriteDAO {
 			System.out.println("rs.next = " + rs.next());
 
 			while (rs.next()) {
-				int MAEMAE_NUM = rs.getInt(1);
+				String MAEMAE_NUM = rs.getString(1);
 				String DONG = rs.getString(2);
 				String PRICE = rs.getString(3);
 				int BUILD_YEAR = rs.getInt(4);
@@ -139,7 +139,7 @@ public class FavoriteDAO {
 			System.out.println("rs.next = " + rs.next());
 
 			while (rs.next()) {
-				int RENT_NUM = rs.getInt(1);
+				String RENT_NUM = rs.getString(1);
 				String DONG = rs.getString(2);
 				int BUILD_YEAR = rs.getInt(3);
 				String DEPOSIT = rs.getString(4);
