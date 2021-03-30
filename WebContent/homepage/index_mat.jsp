@@ -198,7 +198,6 @@ table {
 					if (MatSearchList != null) {%>
 					<table>
 						<tr>
-							<td>즐겨찾기</td>
 							<td>번호</td>
 							<%if (mat_select.equals("crime")) {%>
 							<td>범죄자 수</td>
@@ -224,9 +223,15 @@ table {
 							<td>평 수</td>
 							<td>층</td>
 						</tr>
+						
+						<%if(MatSearchList.size() == 0){%>
+						<tr>
+							<td colspan = 12>매물이 없습니다.</td>
+						</tr>
+						<%} %>
+						
 						<%for (int i = 0; i < MatSearchList.size(); i++) {%>
 						<tr>
-							<td><input type="checkbox" value=""></td>
 							<td><%=i + 1%></td>
 							<%if (mat_select.equals("crime")) {%>
 							<td><%=MatSearchList.get(i).getCrime()%></td>
@@ -266,6 +271,7 @@ table {
 				<%if (SchoolList != null) {%>
 					<table>
 						<tr>
+							<td>번호</td>
 							<td>학교 이름</td>
 							<td>학교 주소</td>
 							<td>동</td>
@@ -278,6 +284,13 @@ table {
 							<td>평 수</td>
 							<td>층</td>
 						</tr>
+						
+						<%if(SchoolList.size() == 0){%>
+						<tr>
+							<td colspan = 12>매물이 없습니다.</td>
+						</tr>
+						<%} %>
+						
 						<%for (int i = 0; i < SchoolList.size(); i++) {%>
 						<tr>
 							<td><%=i + 1%></td>
@@ -316,6 +329,13 @@ table {
 							<td>평 수</td>
 							<td>층</td>
 						</tr>
+						
+						<%if(FacList.size() == 0){%>
+						<tr>
+							<td colspan = 11>매물이 없습니다.</td>
+						</tr>
+						<%} %>
+						
 						<%for (int i = 0; i < FacList.size(); i++) {%>
 						<tr>
 							<td><%=i + 1%></td>
@@ -352,6 +372,13 @@ table {
 							<td>평 수</td>
 							<td>층</td>
 						</tr>
+						
+						<%if(ParkList.size() == 0){%>
+						<tr>
+							<td colspan = 12>매물이 없습니다.</td>
+						</tr>
+						<%} %>
+						
 						<%for (int i = 0; i < ParkList.size(); i++) {%>
 						<tr>
 							<td><%=i + 1%></td>
@@ -390,6 +417,13 @@ table {
 							<td>평 수</td>
 							<td>층</td>
 						</tr>
+						
+						<%if(LibList.size() == 0){%>
+						<tr>
+							<td colspan = 12>매물이 없습니다.</td>
+						</tr>
+						<%} %>
+						
 						<%for (int i = 0; i < LibList.size(); i++) {%>
 						<tr>
 							<td><%=i + 1%></td>
