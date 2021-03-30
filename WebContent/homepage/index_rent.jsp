@@ -272,7 +272,7 @@
 
 				<!-- 전 월세 -->
 				<br><br>
-				<div id="junwall" class="raw">
+				<div id="junwall" class="raw">	
 			<h5>찾으시는 전세/월세집이 있으시나요?</h5><br>
 			<form action="RentSearchService.do" method="post">
 		<!-- 옵션선택 -->

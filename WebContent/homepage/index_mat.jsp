@@ -185,37 +185,31 @@
 	<!-- 메인페이지 -->
 <div class="col-lg-9">
 	<!--  기본 맞춤 필터 -->
-			<div id="mat" class="raw">
-				<br> <br>
-				<h5>원하는 조건을 선택하여서 조회해보세요!</h5>
-				<br>
-				<form action="MatSearchService.do" method="post">
-					<select class='SelectSearch' name="mat_select">
-						<option value="crime">범죄자 수</option>
-						<option value="charge">전기차 충전소</option>
-						<option value="subway">지하철</option>
-						<option value="coffee">스타벅스</option>
-						<option value="movie">영화관</option>
-						<option value="school">학교</option>
-						<option value="fac">실내시설</option>
-						<option value="lib">도서관</option>
-						<option value="park">공원</option>
-					</select>
-					<%
-					if (info != null) {
-					%>
-					<span class='green_window'> <input type="text"
-						class='input_text' name="mat_search" onkeydown="enterSearch()"
-						placeholder="동으로 검색하세요!">
-					</span>
-					<button type="submit" class="sch_smit">검색</button>
-					<%
-					} else {
-					%>
-					alert("로그인해주세요!");
-					<%
-					}
-					%>
+
+	<div id="mat" class="raw">
+		<br><br>
+		<h5>원하는 조건을 선택하여서 조회해보세요!</h5><br>
+		<form action="MatSearchService.do" method="post">
+			<select class='SelectSearch' name="mat_select">
+				<option value="crime">범죄자 수</option>
+				<option value="charge">전기차 충전소</option>
+				<option value="subway">지하철</option>
+				<option value="coffee">스타벅스</option>
+				<option value="movie">영화관</option>
+				<option value="school">학교</option>
+				<option value="fac">실내시설</option>
+				<option value="lib">도서관</option>
+				<option value="park">공원</option>
+			</select>
+			<%if(info != null) {%>
+				<span class='green_window'>
+					<input type="text" class='input_text' name="mat_search" onkeydown="enterSearch()" placeholder="동으로 검색하세요!">
+				</span>
+					<button type="submit" class="sch_smit">검색</button>			
+			<%} else {%> 
+				alert("로그인해주세요!");
+				<%}%>	
+
 				</form>
 
 				<%
