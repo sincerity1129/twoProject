@@ -119,11 +119,8 @@
 			<label class="form-check-label" for="flexCheckDefault">Default checkbox</label>
     	</div>
 	</div>
-	
-   
-   
-   
- 
+	<div>
+		<form action="http://localhost:9000/train" method="post">
 		<label><input type = "checkbox" name="check" value="price"> 거래금액</label>
 		<label><input type = "checkbox" name="check" value="arch"> 건축년도</label>
 		<label><input type = "checkbox" name="check" value="apt_size"> 평수</label>
@@ -133,14 +130,8 @@
 		<label><input type = "checkbox" name="check" value="subway"> 지하철</label>
 		<label><input type = "checkbox" name="check" value="movie"> 영화관</label>
 		<label><input type = "checkbox" name="check" value="charge"> 전기차 충전소</label>
-		<form action="http://localhost:9000/train" method="post">
-	
-	<li font = "bold">목록</li>
-	
-	
-	<p><input type="submit"> <input type="reset"></p>
-	</form>
-	</div>
+		<p><input type="submit"> <input type="reset"></p>
+		</form>
 	</div>
 		<!-- footer 자리 맞추기 용도 -->
 <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
