@@ -154,7 +154,7 @@
 			<div class="col-lg-3">
 				 <h4 class="my-4">매물</h4>
             <div class="list-group">
-               <a href="" class="list-group-item" id="check1">매매</a> 
+               <a href="index_maemae.jsp" class="list-group-item" id="check1">매매</a> 
                <a href="index_rent.jsp" class="list-group-item" id="check2">전월세</a>
             </div>
             <h4 class="my-4">필터</h4>
@@ -272,8 +272,7 @@
 
 				<!-- 전 월세 -->
 				<br><br>
-				<div id="junwall" class="raw">
-			<br><br>	
+				<div id="junwall" class="raw">	
 			<h5>찾으시는 전세/월세집이 있으시나요?</h5><br>
 			<form action="RentSearchService.do" method="post">
 		<!-- 옵션선택 -->

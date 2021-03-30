@@ -205,7 +205,7 @@
 				<option value="lib">도서관</option>
 				<option value="park">공원</option>
 			</select>
-			<%if(info == null) {%>
+			<%if(info != null) {%>
 				<span class='green_window'>
 					<input type="text" class='input_text' name="mat_search" onkeydown="enterSearch()" placeholder="동으로 검색하세요!">
 				</span>
