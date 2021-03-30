@@ -1,3 +1,7 @@
+<%@page import="com.model.LibDTO"%>
+<%@page import="com.model.ParkDTO"%>
+<%@page import="com.model.FacilityDTO"%>
+<%@page import="com.model.SchoolDTO"%>
 <%@page import="com.model.ImdaeSearchDTO"%>
 <%@page import="com.model.Rent_searchDTO"%>
 <%@page import="com.model.Apt_name_searchDTO"%>
@@ -121,6 +125,11 @@
 						ArrayList<Rent_searchDTO> RentSearchList = null;
 						ArrayList<Main_filterDTO> MatSearchList = null;
 						ArrayList<ImdaeSearchDTO> ImdaeSearchList = null;
+						ArrayList<SchoolDTO> SchoolList = null;
+						ArrayList<FacilityDTO> FacList = null;
+						ArrayList<ParkDTO> ParkList = null;
+						ArrayList<LibDTO> LibList = null; 
+						
 						String mat_select = null;
 
 						if (info != null) {
@@ -354,16 +363,16 @@
 					<option value="lib">도서관</option>
 					<option value="park">공원</option>
 				</select>
-			<%if(info != null){%>
-				alert("로그인해주세요!");
-			<%}else{%>
+			<%if(info != null) {%>
 				<span class='green_window'>
-					<input type="text" class='input_text' name="search" onkeydown="enterSearch()"
-							placeholder="동으로 검색하세요!">
+					<input type="text" class='input_text' name="search" onkeydown="enterSearch()" placeholder="동으로 검색하세요!">
 				</span>
-					<button type="submit" class="sch_smit">검색</button>
+					<button type="submit" class="sch_smit">검색</button>			
+			<%} else {%> 
+				alert("로그인해주세요!");
+				<%}%>	
 				</form>
-
+				
 		<!-- 맞춤옵션 -->
 			<%
 			mat_select = (String) session.getAttribute("mat_select");
