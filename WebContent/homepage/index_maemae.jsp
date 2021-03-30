@@ -26,21 +26,75 @@
 
 <!-- Custom styles for this template -->
 <link href="css/shop-homepage.css" rel="stylesheet">
+
+
 <style type="text/css">
-table, td {
-	border: 1px solid black;
-}
-
-table {
-	width: 60%;
-	height: 100px;
-	margin: auto;
-	text-align: center;
-}
-
-#junwall, #mat, #imdae {
-	display: none;
+.navbar-brand{
+		font-size : 30px;
+		font-weight : bold;
+	}
+	.my-4{
+		font-weight : bold;
+	}
+	.green_window {
+		display: inline-block;
+		width: 500px; height: 40px;
+		border: 3px solid #1b5ac2;
+		background: white;
+	}
+	.input_text {
+		width: 480; height: 20px;
+		margin: 6px 0 0 9px;
+		border: 0;
+		line-height: 20px;
+		font-size: 14px;
+		outline: none;
+		float : left;
+	}
+	.sch_smit {
+		width: 100px; height: 40px;
+		margin: 0; border: 0;
+		vertical-align: top;
+		background: #1b5ac2;
+		color: white;
+		font-weight: bold;
+		border-radius: 1px;
+		cursor: pointer;
+	}
+	.SelectSearch{
+		width: 120px; height: 40px;
+		border: 3px solid #1b5ac2;
+		background: white;
+		vertical-align: top;
+	}
+	.unit{
+		text-align: right;
+		font-size : 12px;
+	}
 	
+	table {
+	  border-collapse: separate;
+	  border-spacing: 1px;
+	  text-align: left;
+	  line-height: 1.5;
+	  border-top: 1px solid #ccc;
+	  margin : 20px 10px;
+	}
+	th {
+	  width: 150px;
+	  padding: 10px;
+	  font-weight: bold;
+	  vertical-align: top;
+	  border-bottom: 1px solid #ccc;
+	}
+	td {
+	  width: 350px;
+	  padding: 10px;
+	  vertical-align: top;
+	  border-bottom: 1px solid #ccc;
+	}
+	#junwall, #mat, #imdae {
+		display: none;
 }
 </style>
 
@@ -138,14 +192,22 @@ table {
 			<!-- 매매 -->
 			<div class="col-lg-9">
 				<div id="basic" class="raw">
-					<h1>매물</h1>
-					<form action="SearchService.do" method="post">
-						<!-- radio를 사 -->
-						아파트<input type="radio" name="table" value="apt_name" checked="checked"> 
-						동<input	type="radio" name="table" value="dong"> 
-						검색 : <input type="text" name="search"> 
-						<input type="submit" value="검색">
-					</form>
+		<br><br>
+			<h5>어떤 매물을 찾고 계시나요?</h5><br>
+			<form action="SearchService.do" method="post">
+			<!-- 옵션선택 -->
+			<select class='SelectSearch' name="table">
+				<option value='dong'>법정동</option>
+				<option value='apt_name'>아파트</option>
+			</select>
+			<span class='green_window'>
+				<input type="text" class='input_text' name="search" onkeydown="enterSearch()"
+						placeholder="검색어를 입력하세요">
+			</span>
+				<button type="submit" class="sch_smit">검색</button>
+			</form>
+			
+			<div class="unit"> (단위 : 백만원)</div>
 					
 					<%if(info !=null) {%>					
 					<form action= "FavoriteService.do" method = "post">
@@ -165,24 +227,21 @@ table {
 						System.out.print(DongSearchList.size());%>
 					<table>
 						<tr>
-							<td>즐겨찾기</td>
 							<td>번호</td>
 							<td>매매 번호</td>
-							<td>아파트 이름</td>
-							<td>동 이름</td>
-							<td>가격</td>
+							<td>아파트 명</td>
+							<td>법정동</td>
+							<td>실거래가</td>
 							<td>건축 년도</td>
-							<td>거래 년도</td>
+							<td>년</td>
 							<td>월</td>
 							<td>일</td>
 							<td>평수</td>
 							<td>층</td>
-							
 						</tr>
 
 						<%for (int i = 0; i < DongSearchList.size(); i++) {%>
 						<tr>
-							<td><input type="checkbox" value=""></td>
 							<td><%=i + 1%></td>
 							<td><%=DongSearchList.get(i).getMaemae_num()%></td>
 							<td><%=DongSearchList.get(i).getApt_name()%></td>
@@ -205,14 +264,13 @@ table {
 						System.out.print("아파트 성공!");%>
 					<table>
 						<tr>
-							<td>즐겨찾기</td>
 							<td>번호</td>
 							<td>매매 번호</td>
-							<td>아파트 이름</td>
-							<td>동 이름</td>
-							<td>가격</td>
+							<td>아파트 명</td>
+							<td>법정동</td>
+							<td>실거래가</td>
 							<td>건축 년도</td>
-							<td>거래 년도</td>
+							<td>년</td>
 							<td>월</td>
 							<td>일</td>
 							<td>평수</td>
@@ -221,7 +279,6 @@ table {
 
 						<%for (int i = 0; i < AptSearchList.size(); i++) {%>
 						<tr>
-							<td><input type="checkbox" value="1"></td>
 							<td><%=i + 1%></td>
 							<td><%=AptSearchList.get(i).getMaemae_num()%></td>
 							<td><%=AptSearchList.get(i).getApt_name()%></td>
