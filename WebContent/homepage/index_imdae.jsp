@@ -136,8 +136,8 @@
 						href="LogoutService.do">로그아웃</a></li>
 
 					<%} else {%>
-					<li class="nav-item"><a class="nav-link" href="join.html">회원가입</a></li>
-					<li class="nav-item"><a class="nav-link" href="login.html">로그인</a></li>
+					<li class="nav-item"><a class="nav-link" href="join.jsp">회원가입</a></li>
+					<li class="nav-item"><a class="nav-link" href="login.jsp">로그인</a></li>
 					<%}%>
 					</li>
 				</ul>
@@ -325,105 +325,9 @@
 					</div>
 				</div>
 
-				<!-- 맞춤 -->
-
-				<div id="mat">
-					<h1>맞춤</h1>
-					<form action="MatSearchService.do" method="post">
-						<select name="mat_select">
-							<option value="crime">범죄자 수</option>
-							<option value="charge">전기차 충전소</option>
-							<option value="subway">지하철</option>
-							<option value="coffee">스타벅스</option>
-							<option value="movie">영화관</option>
-						</select> 동으로 검색 : <input type="text" name="mat_search"> 
-							<%if(info != null){%>
-						<input type="submit" value="검색">
-						<%}else{%>
-							로그인하여 검색기능 잠금해제.
-						<%}%>
-						
-					</form>
-
-					<!--  <img class="d-block img-fluid" src="./img/white-img.jpg" alt="First slide"> 이미지 파일 넣는 곳-->
-
-					<%mat_select = (String) session.getAttribute("mat_select");
-					System.out.print("mat_select"+mat_select);
-					MatSearchList = (ArrayList<Main_filterDTO>) session.getAttribute("mat_search");
-					if (MatSearchList != null) {%>
-					<table>
-						<tr>
-							<td>즐겨찾기</td>
-							<td>번호</td>
-							<%if (mat_select.equals("crime")) {%>
-							<td>범죄자 수</td>
-							<%}%>
-							<%if (mat_select.equals("charge")) {%>
-							<td>전기차 충전소</td>
-							<%}%>
-							<%if (mat_select.equals("subway")) {%>
-							<td>지하철</td>
-							<%}%>
-							<%if (mat_select.equals("coffee")) {%>
-							<td>스타벅스</td>
-							<%}%>
-							<%if (mat_select.equals("movie")) {%>
-							<td>영화관</td>
-							<%}%>
-							<td>매매 번호</td>
-							<td>동</td>
-							<td>가격</td>
-							<td>건축년도</td>
-							<td>이름</td>
-							<td>거래 년도</td>
-							<td>월</td>
-							<td>일</td>
-							<td>평 수</td>
-							<td>층</td>
-						</tr>
-						<%for (int i = 0; i < MatSearchList.size(); i++) {%>
-						<tr>
-							<td><input type="checkbox" value=""></td>
-							<td><%=i + 1%></td>
-							<%if (mat_select.equals("crime")) {%>
-							<td><%=MatSearchList.get(i).getCrime()%></td>
-							<%}%>
-							<%if (mat_select.equals("charge")) {%>
-							<td><%=MatSearchList.get(i).getCharge()%></td>
-							<%}%>
-							<%if (mat_select.equals("subway")) {%>
-							<td><%=MatSearchList.get(i).getSubway()%></td>
-							<%}%>
-							<%if (mat_select.equals("coffee")) {%>
-							<td><%=MatSearchList.get(i).getStarbucks()%></td>
-							<%}%>
-							<%if (mat_select.equals("movie")) {%>
-							<td><%=MatSearchList.get(i).getMovie()%></td>
-							<%}%>
-
-							<td><%=MatSearchList.get(i).getMaemae_num()%></td>
-							<td><%=MatSearchList.get(i).getDong()%></td>
-							<td><%=MatSearchList.get(i).getPrice()%></td>
-							<td><%=MatSearchList.get(i).getBuild_year()%></td>
-							<td><%=MatSearchList.get(i).getApt_name()%></td>
-							<td><%=MatSearchList.get(i).getYear()%></td>
-							<td><%=MatSearchList.get(i).getMonth()%></td>
-							<td><%=MatSearchList.get(i).getDay()%></td>
-							<td><%=MatSearchList.get(i).getApt_size()%></td>
-							<td><%=MatSearchList.get(i).getFloor()%></td>
-
-						</tr>
-
-						<%}%>
-					</table>
-					<%}%>
-
-				</div>
-
-				<!-- 맞춤 -->
 
 
-				<!-- 임대아파트 조회-->
+			<!-- 임대 아파트 -->
 				<div id="imdae" class="raw">
 				<br><br>
 					<h5>임대아파트를 조회해보세요!</h5><br>
@@ -484,6 +388,8 @@
 			</table>
 		<%}%>
 				</div>
+				<!-- 임대아파트 조회-->
+				
 
 			</div>
 			<!-- /.col-lg-9 -->

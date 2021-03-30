@@ -140,8 +140,8 @@
                <li class="nav-item"><a class="nav-link"
                   href="LogoutService.do">로그아웃</a></li>
                <%} else {%>
-               <li class="nav-item"><a class="nav-link" href="join.html">회원가입</a></li>
-               <li class="nav-item"><a class="nav-link" href="login.html">로그인</a></li>
+               <li class="nav-item"><a class="nav-link" href="join.jsp">회원가입</a></li>
+               <li class="nav-item"><a class="nav-link" href="login.jsp">로그인</a></li>
                <%}%>
                </li>
             </ul>
