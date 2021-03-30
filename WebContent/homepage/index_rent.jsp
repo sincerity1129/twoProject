@@ -271,6 +271,7 @@
 				</div>
 
 				<!-- 전 월세 -->
+				<br><br>
 				<div id="junwall" class="raw">
 			<br><br>	
 			<h5>찾으시는 전세/월세집이 있으시나요?</h5><br>

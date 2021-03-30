@@ -430,11 +430,12 @@
 					<form action="ImdaeSearchService.do" method="post">
 					
 			<!-- 옵션선택 -->
-			<select class='SelectSearch' name="table">
+			<select class='SelectSearch' name="search_type">
 				<option value='dong'>법정동</option>
+				<option value='region'>구</option>
 			</select>
 			<span class='green_window'>
-				<input type="text" class='input_text' name="search" onkeydown="enterSearch()"
+				<input type="text" class='input_text' name="imdae_search" onkeydown="enterSearch()"
 						placeholder="검색어를 입력하세요">
 			</span>
 				<button type="submit" class="sch_smit">검색</button>
