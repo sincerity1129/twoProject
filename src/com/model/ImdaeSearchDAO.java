@@ -73,7 +73,7 @@ public class ImdaeSearchDAO {
 
 			while (rs.next()) {
 
-				int imdae_num = rs.getInt(1);
+				String imdae_num = rs.getString(1);
 				String region = rs.getString(2);
 				String dong = rs.getString(3);
 				String imdae_name = rs.getString(4);

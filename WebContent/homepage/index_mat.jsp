@@ -81,6 +81,7 @@
 	  line-height: 1.5;
 	  border-top: 1px solid #ccc;
 	  margin : 20px 10px;
+	  white-space: nowrap;
 	}
 	th {
 	  width: 150px;
@@ -88,12 +89,14 @@
 	  font-weight: bold;
 	  vertical-align: top;
 	  border-bottom: 1px solid #ccc;
+	  white-space: nowrap;
 	}
 	td {
 	  width: 350px;
 	  padding: 10px;
 	  vertical-align: top;
 	  border-bottom: 1px solid #ccc;
+	  white-space: nowrap;
 	}
 	#basic, #junwall,#imdae {
 		display: none;

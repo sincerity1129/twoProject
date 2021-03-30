@@ -77,6 +77,7 @@
      line-height: 1.5;
      border-top: 1px solid #ccc;
      margin : 20px 10px;
+     white-space: nowrap;
    }
    th {
      width: 150px;
@@ -84,12 +85,14 @@
      font-weight: bold;
      vertical-align: top;
      border-bottom: 1px solid #ccc;
+     white-space: nowrap;
    }
    td {
      width: 350px;
      padding: 10px;
      vertical-align: top;
      border-bottom: 1px solid #ccc;
+     white-space: nowrap;
    }
    #junwall, #mat, #imdae {
       display: none;
@@ -155,7 +158,7 @@
          <div class="col-lg-3">
             <h4 class="my-4">매물</h4>
             <div class="list-group">
-               <a href="" class="list-group-item" id="check1">매매</a> 
+               <a href="index_maemae.jsp" class="list-group-item" id="check1">매매</a> 
                <a href="index_rent.jsp" class="list-group-item" id="check2">전월세</a>
             </div>
             <h4 class="my-4">필터</h4>
