@@ -35,27 +35,34 @@ public class MatSearchService implements FrontCommand {
 			
 			HttpSession session = request.getSession();
 			
-			ArrayList<Main_filterDTO> MatSearchList = dao.search2(mat_search);
-			ArrayList<SchoolDTO> SchoolList = dao.schSearch(mat_search);
-			ArrayList<ParkDTO> ParkList = dao.parkSearch(mat_search);
-			ArrayList<FacilityDTO> FacList = dao.facSearch(mat_search);
-			ArrayList<LibDTO> LibList = dao.libSearch(mat_search);
+			ArrayList<Main_filterDTO> MatSearchList = null;
+			ArrayList<SchoolDTO> SchoolList = null;
+			ArrayList<ParkDTO> ParkList = null;
+			ArrayList<FacilityDTO> FacList = null;
+			ArrayList<LibDTO> LibList = null;
+			
 			
 			if(mat_select.equals("school")) {
-			session.setAttribute("mat_search",SchoolList);
+				SchoolList = dao.schSearch(mat_search);
+				session.setAttribute("mat_search",SchoolList);
 			}
 			else if(mat_select.equals("fac")) {
+				FacList = dao.facSearch(mat_search);
 				session.setAttribute("mat_search",FacList);
 			}
 			else if(mat_select.equals("park")) {
+				ParkList = dao.parkSearch(mat_search);
 				session.setAttribute("mat_search",ParkList);
 			}
 			else if(mat_select.equals("lib")) {
+				LibList = dao.libSearch(mat_search);
 				session.setAttribute("mat_search",LibList);
 			}
 			else{
+				MatSearchList = dao.search2(mat_search);
 				session.setAttribute("mat_search",MatSearchList);
 			}
+			
 			
 			
 			HttpSession session2 = request.getSession();
