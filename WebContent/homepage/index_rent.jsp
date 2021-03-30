@@ -40,7 +40,7 @@
 		background: white;
 	}
 	.input_text {
-		width: 480; height: 20px;
+		width: 480px; height: 20px;
 		margin: 6px 0 0 9px;
 		border: 0;
 		line-height: 20px;
@@ -142,8 +142,8 @@
 						href="LogoutService.do">로그아웃</a></li>
 
 					<%} else {%>
-					<li class="nav-item"><a class="nav-link" href="join.html">회원가입</a></li>
-					<li class="nav-item"><a class="nav-link" href="login.html">로그인</a></li>
+					<li class="nav-item"><a class="nav-link" href="join.jsp">회원가입</a></li>
+					<li class="nav-item"><a class="nav-link" href="login.jsp">로그인</a></li>
 					<%}%>
 					</li>
 				</ul>
@@ -273,12 +273,11 @@
 					<%}%>
 				</div>
 
-				<!-- 전 월세 -->
-				<br><br>
-				<div id="junwall" class="raw">
-			<br><br>	
-			<h5>찾으시는 전세/월세집이 있으시나요?</h5><br>
-			<form action="RentSearchService.do" method="post">
+	<!-- 전 월세 -->
+	<br><br>
+	<div id="junwall" class="raw">
+		<h5>찾으시는 전세/월세집이 있으시나요?</h5><br>
+		<form action="RentSearchService.do" method="post">
 		<!-- 옵션선택 -->
 		<select class='SelectSearch' name="table">
 			<option value='apt_name'>아파트</option>
@@ -290,19 +289,22 @@
 			</span>
 				<button type="submit" class="sch_smit">검색</button>
 			</form>
-
-						
-				<div class="unit"> (단위 : 천원)</div>
-					
-					<%if(info !=null) {%>					
-					<form action= "FavoriteService.do" method = "post">
-						<select name = "type">
-							<option value = "rent" selected="selected">임대번호</option>
-						</select>						
-							즐겨찾기<input type ="text" name ="num">
-							<input type = "submit" value = "추가">
-					</form>
-					<%} %>
+			
+	<!-- 즐겨찾기 -->  
+         <%if(info !=null) {%>
+         <form action="FavoriteService.do" method="post">
+		<select class='SelectSearch' name="type">
+			<option value='imdae' selected="selected">전세번호</option>
+		</select>
+		<span class='green_window'>
+			<input type="text" class='input_text' name="num" onkeydown="enterSearch()"
+					placeholder="관심있는 매물을 추가해주세요!">
+		</span>
+			<button type="submit" class="sch_smit">추가</button>
+		</form>
+		<%} %>
+			
+			 <div class="unit"> (단위 : 천원)</div>
 					
 					<div id="row">
 						<%RentSearchList = (ArrayList<Rent_searchDTO>) session.getAttribute("RentSearchList");%>
@@ -311,7 +313,7 @@
 							<thead>
 								<tr>
 									<th>번호</th>
-									<th>렌트번호</th>
+									<th>전세번호</th>
 									<th>법정동</th>
 									<th>건축년도</th>
 									<th>보증금</th>
@@ -325,7 +327,7 @@
 								</tr>
 							</thead>
 							<tbody>
-							<%for (int i = 0; i < RentSearchList.size(); i++) {%>
+							<%for (int i = 0; i < 50; i++) {%>
 							<tr>
 								<th><%=i + 1%></th>
 								<td><%=RentSearchList.get(i).getRent_num()%></td>
@@ -346,9 +348,6 @@
 						<%}%>
 					</div>
 				</div>
-
-
-
 
 
 				<!-- 맞춤 -->
@@ -522,15 +521,6 @@
 	<br>
 	<br>
 	<br>
-
-	<!-- Footer -->
-	<footer class="py-5 bg-dark">
-		<div class="container">
-			<p class="m-0 text-center text-white">Copyright &copy; Your
-				Website 2020</p>
-		</div>
-		<!-- /.container -->
-	</footer>
 
 	<!-- Bootstrap core JavaScript -->
 	<script src="vendor/jquery/jquery.min.js"></script>

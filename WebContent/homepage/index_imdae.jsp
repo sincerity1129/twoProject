@@ -425,24 +425,24 @@
 
             <!-- 맞춤 -->
 
-            <!-- 임대아파트 조회-->
-            <div id="imdae" class="raw">
-            <br><br>
-               <h5>임대아파트를 조회해보세요!</h5><br>
-               <form action="ImdaeSearchService.do" method="post">
-               
-         <!-- 옵션선택 -->
-         <select class='SelectSearch' name="search_type">
-            <option value='dong'>법정동</option>
-            <option value='region'>구</option>
-         </select>
-         <span class='green_window'>
-            <input type="text" class='input_text' name="imdae_search" onkeydown="enterSearch()"
-                  placeholder="검색어를 입력하세요">
-         </span>
-            <button type="submit" class="sch_smit">검색</button>
-         </form>
-
+          <!-- 임대 아파트 -->
+				<div id="imdae" class="raw">
+				<br><br>
+					<h5>임대아파트를 조회해보세요!</h5><br>
+					<form action="ImdaeSearchService.do" method="post">
+					
+			<!-- 옵션선택 -->
+			<select class='SelectSearch' name="search_type">
+				<option value='dong'>법정동</option>
+				<option value='region'>구</option>
+			</select>
+			<span class='green_window'>
+				<input type="text" class='input_text' name="imdae_search" onkeydown="enterSearch()"
+						placeholder="검색어를 입력하세요">
+			</span>
+				<button type="submit" class="sch_smit">검색</button>
+			</form>
+			
          <!-- 동으로 조회하기 -->
          <%ImdaeSearchList = (ArrayList<ImdaeSearchDTO>) session.getAttribute("ImdaeSearchList");
          if (ImdaeSearchList != null) {%>
@@ -493,21 +493,20 @@
       <!-- /.row -->
 
    </div>
-   <!-- /.container -->
-   
-   
-   <br>
-   <br>
-   <br>
+				
+	
+	<br>
+	<br>
+	<br>
 
 
-   <!-- Bootstrap core JavaScript -->
-   <script src="vendor/jquery/jquery.min.js"></script>
-   <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-   <script src="./vendor/jquery/jquery-3.6.0.min.js"></script>
-   <script type="text/javascript">
-      
-   </script>
+	<!-- Bootstrap core JavaScript -->
+	<script src="vendor/jquery/jquery.min.js"></script>
+	<script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+	<script src="./vendor/jquery/jquery-3.6.0.min.js"></script>
+	<script type="text/javascript">
+		
+	</script>
 
 </body>
 

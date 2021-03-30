@@ -143,8 +143,8 @@
                <li class="nav-item"><a class="nav-link"
                   href="LogoutService.do">로그아웃</a></li>
                <%} else {%>
-               <li class="nav-item"><a class="nav-link" href="join.html">회원가입</a></li>
-               <li class="nav-item"><a class="nav-link" href="login.html">로그인</a></li>
+               <li class="nav-item"><a class="nav-link" href="join.jsp">회원가입</a></li>
+               <li class="nav-item"><a class="nav-link" href="login.jsp">로그인</a></li>
                <%}%>
                </li>
             </ul>
@@ -198,20 +198,21 @@
          </span>
             <button type="submit" class="sch_smit">검색</button>
          </form>
-         
-         <div class="unit"> (단위 : 백만원)</div>
-
 		<!-- 즐겨찾기 -->  
-          <%if(info !=null) {%>               
-          <form action= "FavoriteService.do" method = "post">
-             <select class='SelectSearch'  name = "type">
-                <option value = "maemae" selected="selected">매매번호</option>
-             </select>                  
-                즐겨찾기<input type ="text" name ="num">
-                <input type = "submit" value = "추가">
-          </form>
-          <%} %>
+          <%if(info !=null) {%>
+          <form action="FavoriteService.do" method="post">
+			<select class='SelectSearch' name="type">
+				<option value='maemae' selected="selected">매매번호</option>
+			</select>
+			<span class='green_window'>
+				<input type="text" class='input_text' name="num" onkeydown="enterSearch()"
+						placeholder="관심있는 매물을 추가해주세요!">
+			</span>
+				<button type="submit" class="sch_smit">추가</button>
+			</form>
+			<%} %>
 			
+			 <div class="unit"> (단위 : 백만원)</div>
 		<!-- 동으로 조회 -->
           <%DongSearchList = (ArrayList<Main_filterDTO>) session.getAttribute("DongSearchList");
           if (DongSearchList != null) {
@@ -233,7 +234,7 @@
 					<th>층</th>
 				</tr>
 			</thead>
-                  <%for (int i = 0; i < DongSearchList.size(); i++) {%>
+                  <%for (int i = 0; i <100; i++) {%>
                   <tr>
                      <th><%=i + 1%></th>
                      <td><%=DongSearchList.get(i).getMaemae_num()%></td>
@@ -271,7 +272,7 @@
 						<th>층</th>
 					</tr>
 				</thead>
-                  <%for (int i = 0; i < AptSearchList.size(); i++) {%>
+                  <%for (int i = 0; i < 50; i++) {%>
                   <tr>
                      <td><%=i + 1%></td>
                      <td><%=AptSearchList.get(i).getMaemae_num()%></td>
