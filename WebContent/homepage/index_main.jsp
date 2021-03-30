@@ -179,11 +179,6 @@
 				</div>
 			</div>
 		</div>
-<<<<<<< HEAD
-	</div>
-=======
-		
->>>>>>> branch 'master' of https://github.com/sincerity1129/project.git
 	<!-- 메인페이지 -->
 	<!-- 매매 -->
 <div class="col-lg-9">
