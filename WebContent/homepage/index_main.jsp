@@ -414,6 +414,7 @@ table {
 							<td>최초 입주</td>
 						</tr>
 
+
 						<%for (int i = 0; i < ImdaeSearchList.size(); i++) {%>
 						<tr>
 							<td><input type="checkbox" value=""></td>
