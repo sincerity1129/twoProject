@@ -1,3 +1,7 @@
+<%@page import="com.model.LibDTO"%>
+<%@page import="com.model.ParkDTO"%>
+<%@page import="com.model.FacilityDTO"%>
+<%@page import="com.model.SchoolDTO"%>
 <%@page import="com.model.ImdaeSearchDTO"%>
 <%@page import="com.model.Rent_searchDTO"%>
 <%@page import="com.model.Apt_name_searchDTO"%>
@@ -28,7 +32,7 @@
 <link href="css/shop-homepage.css" rel="stylesheet">
 </head>
 <style type="text/css">
-.navbar-brand{
+	.navbar-brand{
 		font-size : 30px;
 		font-weight : bold;
 	}
@@ -70,24 +74,21 @@
 		text-align: right;
 		font-size : 12px;
 	}
-	
 	table {
-	  border-collapse: separate;
-	  border-spacing: 1px;
-	  text-align: left;
-	  line-height: 1.5;
-	  border-top: 1px solid #ccc;
-	  margin : 20px 10px;
+	width: 100%;
+	height: 100px;
+	margin: auto;
+	text-align: left;
 	}
 	th {
-	  width: 150px;
+	  width: 100px;
 	  padding: 10px;
 	  font-weight: bold;
 	  vertical-align: top;
 	  border-bottom: 1px solid #ccc;
 	}
 	td {
-	  width: 350px;
+	  width: 100px;
 	  padding: 10px;
 	  vertical-align: top;
 	  border-bottom: 1px solid #ccc;
@@ -120,6 +121,11 @@
 						ArrayList<Rent_searchDTO> RentSearchList = null;
 						ArrayList<Main_filterDTO> MatSearchList = null;
 						ArrayList<ImdaeSearchDTO> ImdaeSearchList = null;
+						ArrayList<SchoolDTO> SchoolList = null;
+						ArrayList<FacilityDTO> FacList = null;
+						ArrayList<ParkDTO> ParkList = null;
+						ArrayList<LibDTO> LibList = null; 
+						
 						String mat_select = null;
 
 						if (info != null) {
@@ -143,8 +149,6 @@
 		</div>
 	</nav>
 
-
-
 	<!--사이드메뉴-->
 	<div class="container">
 		<div class="row">
@@ -153,7 +157,7 @@
 				<h4 class="my-4">매물</h4>
 				<div class="list-group">
 					<a href="index_maemae.jsp" class="list-group-item" id="check1">매매</a> 
-					<a href="index_rent.jsp" class="list-group-item" id="check2">전 월세</a>
+					<a href="index_rent.jsp" class="list-group-item" id="check2">전월세</a>
 				</div>
 				<h4 class="my-4">필터</h4>
 				<div class="list-group">
@@ -178,8 +182,9 @@
 	</div>
 	<!-- 메인페이지 -->
 	<!-- 매매 -->
-	<div class="col-lg-9">
-		<div id="basic" class="raw">
+<div class="col-lg-9">
+	<div id="basic" >
+		<div class="row">
 		<br><br>
 			<h5>어떤 매물을 찾고 계시나요?</h5><br>
 			<form action="SearchService.do" method="post">
@@ -276,10 +281,11 @@
 			</tbody>
 			</table>
 		<%}%>
+		</div>
 	</div> <!-- 매매 문닫기 -->
 
 	<!-- 전 월세 -->
-	<div id="junwall" class="raw">
+	<div id="junwall">
 			<h5>찾으시는 전세/월세집이 있으시나요?</h5><br>
 			<form action="RentSearchService.do" method="post">
 		<!-- 옵션선택 -->
@@ -339,7 +345,7 @@
 		</div> <!-- 전 월세문닫기 -->
 
 		<!-- 맞춤필터 -->
-		<div id="mat" class="raw">
+		<div id="mat">
 			<br><br>
 			<h5>원하는 조건을 선택하여서 조회해보세요!</h5><br>
 			<form action="MatSearchService.do" method="post">
@@ -354,17 +360,16 @@
 					<option value="lib">도서관</option>
 					<option value="park">공원</option>
 				</select>
-			<%if(info != null){%>
-				alert("로그인해주세요!");
-			<%}else{%> 
-				<span class='green_window'>
-					<input type="text" class='input_text' name="search" onkeydown="enterSearch()"
-							placeholder="동으로 검색하세요!">
-				</span>
-					<button type="submit" class="sch_smit">검색</button>
-					
-				</form>
 
+			<%if(info != null) {%>
+				<span class='green_window'>
+					<input type="text" class='input_text' name="search" onkeydown="enterSearch()" placeholder="동으로 검색하세요!">
+				</span>
+					<button type="submit" class="sch_smit">검색</button>			
+			<%} else {%> 
+				alert("로그인해주세요!");
+				<%}%>	
+				</form>
 		<!-- 맞춤옵션 -->
 			<%
 			mat_select = (String) session.getAttribute("mat_select");
@@ -637,7 +642,7 @@
 		</div>
 
 		<!-- 임대아파트 조회-->
-		<div id="imdae" class="raw">
+		<div id="imdae">
 		<br><br>
 			<h5>임대아파트를 조회해보세요!</h5><br>
 			<form action="ImdaeSearchService.do" method="post">
@@ -710,15 +715,6 @@
 	<br>
 	<br>
 	<br>
-
-	<!-- Footer -->
-	<footer class="py-5 bg-dark">
-		<div class="container">
-			<p class="m-0 text-center text-white">Copyright &copy; Your
-				Website 2020</p>
-		</div>
-		<!-- /.container -->
-	</footer>
 
 	<!-- Bootstrap core JavaScript -->
 	<script src="vendor/jquery/jquery.min.js"></script>

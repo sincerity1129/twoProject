@@ -111,7 +111,7 @@
 									<label for="email_address"
 										class="col-md-4 col-form-label text-md-right">비밀번호</label>
 									<div class="col-md-6">
-										<input type="text" id="pw" class="form-control" name="pw">
+										<input type="password" id="pw" class="form-control" name="pw">
 									</div>
 								</div>
 
