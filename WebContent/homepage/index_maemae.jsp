@@ -30,8 +30,14 @@
 
 <!-- Custom styles for this template -->
 <link href="css/shop-homepage.css" rel="stylesheet">
+<<<<<<< HEAD
 </head>
+=======
+
+
+>>>>>>> branch 'master' of https://github.com/sincerity1129/project.git
 <style type="text/css">
+<<<<<<< HEAD
 	.navbar-brand{
 		font-size : 30px;
 		font-weight : bold;
@@ -98,8 +104,75 @@
 	  padding: 10px;
 	  vertical-align: top;
 	  border-bottom: 1px solid #ccc;
+=======
+.navbar-brand{
+		font-size : 30px;
+		font-weight : bold;
+	}
+	.my-4{
+		font-weight : bold;
+	}
+	.green_window {
+		display: inline-block;
+		width: 500px; height: 40px;
+		border: 3px solid #1b5ac2;
+		background: white;
+	}
+	.input_text {
+		width: 480; height: 20px;
+		margin: 6px 0 0 9px;
+		border: 0;
+		line-height: 20px;
+		font-size: 14px;
+		outline: none;
+		float : left;
+	}
+	.sch_smit {
+		width: 100px; height: 40px;
+		margin: 0; border: 0;
+		vertical-align: top;
+		background: #1b5ac2;
+		color: white;
+		font-weight: bold;
+		border-radius: 1px;
+		cursor: pointer;
+	}
+	.SelectSearch{
+		width: 120px; height: 40px;
+		border: 3px solid #1b5ac2;
+		background: white;
+		vertical-align: top;
+	}
+	.unit{
+		text-align: right;
+		font-size : 12px;
+>>>>>>> branch 'master' of https://github.com/sincerity1129/project.git
 	}
 	
+<<<<<<< HEAD
+=======
+	table {
+	  border-collapse: separate;
+	  border-spacing: 1px;
+	  text-align: left;
+	  line-height: 1.5;
+	  border-top: 1px solid #ccc;
+	  margin : 20px 10px;
+	}
+	th {
+	  width: 150px;
+	  padding: 10px;
+	  font-weight: bold;
+	  vertical-align: top;
+	  border-bottom: 1px solid #ccc;
+	}
+	td {
+	  width: 350px;
+	  padding: 10px;
+	  vertical-align: top;
+	  border-bottom: 1px solid #ccc;
+	}
+>>>>>>> branch 'master' of https://github.com/sincerity1129/project.git
 	#junwall, #mat, #imdae {
 		display: none;
 }
@@ -186,6 +259,7 @@
 					<%}%>
 				</div>
 			</div>
+<<<<<<< HEAD
 		</div>
 	</div>
 	
@@ -201,6 +275,21 @@
 			<select class='SelectSearch' name="table">
 				<option value='dong'>법정동</option>
 				<option value='apt_name'>아파트</option>
+=======
+
+			<!-- /.col-lg-3 -->
+
+			<!-- 매매 -->
+			<div class="col-lg-9">
+				<div id="basic" class="raw">
+		<br><br>
+			<h5>어떤 매물을 찾고 계시나요?</h5><br>
+			<form action="SearchService.do" method="post">
+			<!-- 옵션선택 -->
+			<select class='SelectSearch' name="table">
+				<option value='apt_name'>아파트</option>
+				<option value='dong'>법정동</option>
+>>>>>>> branch 'master' of https://github.com/sincerity1129/project.git
 			</select>
 			<span class='green_window'>
 				<input type="text" class='input_text' name="search" onkeydown="enterSearch()"
@@ -292,6 +381,7 @@
 		<%}%>
 	</div> <!-- 매매 문닫기 -->
 
+<<<<<<< HEAD
 	<!-- 전 월세 -->
 	<div id="junwall" class="raw">
 			<h5>찾으시는 전세/월세집이 있으시나요?</h5><br>
@@ -307,6 +397,158 @@
 			</span>
 				<button type="submit" class="sch_smit">검색</button>
 			</form>
+=======
+
+					<%DongSearchList = (ArrayList<Main_filterDTO>) session.getAttribute("DongSearchList");
+					if (DongSearchList != null) {
+						System.out.print("동 성공!!");
+						System.out.print(DongSearchList.size());%>
+					<table>
+						<tr>
+							<td>번호</td>
+							<td>매매 번호</td>
+							<td>아파트 명</td>
+							<td>법정동</td>
+							<td>실거래가</td>
+							<td>건축 년도</td>
+							<td>년</td>
+							<td>월</td>
+							<td>일</td>
+							<td>평수</td>
+							<td>층</td>
+						</tr>
+
+						<%for (int i = 0; i < DongSearchList.size(); i++) {%>
+						<tr>
+							<td><%=i + 1%></td>
+							<td><%=DongSearchList.get(i).getMaemae_num()%></td>
+							<td><%=DongSearchList.get(i).getApt_name()%></td>
+							<td><%=DongSearchList.get(i).getDong()%></td>
+							<td><%=DongSearchList.get(i).getPrice()%></td>
+							<td><%=DongSearchList.get(i).getBuild_year()%></td>
+							<td><%=DongSearchList.get(i).getYear()%></td>
+							<td><%=DongSearchList.get(i).getMonth()%></td>
+							<td><%=DongSearchList.get(i).getDay()%></td>
+							<td><%=DongSearchList.get(i).getApt_size()%></td>
+							<td><%=DongSearchList.get(i).getFloor()%></td>
+						</tr>
+
+						<%}%>
+					</table>
+					<%}%>
+
+					<%AptSearchList = (ArrayList<Main_filterDTO>) session.getAttribute("AptSearchList");
+					if (AptSearchList != null) {
+						System.out.print("아파트 성공!");%>
+					<table>
+						<tr>
+							<td>번호</td>
+							<td>매매 번호</td>
+							<td>아파트 명</td>
+							<td>법정동</td>
+							<td>실거래가</td>
+							<td>건축 년도</td>
+							<td>년</td>
+							<td>월</td>
+							<td>일</td>
+							<td>평수</td>
+							<td>층</td>
+						</tr>
+
+						<%for (int i = 0; i < AptSearchList.size(); i++) {%>
+						<tr>
+							<td><%=i + 1%></td>
+							<td><%=AptSearchList.get(i).getMaemae_num()%></td>
+							<td><%=AptSearchList.get(i).getApt_name()%></td>
+							<td><%=AptSearchList.get(i).getDong()%></td>
+							<td><%=AptSearchList.get(i).getPrice()%></td>
+							<td><%=AptSearchList.get(i).getBuild_year()%></td>
+							<td><%=AptSearchList.get(i).getYear()%></td>
+							<td><%=AptSearchList.get(i).getMonth()%></td>
+							<td><%=AptSearchList.get(i).getDay()%></td>
+							<td><%=AptSearchList.get(i).getApt_size()%></td>
+							<td><%=AptSearchList.get(i).getFloor()%></td>
+						</tr>
+
+						<%}%>
+					</table>
+					<%}%>
+				</div>
+
+				<!-- 전 월세 -->
+				<div id="junwall">
+					<h1>전 월세</h1>
+					<form action="RentSearchService.do" method="post">
+						<!-- radio를 사 -->
+						아파트<input type="radio" name="table" value="apt_name"> 
+						동<input	type="radio" name="table" value="dong"> 
+							검색 : <input type="text" name="rent_search"> 
+							<input type="submit" value="검색">
+					</form>
+					
+					
+					<!--  <img class="d-block img-fluid" src="./img/white-img.jpg" alt="First slide"> 이미지 파일 넣는 곳-->
+
+					<div id="row">
+						<%RentSearchList = (ArrayList<Rent_searchDTO>) session.getAttribute("RentSearchList");
+						if (RentSearchList != null) {%>
+						<table>
+							<tr>
+								<td>즐겨찾기</td>
+								<td>번호</td>
+								<td>동</td>
+								<td>빌드 번호</td>
+								<td>보증금</td>
+								<td>월세</td>
+								<td>아파트 이름</td>
+								<td>건축 년도</td>
+								<td>거래 년도</td>
+								<td>월</td>
+								<td>일</td>
+								<td>평 수</td>
+								<td>층</td>
+							</tr>
+							
+							<%for (int i = 0; i < RentSearchList.size(); i++) {%>
+							<tr>
+								<td><input type="checkbox" value=""></td>
+								<td><%=i + 1%></td>
+								<td><%=RentSearchList.get(i).getDong()%></td>
+								<td><%=RentSearchList.get(i).getBuild_year()%></td>
+								<td><%=RentSearchList.get(i).getDeposit()%></td>
+								<td><%=RentSearchList.get(i).getLoyer()%></td>
+								<td><%=RentSearchList.get(i).getApt_name()%></td>
+								<td><%=RentSearchList.get(i).getBuild_year()%></td>
+								<td><%=RentSearchList.get(i).getYear()%></td>
+								<td><%=RentSearchList.get(i).getMonth()%></td>
+								<td><%=RentSearchList.get(i).getDate()%></td>
+								<td><%=RentSearchList.get(i).getApt_size()%></td>
+								<td><%=RentSearchList.get(i).getFloor()%></td>
+							</tr>
+
+							<%}%>
+						</table>
+						<%}%>
+					</div>
+				</div>
+
+				<!-- 맞춤 -->
+				<div id="mat">
+					<h1>맞춤</h1>
+					<form action="MatSearchService.do" method="post">
+						<select name="mat_select">
+							<option value="crime">범죄자 수</option>
+							<option value="charge">전기차 충전소</option>
+							<option value="subway">지하철</option>
+							<option value="coffee">스타벅스</option>
+							<option value="movie">영화관</option>
+						</select> 동으로 검색 : <input type="text" name="mat_search"> 
+							<%if(info != null){%>
+						<input type="submit" value="검색">
+						<%}else{%>
+							로그인하여 검색기능 잠금해제.
+						<%}%>
+>>>>>>> branch 'master' of https://github.com/sincerity1129/project.git
 						
 		<div class="unit"> (단위 : 백만원)</div>
 					
