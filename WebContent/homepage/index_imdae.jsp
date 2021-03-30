@@ -133,6 +133,7 @@
 						<a class="nav-link" href="select.jsp">회원정보 관리</a> 
 						<%}%>
 					</li>
+					<li class="nav-item"><a class="nav-link" href="favorite.jsp">즐겨찾기</a></li>
 					<li class="nav-item"><a class="nav-link" href="mypage.jsp">마이페이지</a></li>
 					<li class="nav-item"><a class="nav-link"
 						href="LogoutService.do">로그아웃</a></li>
