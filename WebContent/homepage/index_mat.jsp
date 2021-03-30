@@ -23,7 +23,7 @@
 <meta name="description" content="">
 <meta name="author" content="">
 
-<title>Shop Homepage - Start Bootstrap Template</title>
+<title>광주아파트가격예측</title>
 
 <!-- Bootstrap core CSS -->
 <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -107,7 +107,7 @@
 	<!-- Navigation -->
 	<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
 		<div class="container">
-			<a class="navbar-brand" href="#">조 이름</a>
+			<a class="navbar-brand" href="#">Leader</a>
 			<button class="navbar-toggler" type="button" data-toggle="collapse"
 				data-target="#navbarResponsive" aria-controls="navbarResponsive"
 				aria-expanded="false" aria-label="Toggle navigation">
@@ -151,72 +151,61 @@
 					<li class="nav-item"><a class="nav-link" href="join.html">회원가입</a></li>
 					<li class="nav-item"><a class="nav-link" href="login.html">로그인</a></li>
 					<%}%>
-					<!-- 로그인 후 Logout.jsp로 이동할 수 있는'로그아웃'링크와 '개인정보수정'링크를 출력하시오. -->
 					</li>
-
 				</ul>
 			</div>
 		</div>
 	</nav>
-
-
-
-	<!-- Page Content -->
+<!--사이드메뉴-->
 	<div class="container">
-
 		<div class="row">
-
 			<div class="col-lg-3">
-
-				<h1 class="my-4">매물</h1>
+				<br>
+				<h4 class="my-4">매물</h4>
 				<div class="list-group">
-					<a href="index_maemae.jsp" class="list-group-item" id="check1">매물</a> 
-					<a href="index_rent.jsp" class="list-group-item" id="check2">전 월세</a>
+					<a href="index_maemae.jsp" class="list-group-item" id="check1">매매</a> 
+					<a href="index_rent.jsp" class="list-group-item" id="check2">전월세</a>
 				</div>
-				
-				<h1 class="my-4">특별 필터</h1>
+				<h4 class="my-4">필터</h4>
 				<div class="list-group">
 					<a href="index_mat.jsp" class="list-group-item" id="check3">맞춤</a>
-					<%if(info != null){ %>
+					<%if(info != null){%>
 					<a href="index_imdae.jsp" class="list-group-item" id="check4">임대</a>
 					<%}else {%>
-						<a href="" class="list-group-item" id="check4">임대</a>
-						<%}%>
-					
+					<a href="" class="list-group-item" id="check4">임대</a>
+					<%}%>
 				</div>
-				<h1 class="my-4">가격 예측</h1>
+				<h4 class="my-4">예측</h4>
 				<div class="list-group">
 					<%if(info != null){ %>
 					<a href="price.jsp" class="list-group-item" id="check2">가격 예측</a>
+
 					<%}else {%>
-						<a href="" class="list-group-item" id="check2">가격 예측</a>
-						<%}%>
+					<a href="" class="list-group-item" id="check2">가격 예측</a>
+					<%}%>
 				</div>
-
 			</div>
-			<!-- /.col-lg-3 -->
-			<!-- 매매 -->
-			<div class="col-lg-9">
-
-				
-				<!-- 맞춤 -->
-				<!--  기본 맞춤 필터 -->
-				<div id="mat" class="raw">
-			<br><br>
-			<h5>원하는 조건을 선택하여서 조회해보세요!</h5><br>
-			<form action="MatSearchService.do" method="post">
-				<select class='SelectSearch' name="mat_select">
-					<option value="crime">범죄자 수</option>
-					<option value="charge">전기차 충전소</option>
-					<option value="subway">지하철</option>
-					<option value="coffee">스타벅스</option>
-					<option value="movie">영화관</option>
-					<option value="school">학교</option>
-					<option value="fac">실내시설</option>
-					<option value="lib">도서관</option>
-					<option value="park">공원</option>
-				</select>
-			<%if(info != null) {%>
+		</div>
+		
+		<!-- 맞춤 -->
+	<div class="col-lg-9">
+	<!--  기본 맞춤 필터 -->
+	<div id="mat" class="raw">
+		<br><br>
+		<h5>원하는 조건을 선택하여서 조회해보세요!</h5><br>
+		<form action="MatSearchService.do" method="post">
+			<select class='SelectSearch' name="mat_select">
+				<option value="crime">범죄자 수</option>
+				<option value="charge">전기차 충전소</option>
+				<option value="subway">지하철</option>
+				<option value="coffee">스타벅스</option>
+				<option value="movie">영화관</option>
+				<option value="school">학교</option>
+				<option value="fac">실내시설</option>
+				<option value="lib">도서관</option>
+				<option value="park">공원</option>
+			</select>
+			<%if(info == null) {%>
 				<span class='green_window'>
 					<input type="text" class='input_text' name="mat_search" onkeydown="enterSearch()" placeholder="동으로 검색하세요!">
 				</span>
@@ -225,8 +214,6 @@
 				alert("로그인해주세요!");
 				<%}%>	
 				</form>
-
-					<!--  <img class="d-block img-fluid" src="./img/white-img.jpg" alt="First slide"> 이미지 파일 넣는 곳-->
 
 					<%
 					mat_select = (String) session.getAttribute("mat_select");
@@ -252,278 +239,257 @@
 					
 					if (MatSearchList != null) {%>
 					<table>
-						<tr>
-							<td>번호</td>
-							<%if (mat_select.equals("crime")) {%>
-							<td>범죄자 수</td>
-							<%}%>
-							<%if (mat_select.equals("charge")) {%>
-							<td>전기차 충전소</td>
-							<%}%>
-							<%if (mat_select.equals("subway")) {%>
-							<td>지하철</td>
-							<%}%>
-							<%if (mat_select.equals("coffee")) {%>
-							<td>스타벅스</td>
-							<%}%>
-
-							<td>매매 번호</td>
-							<td>동</td>
-							<td>가격</td>
-							<td>건축년도</td>
-							<td>이름</td>
-							<td>거래 년도</td>
-							<td>월</td>
-							<td>일</td>
-							<td>평 수</td>
-							<td>층</td>
-						</tr>
-						
-						<%if(MatSearchList.size() == 0){%>
-						<tr>
-							<td colspan = 12>매물이 없습니다.</td>
-						</tr>
-						<%} %>
-						
-						<%for (int i = 0; i < MatSearchList.size(); i++) {%>
-						<tr>
-							<td><%=i + 1%></td>
-							<%if (mat_select.equals("crime")) {%>
-							<td><%=MatSearchList.get(i).getCrime()%></td>
-							<%}%>
-							<%if (mat_select.equals("charge")) {%>
-							<td><%=MatSearchList.get(i).getCharge()%></td>
-							<%}%>
-							<%if (mat_select.equals("subway")) {%>
-							<td><%=MatSearchList.get(i).getSubway()%></td>
-							<%}%>
-							<%if (mat_select.equals("coffee")) {%>
-							<td><%=MatSearchList.get(i).getStarbucks()%></td>
-							<%}%>
-							<%if (mat_select.equals("movie")) {%>
-							<td><%=MatSearchList.get(i).getMovie()%></td>
-							<%}%>
-							<td><%=MatSearchList.get(i).getMaemae_num()%></td>
-							<td><%=MatSearchList.get(i).getDong()%></td>
-							<td><%=MatSearchList.get(i).getPrice()%></td>
-							<td><%=MatSearchList.get(i).getBuild_year()%></td>
-							<td><%=MatSearchList.get(i).getApt_name()%></td>
-							<td><%=MatSearchList.get(i).getYear()%></td>
-							<td><%=MatSearchList.get(i).getMonth()%></td>
-							<td><%=MatSearchList.get(i).getDay()%></td>
-							<td><%=MatSearchList.get(i).getApt_size()%></td>
-							<td><%=MatSearchList.get(i).getFloor()%></td>
-						</tr>
-
+			<thead>
+				<tr>
+					<th>번호</th>
+					<%if (mat_select.equals("crime")) {%>
+					<th>범죄자수</th>
+					<%}%>
+					<%if (mat_select.equals("charge")) {%>
+					<th>전기차충전소</th>
+					<%}%>
+					<%if (mat_select.equals("subway")) {%>
+					<th>지하철</th>
+					<%}%>
+					<%if (mat_select.equals("coffee")) {%>
+					<th>스타벅스</th>
+					<%}%>
+					<%if (mat_select.equals("movie")) {%>
+					<th>영화관</th>
+					<%}%>
+					<th>매매번호</th>
+					<th>법정동</th>
+					<th>아파트명</th>
+					<th>실거래가</th>
+					<th>건축년도</th>
+					<th>거래 년</th>
+					<th>월</th>
+					<th>일</th>
+					<th>평수</th>
+					<th>층</th>
+				</tr>
+				<%}%>
+				<%if(MatSearchList.size() == 0){%>
+				<tr>
+					<td colspan = 12>매물이 없습니다.</td>
+				</tr>
+				<%} %>
+				</thead>
+				<tbody>
+					<%for (int i = 0; i < MatSearchList.size(); i++) {%>
+					<tr>
+						<th><%=i + 1%></th>
+						<%if (mat_select.equals("crime")) {%>
+						<td><%=MatSearchList.get(i).getCrime()%></td>
 						<%}%>
+						<%if (mat_select.equals("charge")) {%>
+						<td><%=MatSearchList.get(i).getCharge()%></td>
+						<%}%>
+						<%if (mat_select.equals("subway")) {%>
+						<td><%=MatSearchList.get(i).getSubway()%></td>
+						<%}%>
+						<%if (mat_select.equals("coffee")) {%>
+						<td><%=MatSearchList.get(i).getStarbucks()%></td>
+						<%}%>
+						<%if (mat_select.equals("movie")) {%>
+						<td><%=MatSearchList.get(i).getMovie()%></td>
+						<%}%>
+						<td><%=MatSearchList.get(i).getMaemae_num()%></td>
+						<td><%=MatSearchList.get(i).getDong()%></td>
+						<td><%=MatSearchList.get(i).getPrice()%></td>
+						<td><%=MatSearchList.get(i).getBuild_year()%></td>
+						<td><%=MatSearchList.get(i).getApt_name()%></td>
+						<td><%=MatSearchList.get(i).getYear()%></td>
+						<td><%=MatSearchList.get(i).getMonth()%></td>
+						<td><%=MatSearchList.get(i).getDay()%></td>
+						<td><%=MatSearchList.get(i).getApt_size()%></td>
+						<td><%=MatSearchList.get(i).getFloor()%></td>
+					</tr>
+						<%}%>
+						</tbody>
 					</table>
 					<%}%>
-
 				</div>
-				
 				
 				<!-- school -->
 				<%if (SchoolList != null) {%>
 					<table>
-						<tr>
-							<td>번호</td>
-							<td>학교 이름</td>
-							<td>학교 주소</td>
-							<td>동</td>
-							<td>가격</td>
-							<td>이름</td>
-							<td>건축년도</td>
-							<td>거래 년도</td>
-							<td>월</td>
-							<td>일</td>
-							<td>평 수</td>
-							<td>층</td>
-						</tr>
-						
-						<%if(SchoolList.size() == 0){%>
-						<tr>
-							<td colspan = 12>매물이 없습니다.</td>
-						</tr>
-						<%} %>
-						
-						<%for (int i = 0; i < SchoolList.size(); i++) {%>
-						<tr>
-							<td><%=i + 1%></td>
-							<td><%=SchoolList.get(i).getSchool_name()%></td>
-							<td><%=SchoolList.get(i).getScool_addr()%></td>
-							<td><%=SchoolList.get(i).getDong()%></td>
-							<td><%=SchoolList.get(i).getPrice()%></td>
-							<td><%=SchoolList.get(i).getBuild_year()%></td>
-							<td><%=SchoolList.get(i).getApt_name()%></td>
-							<td><%=SchoolList.get(i).getYear()%></td>
-							<td><%=SchoolList.get(i).getMonth()%></td>
-							<td><%=SchoolList.get(i).getDay()%></td>
-							<td><%=SchoolList.get(i).getApt_size()%></td>
-							<td><%=SchoolList.get(i).getFloor()%></td>
-						</tr>
-
+					<thead>
+				<tr>
+					<th>번호</th>
+					<th>학교명</th>
+					<th>학교주소</th>
+					<th>법정동</th>
+					<th>실거래가</th>
+					<th>아파트명</th>
+					<th>건축년도</th>
+					<th>거래 년</th>
+					<th>월</th>
+					<th>일</th>
+					<th>평수</th>
+					<th>층</th>
+				</tr>
+					<%if(SchoolList.size() == 0){%>
+				<tr>
+					<td colspan = 12>매물이 없습니다.</td>
+				</tr>
+					<%} %>
+			</thead>
+			<tbody>
+				<%for (int i = 0; i < SchoolList.size(); i++) {%>
+				<tr>
+					<th><%=i + 1%></th>
+					<td><%=SchoolList.get(i).getSchool_name()%></td>
+					<td><%=SchoolList.get(i).getScool_addr()%></td>
+					<td><%=SchoolList.get(i).getDong()%></td>
+					<td><%=SchoolList.get(i).getPrice()%></td>
+					<td><%=SchoolList.get(i).getBuild_year()%></td>
+					<td><%=SchoolList.get(i).getApt_name()%></td>
+					<td><%=SchoolList.get(i).getYear()%></td>
+					<td><%=SchoolList.get(i).getMonth()%></td>
+					<td><%=SchoolList.get(i).getDay()%></td>
+					<td><%=SchoolList.get(i).getApt_size()%></td>
+					<td><%=SchoolList.get(i).getFloor()%></td>
+				</tr>
 						<%}%>
+						</tbody>
 					</table>
 					<%}%>
-					
-					
 					
 					<!-- facility -->
 				<%if (FacList != null) {%>
 					<table>
-						<tr>
-							<td>번호</td>
-							<td>아파트 이름</td>
-							<td>실내 시설</td>
-							<td>동</td>
-							<td>가격</td>
-							<td>건축년도</td>
-							<td>거래 년도</td>
-							<td>월</td>
-							<td>일</td>
-							<td>평 수</td>
-							<td>층</td>
-						</tr>
-						
-						<%if(FacList.size() == 0){%>
-						<tr>
-							<td colspan = 11>매물이 없습니다.</td>
-						</tr>
-						<%} %>
-						
-						<%for (int i = 0; i < FacList.size(); i++) {%>
-						<tr>
-							<td><%=i + 1%></td>
-							<td><%=FacList.get(i).getApt_name()%></td>
-							<td><%=FacList.get(i).getFacility()%></td>
-							<td><%=FacList.get(i).getDong()%></td>
-							<td><%=FacList.get(i).getPrice()%></td>
-							<td><%=FacList.get(i).getBuild_year()%></td>
-							<td><%=FacList.get(i).getYear()%></td>
-							<td><%=FacList.get(i).getMonth()%></td>
-							<td><%=FacList.get(i).getDay()%></td>
-							<td><%=FacList.get(i).getApt_size()%></td>
-							<td><%=FacList.get(i).getFloor()%></td>
-						</tr>
-
-						<%}%>
+				<thead>
+					<tr>
+						<th>번호</th>
+						<th>아파트명</th>
+						<th>실내시설</th>
+						<th>법정동</th>
+						<th>실거래가</th>
+						<th>건축년도</th>
+						<th>거래 년</th>
+						<th>월</th>
+						<th>일</th>
+						<th>평수</th>
+						<th>층</th>
+					</tr>
+			<%if(FacList.size() == 0){%>
+			<tr>
+				<td colspan = 11>매물이 없습니다.</td>
+			</tr>
+			<%} %>
+			</thead>
+			<tbody>
+				<%for (int i = 0; i < FacList.size(); i++) {%>
+				<tr>
+					<th><%=i + 1%></th>
+					<td><%=FacList.get(i).getApt_name()%></td>
+					<td><%=FacList.get(i).getFacility()%></td>
+					<td><%=FacList.get(i).getDong()%></td>
+					<td><%=FacList.get(i).getPrice()%></td>
+					<td><%=FacList.get(i).getBuild_year()%></td>
+					<td><%=FacList.get(i).getYear()%></td>
+					<td><%=FacList.get(i).getMonth()%></td>
+					<td><%=FacList.get(i).getDay()%></td>
+					<td><%=FacList.get(i).getApt_size()%></td>
+					<td><%=FacList.get(i).getFloor()%></td>
+				</tr>
+					<%}%>
+					</tbody>
 					</table>
 					<%}%>
 					
 					<!-- Park -->
 				<%if (ParkList != null) {%>
 					<table>
-						<tr>
-							<td>번호</td>
-							<td>공원 정보</td>
-							<td>공원 크기</td>
-							<td>아파트 이름</td>
-							<td>동</td>
-							<td>가격</td>
-							<td>건축년도</td>
-							<td>거래 년도</td>
-							<td>월</td>
-							<td>일</td>
-							<td>평 수</td>
-							<td>층</td>
-						</tr>
-						
-						<%if(ParkList.size() == 0){%>
-						<tr>
-							<td colspan = 12>매물이 없습니다.</td>
-						</tr>
-						<%} %>
-						
-						<%for (int i = 0; i < ParkList.size(); i++) {%>
-						<tr>
-							<td><%=i + 1%></td>
-							<td><%=ParkList.get(i).getPark_div()%></td>
-							<td><%=ParkList.get(i).getPark_size()%></td>
-							<td><%=ParkList.get(i).getApt_name()%></td>
-							<td><%=ParkList.get(i).getDong()%></td>
-							<td><%=ParkList.get(i).getPrice()%></td>
-							<td><%=ParkList.get(i).getBuild_year()%></td>
-							<td><%=ParkList.get(i).getYear()%></td>
-							<td><%=ParkList.get(i).getMonth()%></td>
-							<td><%=ParkList.get(i).getDay()%></td>
-							<td><%=ParkList.get(i).getApt_size()%></td>
-							<td><%=ParkList.get(i).getFloor()%></td>
-						</tr>
+						<thead>
+				<tr>
+					<th>번호</th>
+					<th>공원정보</th>
+					<th>공원크기</th>
+					<th>아파트명</th>
+					<th>법정동</th>
+					<th>실거래가</th>
+					<th>건축년도</th>
+					<th>거래 년</th>
+					<th>월</th>
+					<th>일</th>
+					<th>평수</th>
+					<th>층</th>
+				</tr>
+			<%if(ParkList.size() == 0){%>
+				<tr>
+					<td colspan = 12>매물이 없습니다.</td>
+				</tr>
+			<%} %>
+			</thead>
+			<tbody>
+				<%for (int i = 0; i < ParkList.size(); i++) {%>
+				<tr>
+					<td><%=i + 1%></td>
+					<td><%=ParkList.get(i).getPark_div()%></td>
+					<td><%=ParkList.get(i).getPark_size()%></td>
+					<td><%=ParkList.get(i).getApt_name()%></td>
+					<td><%=ParkList.get(i).getDong()%></td>
+					<td><%=ParkList.get(i).getPrice()%></td>
+					<td><%=ParkList.get(i).getBuild_year()%></td>
+					<td><%=ParkList.get(i).getYear()%></td>
+					<td><%=ParkList.get(i).getMonth()%></td>
+					<td><%=ParkList.get(i).getDay()%></td>
+					<td><%=ParkList.get(i).getApt_size()%></td>
+					<td><%=ParkList.get(i).getFloor()%></td>
+				</tr>
+				<%}%>
+				</tbody>
+			</table>
+			<%}%>
 
-						<%}%>
-					</table>
-					<%}%>
-					
-					
-					<!-- Lib -->
-				<%if (LibList != null) {%>
-					<table>
-						<tr>
-							<td>번호</td>
-							<td>도서관 이름</td>
-							<td>휴무일</td>
-							<td>아파트 이름</td>
-							<td>동</td>
-							<td>가격</td>
-							<td>건축년도</td>
-							<td>거래 년도</td>
-							<td>월</td>
-							<td>일</td>
-							<td>평 수</td>
-							<td>층</td>
-						</tr>
-						
-						<%if(LibList.size() == 0){%>
-						<tr>
-							<td colspan = 12>매물이 없습니다.</td>
-						</tr>
-						<%} %>
-						
-						<%for (int i = 0; i < LibList.size(); i++) {%>
-						<tr>
-							<td><%=i + 1%></td>
-							<td><%=LibList.get(i).getLib_name()%></td>
-							<td><%=LibList.get(i).getClose()%></td>
-							<td><%=LibList.get(i).getApt_name()%></td>
-							<td><%=LibList.get(i).getDong()%></td>
-							<td><%=LibList.get(i).getPrice()%></td>
-							<td><%=LibList.get(i).getBuild_year()%></td>
-							<td><%=LibList.get(i).getYear()%></td>
-							<td><%=LibList.get(i).getMonth()%></td>
-							<td><%=LibList.get(i).getDay()%></td>
-							<td><%=LibList.get(i).getApt_size()%></td>
-							<td><%=LibList.get(i).getFloor()%></td>
-						</tr>
+				<!-- Lib -->
+			<%if (LibList != null) {%>
+			<table>
+			<thead>
+				<tr>
+					<th>번호</th>
+					<th>도서관명</th>
+					<th>휴무일</th>
+					<th>아파트명</th>
+					<th>법정동</th>
+					<th>실거래가</th>
+					<th>건축년도</th>
+					<th>거래 년</th>
+					<th>월</th>
+					<th>일</th>
+					<th>평수</th>
+					<th>층</th>
+				</tr>
+			<%if(LibList.size() == 0){%>
+				<tr>
+					<td colspan = 12>매물이 없습니다.</td>
+				</tr>
+			<%} %>
+			</thead>
+			<tbody>
+				<%for (int i = 0; i < LibList.size(); i++) {%>
+				<tr>
+					<td><%=i + 1%></td>
+					<td><%=LibList.get(i).getLib_name()%></td>
+					<td><%=LibList.get(i).getClose()%></td>
+					<td><%=LibList.get(i).getApt_name()%></td>
+					<td><%=LibList.get(i).getDong()%></td>
+					<td><%=LibList.get(i).getPrice()%></td>
+					<td><%=LibList.get(i).getBuild_year()%></td>
+					<td><%=LibList.get(i).getYear()%></td>
+					<td><%=LibList.get(i).getMonth()%></td>
+					<td><%=LibList.get(i).getDay()%></td>
+					<td><%=LibList.get(i).getApt_size()%></td>
+					<td><%=LibList.get(i).getFloor()%></td>
+				</tr>
+				<%}%>
+				</tbody>
+			</table>
+			<%}%>
+		</div>
 
-						<%}%>
-					</table>
-					<%}%>
-
-				</div>
-				<%} %>
-
-				<!-- 맞춤 -->
-				
-				
-
-
-				<!-- 임대 -->
-				<div id="imdae">
-
-					<h1>임대</h1>
-					<form action="ImdaeSearchService.do" method="post">
-
-						<!-- radio를 사 -->
-						구<input type="radio" name="search_type" value="region"> 동<input
-							type="radio" name="search_type" value="dong"> 검색 : <input
-							type="text" name="imdae_search"> <input type="submit"
-							value="검색">
-					</form>
-
-
-
-
-				</div>
 
 			</div>
 			<!-- /.col-lg-9 -->
@@ -539,14 +505,6 @@
 	<br>
 	<br>
 
-	<!-- Footer -->
-	<footer class="py-5 bg-dark">
-		<div class="container">
-			<p class="m-0 text-center text-white">Copyright &copy; Your
-				Website 2020</p>
-		</div>
-		<!-- /.container -->
-	</footer>
 
 	<!-- Bootstrap core JavaScript -->
 	<script src="vendor/jquery/jquery.min.js"></script>

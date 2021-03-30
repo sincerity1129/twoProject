@@ -19,13 +19,12 @@
 <meta name="description" content="">
 <meta name="author" content="">
 
-<title>Shop Homepage - Start Bootstrap Template</title>
-
+<title>광주아파트가격예측</title>
 <!-- Bootstrap core CSS -->
 <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-
 <!-- Custom styles for this template -->
 <link href="css/shop-homepage.css" rel="stylesheet">
+</head>
 <style type="text/css">
 .navbar-brand{
 		font-size : 30px;
@@ -96,14 +95,12 @@
 }
 </style>
 
-</head>
-
 <body>
 
 	<!-- Navigation -->
 	<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
 		<div class="container">
-			<a class="navbar-brand" href="#">조 이름</a>
+			<a class="navbar-brand" href="#">Leader</a>
 			<button class="navbar-toggler" type="button" data-toggle="collapse"
 				data-target="#navbarResponsive" aria-controls="navbarResponsive"
 				aria-expanded="false" aria-label="Toggle navigation">
@@ -142,46 +139,39 @@
 					<li class="nav-item"><a class="nav-link" href="join.html">회원가입</a></li>
 					<li class="nav-item"><a class="nav-link" href="login.html">로그인</a></li>
 					<%}%>
-					<!-- 로그인 후 Logout.jsp로 이동할 수 있는'로그아웃'링크와 '개인정보수정'링크를 출력하시오. -->
 					</li>
-
 				</ul>
 			</div>
 		</div>
 	</nav>
 
 
-
-	<!-- Page Content -->
+	<!--사이드메뉴-->
 	<div class="container">
 		<div class="row">
 			<div class="col-lg-3">
-				
-				<h1 class="my-4">매물</h1>
-				<div class="list-group">
-					<a href="index_maemae.jsp" class="list-group-item" id="check1">매물</a> 
-					<a href="index_rent.jsp" class="list-group-item" id="check2">전 월세</a>
+				 <h4 class="my-4">매물</h4>
+            <div class="list-group">
+               <a href="" class="list-group-item" id="check1">매매</a> 
+               <a href="index_rent.jsp" class="list-group-item" id="check2">전월세</a>
+            </div>
+            <h4 class="my-4">필터</h4>
+            <div class="list-group">
+               <a href="index_mat.jsp" class="list-group-item" id="check3">맞춤</a>
+               <%if(info != null){%>
+               <a href="index_imdae.jsp" class="list-group-item" id="check4">임대</a>
+               <%}else {%>
+               <a href="" class="list-group-item" id="check4">임대</a>
+               <%} %>               
+            </div>
+            <h4 class="my-4">예측</h4>
+            <div class="list-group">
+               <%if(info != null){%>
+               <a href="price.jsp" class="list-group-item" id="check2">가격 예측</a>
+               <%}else {%>
+                  <a href="" class="list-group-item" id="check2">가격 예측</a>
+                  <%}%>
 				</div>
-				
-				<h1 class="my-4">특별 필터</h1>
-				<div class="list-group">
-					<a href="index_mat.jsp" class="list-group-item" id="check3">맞춤</a>
-					<%if(info != null){ %>
-					<a href="index_imdae.jsp" class="list-group-item" id="check4">임대</a>
-					<%}else {%>
-						<a href="" class="list-group-item" id="check4">임대</a>
-						<%}%>				
-				</div>
-				
-				<h1 class="my-4">가격 예측</h1>
-				<div class="list-group">
-					<%if(info != null){ %>
-					<a href="price.jsp" class="list-group-item" id="check2">가격 예측</a>
-					<%}else {%>
-						<a href="" class="list-group-item" id="check2">가격 예측</a>
-						<%}%>
-				</div>
-
 			</div>
 
 			<!-- /.col-lg-3 -->
@@ -433,12 +423,12 @@
 				<!-- 맞춤 -->
 
 
-				<!-- 임대 -->
+				<!-- 임대아파트 조회-->
 				<div id="imdae" class="raw">
-		<br><br>
-			<h5>임대아파트를 조회해보세요!</h5><br>
-			<form action="ImdaeSearchService.do" method="post">
-			
+				<br><br>
+					<h5>임대아파트를 조회해보세요!</h5><br>
+					<form action="ImdaeSearchService.do" method="post">
+					
 			<!-- 옵션선택 -->
 			<select class='SelectSearch' name="table">
 				<option value='dong'>법정동</option>
@@ -450,52 +440,48 @@
 				<button type="submit" class="sch_smit">검색</button>
 			</form>
 
+			<!-- 동으로 조회하기 -->
+			<%ImdaeSearchList = (ArrayList<ImdaeSearchDTO>) session.getAttribute("ImdaeSearchList");
+			if (ImdaeSearchList != null) {%>
 
-					<%ImdaeSearchList = (ArrayList<ImdaeSearchDTO>) session.getAttribute("ImdaeSearchList");
-					if (ImdaeSearchList != null) {%>
-
-					<table>
-						<tr>
-							<td>즐겨찾기</td>
-							<td>번호</td>
-							<td>임대 번호</td>
-							<td>동 이름</td>
-							<td>아파트 이름</td>
-							<td>임대 크기</td>
-							<td>보증금</td>
-							<td>월세</td>
-							<td>총 세대수</td>
-							<td>세대수</td>
-							<td>임대 정보</td>
-							<td>공급 유형</td>
-							<td>최초 입주</td>
-						</tr>
-
-						<%for (int i = 0; i < ImdaeSearchList.size(); i++) {%>
-						<tr>
-							<td><input type="checkbox" value=""></td>
-							<td><%=i + 1%></td>
-							<td><%=ImdaeSearchList.get(i).getImdae_num()%></td>
-							<td><%=ImdaeSearchList.get(i).getRegion()%></td>
-							<td><%=ImdaeSearchList.get(i).getDong()%></td>
-							<td><%=ImdaeSearchList.get(i).getImdae_name()%></td>
-							<td><%=ImdaeSearchList.get(i).getImdae_size()%></td>
-							<td><%=ImdaeSearchList.get(i).getDeposit()%></td>
-							<td><%=ImdaeSearchList.get(i).getMonth_pay()%></td>
-							<td><%=ImdaeSearchList.get(i).getTotal_cnt()%></td>
-							<td><%=ImdaeSearchList.get(i).getCnt()%></td>
-							<td><%=ImdaeSearchList.get(i).getImdae_div()%></td>
-							<td><%=ImdaeSearchList.get(i).getMove_into_date()%></td>
-						</tr>
-
-						<%}%>
-					</table>
-					<%}%>
-
-
-
-
-
+			<table>
+				<thead>
+				<tr>
+					<th>번호</th>
+					<th>임대번호</th>
+					<th>지역구</th>
+					<th>법정동</th>
+					<th>아파트명</th>
+					<th>임대크기</th>
+					<th>보증금</th>
+					<th>월세</th>
+					<th>총 세대수</th>
+					<th>세대수</th>
+					<th>임대정보</th>
+					<th>공급유형</th>
+					<th>최초입주</th>
+				</tr>
+			</thead>
+			<tbody>
+				<%for (int i = 0; i < ImdaeSearchList.size(); i++) {%>
+				<tr>
+					<th><%=i + 1%></th>
+					<td><%=ImdaeSearchList.get(i).getImdae_num()%></td>
+					<td><%=ImdaeSearchList.get(i).getRegion()%></td>
+					<td><%=ImdaeSearchList.get(i).getDong()%></td>
+					<td><%=ImdaeSearchList.get(i).getImdae_name()%></td>
+					<td><%=ImdaeSearchList.get(i).getImdae_size()%></td>
+					<td><%=ImdaeSearchList.get(i).getDeposit()%></td>
+					<td><%=ImdaeSearchList.get(i).getMonth_pay()%></td>
+					<td><%=ImdaeSearchList.get(i).getTotal_cnt()%></td>
+					<td><%=ImdaeSearchList.get(i).getCnt()%></td>
+					<td><%=ImdaeSearchList.get(i).getImdae_div()%></td>
+					<td><%=ImdaeSearchList.get(i).getMove_into_date()%></td>
+				</tr>
+				<%}%>
+				</tbody>
+			</table>
+		<%}%>
 				</div>
 
 			</div>
@@ -512,14 +498,6 @@
 	<br>
 	<br>
 
-	<!-- Footer -->
-	<footer class="py-5 bg-dark">
-		<div class="container">
-			<p class="m-0 text-center text-white">Copyright &copy; Your
-				Website 2020</p>
-		</div>
-		<!-- /.container -->
-	</footer>
 
 	<!-- Bootstrap core JavaScript -->
 	<script src="vendor/jquery/jquery.min.js"></script>

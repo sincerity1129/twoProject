@@ -179,8 +179,7 @@
 			<!-- /.col-lg-3 -->
 
 			<div class="col-lg-9">
-<<<<<<< HEAD
-=======
+
 				<div id="basic" class="raw">
 					<h1>매물</h1>
 					<form action="SearchService.do" method="post">
@@ -271,27 +270,9 @@
 					<%}%>
 				</div>
 
-
-
->>>>>>> branch 'master' of https://github.com/sincerity1129/project.git
 				<!-- 전 월세 -->
 				<div id="junwall" class="raw">
-<<<<<<< HEAD
-				<br><br>
-				<h5>찾으시는 전세/월세집이 있으시나요?</h5><br>
-				<form action="RentSearchService.do" method="post">
-				<!-- 옵션선택 -->
-				<select class='SelectSearch' name="table">
-					<option value='apt_name'>아파트</option>
-					<option value='dong'>법정동</option>
-				</select>
-				<span class='green_window'>
-					<input type="text" class='input_text' name="search" onkeydown="enterSearch()"
-							placeholder="검색어를 입력하세요">
-				</span>
-					<button type="submit" class="sch_smit">검색</button>
-				</form>
-=======
+			<br><br>	
 			<h5>찾으시는 전세/월세집이 있으시나요?</h5><br>
 			<form action="RentSearchService.do" method="post">
 		<!-- 옵션선택 -->
@@ -305,9 +286,9 @@
 			</span>
 				<button type="submit" class="sch_smit">검색</button>
 			</form>
->>>>>>> branch 'master' of https://github.com/sincerity1129/project.git
+
 						
-				<div class="unit"> (단위 : 백만원)</div>
+				<div class="unit"> (단위 : 천원)</div>
 					
 					<%if(info !=null) {%>					
 					<form action= "FavoriteService.do" method = "post">
@@ -343,12 +324,12 @@
 							<%for (int i = 0; i < RentSearchList.size(); i++) {%>
 							<tr>
 								<th><%=i + 1%></th>
-								<td><%=RentSearchList.get(i).getDong()%></td>
 								<td><%=RentSearchList.get(i).getRent_num()%></td>
+								<td><%=RentSearchList.get(i).getDong()%></td>
+								<td><%=RentSearchList.get(i).getBuild_year()%></td>
 								<td><%=RentSearchList.get(i).getDeposit()%></td>
 								<td><%=RentSearchList.get(i).getLoyer()%></td>
 								<td><%=RentSearchList.get(i).getApt_name()%></td>
-								<td><%=RentSearchList.get(i).getBuild_year()%></td>
 								<td><%=RentSearchList.get(i).getYear()%></td>
 								<td><%=RentSearchList.get(i).getMonth()%></td>
 								<td><%=RentSearchList.get(i).getDate()%></td>
