@@ -59,7 +59,7 @@ public ArrayList<Main_filterDTO> search(Dong_searchDTO dto) {
 	conn();
 	
 	try {
-		String sql = "select * from A_maemae where Dong_name like";
+		String sql = "select * from A_maemae where Dong like";
 		psmt = conn.prepareStatement(sql+"\'%"+dto.getSearch()+"%\'");
 		rs = psmt.executeQuery();
 		

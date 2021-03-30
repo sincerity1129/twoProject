@@ -142,6 +142,7 @@
 						<a class="nav-link" href="select.jsp">회원정보 관리</a> 
 						<%}%>
 					</li>
+					<li class="nav-item"><a class="nav-link" href="favorite.jsp">즐겨찾기</a></li>
 					<li class="nav-item"><a class="nav-link" href="mypage.jsp">마이페이지</a></li>
 					<li class="nav-item"><a class="nav-link"
 						href="LogoutService.do">로그아웃</a></li>
@@ -217,7 +218,7 @@
 				</select>
 			<%if(info != null) {%>
 				<span class='green_window'>
-					<input type="text" class='input_text' name="search" onkeydown="enterSearch()" placeholder="동으로 검색하세요!">
+					<input type="text" class='input_text' name="mat_search" onkeydown="enterSearch()" placeholder="동으로 검색하세요!">
 				</span>
 					<button type="submit" class="sch_smit">검색</button>			
 			<%} else {%> 

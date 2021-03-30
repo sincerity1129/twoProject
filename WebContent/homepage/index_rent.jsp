@@ -279,6 +279,8 @@
 					<%}%>
 				</div>
 
+
+
 				<!-- 전 월세 -->
 				<div id="junwall" class="raw">
 			<h5>찾으시는 전세/월세집이 있으시나요?</h5><br>
@@ -289,7 +291,7 @@
 			<option value='dong'>법정동</option>
 		</select>
 			<span class='green_window'>
-				<input type="text" class='input_text' name="search" onkeydown="enterSearch()"
+				<input type="text" class='input_text' name="rent_search" onkeydown="enterSearch()"
 						placeholder="검색어를 입력하세요">
 			</span>
 				<button type="submit" class="sch_smit">검색</button>
@@ -311,8 +313,8 @@
 
 
 					<div id="row">
-						<%RentSearchList = (ArrayList<Rent_searchDTO>) session.getAttribute("RentSearchList");
-						if (RentSearchList != null) {%>
+						<%RentSearchList = (ArrayList<Rent_searchDTO>) session.getAttribute("RentSearchList");%>
+						<%if (RentSearchList != null) {%>
 						<table>
 							<tr>
 								<td>즐겨찾기</td>
