@@ -457,7 +457,6 @@
 
 					<table>
 						<tr>
-							<td>즐겨찾기</td>
 							<td>번호</td>
 							<td>임대 번호</td>
 							<td>동 이름</td>
@@ -474,7 +473,6 @@
 
 						<%for (int i = 0; i < ImdaeSearchList.size(); i++) {%>
 						<tr>
-							<td><input type="checkbox" value=""></td>
 							<td><%=i + 1%></td>
 							<td><%=ImdaeSearchList.get(i).getImdae_num()%></td>
 							<td><%=ImdaeSearchList.get(i).getRegion()%></td>
