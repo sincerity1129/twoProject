@@ -20,8 +20,19 @@
 <body>
 	<h1>가격 예측 시스템</h1>
 	
-	<li font = "bold">목록</li> 목록1<input type =  "radio" name ="info1">목록2<input type =  "radio" name ="info1">목록3<input type =  "radio" name ="info1">
-	
+	<li font = "bold">목록</li>
+	<form action="http://localhost:9000/train" method="post">
+	<label><input type = "checkbox" name="check" value="price"> 거래금액</label>
+	<label><input type = "checkbox" name="check" value="arch"> 건축년도</label>
+	<label><input type = "checkbox" name="check" value="apt_size"> 평수</label>
+	<label><input type = "checkbox" name="check" value="floor"> 층</label><br>
+	<label><input type = "checkbox" name="check" value="crime"> 범죄자수</label>
+	<label><input type = "checkbox" name="check" value="star"> 스타벅스</label>
+	<label><input type = "checkbox" name="check" value="subway"> 지하철</label>
+	<label><input type = "checkbox" name="check" value="movie"> 영화관</label>
+	<label><input type = "checkbox" name="check" value="charge"> 전기차 충전소</label>
+	<p><input type="submit"> <input type="reset"></p>
+	</form>
 		<!-- footer 자리 맞추기 용도 -->
 <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
   <footer class="py-5 bg-dark">
