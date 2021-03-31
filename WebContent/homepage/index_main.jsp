@@ -10,11 +10,7 @@
 <%@page import="com.model.Main_filterDTO"%>
 <%@page import="com.model.MemberDTO"%>.
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
-<<<<<<< HEAD
    pageEncoding="EUC-KR"%>
-=======
-	pageEncoding="EUC-KR"%>
->>>>>>> branch 'master' of https://github.com/sincerity1129/project.git
  
 <!DOCTYPE html>
 <html lang="en">
@@ -45,21 +41,27 @@
    }
    .green_window {
       display: inline-block;
-      width: 400px; height: 40px;
+      width: 500px; height: 40px;
+      border: 3px solid #1b5ac2;
+      background: white;
+   }
+   .green_window {
+      display: inline-block;
+      width: 450px; height: 50px;
       border: 3px solid transparent;
       background: white;
    }
    .input_text {
-      width: 380px; height: 20px;
+      width: 400px; height: 40px;
       margin: 6px 0 0 9px;
       border: 0;
-      line-height: 20px;
-      font-size: 14px;
+      line-height: 30px;
+      font-size: 16px;
       outline: none;
       float : left;
    }
    .sch_smit {
-      width: 100px; height: 40px;
+      width: 120px; height: 50px;
       margin: 0; border: 0;
       vertical-align: top;
       background: white;
@@ -69,125 +71,63 @@
       cursor: pointer;
    }
    .SelectSearch{
-      width: 100px; height: 40px;
+      width: 130px; height: 50px;
       border : 3px solid transparent;
       background: white;
       vertical-align: top;
    }
 
-#basic, #junwall, #mat, #imdae, .container {
-      display: none;
-}
 .img{
-<<<<<<< HEAD
    background-image: url("./maemae.jpg");
    background-repeat: no-repeat;
-   background-size : 750px;
+   background-size : 1000px;
    width: 100%;
    height: 100%;
-=======
-	background-image: url("./maemae.jpg");
-	background-repeat: no-repeat;
-	background-size : 1000px;
-	width: 100%;
-	height: 100%;
->>>>>>> branch 'master' of https://github.com/sincerity1129/project.git
 }
 .img2_1 {
-<<<<<<< HEAD
    background-image: url("./filter.jpg");
    background-repeat: no-repeat;
-   background-size : 700px;
+   background-size : 880px;
    position : relative;
    width: 100%;
    height: 100%;
-   left: 50%;
-   bottom : 670px;
-=======
-	background-image: url("./filter.jpg");
-	background-repeat: no-repeat;
-	background-size : 880px;
-	position : relative;
-	width: 100%;
-	height: 100%;
-	left: 53%;
-	bottom : 860px;
->>>>>>> branch 'master' of https://github.com/sincerity1129/project.git
+   left: 53%;
+   bottom : 860px;
 }
 .img2_2 {
-<<<<<<< HEAD
    background-image: url("./filter.jpg");
    background-repeat: no-repeat;
-   background-size : 700px;
+   background-size : 880px;
    position : relative;
    width: 100%;
    height: 100%;
-   left: 50%;
-   bottom : 670px;
-=======
-	background-image: url("./filter.jpg");
-	background-repeat: no-repeat;
-	background-size : 880px;
-	position : relative;
-	width: 100%;
-	height: 100%;
-	left: 53%;
-	bottom : 860px;
->>>>>>> branch 'master' of https://github.com/sincerity1129/project.git
+   left: 53%;
+   bottom : 860px;
 }
 .img3_1 {
-<<<<<<< HEAD
    background-image: url("./pre.jpg");
    background-repeat: no-repeat;
-   background-size : 700px;
+   background-size : 880px;
    position : relative;
    width: 100%;
-   height: 100%;
-   left: 50%;
-   bottom : 1150px;
-=======
-	background-image: url("./pre.jpg");
-	background-repeat: no-repeat;
-	background-size : 880px;
-	position : relative;
-	
-	width: 100%;
-	height: 300px;
-	left: 53%;
-	bottom : 1430px;
->>>>>>> branch 'master' of https://github.com/sincerity1129/project.git
+   height: 300px;
+   left: 53%;
+   bottom : 1430px;
 }
 .img3_2 {
-<<<<<<< HEAD
    background-image: url("./pre.jpg");
    background-repeat: no-repeat;
-   background-size : 700px;
+   background-size : 880px;
    position : relative;
    width: 100%;
    height: 100%;
-   left: 50%;
-   bottom : 1150px;
-=======
-	background-image: url("./pre.jpg");
-	background-repeat: no-repeat;
-	background-size : 880px;
-	position : relative;
-	width: 100%;
-	height: 100%;
-	left: 53%;
-	bottom : 1430px;
->>>>>>> branch 'master' of https://github.com/sincerity1129/project.git
+   left: 53%;
+   bottom : 1430px;
 }
 .search1{
-<<<<<<< HEAD
    position: absolute;
-   top:400px;
+   top:450px;
    left : 100px;
-=======
-	position: absolute;
-	top:500px;
-	left : 100px;
->>>>>>> branch 'master' of https://github.com/sincerity1129/project.git
 }
 
 </style>
@@ -243,43 +183,6 @@
       </div>
    </nav>
 
-   <!--사이드메뉴-->
-   <div class="container">
-      <div class="row">
-         <div class="col-lg-3">
-            <br>
-            <h4 class="my-4">매물</h4>
-            <div class="list-group">
-               <a href="index_maemae.jsp" class="list-group-item" id="check1">매매</a> 
-               <a href="index_rent.jsp" class="list-group-item" id="check2">전월세</a>
-            </div>
-            <h4 class="my-4">필터</h4>
-            <div class="list-group">
-               <a href="index_mat.jsp" class="list-group-item" id="check3">맞춤</a>
-               <%if(info != null){%>
-               <a href="index_imdae.jsp" class="list-group-item">임대</a>
-               <%}else {%>
-               <a href="" class="list-group-item" id= "fake1">임대</a>
-               <%}%>
-            </div>
-            <h4 class="my-4">예측</h4>
-            <div class="list-group">
-               <%if(info != null){ %>
-               <a href="price.jsp" class="list-group-item" >가격 예측</a>
-
-<<<<<<< HEAD
-               <%}else {%>
-               <a href="" class="list-group-item" id= "fake2">가격 예측</a>
-               <%}%>
-            </div>
-         </div>
-      </div>
-   </div>
-   
-      
-      <br>
-      <br>
-      <div class = "img">
          <div class = "search1">
             <form action="SearchService.do" method="post">
             <br><br>
@@ -294,6 +197,7 @@
          	 <button type="submit" class="sch_smit">검색</button>
          	</form>
          </div>
+      <div class = "img">
       </div>
       
       
@@ -312,47 +216,6 @@
       <div class = "img3_2">
       </div>
       <%} %>
-=======
-					<%}else {%>
-					<a href="" class="list-group-item" id= "fake2">가격 예측</a>
-					<%}%>
-				</div>
-			</div>
-		</div>
-	</div>
-	
-		
-		
-			<div class = "search1">
-				<form action="SearchService.do" method="post">
-					<select name = "table">
-						<option value = "dong">동</option>
-						<option value = "apt_name">아파트</option>
-					</select>
-					<input type ="text" name = "search">
-					<input type = "submit" value = "검색">
-				</form>
-			</div>
-		<div class = "img">
-		</div>
-		
-		
-		<%if (info == null){ %>
-		<div class = "img2_1" >
-		</div>
-		<%} else {%>
-		<div class = "img2_2">
-		</div>
-		<%} %>
-		
-		<%if (info == null){ %>
-		<div class = "img3_1" >
-		</div>
-		<%} else {%>
-		<div class = "img3_2">
-		</div>
-		<%} %>
->>>>>>> branch 'master' of https://github.com/sincerity1129/project.git
 
 
 
@@ -360,7 +223,6 @@
    <br>
    <br>
 
-<<<<<<< HEAD
    <!-- Bootstrap core JavaScript -->
    <script src="vendor/jquery/jquery.min.js"></script>
    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
@@ -376,6 +238,9 @@
       $('#fake2').click(function(){
          alert('로그인을해주세요');
       });
+      $('.img').click(function(){
+         location.href = 'index_maemae.jsp'
+      });
       $('.img2_1').click(function(){
          alert('로그인을 해주세요');
       });
@@ -386,43 +251,9 @@
          alert('로그인을 해주세요');
       });
       $('.img3_2').click(function(){
-         location.href = 'index_imdae.jsp'
+         location.href = 'price.jsp'
       });
-      
    </script>
-=======
-	<!-- Bootstrap core JavaScript -->
-	<script src="vendor/jquery/jquery.min.js"></script>
-	<script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-	<script src="./vendor/jquery/jquery-3.6.0.min.js"></script>
-	
-	<script type="text/javascript">
-		$('#fake').click(function(){
-			alert('로그인을해주세요');
-		});
-		$('#fake1').click(function(){
-			alert('로그인을해주세요');
-		});
-		$('#fake2').click(function(){
-			alert('로그인을해주세요');
-		});
-		$('.img').click(function(){
-			location.href = 'index_maemae.jsp'
-		});
-		$('.img2_1').click(function(){
-			alert('로그인을 해주세요');
-		});
-		$('.img2_2').click(function(){
-			location.href = 'index_mat.jsp'
-		});
-		$('.img3_1').click(function(){
-			alert('로그인을 해주세요');
-		});
-		$('.img3_2').click(function(){
-			location.href = 'price.jsp'
-		});
-	</script>
->>>>>>> branch 'master' of https://github.com/sincerity1129/project.git
 
 </body>
 
