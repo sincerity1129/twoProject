@@ -30,6 +30,12 @@
 <title>즐겨찾기</title>
 </head>
 <style type="text/css">
+
+.navbar-brand{
+      font-size : 30px;
+      font-weight : bold;
+	  }
+	  
 	body{
 	    margin: 0;
 	    font-size: .9rem;
@@ -39,17 +45,50 @@
 	    text-align: left;
 	    background-color: #f5f8fa;
 	}
+   .green_window {
+      display: inline-block;
+      width: 500px; height: 40px;
+      border: 3px solid #343A40;
+      background: white;
+   }
+   .input_text {
+      width: 480px; height: 20px;
+      margin: 6px 0 0 9px;
+      border: 0;
+      line-height: 20px;
+      font-size: 14px;
+      outline: none;
+      float : left;
+   }
+   .sch_smit {
+      width: 100px; height: 40px;
+      margin: 0; border: 0;
+      vertical-align: top;
+      background: #343A40;
+      color: white;
+      border-radius: 1px;
+      cursor: pointer;
+   }
+   .SelectSearch{
+      width: 120px; height: 40px;
+      border: 3px solid #343A40;
+      background: white;
+      vertical-align: top;
+   }
+   
+   #option div{
+   	text-align:center;
+   }
 	
-	.navbar-brand{
+	.navbar-brand
+{
       font-size : 30px;
       font-weight : bold;
-	  }
-	.navbar-brand 
-	{	 
-		box-shadow: 0 2px 4px rgba(0,0,0,.04);
-	    font-weight : bold;
-	    font-family: Raleway, sans-serif;
-	}
+      box-shadow: 0 2px 4px rgba(0,0,0,.04);
+	  font-weight : bold;
+	  font-family: Raleway, sans-serif;
+}
+
 	
 	 table {
      border-collapse: separate;
@@ -79,7 +118,7 @@
 
 <body>
 
-	 <!-- Navigation -->
+	<!-- Navigation -->
    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
       <div class="container">
          <a class="navbar-brand" href="#">Leader</a>
@@ -88,27 +127,17 @@
             aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
          </button>
-         
-         
          <div class="collapse navbar-collapse" id="navbarResponsive">
             <ul class="navbar-nav ml-auto">
                <li class="nav-item active">
                   <%
                   //전역 변수 만들어주기.
                   MemberDTO info = (MemberDTO) session.getAttribute("info");
-                  Main_filterDAO dao = new Main_filterDAO();
-                  ArrayList<Main_filterDTO> AptSearchList = null;
-                  ArrayList<Main_filterDTO> DongSearchList = null;
-                  ArrayList<Rent_searchDTO> RentSearchList = null;
-                  ArrayList<Main_filterDTO> MatSearchList = null;
-                  ArrayList<ImdaeSearchDTO> ImdaeSearchList = null;
-                  String mat_select = null;
-
                   if (info != null) {
                      /*여긴 기본필터가 아닌 맞춤필터 시에 필요한 부분 */
                   }%> 
                   
-                  
+                  </li>
                   <%if (info != null) {%>
                
                <li class="nav-item">
@@ -116,51 +145,45 @@
                   <a class="nav-link" href="select.jsp">회원정보 관리</a> 
                   <%}%>
                </li>
-               <li class="nav-item"><a class="nav-link" href="favorite.jsp">즐겨찾기</a></li>
-               <li class="nav-item"><a class="nav-link" href="mypage.jsp">마이페이지</a></li>
-               <li class="nav-item"><a class="nav-link"
-                  href="LogoutService.do">로그아웃</a></li>
-               <%} else {%>
-               <li class="nav-item"><a class="nav-link" href="join.jsp">회원가입</a></li>
-               <li class="nav-item"><a class="nav-link" href="login.jsp">로그인</a></li>
-               <%}%>
-               </li>
+               <li class="nav-item"><a class="nav-link" href="index_main.jsp">메인화면</a></li>
+ 				           
             </ul>
          </div>
       </div>
    </nav>
-   
-	<!-- 상단메뉴 조정 -->
-		<nav class="navbar navbar-expand-lg navbar-light navbar-laravel">
-			<div class="container">
-				<a class="navbar-brand" href="#">Leader</a> 
-				<button class="navbar-toggler" type="button" data-toggle="collapse"
-					data-target="#navbarSupportedContent"
-					aria-controls="navbarSupportedContent" aria-expanded="false"
-					aria-label="Toggle navigation">
-					<span class="navbar-toggler-icon"></span>
-				</button>
 	
-				<div class="collapse navbar-collapse" id="navbarSupportedContent">
-					<ul class="navbar-nav ml-auto">
-						<li class="nav-item"><a class="nav-link" href="index_main.jsp">메인화면</a>
-						</li>
-					</ul>
-				</div>
-			</div>
-		</nav>
-		<br>
+	<!-- 선택메뉴바 -->
+	
+	<br><br><br><br><br><br>
+		<%FavoriteDAO dao = new FavoriteDAO(); %>
 		
-		<!-- 즐겨찾기 테이블 조회 -->
-
-	  	<%	
-	  	FavoriteDAO dao = new FavoriteDAO();
-		MemberDTO info = (MemberDTO) session.getAttribute("info");
-	  	ArrayList<Main_filterDTO> MeaList = dao.Mea_view(info);					  				  						  	
-		%>
-		
+		 <!-- 전체삭제 -->
+		 <div id="option">
+			
+			<div> 
+			 <!-- 선택삭제 -->	  
+			  <form action = "DelOneService.do" method = "post">
+			  <select class='SelectSearch'  name = "type">
+	      		  	<option value = "maemae" selected="selected">매매번호</option>
+	          	    <option value = "rent" >전월세번호</option>
+	          </select> 
+	          <span class='green_window'>
+					<input type="text" class='input_text' name="num" onkeydown="enterSearch()"
+							placeholder="삭제할 번호를 입력해주세요">
+			  </span>
+					<button type="submit" class="sch_smit">삭제</button>
+					<button type="button" class="sch_smit" onclick="location.href='DelAllService.do' ">전체삭제</button>
+					
+			  
+			  <div> 
+		  </div>
+		<!-- 즐겨찾기 테이블 조회 -->		
 		<!-- 매매테이블 조회 -->
-	  	<%if(MeaList != null) {%>
+		 
+	 	<%ArrayList<Main_filterDTO> MaeList = dao.Mae_view(info);
+ 		   if(MaeList != null) {%>
+	  	<div id = "select">
+	  	<br><br><br><br>
 	  	<h5><b>매매 즐겨찾기</b></h5><hr>
 		<table>
 			<thead>
@@ -179,19 +202,19 @@
 				</tr>
 			</thead>
 			<tbody>
-			<%for (int i = 0; i < MeaList.size(); i++) {%>
+			<%for (int i = 0; i < MaeList.size(); i++) {%>
 			<tr>
 				<th><%=i + 1%></th>
-				<td><%=MeaList.get(i).getMaemae_num()%></td>
-				<td><%=MeaList.get(i).getApt_name()%></td>
-				<td><%=MeaList.get(i).getDong()%></td>
-				<td><%=MeaList.get(i).getPrice()%></td>
-				<td><%=MeaList.get(i).getBuild_year()%></td>
-				<td><%=MeaList.get(i).getYear()%></td>
-				<td><%=MeaList.get(i).getMonth()%></td>
-				<td><%=MeaList.get(i).getDay()%></td>
-				<td><%=MeaList.get(i).getApt_size()%></td>
-				<td><%=MeaList.get(i).getFloor()%></td>
+				<td><%=MaeList.get(i).getMaemae_num()%></td>
+				<td><%=MaeList.get(i).getApt_name()%></td>
+				<td><%=MaeList.get(i).getDong()%></td>
+				<td><%=MaeList.get(i).getPrice()%></td>
+				<td><%=MaeList.get(i).getBuild_year()%></td>
+				<td><%=MaeList.get(i).getYear()%></td>
+				<td><%=MaeList.get(i).getMonth()%></td>
+				<td><%=MaeList.get(i).getDay()%></td>
+				<td><%=MaeList.get(i).getApt_size()%></td>
+				<td><%=MaeList.get(i).getFloor()%></td>
 			</tr>
 			<%}%>
 			</tbody>
@@ -199,9 +222,8 @@
 		<%}%>
 		
 		<!-- 전월세테이블 조회 -->
-		
-		 <%
-		 ArrayList<Rent_searchDTO> RentList = dao.Rent_view(info);
+		 
+		 <%ArrayList<Rent_searchDTO> RentList = dao.Rent_view(info);
 		 if (RentList != null) {%>
 		 <br><br>
 		 <h5><b>전월세 즐겨찾기</b></h5><hr>
@@ -221,7 +243,8 @@
 					<th>평수</th>
 					<th>층</th>
 				</tr>
-
+				</thead>
+					<tbody>
 						<%for (int i = 0; i < RentList.size(); i++) {%>
 						<tr>
 							<th><%=i + 1%></th>
@@ -238,8 +261,13 @@
 							<td><%=RentList.get(i).getFloor()%></td>
 						</tr>
 						<%}%>
+						</tbody>
 					</table>
-					<%}%>
+					<%} %>
+					</div>
+					</div>
+				<%} %>
+		
 </main>
 	<script src="./js/jquery-3.6.0.min.js"></script>
 	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>

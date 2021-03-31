@@ -76,7 +76,7 @@ public class FavoriteDAO {
 		return cnt;
 	}
 
-	public ArrayList<Main_filterDTO> Mea_view(MemberDTO info) {
+	public ArrayList<Main_filterDTO> Mae_view(MemberDTO info) {
 
 		MeaList = new ArrayList<Main_filterDTO>();
 		conn();
@@ -163,5 +163,54 @@ public class FavoriteDAO {
 		}
 
 		return RentList;
+	}
+	
+	public int deleteAll(FavoriteDTO dto) {
+		conn();
+		try {
+		
+		if (dto.getType().equals("maemae")) {
+		sql = "delete from MY_MAEMAE where MAEMAE_MEM_ID = ?";
+		} 
+		else if (dto.getType().equals("rent")) {
+		sql = "delete from MY_Rent where RENT_MEM_ID = ?";
+		}		
+		psmt = conn.prepareStatement(sql);		
+		psmt.setString(1, dto.getId());
+		
+		cnt = psmt.executeUpdate();
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}finally {
+			close();
+		}
+		return cnt;
+	}
+	
+	public int deleteSelect(FavoriteDTO dto) {
+		conn();
+		
+		try {
+			if (dto.getType().equals("maemae")) {
+				sql = "delete from MY_MAEMAE where MY_MAEMAE_NUM = ?";
+				} 
+				else if (dto.getType().equals("rent")) {
+				sql = "delete from MY_Rent where MY_RENT_NUM = ?";
+				}
+		
+		psmt = conn.prepareStatement(sql);		
+		psmt.setInt(1, dto.getCheck());
+		
+		cnt = psmt.executeUpdate();
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}finally {
+			close();
+		}
+		
+		
+		return cnt;
 	}
 }

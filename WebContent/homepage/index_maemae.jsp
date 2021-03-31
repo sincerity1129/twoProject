@@ -41,7 +41,7 @@
       background: white;
    }
    .input_text {
-      width: 480; height: 20px;
+      width: 480px; height: 20px;
       margin: 6px 0 0 9px;
       border: 0;
       line-height: 20px;
