@@ -128,7 +128,6 @@
 </style>
 
 <body>
-
 	<!-- Navigation -->
    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
       <div class="container">
@@ -259,6 +258,7 @@
 				</tr>
 				</thead>
 					<tbody>
+
 						<%for (int i = 0; i < RentList.size(); i++) {%>
 						<tr>
 							<th><%=i + 1%></th>
