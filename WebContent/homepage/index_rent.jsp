@@ -293,7 +293,7 @@ input[type="number"]::-webkit-inner-spin-button {
 				<input type="text" class='input_text' name="rent_search" onkeydown="enterSearch()"
 						placeholder="검색어를 입력하세요">
 			</span>
-				<button type="submit" class="sch_smit">검색</button>
+				<button type="submit" class="sch_smit" id = "add">검색</button>
 			</form>
 			
 	<!-- 즐겨찾기 -->  
