@@ -177,11 +177,8 @@ SELECT MAEMAE_NUM,DONG,PRICE,BUILD_YEAR,APT_NAME,YEAR,
 FROM   A_MAEMAE
 WHERE  MAEMAE_NUM IN (SELECT MY_MAEMAE_NUM
 					 FROM MY_MAEMAE 
-<<<<<<< HEAD
-					 WHERE MAEMAE_MEM_ID IN 'smart');
-=======
 					 WHERE MAEMAE_MEM_ID IN 'smhrd');
->>>>>>> branch 'master' of https://github.com/sincerity1129/project.git
+
 	
 
 /*전월세 즐겨찾기 테이블*/

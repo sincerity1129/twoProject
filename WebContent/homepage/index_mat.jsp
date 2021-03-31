@@ -310,7 +310,7 @@
 	<h5>원하는 조건을 선택하여서 조회해보세요!</h5><br>
     <form action="MatSearchService.do" method="post">
     	<select class='SelectSearch' name="mat_select">
-				<option value="crime">범죄자 수</option>
+				<option value="crime">성범죄자 수</option>
 				<option value="charge">전기차 충전소</option>
 				<option value="subway">지하철</option>
 				<option value="coffee">스타벅스</option>
@@ -451,6 +451,11 @@
 				</tr>
 				<%} %>
 			</thead>
+			<%if (SchoolList.size() == 0) {%>
+				<tr>
+					<td colspan=12>매물이 없습니다.</td>
+				</tr>
+				<%}%>
 			<tbody>
 			<% for (int i = 0; i < SchoolList.size(); i++) { %>
 			<tr>
@@ -537,6 +542,12 @@
 				</tr>
 				<%} %>
 				</thead>
+				
+				<%if (ParkList.size() == 0) {%>
+				<tr>
+					<td colspan=12>매물이 없습니다.</td>
+				</tr>
+				<%}%>
 				<tbody>
 				<% for (int i = 0; i < ParkList.size(); i++) { %>
 				<tr>
@@ -581,6 +592,12 @@
 					</tr>
 					<%} %>
 					</thead>
+					
+					<%if (LibList.size() == 0) {%>
+				<tr>
+					<td colspan=12>매물이 없습니다.</td>
+				</tr>
+				<%}%>
 					<tbody>
 					<%for (int i = 0; i < LibList.size(); i++) { %>
 					<tr>
