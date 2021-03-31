@@ -341,9 +341,11 @@ input[type="number"]::-webkit-inner-spin-button {
                   
             
                   // 키워드로 장소를 검색합니다
-                  
+                  if(<%=table%> === "dong"){
                   ps.keywordSearch("광주광역시 아파트"+"<%=RentSearchList.get(0).getDong() %>", placesSearchCB);
-                 
+                  }else if (<%=table%> === "apt_name"){
+                	  ps.keywordSearch("광주광역시 아파트"+"<%=RentSearchList.get(0).getApt_name() %>", placesSearchCB);
+                  }
                   // 키워드 검색 완료 시 호출되는 콜백함수 입니다
                   function placesSearchCB(data, status, pagination) {
                      if (status === kakao.maps.services.Status.OK) {
