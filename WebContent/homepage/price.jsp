@@ -39,6 +39,54 @@
 
 </style>
 <body>
+<script src="jquery/jquery-3.6.0.min.js"></script>
+<script>
+      
+         $('form').on('submit', function(){
+            
+            $.ajax({
+               url : "http://220.71.167.73:9000/",
+               
+               success: function(predict){
+                  console.log(predict);
+                  console.log(predict.data);
+                  let p = predict.data;
+                  let html = '<table border="1" class="dataframe">';
+                  html +='<thead>';
+                  html +='<tr style="text-align: center;"><th>매매번호</th><th>법정동</th><th>거래금액</th><th>건축년도</th><th>아파트</th><th>년</th><th>월</th><th>일</th><th>평수</th><th>층</th><th>범죄자수</th><th>충전소</th><th>지하철</th><th>스타벅스</th><th>영화관</th></tr>';
+                  html +='</thead>';
+                  html +='<tbody>';
+                  m.forEach(function(item, index){
+                     html +='<tr>';
+                     html +='<td>'+item.매매번호+'</td>';
+                     html +='<td>'+item.법정동+'</td>';
+                     html +='<td>'+item.예측값+'</td>';
+                     html +='<td>'+item.거래금액+'</td>';
+                     html +='<td>'+item.건축년도+'</td>';
+                     html +='<td>'+item.아파트+'</td>';
+                     html +='<td>'+item.년+'</td>';
+                     html +='<td>'+item.월+'</td>';
+                     html +='<td>'+item.일+'</td>';
+                     html +='<td>'+item.평수+'</td>';
+                     html +='<td>'+item.층+'</td>';
+                     html +='<td>'+item.범죄자수+'</td>';
+                     html +='<td>'+item.충전소+'</td>';
+                     html +='<td>'+item.지하철+'</td>';
+                     html +='<td>'+item.스타벅스+'</td>';
+                     html +='<td>'+item.영화관+'</td>';
+                     html +='</tr>';
+                  });
+                  html +='</tbody>';
+                  html += '</table>';
+                  
+                  $('#test').html(html);
+               }
+               
+            });
+            
+         });
+      
+     </script>
 <!-- Navigation -->
 	<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
 		<div class="container">
@@ -130,6 +178,9 @@
 		<p><input type="submit"> <input type="reset"></p>
 		</form>
 	</div>
+	<div id="test"></div>
+	
+	
 		<!-- footer 자리 맞추기 용도 -->
 <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
   <footer class="py-5 bg-dark">
