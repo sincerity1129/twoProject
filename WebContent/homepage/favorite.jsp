@@ -183,8 +183,8 @@
 	 	<%ArrayList<Main_filterDTO> MaeList = dao.Mae_view(info);
  		   if(MaeList != null) {%>
 	  	<div id = "select">
-	  	<br><br><br><br>
-	  	<h5><b>매매 즐겨찾기</b></h5><hr>
+		  	<br><br><br><br>
+		  	<h5><b>매매 즐겨찾기</b></h5><hr>
 		<table>
 			<thead>
 				<tr>
