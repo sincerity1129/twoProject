@@ -98,11 +98,10 @@
 }
 
 
-#mat,#junwall,#imdae,#mat , .col-lg-3{
+#mat,#junwall,#imdae,#mat ,{
 	display : none;
 }
 
->>>>>>> branch 'master' of https://github.com/sincerity1129/project.git
 </style>
 <body>
 <!-- Navigation -->

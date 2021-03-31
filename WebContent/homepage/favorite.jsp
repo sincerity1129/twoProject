@@ -173,7 +173,8 @@
 			
 			<div> 
 			 <!-- 선택삭제 -->	  
-			  <form action = "DelOneService.do" method = "post">
+			 
+			  <form method = "post">
 			  <select class='SelectSearch'  name = "type">
 	      		  	<option value = "maemae" selected="selected">매매번호</option>
 	          	    <option value = "rent" >전월세번호</option>
@@ -182,13 +183,11 @@
 					<input type="text" class='input_text' name="check" onkeydown="enterSearch()"
 							placeholder="삭제할 번호를 입력해주세요">
 			  </span>
-					<button type="submit" class="sch_smit">삭제</button>
+					<input type="submit" class="sch_smit" value ="삭제" onclick="javascript: form.action='DelOneService.do';"/>
+				<input type="submit" class="sch_smit" value = "전체 삭제" onclick="javascript: form.action='DelAllService.do';"/>
 			</form>		
 			
 			
-			<form action = "DelAllService.do">
-				<button type="submit" class="sch_smit_2" >전체삭제</button>
-			</form>
 			  
 			  <div> 
 		  </div>
