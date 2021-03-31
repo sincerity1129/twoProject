@@ -204,8 +204,6 @@
 	</nav>
 
 
-<<<<<<< HEAD
-=======
 					<%}else {%>
 					<a href="" class="list-group-item" id= "fake2">가격 예측</a>
 					<%}%>
@@ -246,7 +244,6 @@
 		<div class = "img3_2">
 		</div>
 		<%} %>
->>>>>>> branch 'master' of https://github.com/sincerity1129/project.git
 
 
 
