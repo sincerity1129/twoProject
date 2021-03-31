@@ -20,7 +20,6 @@ public class CheckService implements FrontCommand {
 		HttpSession session = request.getSession();
 		session.setAttribute("check", check);
 		response.sendRedirect("join.jsp");
-
 	}
 
 }
