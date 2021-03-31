@@ -327,12 +327,6 @@
 					<input type="text" class='input_text' name="mat_search" onkeydown="enterSearch()" placeholder="동으로 검색하세요!">
 			</span>
 			<button id = "fake" class = "sch_smit">검색</button>
-			
-			<script type="text/javascript">
-			$("#fake").click(function(){
-				alert('로그인을 해주세요');
-			});
-			</script>
 				
 			<%} else {%>
 				<span class='green_window'>
@@ -628,7 +622,9 @@
    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
    <script src="./vendor/jquery/jquery-3.6.0.min.js"></script>
    <script type="text/javascript">
-      
+	$("#fake").click(function(){
+		alert('로그인을 해주세요');
+	});
    </script>
 
 </body>
