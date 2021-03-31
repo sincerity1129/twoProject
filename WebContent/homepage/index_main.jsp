@@ -204,6 +204,49 @@
 	</nav>
 
 
+<<<<<<< HEAD
+=======
+					<%}else {%>
+					<a href="" class="list-group-item" id= "fake2">가격 예측</a>
+					<%}%>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+		
+		
+		<div class = "img">
+			사진 들어갈 곳
+			<div class = "search1">
+				<form action="SearchService.do">
+					<select name = "table">
+						<option value = "dong">동</option>
+						<option value = "apt_name">아파트</option>
+					</select>
+					<input type ="text" name = "search">
+					<input type = "submit" value = "검색">
+				</form>
+			</div>
+		</div>
+		
+		
+		<%if (info == null){ %>
+		<div class = "img2_1" >
+		</div>
+		<%} else {%>
+		<div class = "img2_2">
+		</div>
+		<%} %>
+		
+		<%if (info == null){ %>
+		<div class = "img3_1" >
+		</div>
+		<%} else {%>
+		<div class = "img3_2">
+		</div>
+		<%} %>
+>>>>>>> branch 'master' of https://github.com/sincerity1129/project.git
 
 
 
