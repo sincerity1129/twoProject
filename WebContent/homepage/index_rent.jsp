@@ -130,6 +130,7 @@ input[type="number"]::-webkit-inner-spin-button {
 						ArrayList<Main_filterDTO> MatSearchList = null;
 						ArrayList<ImdaeSearchDTO> ImdaeSearchList = null;
 						String mat_select = null;
+						String table = (String)session.getAttribute("table");
 
 						if (info != null) {
 							/*여긴 기본필터가 아닌 맞춤필터 시에 필요한 부분 */
@@ -312,9 +313,74 @@ input[type="number"]::-webkit-inner-spin-button {
 			
 			 <div class="unit"> (단위 : 천원)</div>
 					
+					<!-- 아파트로 검색 -->
 					<div id="row">
+					<%if (table != null){ %>
+						<%if(table.equals("apt_name")){ %>
 						<%RentSearchList = (ArrayList<Rent_searchDTO>) session.getAttribute("RentSearchList");%>
 						<%if (RentSearchList != null) {%>
+						
+						<div id="map" style="width: 100%; height: 300px;"></div>
+                  <script type="text/javascript" src="https://dapi.kakao.com/v2/maps/sdk.js?appkey=a19ab035edef253fb248a91c1d82a9ff&libraries=services"></script>
+                  <script>
+                     
+                  // 마커를 클릭하면 장소명을 표출할 인포윈도우 입니다
+                  var infowindow = new kakao.maps.InfoWindow({
+                     zIndex : 1
+                  });
+            
+                  var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
+                  mapOption = {
+                     center : new kakao.maps.LatLng(35.16023446394114, 126.8514006960729), // 지도의 중심좌표
+                     level : 5
+                  // 지도의 확대 레벨
+                  };
+            
+                  // 지도를 생성합니다    
+                  var map = new kakao.maps.Map(mapContainer, mapOption);
+            
+                  // 장소 검색 객체를 생성합니다
+                  var ps = new kakao.maps.services.Places();
+                  
+            
+                  // 키워드로 장소를 검색합니다
+               		ps.keywordSearch("광주광역시 아파트"+"<%=RentSearchList.get(0).getApt_name() %>", placesSearchCB);
+                  // 키워드 검색 완료 시 호출되는 콜백함수 입니다
+                  function placesSearchCB(data, status, pagination) {
+                     if (status === kakao.maps.services.Status.OK) {
+            
+                        // 검색된 장소 위치를 기준으로 지도 범위를 재설정하기위해
+                        // LatLngBounds 객체에 좌표를 추가합니다
+                        var bounds = new kakao.maps.LatLngBounds();
+            
+                        for (var i = 0; i < data.length; i++) {
+                           displayMarker(data[i]);
+                           bounds.extend(new kakao.maps.LatLng(data[i].y, data[i].x));
+                        }
+            
+                        // 검색된 장소 위치를 기준으로 지도 범위를 재설정합니다
+                        map.setBounds(bounds);
+                     }
+                  }
+            
+                  // 지도에 마커를 표시하는 함수입니다
+                  function displayMarker(place) {
+            
+                     // 마커를 생성하고 지도에 표시합니다
+                     var marker = new kakao.maps.Marker({
+                        map : map,
+                        position : new kakao.maps.LatLng(place.y, place.x)
+                     });
+            
+                     // 마커에 클릭이벤트를 등록합니다
+                     kakao.maps.event.addListener(marker, 'click', function() {
+                        // 마커를 클릭하면 장소명이 인포윈도우에 표출됩니다
+                        infowindow.setContent('<div style="padding:6px;font-size:11px;">' + place.place_name + '</div>');
+                        infowindow.open(map, marker);
+                     });
+                  }
+               </script>
+						
 						<table>
 							<thead>
 								<tr>
@@ -358,6 +424,122 @@ input[type="number"]::-webkit-inner-spin-button {
 							</tbody>
 						</table>
 						<%}%>
+						<%} %>
+					</div>
+					
+					
+					<!-- 동으로 검색 -->
+					
+					<div id="row">
+					<%if(table.equals("dong")) {%>
+						<%RentSearchList = (ArrayList<Rent_searchDTO>) session.getAttribute("RentSearchList");%>
+						<%if (RentSearchList != null) {%>
+						<div id="map" style="width: 100%; height: 300px;"></div>
+                  <script type="text/javascript" src="https://dapi.kakao.com/v2/maps/sdk.js?appkey=a19ab035edef253fb248a91c1d82a9ff&libraries=services"></script>
+                  <script>
+                     
+                  // 마커를 클릭하면 장소명을 표출할 인포윈도우 입니다
+                  var infowindow = new kakao.maps.InfoWindow({
+                     zIndex : 1
+                  });
+            
+                  var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
+                  mapOption = {
+                     center : new kakao.maps.LatLng(35.16023446394114, 126.8514006960729), // 지도의 중심좌표
+                     level : 5
+                  // 지도의 확대 레벨
+                  };
+            
+                  // 지도를 생성합니다    
+                  var map = new kakao.maps.Map(mapContainer, mapOption);
+            
+                  // 장소 검색 객체를 생성합니다
+                  var ps = new kakao.maps.services.Places();
+                  
+            
+                  // 키워드로 장소를 검색합니다
+                  ps.keywordSearch("광주광역시 아파트"+"<%=RentSearchList.get(0).getDong() %>", placesSearchCB);
+            
+                  // 키워드 검색 완료 시 호출되는 콜백함수 입니다
+                  function placesSearchCB(data, status, pagination) {
+                     if (status === kakao.maps.services.Status.OK) {
+            
+                        // 검색된 장소 위치를 기준으로 지도 범위를 재설정하기위해
+                        // LatLngBounds 객체에 좌표를 추가합니다
+                        var bounds = new kakao.maps.LatLngBounds();
+            
+                        for (var i = 0; i < data.length; i++) {
+                           displayMarker(data[i]);
+                           bounds.extend(new kakao.maps.LatLng(data[i].y, data[i].x));
+                        }
+            
+                        // 검색된 장소 위치를 기준으로 지도 범위를 재설정합니다
+                        map.setBounds(bounds);
+                     }
+                  }
+            
+                  // 지도에 마커를 표시하는 함수입니다
+                  function displayMarker(place) {
+            
+                     // 마커를 생성하고 지도에 표시합니다
+                     var marker = new kakao.maps.Marker({
+                        map : map,
+                        position : new kakao.maps.LatLng(place.y, place.x)
+                     });
+            
+                     // 마커에 클릭이벤트를 등록합니다
+                     kakao.maps.event.addListener(marker, 'click', function() {
+                        // 마커를 클릭하면 장소명이 인포윈도우에 표출됩니다
+                        infowindow.setContent('<div style="padding:6px;font-size:11px;">' + place.place_name + '</div>');
+                        infowindow.open(map, marker);
+                     });
+                  }
+               </script>
+						<table>
+							<thead>
+								<tr>
+									<th>번호</th>
+									<th>전세번호</th>
+									<th>법정동</th>
+									<th>건축년도</th>
+									<th>보증금</th>
+									<th>월세</th>
+									<th>아파트이름</th>
+									<th>거래 년</th>
+									<th>월</th>
+									<th>일</th>
+									<th>평수</th>
+									<th>층</th>
+								</tr>
+							</thead>
+
+							<%if (RentSearchList.size() == 0) {%>
+							<tr>
+								<td colspan=12>매물이 없습니다.</td>
+							</tr>
+							<%}%>
+							<tbody>
+							<%for (int i = 0; i < RentSearchList.size(); i++) {%>
+							<tr>
+								<th><%=i + 1%></th>
+								<td><%=RentSearchList.get(i).getRent_num()%></td>
+								<td><%=RentSearchList.get(i).getDong()%></td>
+								<td><%=RentSearchList.get(i).getBuild_year()%></td>
+								<td><%=RentSearchList.get(i).getDeposit()%></td>
+								<td><%=RentSearchList.get(i).getLoyer()%></td>
+								<td><%=RentSearchList.get(i).getApt_name()%></td>
+								<td><%=RentSearchList.get(i).getYear()%></td>
+								<td><%=RentSearchList.get(i).getMonth()%></td>
+								<td><%=RentSearchList.get(i).getDate()%></td>
+								<td><%=RentSearchList.get(i).getApt_size()%></td>
+								<td><%=RentSearchList.get(i).getFloor()%></td>
+							</tr>
+							<%}%>
+							</tbody>
+						</table>
+						<%}%>
+						<%} %>
+						<%} %>
 					</div>
 				</div>
 
