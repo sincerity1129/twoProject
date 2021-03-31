@@ -148,7 +148,7 @@ public ArrayList<MemberDTO> select(){
 public boolean check(String id) {
 	conn();
 	try {
-	String sql = "select * from A_MEMBER where id = ? ";		
+	String sql = "select * from A_MEMBER where MEM_ID = ? ";		
 	psmt = conn.prepareStatement(sql);
 	
 	psmt.setString(1, id);
@@ -156,7 +156,7 @@ public boolean check(String id) {
 	rs = psmt.executeQuery();
 	
 	 if (rs.next()) {
-            return true;
+		 return true;
          }
 
       } catch (SQLException e) {

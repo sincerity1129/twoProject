@@ -1,3 +1,4 @@
+<%@page import="com.model.MemberDAO"%>
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
     pageEncoding="EUC-KR"%>
 <!DOCTYPE html>
@@ -68,6 +69,8 @@ body{
 }
 </style>
 <body>
+				<%  String check = (String)session.getAttribute("check");
+					MemberDAO dao = new MemberDAO();%>
 	<!-- 상단메뉴 조정 -->
 	<nav class="navbar navbar-expand-lg navbar-light navbar-laravel">
 		<div class="container">
@@ -103,10 +106,18 @@ body{
 									<label for="full_name"
 										class="col-md-4 col-form-label text-md-right">아이디</label>									
 									<div class="col-md-6">
-										<form action = "CheckService.do">
-										<input type="text" id="id" class="form-control" name="id">										
-										<button type="submit" class="btn btn-primary" name="submit">중복확인</button>
-										</form>
+										<form action = "CheckService.do" method="post">	
+										<input type="text" id="id" class="form-control" name="id">																													
+										<input type="submit" class="btn btn-primary" value = "중복 확인" onclick="javascript: form.action='CheckService.do';"/>
+										</form>									
+										<% boolean id = dao.check(check);%>									 
+										<%if(id) {%>
+										<h7 style="color: tomato">아이디 사용불가</h7>
+										<%}else{%>
+										<h7 style="color: tomato">아이디 사용가능</h7>
+										<%}%>
+										 
+										
 									</div>
 								</div>
 
