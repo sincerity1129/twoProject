@@ -11,7 +11,7 @@
 <%@page import="com.model.MemberDTO"%>.
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
 	pageEncoding="EUC-KR"%>
-
+ 
 <!DOCTYPE html>
 <html lang="en">
 
@@ -240,7 +240,7 @@
 		<div class = "img">
 			사진 들어갈 곳
 			<div class = "search1">
-				<form action="SearchService.do">
+				<form action="SearchService.do" method="post">
 					<select name = "table">
 						<option value = "dong">동</option>
 						<option value = "apt_name">아파트</option>
