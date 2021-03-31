@@ -464,6 +464,12 @@
                <th>최초입주</th>
             </tr>
          </thead>
+         
+         <%if (ImdaeSearchList.size() == 0) {%>
+							<tr>
+								<td colspan=12>매물이 없습니다.</td>
+							</tr>
+							<%}%>
          <tbody>
             <%for (int i = 0; i < ImdaeSearchList.size(); i++) {%>
             <tr>

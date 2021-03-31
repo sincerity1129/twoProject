@@ -76,7 +76,7 @@ public class FavoriteDAO {
 		return cnt;
 	}
 
-	public ArrayList<Main_filterDTO> Mea_view(MemberDTO info) {
+	public ArrayList<Main_filterDTO> Mae_view(MemberDTO info) {
 
 		MeaList = new ArrayList<Main_filterDTO>();
 		conn();
