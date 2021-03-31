@@ -115,16 +115,16 @@
    }
    
    legend{
+   display: inline-block;
    	background-color:#343A40;
    	color : #fff;
    	padding : 3px;
-   	font-size: 30px;
+   	font-size: 28px;
    }
-   
    .ck{
    	font-size: 22px;
-   	margin : auto;
-   	text-align:left;
+   	vertical-align:float;
+	vertical-align: text-top;
    }
    
    input[type="checkbox"]{
@@ -132,12 +132,11 @@
 	height: 25px; /*Desired height*/
 	margin : auto;
 	}
-	
-	.ck_item{
-	aligh : center;
-	position :relative;
+
+	p{
+	font-size: 16px;
+	font-weight : bold;
 	}
-	
 </style>
 
 <body>
@@ -180,8 +179,13 @@
 					<label class="ck"><input type = "checkbox" name="check" value="subway"> 지하철</label><br>
 					<label class="ck"><input type = "checkbox" name="check" value="movie"> 영화관</label><br>
 					<label class="ck"><input type = "checkbox" name="check" value="charge"> 전기차 충전소</label>
-					<p><input type="submit"> <input type="reset"></p>
-				</div>
+
+					<br><hr>
+					<p>
+					<button type="submit" class="sch_smit" >가격예측</button>
+					<button type="reset" class="sch_smit">초기화</button>
+					</p>
+
 			</fieldset>
 		</form>
 		</div>
