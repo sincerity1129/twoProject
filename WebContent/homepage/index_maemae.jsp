@@ -77,6 +77,7 @@
      line-height: 1.5;
      border-top: 1px solid #ccc;
      margin : 20px 10px;
+     white-space: nowrap;
    }
    th {
      width: 150px;
@@ -84,12 +85,14 @@
      font-weight: bold;
      vertical-align: top;
      border-bottom: 1px solid #ccc;
+     white-space: nowrap;
    }
    td {
      width: 350px;
      padding: 10px;
      vertical-align: top;
      border-bottom: 1px solid #ccc;
+     white-space: nowrap;
    }
    #junwall, #mat, #imdae {
       display: none;
@@ -155,7 +158,7 @@
          <div class="col-lg-3">
             <h4 class="my-4">매물</h4>
             <div class="list-group">
-               <a href="" class="list-group-item" id="check1">매매</a> 
+               <a href="index_maemae.jsp" class="list-group-item" id="check1">매매</a> 
                <a href="index_rent.jsp" class="list-group-item" id="check2">전월세</a>
             </div>
             <h4 class="my-4">필터</h4>
@@ -195,10 +198,8 @@
          </span>
             <button type="submit" class="sch_smit">검색</button>
          </form>
-         
-         <div class="unit"> (단위 : 백만원)</div>
-
 		<!-- 즐겨찾기 -->  
+<<<<<<< HEAD
           <%if(info !=null) {%>               
           <form action= "FavoriteService.do" method = "post">
              <select class='SelectSearch'  name = "type">
@@ -210,7 +211,22 @@
           
           
           <%} %>
+=======
+          <%if(info !=null) {%>
+          <form action="FavoriteService.do" method="post">
+			<select class='SelectSearch' name="type">
+				<option value='maemae' selected="selected">매매번호</option>
+			</select>
+			<span class='green_window'>
+				<input type="text" class='input_text' name="num" onkeydown="enterSearch()"
+						placeholder="관심있는 매물을 추가해주세요!">
+			</span>
+				<button type="submit" class="sch_smit">추가</button>
+			</form>
+			<%} %>
+>>>>>>> branch 'master' of https://github.com/sincerity1129/project.git
 			
+			 <div class="unit"> (단위 : 백만원)</div>
 		<!-- 동으로 조회 -->
           <%DongSearchList = (ArrayList<Main_filterDTO>) session.getAttribute("DongSearchList");
           if (DongSearchList != null) {
@@ -232,7 +248,7 @@
 					<th>층</th>
 				</tr>
 			</thead>
-                  <%for (int i = 0; i < DongSearchList.size(); i++) {%>
+                  <%for (int i = 0; i <DongSearchList.size(); i++) {%>
                   <tr>
                      <th><%=i + 1%></th>
                      <td><%=DongSearchList.get(i).getMaemae_num()%></td>

@@ -33,6 +33,10 @@
 		font-weight : bold;
 }
 
+#mat,#junwall,#imdae,#mat , .col-lg-3{
+	display : none;
+}
+
 </style>
 <body>
 <!-- Navigation -->

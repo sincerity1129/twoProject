@@ -62,18 +62,18 @@ public class ImdaeSearchDAO {
 		
 		try {
 			if(search.equals("dong")) {
-				sql = "select * from imdae_apt where dong  like ";
+				sql = "select * from (select * from imdae_apt) where dong  like ";
 			}else if (search.equals("region")) {
-				sql = "select * from imdae_apt where region like ";	
+				sql = "select * from (select * from imdae_apt) where region like ";	
 			}
-			psmt = conn.prepareStatement(sql+"\'%"+input+"%\'");
+			psmt = conn.prepareStatement(sql+"\'%"+input+"%\' and rownum <= 100");
 			rs = psmt.executeQuery();
 
 			System.out.println("rx.next = " + rs.next());
 
 			while (rs.next()) {
 
-				int imdae_num = rs.getInt(1);
+				String imdae_num = rs.getString(1);
 				String region = rs.getString(2);
 				String dong = rs.getString(3);
 				String imdae_name = rs.getString(4);
