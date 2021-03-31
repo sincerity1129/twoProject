@@ -124,12 +124,20 @@
    .ck{
    	font-size: 22px;
    	margin : auto;
+   	text-align:left;
    }
    
    input[type="checkbox"]{
 	width: 25px; /*Desired width*/
 	height: 25px; /*Desired height*/
+	margin : auto;
 	}
+	
+	.ck_item{
+	aligh : center;
+	position :relative;
+	}
+	
 </style>
 
 <body>
@@ -162,6 +170,7 @@
 			<fieldset>
 				<legend>조건선택</legend>
 				<br>
+				<div class = "ck_item">
 					<label class="ck"><input type = "checkbox" name="check" value="price"> 거래금액</label><br>
 					<label class="ck"><input type = "checkbox" name="check" value="arch"> 건축년도</label><br>
 					<label class="ck"><input type = "checkbox" name="check" value="apt_size"> 평수</label><br>
@@ -172,6 +181,7 @@
 					<label class="ck"><input type = "checkbox" name="check" value="movie"> 영화관</label><br>
 					<label class="ck"><input type = "checkbox" name="check" value="charge"> 전기차 충전소</label>
 					<p><input type="submit"> <input type="reset"></p>
+				</div>
 			</fieldset>
 		</form>
 		</div>
