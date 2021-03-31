@@ -96,11 +96,7 @@
    #junwall, #mat, #imdae {
       display: none;
 }
-<<<<<<< HEAD
-	.col-lg-9{
-		display:flex;'
-	}
-=======
+
 
 #mat,#junwall,#imdae,#mat , .col-lg-3{
 	display : none;
@@ -184,24 +180,16 @@
 		</div>
 	</div>
 	
-<<<<<<< HEAD
-	<!-- 가격 예측 -->
-	<div class="col-lg-9">
-		<div id="price" class="raw">
-		<h5>조건을 선택하여 아파트 가격을 예측해보세요!</h5><br>
-=======
+
 	<!-- 가격 예측 시스템 -->
 	<h5>조건을 선택하여 아파트 가격을 예측해보세요!</h5><br>
 	<div class="cotainer">
->>>>>>> branch 'master' of https://github.com/sincerity1129/project.git
 		<form action="http://localhost:9000/train" method="post">
 		<!-- 체크박스 -->
 			<fieldset>
 				<legend>조건선택</legend>
 					<input type ="checkbox" class="btn-check" id="btn-check" autocomplete ="off">
 					<label class="btn-btn-primary" for ="btn-check">거래금액</label>
-				
-				
 				
 				
 				<label><input type = "checkbox" name="check" value="price"> 거래금액</label>

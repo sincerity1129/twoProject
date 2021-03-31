@@ -121,7 +121,7 @@ public ArrayList<MemberDTO> select(){
 	list=new ArrayList<MemberDTO>();
 	conn();
 	try {
-		String sql="select * from A_member mem_id not in ('admin')";
+		String sql="select * from A_member where mem_id not in ('admin')";
 		psmt=conn.prepareStatement(sql);
 		rs=psmt.executeQuery();
 		

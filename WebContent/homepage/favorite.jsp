@@ -168,12 +168,12 @@
 	          	    <option value = "rent" >전월세번호</option>
 	          </select> 
 	          <span class='green_window'>
-					<input type="text" class='input_text' name="num" onkeydown="enterSearch()"
+					<input type="text" class='input_text' name="check" onkeydown="enterSearch()"
 							placeholder="삭제할 번호를 입력해주세요">
 			  </span>
 					<button type="submit" class="sch_smit">삭제</button>
-					<button type="button" class="sch_smit" onclick="location.href='DelAllService.do' ">전체삭제</button>
-					
+					<button type="submit" class="sch_smit" onclick="location.href='DelAllService.do' ">전체삭제</button>
+			</form>		
 			  
 			  <div> 
 		  </div>
