@@ -164,18 +164,18 @@
 				<div class="list-group">
 					<a href="index_mat.jsp" class="list-group-item" id="check3">맞춤</a>
 					<%if(info != null){%>
-					<a href="index_imdae.jsp" class="list-group-item" id="check4">임대</a>
+					<a href="index_imdae.jsp" class="list-group-item">임대</a>
 					<%}else {%>
-					<a href="" class="list-group-item" id="check4">임대</a>
+					<a href="" class="list-group-item" id= "fake1">임대</a>
 					<%}%>
 				</div>
 				<h4 class="my-4">예측</h4>
 				<div class="list-group">
 					<%if(info != null){ %>
-					<a href="price.jsp" class="list-group-item" id="check2">가격 예측</a>
+					<a href="price.jsp" class="list-group-item" >가격 예측</a>
 
 					<%}else {%>
-					<a href="" class="list-group-item" id="check2">가격 예측</a>
+					<a href="" class="list-group-item" id= "fake2">가격 예측</a>
 					<%}%>
 				</div>
 			</div>
@@ -192,7 +192,15 @@
 	<script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 	<script src="./vendor/jquery/jquery-3.6.0.min.js"></script>
 	<script type="text/javascript">
-		
+		$('#fake').click(function(){
+			alert('로그인을해주세요');
+		});
+		$('#fake1').click(function(){
+			alert('로그인을해주세요');
+		});
+		$('#fake2').click(function(){
+			alert('로그인을해주세요');
+		});
 	</script>
 
 </body>
