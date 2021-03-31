@@ -41,18 +41,12 @@
    }
    .green_window {
       display: inline-block;
-      width: 500px; height: 40px;
-      border: 3px solid #1b5ac2;
-      background: white;
-   }
-   .green_window {
-      display: inline-block;
-      width: 450px; height: 50px;
+      width: 500px; height: 55px;
       border: 3px solid transparent;
       background: white;
    }
    .input_text {
-      width: 400px; height: 40px;
+      width: 450px; height: 40px;
       margin: 6px 0 0 9px;
       border: 0;
       line-height: 30px;
@@ -61,7 +55,7 @@
       float : left;
    }
    .sch_smit {
-      width: 120px; height: 50px;
+      width: 150px; height: 55px;
       margin: 0; border: 0;
       vertical-align: top;
       background: white;
@@ -71,7 +65,7 @@
       cursor: pointer;
    }
    .SelectSearch{
-      width: 130px; height: 50px;
+      width: 130px; height: 55px;
       border : 3px solid transparent;
       background: white;
       vertical-align: top;
@@ -80,56 +74,60 @@
 .img{
    background-image: url("./maemae.jpg");
    background-repeat: no-repeat;
-   background-size : 1000px;
+   background-size : 950px;
    position : relative;
    width: 100%;
    height: 100%;
-   bottom : 500px;
+   left:100px;
 }
 .img2_1 {
    background-image: url("./filter.jpg");
    background-repeat: no-repeat;
-   background-size : 880px;
+   background-size : 820px;
    position : relative;
    width: 100%;
    height: 100%;
-   left: 53%;
-   bottom : 860px;
+   left: 56%;
+   bottom : 888px;
 }
 .img2_2 {
    background-image: url("./filter.jpg");
    background-repeat: no-repeat;
-   background-size : 880px;
+   background-size : 820px;
    position : relative;
    width: 100%;
    height: 100%;
-   left: 53%;
-   bottom : 860px;
+   left: 56%;
+   bottom : 888;
 }
 .img3_1 {
    background-image: url("./pre.jpg");
    background-repeat: no-repeat;
-   background-size : 880px;
+   background-size : 820px;
    position : relative;
    width: 100%;
    height: 300px;
-   left: 53%;
-   bottom : 1430px;
+   left: 56%;
+   bottom : 1500px;
 }
 .img3_2 {
    background-image: url("./pre.jpg");
    background-repeat: no-repeat;
-   background-size : 880px;
+   background-size : 820px;
    position : relative;
    width: 100%;
-   height: 100%;
-   left: 53%;
-   bottom : 1430px;
+   height: 300%;
+   left: 56%;
+   bottom : 1500px;
 }
 .search1{
    position: absolute;
-   top:450px;
-   left : 100px;
+   top:650px;
+   left :150px;
+}
+.welcome{
+	position: relative;
+	left:130px;
 }
 
 </style>
@@ -184,12 +182,17 @@
          </div>
       </div>
    </nav>
-
-         <div class = "search1">
+   
+   		<br><br>
+   		<div class="welcome">
+		  <h1><b>100다방에 오신걸 환영합니다!</b></h1><hr>
+		  <h3>관심있었던 아파트 매물시세를 알아보세요</h3><br>
+		</div>
+		
+      <div class = "img">
+      </div>
+      <div class = "search1">
             <form action="SearchService.do" method="post">
-            <h3><b>100다방에 오신걸 환영합니다!</b></h3><hr>
-            <h5>관심있었던 아파트 매물시세를 알아보세요</h5><br>
-            <br><br>
                <select class='SelectSearch' name = "table">
                   <option value = "dong">법정동</option>
                   <option value = "apt_name">아파트</option>
@@ -201,8 +204,7 @@
          	 <button type="submit" class="sch_smit">검색</button>
          	</form>
          </div>
-      <div class = "img">
-      </div>
+      
       
       
       <%if (info == null){ %>
@@ -220,12 +222,6 @@
       <div class = "img3_2">
       </div>
       <%} %>
-
-
-
-   <br>
-   <br>
-   <br>
 
    <!-- Bootstrap core JavaScript -->
    <script src="vendor/jquery/jquery.min.js"></script>
@@ -263,7 +259,7 @@
       <p class="m-0 text-center text-white">스마트인재개발원 2차프로젝트 Leader</p>
     </div>
     <!-- /.container -->
- </footer>
+</footer>
 </body>
 
 </html>
