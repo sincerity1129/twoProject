@@ -407,9 +407,9 @@
 
                      <td><%=MatSearchList.get(i).getMaemae_num()%></td>
                      <td><%=MatSearchList.get(i).getDong()%></td>
+                     <td><%=MatSearchList.get(i).getApt_name()%></td>
                      <td><%=MatSearchList.get(i).getPrice()%></td>
                      <td><%=MatSearchList.get(i).getBuild_year()%></td>
-                     <td><%=MatSearchList.get(i).getApt_name()%></td>
                      <td><%=MatSearchList.get(i).getYear()%></td>
                      <td><%=MatSearchList.get(i).getMonth()%></td>
                      <td><%=MatSearchList.get(i).getDay()%></td>
@@ -451,9 +451,9 @@
 				<td><%=SchoolList.get(i).getSchool_name()%></td>
 				<td><%=SchoolList.get(i).getScool_addr()%></td>
 				<td><%=SchoolList.get(i).getDong()%></td>
+				<td><%=SchoolList.get(i).getApt_name()%></td>
 				<td><%=SchoolList.get(i).getPrice()%></td>
 				<td><%=SchoolList.get(i).getBuild_year()%></td>
-				<td><%=SchoolList.get(i).getApt_name()%></td>
 				<td><%=SchoolList.get(i).getYear()%></td>
 				<td><%=SchoolList.get(i).getMonth()%></td>
 				<td><%=SchoolList.get(i).getDay()%></td>
