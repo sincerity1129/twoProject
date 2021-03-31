@@ -393,6 +393,7 @@
 					 <th>층</th>
 				</tr>
 				<%}%>
+				<%if(MatSearchList != null){ %>
 				<%if (MatSearchList.size() == 0) {%>
 				<tr>
 					<td colspan=12>매물이 없습니다.</td>
@@ -433,6 +434,7 @@
                   <%}%>
                   </tbody>
                </table>
+               <%}%>
                <%}%>
 			<!-- school -->
 			<%if (SchoolList != null) {%>
