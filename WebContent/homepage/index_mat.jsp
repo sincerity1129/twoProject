@@ -358,7 +358,7 @@
                   <tr>
                      <th>번호</th>
                      <%if (mat_select.equals("crime")) {%>
-                     <th>범죄자 수</th>
+                     <th>성범죄자 수</th>
                      <%}%>
                      <%if (mat_select.equals("charge")) {%>
                      <th>전기차 충전소</th>
