@@ -144,5 +144,30 @@ public ArrayList<MemberDTO> select(){
 		}
 		return list;
 	}
+	
+public boolean check(String id) {
+	conn();
+	try {
+	String sql = "select * from A_MEMBER where id = ? ";		
+	psmt = conn.prepareStatement(sql);
+	
+	psmt.setString(1, id);
+			
+	rs = psmt.executeQuery();
+	
+	 if (rs.next()) {
+            return true;
+         }
+
+      } catch (SQLException e) {
+
+         e.printStackTrace();
+      } finally {
+         close();
+      }
+
+      return false;
+   }
+
 
 }

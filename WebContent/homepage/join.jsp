@@ -101,9 +101,12 @@ body{
 							<form name="my-form" onsubmit="return validform()" action="JoinService.do" method="post">
 								<div class="form-group row">
 									<label for="full_name"
-										class="col-md-4 col-form-label text-md-right">아이디</label>
+										class="col-md-4 col-form-label text-md-right">아이디</label>									
 									<div class="col-md-6">
-										<input type="text" id="id" class="form-control" name="id">
+										<form action = "CheckService.do">
+										<input type="text" id="id" class="form-control" name="id">										
+										<button type="submit" class="btn btn-primary" name="submit">중복확인</button>
+										</form>
 									</div>
 								</div>
 
