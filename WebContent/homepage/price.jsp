@@ -140,7 +140,6 @@
 		<h3><b>조건을 선택하여 아파트 가격을 예측해보세요!</b></h3><hr>
 		<form action="http://localhost:9000/train" method="post">
 		<!-- 체크박스 -->
-		<fieldset>
 			<fieldset>
 				<legend>조건선택</legend>
 					<label><input type = "checkbox" name="check" value="price"> 거래금액</label>
