@@ -96,6 +96,12 @@
 	#basic,#mat, #imdae {
 		display: none;
 }
+
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
 </style>
 
 
@@ -105,7 +111,7 @@
 	<!-- Navigation -->
 	<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
 		<div class="container">
-			<a class="navbar-brand" href="#">Leader</a>
+			<a class="navbar-brand" href="index_main.jsp">Leader</a>
 			<button class="navbar-toggler" type="button" data-toggle="collapse"
 				data-target="#navbarResponsive" aria-controls="navbarResponsive"
 				aria-expanded="false" aria-label="Toggle navigation">
@@ -164,17 +170,17 @@
             <div class="list-group">
                <a href="index_mat.jsp" class="list-group-item" id="check3">맞춤</a>
                <%if(info != null){%>
-               <a href="index_imdae.jsp" class="list-group-item" id="check4">임대</a>
+               <a href="index_imdae.jsp" class="list-group-item">임대</a>
                <%}else {%>
-               <a href="" class="list-group-item" id="check4">임대</a>
+               <a href="" class="list-group-item" id="fake1">임대</a>
                <%} %>               
             </div>
             <h4 class="my-4">예측</h4>
             <div class="list-group">
                <%if(info != null){%>
-               <a href="price.jsp" class="list-group-item" id="check2">가격 예측</a>
+               <a href="price.jsp" class="list-group-item">가격 예측</a>
                <%}else {%>
-                  <a href="" class="list-group-item" id="check2">가격 예측</a>
+                  <a href="" class="list-group-item" id="fake2">가격 예측</a>
                   <%}%>
 				</div>
 			</div>
@@ -294,13 +300,13 @@
          <%if(info !=null) {%>
          <form action="FavoriteService.do" method="post">
 		<select class='SelectSearch' name="type">
-			<option value='imdae' selected="selected">전세번호</option>
+			<option value='rent' selected="selected">전세번호</option>
 		</select>
 		<span class='green_window'>
-			<input type="text" class='input_text' name="num" onkeydown="enterSearch()"
+			<input type="number" class='input_text' name="num" onkeydown="enterSearch()"
 					placeholder="관심있는 매물을 추가해주세요!">
 		</span>
-			<button type="submit" class="sch_smit">추가</button>
+			<button type="submit" class="sch_smit"  id = "add">추가</button>
 		</form>
 		<%} %>
 			
@@ -326,8 +332,14 @@
 									<th>층</th>
 								</tr>
 							</thead>
+
+							<%if (RentSearchList.size() == 0) {%>
+							<tr>
+								<td colspan=12>매물이 없습니다.</td>
+							</tr>
+							<%}%>
 							<tbody>
-							<%for (int i = 0; i < 50; i++) {%>
+							<%for (int i = 0; i < RentSearchList.size(); i++) {%>
 							<tr>
 								<th><%=i + 1%></th>
 								<td><%=RentSearchList.get(i).getRent_num()%></td>
@@ -526,8 +538,20 @@
 	<script src="vendor/jquery/jquery.min.js"></script>
 	<script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 	<script src="./vendor/jquery/jquery-3.6.0.min.js"></script>
-	<script type="text/javascript">
 	
+	<script type="text/javascript">
+	$("#add").click(function(){
+		alert('즐겨찾기 추가 성공');
+	});
+	$('#fake').click(function(){
+		alert('로그인을해주세요');
+	});
+	$('#fake1').click(function(){
+		alert('로그인을해주세요');
+	});
+	$('#fake2').click(function(){
+		alert('로그인을해주세요');
+	});
 	</script>
 
 </body>
