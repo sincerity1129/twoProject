@@ -199,19 +199,6 @@
             <button type="submit" class="sch_smit">검색</button>
          </form>
 		<!-- 즐겨찾기 -->  
-<<<<<<< HEAD
-          <%if(info !=null) {%>               
-          <form action= "FavoriteService.do" method = "post">
-             <select class='SelectSearch'  name = "type">
-                <option value = "maemae" selected="selected">매매번호</option>
-             </select>                  
-                즐겨찾기<input type ="text" name ="num">
-                <input type = "submit" value = "추가">
-          </form>
-          
-          
-          <%} %>
-=======
           <%if(info !=null) {%>
           <form action="FavoriteService.do" method="post">
 			<select class='SelectSearch' name="type">
@@ -224,7 +211,6 @@
 				<button type="submit" class="sch_smit">추가</button>
 			</form>
 			<%} %>
->>>>>>> branch 'master' of https://github.com/sincerity1129/project.git
 			
 			 <div class="unit"> (단위 : 백만원)</div>
 		<!-- 동으로 조회 -->
