@@ -37,8 +37,10 @@ table {
 <body>
 
 			<%FavoriteDAO dao = new FavoriteDAO();
-			  MemberDTO info = (MemberDTO) session.getAttribute("info"); %>			
-			
+			  MemberDTO info = (MemberDTO) session.getAttribute("info");%>			
+					<table>
+					<tr>
+					<td>
 					  <form action = "DelAllService.do" method = "post">
 					  <select class='SelectSearch'  name = "type">
                		  <option value = "maemae" selected="selected">매매</option>
@@ -46,7 +48,8 @@ table {
              		  </select> 	
              		  <input type = "submit" value = "전체삭제">  
 					  </form>
-					  
+					  </td>
+					  <td>
 					  <form action = "DelOneService.do" method = "post">
 					  <select class='SelectSearch'  name = "type">
                		  <option value = "maemae" selected="selected">매매번호</option>
@@ -55,7 +58,9 @@ table {
                 	  <input type = "text" name = "check" value = "check">
                 	  <input type = "submit" value = "특정삭제">           		  	  
 					  </form>
-					  
+					  </td>
+					  <tr>
+					  </table>
 					  <%ArrayList<Main_filterDTO> MeaList = dao.Mea_view(info);%>
 					  <%if(MeaList != null) {%>
 						<table>
