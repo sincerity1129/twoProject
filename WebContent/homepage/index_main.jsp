@@ -245,7 +245,7 @@
 						<option value = "dong">동</option>
 						<option value = "apt_name">아파트</option>
 					</select>
-					<input type ="text" name = "">
+					<input type ="text" name = "search">
 					<input type = "submit" value = "검색">
 				</form>
 			</div>
