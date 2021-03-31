@@ -100,53 +100,54 @@
 .img{
 	background-image: url("./maemae.jpg");
 	background-repeat: no-repeat;
-	background-size : 750px;
+	background-size : 1000px;
 	width: 100%;
 	height: 100%;
 }
 .img2_1 {
 	background-image: url("./filter.jpg");
 	background-repeat: no-repeat;
-	background-size : 700px;
+	background-size : 880px;
 	position : relative;
 	width: 100%;
 	height: 100%;
-	left: 50%;
-	bottom : 670px;
+	left: 53%;
+	bottom : 860px;
 }
 .img2_2 {
 	background-image: url("./filter.jpg");
 	background-repeat: no-repeat;
-	background-size : 700px;
+	background-size : 880px;
 	position : relative;
 	width: 100%;
 	height: 100%;
-	left: 50%;
-	bottom : 670px;
+	left: 53%;
+	bottom : 860px;
 }
 .img3_1 {
 	background-image: url("./pre.jpg");
 	background-repeat: no-repeat;
-	background-size : 700px;
+	background-size : 880px;
 	position : relative;
+	
 	width: 100%;
-	height: 100%;
-	left: 50%;
-	bottom : 1150px;
+	height: 300px;
+	left: 53%;
+	bottom : 1430px;
 }
 .img3_2 {
 	background-image: url("./pre.jpg");
 	background-repeat: no-repeat;
-	background-size : 700px;
+	background-size : 880px;
 	position : relative;
 	width: 100%;
 	height: 100%;
-	left: 50%;
-	bottom : 1150px;
+	left: 53%;
+	bottom : 1430px;
 }
 .search1{
 	position: absolute;
-	top:400px;
+	top:500px;
 	left : 100px;
 }
 
@@ -238,7 +239,6 @@
 		
 		
 		<div class = "img">
-			사진 들어갈 곳
 			<div class = "search1">
 				<form action="SearchService.do" method="post">
 					<select name = "table">
@@ -288,6 +288,9 @@
 		});
 		$('#fake2').click(function(){
 			alert('로그인을해주세요');
+		});
+		$('.img').click(function(){
+			location.href = 'index_maemae.jsp'
 		});
 		$('.img2_1').click(function(){
 			alert('로그인을 해주세요');
