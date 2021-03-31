@@ -302,9 +302,8 @@
 			alert('로그인을 해주세요');
 		});
 		$('.img3_2').click(function(){
-			location.href = 'index_imdae.jsp'
+			location.href = 'price.jsp'
 		});
-		
 	</script>
 
 </body>
