@@ -304,7 +304,7 @@
 
           
 
-     <!-- 맞춤 -->
+            <!-- 맞춤 -->
 	<div id="mat" class="raw">
     <br><br>          
 	<h5>원하는 조건을 선택하여서 조회해보세요!</h5><br>
@@ -320,14 +320,15 @@
 				<option value="lib">도서관</option>
 				<option value="park">공원</option>
 			</select>
+			
 			<%if(info == null) {%>
+				"로그인해주세요!"
+			<%} else {%>
 				<span class='green_window'>
 					<input type="text" class='input_text' name="mat_search" onkeydown="enterSearch()" placeholder="동으로 검색하세요!">
 				</span>
-					<button type="submit" class="sch_smit">검색</button>			
-			<%} else {%> 
-				</form>
-
+					<button type="submit" class="sch_smit">검색</button>
+					</form> 
              <%
 				mat_select = (String) session.getAttribute("mat_select");
 				if (mat_select != null) {
