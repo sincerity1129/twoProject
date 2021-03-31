@@ -23,14 +23,15 @@ public class RentSearchService implements FrontCommand {
 		request.setCharacterEncoding("EUC-KR");
 		String rent_search = request.getParameter("rent_search");	
 		String table = request.getParameter("table");		
-		
+		HttpSession session = request.getSession();
 			System.out.println("rent_search = "+rent_search);
+			session.setAttribute("table", table);
 	
 			Rent_searchDAO dao = new Rent_searchDAO();
 			Rent_searchDTO dto = new Rent_searchDTO(rent_search);
 			ArrayList<Rent_searchDTO> RentSearchList = dao.search(rent_search, table);
 			
-			HttpSession session = request.getSession();
+			
 			session.setAttribute("RentSearchList",RentSearchList);
 
 			response.sendRedirect("index_rent.jsp");	

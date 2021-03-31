@@ -130,6 +130,7 @@ input[type="number"]::-webkit-inner-spin-button {
 						ArrayList<Main_filterDTO> MatSearchList = null;
 						ArrayList<ImdaeSearchDTO> ImdaeSearchList = null;
 						String mat_select = null;
+						String table = (String)session.getAttribute("table");
 
 						if (info != null) {
 							/*여긴 기본필터가 아닌 맞춤필터 시에 필요한 부분 */
@@ -312,7 +313,10 @@ input[type="number"]::-webkit-inner-spin-button {
 			
 			 <div class="unit"> (단위 : 천원)</div>
 					
+					<!-- 아파트로 검색 -->
 					<div id="row">
+					<%if (table != null){ %>
+						<%if(table.equals("apt_name")){ %>
 						<%RentSearchList = (ArrayList<Rent_searchDTO>) session.getAttribute("RentSearchList");%>
 						<%if (RentSearchList != null) {%>
 						<table>
@@ -358,6 +362,61 @@ input[type="number"]::-webkit-inner-spin-button {
 							</tbody>
 						</table>
 						<%}%>
+						<%} %>
+					</div>
+					
+					
+					<!-- 동으로 검색 -->
+					
+					<div id="row">
+					<%if(table.equals("dong")) {%>
+						<%RentSearchList = (ArrayList<Rent_searchDTO>) session.getAttribute("RentSearchList");%>
+						<%if (RentSearchList != null) {%>
+						<table>
+							<thead>
+								<tr>
+									<th>번호</th>
+									<th>전세번호</th>
+									<th>법정동</th>
+									<th>건축년도</th>
+									<th>보증금</th>
+									<th>월세</th>
+									<th>아파트이름</th>
+									<th>거래 년</th>
+									<th>월</th>
+									<th>일</th>
+									<th>평수</th>
+									<th>층</th>
+								</tr>
+							</thead>
+
+							<%if (RentSearchList.size() == 0) {%>
+							<tr>
+								<td colspan=12>매물이 없습니다.</td>
+							</tr>
+							<%}%>
+							<tbody>
+							<%for (int i = 0; i < RentSearchList.size(); i++) {%>
+							<tr>
+								<th><%=i + 1%></th>
+								<td><%=RentSearchList.get(i).getRent_num()%></td>
+								<td><%=RentSearchList.get(i).getDong()%></td>
+								<td><%=RentSearchList.get(i).getBuild_year()%></td>
+								<td><%=RentSearchList.get(i).getDeposit()%></td>
+								<td><%=RentSearchList.get(i).getLoyer()%></td>
+								<td><%=RentSearchList.get(i).getApt_name()%></td>
+								<td><%=RentSearchList.get(i).getYear()%></td>
+								<td><%=RentSearchList.get(i).getMonth()%></td>
+								<td><%=RentSearchList.get(i).getDate()%></td>
+								<td><%=RentSearchList.get(i).getApt_size()%></td>
+								<td><%=RentSearchList.get(i).getFloor()%></td>
+							</tr>
+							<%}%>
+							</tbody>
+						</table>
+						<%}%>
+						<%} %>
+						<%} %>
 					</div>
 				</div>
 
