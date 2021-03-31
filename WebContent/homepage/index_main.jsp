@@ -238,7 +238,6 @@
 	
 		
 		
-		<div class = "img">
 			<div class = "search1">
 				<form action="SearchService.do" method="post">
 					<select name = "table">
@@ -249,6 +248,7 @@
 					<input type = "submit" value = "°Ë»ö">
 				</form>
 			</div>
+		<div class = "img">
 		</div>
 		
 		
