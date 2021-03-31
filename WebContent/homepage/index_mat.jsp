@@ -132,7 +132,6 @@
                   ArrayList<FacilityDTO> FacList = null;
                   ArrayList<ParkDTO> ParkList = null;
                   ArrayList<LibDTO> LibList = null;
-                  
                   String mat_select = null;
 
                   if (info != null) {
@@ -306,7 +305,6 @@
           
 
             <!-- 맞춤 -->
-            
 	<div id="mat" class="raw">
     <br><br>          
 	<h5>원하는 조건을 선택하여서 조회해보세요!</h5><br>
@@ -342,7 +340,6 @@
 				</span>
 					<button type="submit" class="sch_smit">검색</button>
 					</form> 
-				
              <%
 				mat_select = (String) session.getAttribute("mat_select");
 				if (mat_select != null) {
@@ -422,9 +419,9 @@
 
                      <td><%=MatSearchList.get(i).getMaemae_num()%></td>
                      <td><%=MatSearchList.get(i).getDong()%></td>
+                     <td><%=MatSearchList.get(i).getApt_name()%></td>
                      <td><%=MatSearchList.get(i).getPrice()%></td>
                      <td><%=MatSearchList.get(i).getBuild_year()%></td>
-                     <td><%=MatSearchList.get(i).getApt_name()%></td>
                      <td><%=MatSearchList.get(i).getYear()%></td>
                      <td><%=MatSearchList.get(i).getMonth()%></td>
                      <td><%=MatSearchList.get(i).getDay()%></td>
@@ -467,9 +464,9 @@
 				<td><%=SchoolList.get(i).getSchool_name()%></td>
 				<td><%=SchoolList.get(i).getScool_addr()%></td>
 				<td><%=SchoolList.get(i).getDong()%></td>
+				<td><%=SchoolList.get(i).getApt_name()%></td>
 				<td><%=SchoolList.get(i).getPrice()%></td>
 				<td><%=SchoolList.get(i).getBuild_year()%></td>
-				<td><%=SchoolList.get(i).getApt_name()%></td>
 				<td><%=SchoolList.get(i).getYear()%></td>
 				<td><%=SchoolList.get(i).getMonth()%></td>
 				<td><%=SchoolList.get(i).getDay()%></td>
