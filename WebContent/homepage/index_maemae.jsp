@@ -234,7 +234,7 @@
 					<th>Ãþ</th>
 				</tr>
 			</thead>
-                  <%for (int i = 0; i <100; i++) {%>
+                  <%for (int i = 0; i <DongSearchList.size(); i++) {%>
                   <tr>
                      <th><%=i + 1%></th>
                      <td><%=DongSearchList.get(i).getMaemae_num()%></td>
@@ -272,7 +272,7 @@
 						<th>Ãþ</th>
 					</tr>
 				</thead>
-                  <%for (int i = 0; i < 50; i++) {%>
+                  <%for (int i = 0; i < AptSearchList.size(); i++) {%>
                   <tr>
                      <td><%=i + 1%></td>
                      <td><%=AptSearchList.get(i).getMaemae_num()%></td>

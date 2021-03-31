@@ -59,8 +59,8 @@ public ArrayList<Main_filterDTO> search(Apt_name_searchDTO dto) {
 	conn();
 	
 	try {
-		String sql = "select * from A_maemae where APT_name like";
-		psmt = conn.prepareStatement(sql+"\'%"+dto.getSearch()+"%\'");
+		String sql = "select * from (select * from a_maemae) where APT_name like";
+		psmt = conn.prepareStatement(sql+"\'%"+dto.getSearch()+"%\' and rownum <= 50");
 		//psmt.setString(1, dto.getApt_name());
 		rs = psmt.executeQuery();
 		
