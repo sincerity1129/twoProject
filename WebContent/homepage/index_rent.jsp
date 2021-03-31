@@ -19,43 +19,93 @@
 <meta name="description" content="">
 <meta name="author" content="">
 
-<title>Shop Homepage - Start Bootstrap Template</title>
-
+<title>광주아파트가격예측</title>
 <!-- Bootstrap core CSS -->
 <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-
 <!-- Custom styles for this template -->
 <link href="css/shop-homepage.css" rel="stylesheet">
+</head>
 <style type="text/css">
-table, td {
-	border: 1px solid black;
-}
-
-table {
-	width: 60%;
-	height: 100px;
-	margin: auto;
-	text-align: center;
-}
-table > tr>td{
-	width:20%;
-	height : 10%;
-}
-
-#basic,#mat, #imdae {
-	display: none;
+.navbar-brand{
+		font-size : 30px;
+		font-weight : bold;
+	}
+	.my-4{
+		font-weight : bold;
+	}
+	.green_window {
+		display: inline-block;
+		width: 500px; height: 40px;
+		border: 3px solid #1b5ac2;
+		background: white;
+	}
+	.input_text {
+		width: 480px; height: 20px;
+		margin: 6px 0 0 9px;
+		border: 0;
+		line-height: 20px;
+		font-size: 14px;
+		outline: none;
+		float : left;
+	}
+	.sch_smit {
+		width: 100px; height: 40px;
+		margin: 0; border: 0;
+		vertical-align: top;
+		background: #1b5ac2;
+		color: white;
+		font-weight: bold;
+		border-radius: 1px;
+		cursor: pointer;
+	}
+	.SelectSearch{
+		width: 120px; height: 40px;
+		border: 3px solid #1b5ac2;
+		background: white;
+		vertical-align: top;
+	}
+	.unit{
+		text-align: right;
+		font-size : 12px;
+	}
 	
+	table {
+	  border-collapse: separate;
+	  border-spacing: 1px;
+	  text-align: left;
+	  line-height: 1.5;
+	  border-top: 1px solid #ccc;
+	  margin : 20px 10px;
+	  white-space: nowrap;
+	}
+	th {
+	  width: 150px;
+	  padding: 10px;
+	  font-weight: bold;
+	  vertical-align: top;
+	  border-bottom: 1px solid #ccc;
+	  white-space: nowrap;
+	}
+	td {
+	  width: 350px;
+	  padding: 10px;
+	  vertical-align: top;
+	  border-bottom: 1px solid #ccc;
+	  white-space: nowrap;
+	}
+	#basic,#mat, #imdae {
+		display: none;
 }
 </style>
 
-</head>
+
 
 <body>
 
 	<!-- Navigation -->
 	<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
 		<div class="container">
-			<a class="navbar-brand" href="#">조 이름</a>
+			<a class="navbar-brand" href="#">Leader</a>
 			<button class="navbar-toggler" type="button" data-toggle="collapse"
 				data-target="#navbarResponsive" aria-controls="navbarResponsive"
 				aria-expanded="false" aria-label="Toggle navigation">
@@ -92,55 +142,47 @@ table > tr>td{
 						href="LogoutService.do">로그아웃</a></li>
 
 					<%} else {%>
-					<li class="nav-item"><a class="nav-link" href="join.html">회원가입</a></li>
-					<li class="nav-item"><a class="nav-link" href="login.html">로그인</a></li>
+					<li class="nav-item"><a class="nav-link" href="join.jsp">회원가입</a></li>
+					<li class="nav-item"><a class="nav-link" href="login.jsp">로그인</a></li>
 					<%}%>
-					<!-- 로그인 후 Logout.jsp로 이동할 수 있는'로그아웃'링크와 '개인정보수정'링크를 출력하시오. -->
 					</li>
-
 				</ul>
 			</div>
 		</div>
 	</nav>
 
-
-
-	<!-- Page Content -->
+	<!--사이드메뉴-->
 	<div class="container">
-
 		<div class="row">
 			<div class="col-lg-3">
-				<h1 class="my-4">매물</h1>
-				<div class="list-group">
-					<a href="index_maemae.jsp" class="list-group-item" id="check1">매물</a> 
-					<a href="" class="list-group-item" id="check2">전 월세</a>
+				 <h4 class="my-4">매물</h4>
+            <div class="list-group">
+               <a href="index_maemae.jsp" class="list-group-item" id="check1">매매</a> 
+               <a href="index_rent.jsp" class="list-group-item" id="check2">전월세</a>
+            </div>
+            <h4 class="my-4">필터</h4>
+            <div class="list-group">
+               <a href="index_mat.jsp" class="list-group-item" id="check3">맞춤</a>
+               <%if(info != null){%>
+               <a href="index_imdae.jsp" class="list-group-item" id="check4">임대</a>
+               <%}else {%>
+               <a href="" class="list-group-item" id="check4">임대</a>
+               <%} %>               
+            </div>
+            <h4 class="my-4">예측</h4>
+            <div class="list-group">
+               <%if(info != null){%>
+               <a href="price.jsp" class="list-group-item" id="check2">가격 예측</a>
+               <%}else {%>
+                  <a href="" class="list-group-item" id="check2">가격 예측</a>
+                  <%}%>
 				</div>
-				
-				<h1 class="my-4">특별 필터</h1>
-				<div class="list-group">
-					<a href="index_mat.jsp" class="list-group-item" id="check3">맞춤</a>
-					<%if(info != null){%>
-					<a href="index_imdae.jsp" class="list-group-item" id="check4">임대</a>
-					<%}else {%>
-						<a href="" class="list-group-item" id="check4">임대</a>
-						<%}%>
-					
-				</div>
-				<h1 class="my-4">가격 예측</h1>
-				<div class="list-group">
-					<%if(info != null){%>
-					<a href="price.jsp" class="list-group-item" id="check2">가격 예측</a>
-					<%}else {%>
-						<a href="" class="list-group-item" id="check2">가격 예측</a>
-						<%}%>
-				</div>
-
 			</div>
 
 			<!-- /.col-lg-3 -->
 
-			<!-- 매매 -->
 			<div class="col-lg-9">
+
 				<div id="basic" class="raw">
 					<h1>매물</h1>
 					<form action="SearchService.do" method="post">
@@ -231,74 +273,81 @@ table > tr>td{
 					<%}%>
 				</div>
 
-				<!-- 전 월세 -->
-				<div id="junwall">
-					<h1>전 월세</h1>
-					<form action="RentSearchService.do" method="post">
-						<!-- radio를 사 -->
-						아파트<input type="radio" name="table" value="apt_name" checked="checked"> 
-						동<input	type="radio" name="table" value="dong"> 
-							검색 : <input	type="text" name="rent_search"> 
-							<input type="submit" value="검색">
-					</form>
+	<!-- 전 월세 -->
+	<br><br>
+	<div id="junwall" class="raw">
+		<h5>찾으시는 전세/월세집이 있으시나요?</h5><br>
+		<form action="RentSearchService.do" method="post">
+		<!-- 옵션선택 -->
+		<select class='SelectSearch' name="table">
+			<option value='apt_name'>아파트</option>
+			<option value='dong'>법정동</option>
+		</select>
+			<span class='green_window'>
+				<input type="text" class='input_text' name="rent_search" onkeydown="enterSearch()"
+						placeholder="검색어를 입력하세요">
+			</span>
+				<button type="submit" class="sch_smit">검색</button>
+			</form>
+			
+	<!-- 즐겨찾기 -->  
+         <%if(info !=null) {%>
+         <form action="FavoriteService.do" method="post">
+		<select class='SelectSearch' name="type">
+			<option value='imdae' selected="selected">전세번호</option>
+		</select>
+		<span class='green_window'>
+			<input type="text" class='input_text' name="num" onkeydown="enterSearch()"
+					placeholder="관심있는 매물을 추가해주세요!">
+		</span>
+			<button type="submit" class="sch_smit">추가</button>
+		</form>
+		<%} %>
+			
+			 <div class="unit"> (단위 : 천원)</div>
 					
-					<%if(info !=null) {%>					
-					<form action= "FavoriteService.do" method = "post">
-						<select name = "type">
-							<option value = "rent" selected="selected">임대번호</option>
-						</select>						
-							즐겨찾기<input type ="text" name ="num">
-							<input type = "submit" value = "추가">
-					</form>
-					<%} %>
-					
-					<!--  <img class="d-block img-fluid" src="./img/white-img.jpg" alt="First slide"> 이미지 파일 넣는 곳-->
-
-
 					<div id="row">
-						<%RentSearchList = (ArrayList<Rent_searchDTO>) session.getAttribute("RentSearchList");
-						if (RentSearchList != null) {%>
+						<%RentSearchList = (ArrayList<Rent_searchDTO>) session.getAttribute("RentSearchList");%>
+						<%if (RentSearchList != null) {%>
 						<table>
+							<thead>
+								<tr>
+									<th>번호</th>
+									<th>전세번호</th>
+									<th>법정동</th>
+									<th>건축년도</th>
+									<th>보증금</th>
+									<th>월세</th>
+									<th>아파트이름</th>
+									<th>거래 년</th>
+									<th>월</th>
+									<th>일</th>
+									<th>평수</th>
+									<th>층</th>
+								</tr>
+							</thead>
+							<tbody>
+							<%for (int i = 0; i < 50; i++) {%>
 							<tr>
-								<td>즐겨찾기</td>
-								<td>번호</td>
-								<td>동</td>
-								<td>임대 번호</td>
-								<td>보증금</td>
-								<td>월세</td>
-								<td>아파트 이름</td>
-								<td>건축 년도</td>
-								<td>거래 년도</td>
-								<td>월</td>
-								<td>일</td>
-								<td>평 수</td>
-								<td>층</td>
-							</tr>
-							<%for (int i = 0; i < RentSearchList.size(); i++) {%>
-							<tr>
-								<td><input type="checkbox" value=""></td>
-								<td><%=i + 1%></td>
-								<td><%=RentSearchList.get(i).getDong()%></td>
+								<th><%=i + 1%></th>
 								<td><%=RentSearchList.get(i).getRent_num()%></td>
+								<td><%=RentSearchList.get(i).getDong()%></td>
+								<td><%=RentSearchList.get(i).getBuild_year()%></td>
 								<td><%=RentSearchList.get(i).getDeposit()%></td>
 								<td><%=RentSearchList.get(i).getLoyer()%></td>
 								<td><%=RentSearchList.get(i).getApt_name()%></td>
-								<td><%=RentSearchList.get(i).getBuild_year()%></td>
 								<td><%=RentSearchList.get(i).getYear()%></td>
 								<td><%=RentSearchList.get(i).getMonth()%></td>
 								<td><%=RentSearchList.get(i).getDate()%></td>
 								<td><%=RentSearchList.get(i).getApt_size()%></td>
 								<td><%=RentSearchList.get(i).getFloor()%></td>
 							</tr>
-
 							<%}%>
+							</tbody>
 						</table>
 						<%}%>
 					</div>
 				</div>
-
-
-
 
 
 				<!-- 맞춤 -->
@@ -472,15 +521,6 @@ table > tr>td{
 	<br>
 	<br>
 	<br>
-
-	<!-- Footer -->
-	<footer class="py-5 bg-dark">
-		<div class="container">
-			<p class="m-0 text-center text-white">Copyright &copy; Your
-				Website 2020</p>
-		</div>
-		<!-- /.container -->
-	</footer>
 
 	<!-- Bootstrap core JavaScript -->
 	<script src="vendor/jquery/jquery.min.js"></script>

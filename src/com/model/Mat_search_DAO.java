@@ -145,8 +145,8 @@ public ArrayList<Main_filterDTO> search2(String input) {
 	
 	
 	try {
-		String sql = "select * from A_maemae where dong like ";	
-		psmt = conn.prepareStatement(sql+"\'%"+input+"%\'");
+		String sql = "select * from (select * from a_maemae) where dong like ";	
+		psmt = conn.prepareStatement(sql+"\'%"+input+"%\' and rownum <= 100");
 		rs = psmt.executeQuery();
 
 		System.out.println("re.next = " + rs.next());
@@ -196,6 +196,7 @@ public ArrayList<SchoolDTO> schSearch(String input) {
 				+ "MAE.PRICE, MAE.BUILD_YEAR,MAE.YEAR, MAE.MONTH, MAE.DAY, MAE.APT_SIZE, MAE.FLOOR	   \r\n"
 				+ "FROM MAEMAE MAE, SCHOOL SCH\r\n"
 				+ "WHERE MAE.DONG=SCH.DONG\r\n"
+				+ "and rownum <= 100"
 				+ "and mae.dong = ?";	
 		psmt = conn.prepareStatement(sql);
 		psmt.setString(1, input);
@@ -243,7 +244,7 @@ public ArrayList<ParkDTO> parkSearch(String input) {
 		String sql = "SELECT PK.PARK_DIV, PK.PARK_SIZE, MAE.DONG, MAE.APT_NAME, \r\n"
 				+ "	   MAE.PRICE, MAE.BUILD_YEAR, MAE.YEAR, MAE.MONTH, MAE.DAY, MAE.APT_SIZE, MAE.FLOOR	   \r\n"
 				+ "FROM MAEMAE MAE, PARK PK\r\n"
-				+ "WHERE MAE.DONG=PK.DONG and mae.dong = ?";	
+				+ "WHERE MAE.DONG=PK.DONG and mae.dong = ? and rownum <= 100";	
 		psmt = conn.prepareStatement(sql);
 		psmt.setString(1, input);
 		rs = psmt.executeQuery();
@@ -286,7 +287,7 @@ public ArrayList<FacilityDTO> facSearch(String input) {
 	
 	
 	try {
-		String sql = "SELECT FAC.FACILITY, MAE.DONG, MAE.APT_NAME, MAE.PRICE, MAE.BUILD_YEAR,MAE.YEAR, MAE.MONTH, MAE.DAY, MAE.APT_SIZE, MAE.FLOOR FROM MAEMAE MAE, FACILITY FAC WHERE MAE.DONG=FAC.DONG and mae.dong = ?";
+		String sql = "SELECT FAC.FACILITY, MAE.DONG, MAE.APT_NAME, MAE.PRICE, MAE.BUILD_YEAR,MAE.YEAR, MAE.MONTH, MAE.DAY, MAE.APT_SIZE, MAE.FLOOR FROM MAEMAE MAE, FACILITY FAC WHERE MAE.DONG=FAC.DONG and mae.dong = ? and rownum <= 100";
 					
 		psmt = conn.prepareStatement(sql);
 		psmt.setString(1, input);
@@ -329,7 +330,7 @@ public ArrayList<LibDTO> libSearch(String input) {
 	
 	
 	try {
-		String sql = "SELECT LIB.LIB_NAME, LIB.CLOSE, MAE.DONG, MAE.APT_NAME, MAE.PRICE, MAE.BUILD_YEAR,MAE.YEAR, MAE.MONTH, MAE.DAY, MAE.APT_SIZE, MAE.FLOOR FROM MAEMAE MAE, LIBRARY LIB WHERE MAE.DONG=LIB.DONG and mae.dong = ?";	
+		String sql = "SELECT LIB.LIB_NAME, LIB.CLOSE, MAE.DONG, MAE.APT_NAME, MAE.PRICE, MAE.BUILD_YEAR,MAE.YEAR, MAE.MONTH, MAE.DAY, MAE.APT_SIZE, MAE.FLOOR FROM MAEMAE MAE, LIBRARY LIB WHERE MAE.DONG=LIB.DONG and mae.dong = ? and rownum <= 100";	
 		psmt = conn.prepareStatement(sql);
 		psmt.setString(1, input);
 		rs = psmt.executeQuery();

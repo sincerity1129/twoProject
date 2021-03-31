@@ -1,3 +1,5 @@
+<%@ page language="java" contentType="text/html; charset=EUC-KR"
+    pageEncoding="EUC-KR"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -17,7 +19,7 @@
 <link rel="stylesheet"
 	href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
 
-<title>íšŒì›ê°€ì…</title>
+<title>È¸¿ø°¡ÀÔ</title>
 </head>
 <style>
 body{
@@ -66,10 +68,10 @@ body{
 }
 </style>
 <body>
-	<!-- ìƒë‹¨ë©”ë‰´ ì¡°ì • -->
+	<!-- »ó´Ü¸Ş´º Á¶Á¤ -->
 	<nav class="navbar navbar-expand-lg navbar-light navbar-laravel">
 		<div class="container">
-			<a class="navbar-brand" href="#">ê´‘ì£¼ì•„íŒŒíŠ¸ì˜ˆì¸¡</a> 
+			<a class="navbar-brand" href="#">±¤ÁÖ¾ÆÆÄÆ®¿¹Ãø</a> 
 			<button class="navbar-toggler" type="button" data-toggle="collapse"
 				data-target="#navbarSupportedContent"
 				aria-controls="navbarSupportedContent" aria-expanded="false"
@@ -79,8 +81,8 @@ body{
 
 			<div class="collapse navbar-collapse" id="navbarSupportedContent">
 				<ul class="navbar-nav ml-auto">
-					<li class="nav-item"><a class="nav-link" href="login.html">ë¡œê·¸ì¸</a></li>
-					<li class="nav-item"><a class="nav-link" href="index.jsp">ë©”ì¸í™”ë©´</a>
+					<li class="nav-item"><a class="nav-link" href="login.jsp">·Î±×ÀÎ</a></li>
+					<li class="nav-item"><a class="nav-link" href="index_main.jsp">¸ŞÀÎÈ­¸é</a>
 					</li>
 				</ul>
 			</div>
@@ -88,18 +90,18 @@ body{
 	</nav>
 	<br>
 	
-	<!-- íšŒì›ê°€ì… ì…ë ¥ì°½ -->
+	<!-- È¸¿ø°¡ÀÔ ÀÔ·ÂÃ¢ -->
 	<main class="my-form">
 		<div class="cotainer">
 			<div class="row justify-content-center">
 				<div class="col-md-8">
 					<div class="card">
-						<div class="card-header">íšŒì›ê°€ì…</div>
+						<div class="card-header">È¸¿ø°¡ÀÔ</div>
 						<div class="card-body">
 							<form name="my-form" onsubmit="return validform()" action="JoinService.do" method="post">
 								<div class="form-group row">
 									<label for="full_name"
-										class="col-md-4 col-form-label text-md-right">ì•„ì´ë””</label>
+										class="col-md-4 col-form-label text-md-right">¾ÆÀÌµğ</label>
 									<div class="col-md-6">
 										<input type="text" id="id" class="form-control" name="id">
 									</div>
@@ -107,7 +109,7 @@ body{
 
 								<div class="form-group row">
 									<label for="email_address"
-										class="col-md-4 col-form-label text-md-right">ë¹„ë°€ë²ˆí˜¸</label>
+										class="col-md-4 col-form-label text-md-right">ºñ¹Ğ¹øÈ£</label>
 									<div class="col-md-6">
 										<input type="password" id="pw" class="form-control" name="pw">
 									</div>
@@ -115,7 +117,7 @@ body{
 
 								<div class="form-group row">
 									<label for="user_name"
-										class="col-md-4 col-form-label text-md-right">ì´ë¦„</label>
+										class="col-md-4 col-form-label text-md-right">ÀÌ¸§</label>
 									<div class="col-md-6">
 										<input type="text" id="name" class="form-control" name="name">
 									</div>
@@ -123,7 +125,7 @@ body{
 
 								<div class="form-group row">
 									<label for="phone_number"
-										class="col-md-4 col-form-label text-md-right">í•¸ë“œí°ë²ˆí˜¸</label>
+										class="col-md-4 col-form-label text-md-right">ÇÚµåÆù¹øÈ£</label>
 									<div class="col-md-6">
 										<input type="text" id="tel" class="form-control" name="tel">
 									</div>
@@ -131,7 +133,7 @@ body{
 
 								<div class="form-group row">
 									<label for="permanent_address"
-										class="col-md-4 col-form-label text-md-right">ìƒë…„ì›”ì¼</label>
+										class="col-md-4 col-form-label text-md-right">»ı³â¿ùÀÏ</label>
 									<div class="col-md-6">
 										<input type="text" id="birth" class="form-control"
 											name="birth">
@@ -140,7 +142,7 @@ body{
 
 								<div class="form-group row">
 									<label for="present_address"
-										class="col-md-4 col-form-label text-md-right">ì£¼ì†Œ(ë™)</label>
+										class="col-md-4 col-form-label text-md-right">ÁÖ¼Ò(µ¿)</label>
 									<div class="col-md-6">
 										<input type="text" id="addr" class="form-control" name="addr">
 									</div>
@@ -176,27 +178,27 @@ function validform() {
 
     if (a==null || a=="")
     {
-        alert("ì•„ì´ë””ë¥¼ ì…ë ¥í•´ì£¼ì„¸ìš”!");
+        alert("¾ÆÀÌµğ¸¦ ÀÔ·ÂÇØÁÖ¼¼¿ä!");
         return false;
     }else if (b==null || b=="")
     {
-        alert("ë¹„ë°€ë²ˆí˜¸ë¥¼ ì…ë ¥í•´ì£¼ì„¸ìš”!");
+        alert("ºñ¹Ğ¹øÈ£¸¦ ÀÔ·ÂÇØÁÖ¼¼¿ä!");
         return false;
     }else if (c==null || c=="")
     {
-        alert("ì´ë¦„ì„ ì…ë ¥í•´ì£¼ì„¸ìš”!");
+        alert("ÀÌ¸§À» ÀÔ·ÂÇØÁÖ¼¼¿ä!");
         return false;
     }else if (d==null || d=="")
     {
-        alert("ì „í™”ë²ˆí˜¸ë¥¼ ì…ë ¥í•´ì£¼ì„¸ìš”!");
+        alert("ÀüÈ­¹øÈ£¸¦ ÀÔ·ÂÇØÁÖ¼¼¿ä!");
         return false;
     }else if (e==null || e=="")
     {
-        alert("ìƒë…„ì›”ì¼ì„ ì…ë ¥í•´ì£¼ì„¸ìš”!");
+        alert("»ı³â¿ùÀÏÀ» ÀÔ·ÂÇØÁÖ¼¼¿ä!");
         return false;
     }else if (f==null || f=="")
     {
-        alert("ì£¼ì†Œ(ë™)ë¥¼ ì…ë ¥í•´ì£¼ì„¸ìš”!");
+        alert("ÁÖ¼Ò(µ¿)¸¦ ÀÔ·ÂÇØÁÖ¼¼¿ä!");
         return false;
     }
 
@@ -205,7 +207,7 @@ function validform() {
 
 <footer class="py-5 bg-dark">
     <div class="container">
-      <p class="m-0 text-center text-white">ìŠ¤ë§ˆíŠ¸ì¸ì¬ê°œë°œì› 2ì°¨í”„ë¡œì íŠ¸ Leader</p>
+      <p class="m-0 text-center text-white">½º¸¶Æ®ÀÎÀç°³¹ß¿ø 2Â÷ÇÁ·ÎÁ§Æ® Leader</p>
     </div>
     <!-- /.container -->
  </footer>

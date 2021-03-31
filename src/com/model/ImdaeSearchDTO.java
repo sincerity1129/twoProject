@@ -2,7 +2,7 @@ package com.model;
 
 public class ImdaeSearchDTO {
 	
-	private int imdae_num;
+	private String imdae_num;
 	private String region;
 	private String dong;
 	private String imdae_name;
@@ -15,7 +15,7 @@ public class ImdaeSearchDTO {
 	private String move_into_date;
 	
 	
-	public ImdaeSearchDTO(int imdae_num, String region, String dong, String imdae_name, String imdae_size,
+	public ImdaeSearchDTO(String imdae_num, String region, String dong, String imdae_name, String imdae_size,
 			String month_pay, String deposit, int total_cnt, int cnt, String imdae_div, String move_into_date) {
 		super();
 		this.imdae_num = imdae_num;
@@ -32,10 +32,10 @@ public class ImdaeSearchDTO {
 	}
 	
 	
-	public int getImdae_num() {
+	public String getImdae_num() {
 		return imdae_num;
 	}
-	public void setImdae_num(int imdae_num) {
+	public void setImdae_num(String imdae_num) {
 		this.imdae_num = imdae_num;
 	}
 	public String getRegion() {

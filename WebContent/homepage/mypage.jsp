@@ -85,7 +85,7 @@
 
 			<div class="collapse navbar-collapse" id="navbarSupportedContent">
 				<ul class="navbar-nav ml-auto">
-					<li class="nav-item"><a class="nav-link" href="index.jsp">메인화면</a>
+					<li class="nav-item"><a class="nav-link" href="index_main.jsp">메인화면</a>
 					</li>
 				</ul>
 			</div>
@@ -110,7 +110,9 @@
 									<label for="full_name"
 										class="col-md-4 col-form-label text-md-right">아이디</label>
 									<div class="col-md-6">
-										<input type="text" id="id" class="form-control" name="id">
+										<%if(loginDto!=null){ %>
+											<li><%=loginDto.getId() %></li>
+										<%} %>
 									</div>
 								</div>
 
@@ -118,7 +120,7 @@
 									<label for="email_address"
 										class="col-md-4 col-form-label text-md-right">비밀번호</label>
 									<div class="col-md-6">
-										<input type="text" id="pw" class="form-control" name="pw">
+										<input type="password" id="pw" class="form-control" name="pw">
 									</div>
 								</div>
 
@@ -156,15 +158,13 @@
 								</div>
 
 								<div class="col-md-6 offset-md-4">
-									<button type="submit" class="btn btn-primary" name="submit">Update</button>
-										
+									<button type="submit" class="btn btn-primary" name="submit">수정완료</button>
 								</div>
+							</form>
 						</div>
-						</form>
 					</div>
 				</div>
 			</div>
-		</div>
 		</div>
 
 	</main>
@@ -176,18 +176,13 @@
 
 function validform() {
 
-    var a = document.forms["my-form"]["id"].value;
     var b = document.forms["my-form"]["pw"].value;
     var c = document.forms["my-form"]["name"].value;
     var d = document.forms["my-form"]["tel"].value;
     var e = document.forms["my-form"]["birth"].value;
     var f = document.forms["my-form"]["addr"].value;
 
-    if (a==null || a=="")
-    {
-        alert("아이디를 입력해주세요!");
-        return false;
-    }else if (b==null || b=="")
+	 if (b==null || b=="")
     {
         alert("비밀번호를 입력해주세요!");
         return false;

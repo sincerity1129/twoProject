@@ -9,6 +9,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import com.service.DelAllService;
+import com.service.DelOneService;
 import com.service.FavoriteService;
 import com.service.ImdaeSearchService;
 import com.service.JoinService;
@@ -30,7 +32,7 @@ public class Command extends HttpServlet {
 		String path = request.getContextPath();
 		FrontCommand command = null;
 		String resultURI = URI.substring(path.length()+1);
-		
+		System.out.println(resultURI);
 		HttpSession session = request.getSession();
 		session.setAttribute("maemae",1);
 		
@@ -54,8 +56,11 @@ public class Command extends HttpServlet {
 			command = new ImdaeSearchService();
 		}else if(resultURI.equals("homepage/FavoriteService.do")) {
 			command = new FavoriteService();
-		}	
-		
+		}else if(resultURI.equals("homepage/DelAllService.do")) {
+			command = new DelAllService();	
+		}else if(resultURI.equals("homepage/DelOneService.do")) {
+			command = new DelOneService();	
+		}
 		
 		
 		

@@ -35,11 +35,28 @@ table {
 
 </head>
 <body>
-					  <%					
-						MemberDTO Mea_info = (MemberDTO) session.getAttribute("info");
-					  	FavoriteDAO dao = new FavoriteDAO();
-					  	ArrayList<Main_filterDTO> MeaList = dao.Mea_view(Mea_info);					  				  						  	
-						%>
+
+			<%FavoriteDAO dao = new FavoriteDAO();
+			  MemberDTO info = (MemberDTO) session.getAttribute("info"); %>			
+			
+					  <form action = "DelAllService.do" method = "post">
+					  <select class='SelectSearch'  name = "type">
+               		  <option value = "maemae" selected="selected">매매</option>
+                	  <option value = "rent" >전월세</option>
+             		  </select> 	
+             		  <input type = "submit" value = "전체삭제">  
+					  </form>
+					  
+					  <form action = "DelOneService.do" method = "post">
+					  <select class='SelectSearch'  name = "type">
+               		  <option value = "maemae" selected="selected">매매번호</option>
+                	  <option value = "rent" >전월세번호</option>
+                	  </select> 
+                	  <input type = "text" name = "check" value = "check">
+                	  <input type = "submit" value = "특정삭제">           		  	  
+					  </form>
+					  
+					  <%ArrayList<Main_filterDTO> MeaList = dao.Mea_view(info);%>
 					  <%if(MeaList != null) {%>
 						<table>
 						<tr>
@@ -75,9 +92,9 @@ table {
 					<%}%>
 
 
-				 <%MemberDTO Rent_info = (MemberDTO) session.getAttribute("info");
-				 ArrayList<Rent_searchDTO> RentList = dao.Rent_view(Rent_info);
-					if (RentList != null) {%>
+				 <%
+				 ArrayList<Rent_searchDTO> RentList = dao.Rent_view(info);
+				if (RentList != null) {%>
 					<table>
 						<tr>
 							<td>번호</td>

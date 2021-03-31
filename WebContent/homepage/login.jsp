@@ -1,3 +1,5 @@
+<%@ page language="java" contentType="text/html; charset=EUC-KR"
+    pageEncoding="EUC-KR"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -17,7 +19,7 @@
 <link rel="stylesheet"
 	href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
 
-<title>ë¡œê·¸ì¸</title>
+<title>·Î±×ÀÎ</title>
 </head>
 <style>
 	body{
@@ -66,10 +68,10 @@
 	}
 </style>
 <body>
-	<!-- ìƒë‹¨ë©”ë‰´ ì¡°ì • -->
+	<!-- »ó´Ü¸Þ´º Á¶Á¤ -->
 	<nav class="navbar navbar-expand-lg navbar-light navbar-laravel">
 		<div class="container">
-			<a class="navbar-brand" href="#">ê´‘ì£¼ì•„íŒŒíŠ¸ì˜ˆì¸¡</a> 
+			<a class="navbar-brand" href="#">±¤ÁÖ¾ÆÆÄÆ®¿¹Ãø</a> 
 			<button class="navbar-toggler" type="button" data-toggle="collapse"
 				data-target="#navbarSupportedContent"
 				aria-controls="navbarSupportedContent" aria-expanded="false"
@@ -79,8 +81,8 @@
 
 			<div class="collapse navbar-collapse" id="navbarSupportedContent">
 				<ul class="navbar-nav ml-auto">
-					<li class="nav-item"><a class="nav-link" href="join.html">íšŒì›ê°€ìž…</a></li>
-					<li class="nav-item"><a class="nav-link" href="index.jsp">ë©”ì¸í™”ë©´</a>
+					<li class="nav-item"><a class="nav-link" href="join.jsp">È¸¿ø°¡ÀÔ</a></li>
+					<li class="nav-item"><a class="nav-link" href="index_main.jsp">¸ÞÀÎÈ­¸é</a>
 					</li>
 				</ul>
 			</div>
@@ -88,18 +90,21 @@
 	</nav>
 	<br>
 	
-	<!-- ë¡œê·¸ì¸ ìž…ë ¥ì°½ -->
+	
+	<%String fail = (String)session.getAttribute("fail"); %>
+	
+	<!-- ·Î±×ÀÎ ÀÔ·ÂÃ¢ -->
 	<main class="my-form">
 		<div class="cotainer">
 			<div class="row justify-content-center">
 				<div class="col-md-8">
 					<div class="card">
-						<div class="card-header">ë¡œê·¸ì¸</div>
+						<div class="card-header">·Î±×ÀÎ</div>
 						<div class="card-body">
 							<form name="my-form" onsubmit="return validform()" action="LoginService.do" method="post"> 
 								<div class="form-group row">
 									<label for="full_name"
-										class="col-md-4 col-form-label text-md-right">ì•„ì´ë””</label>
+										class="col-md-4 col-form-label text-md-right">¾ÆÀÌµð</label>
 									<div class="col-md-6">
 										<input type="text" id="id" class="form-control" name="id">
 									</div>
@@ -107,14 +112,17 @@
 
 								<div class="form-group row">
 									<label for="email_address"
-										class="col-md-4 col-form-label text-md-right">ë¹„ë°€ë²ˆí˜¸</label>
+										class="col-md-4 col-form-label text-md-right">ºñ¹Ð¹øÈ£</label>
 									<div class="col-md-6">
-										<input type="text" id="pw" class="form-control" name="pw">
+										<input type="password" id="pw" class="form-control" name="pw">
 									</div>
 								</div>
 
 								<div class="col-md-6 offset-md-4">
 									<button type="submit" class="btn btn-primary" name="submit">Login</button>
+									<%if(fail != null){%>
+									<h7 style="color: tomato">¾ÆÀÌµð ¶Ç´Â ºñ¹Ð¹øÈ£¸¦ È®ÀÎÇØÁÖ¼¼¿ä.</h7>
+									<%}%>
 								</div>
 						</div>
 						</form>
@@ -123,6 +131,7 @@
 			</div>
 		</div>
 		</div>
+		
 
 	</main>
 	<script src="./js/jquery-3.6.0.min.js"></script>
@@ -133,7 +142,7 @@
 
 <footer class="py-5 bg-dark">
     <div class="container">
-      <p class="m-0 text-center text-white">ìŠ¤ë§ˆíŠ¸ì¸ìž¬ê°œë°œì› 2ì°¨í”„ë¡œì íŠ¸ Leader</p>
+      <p class="m-0 text-center text-white">½º¸¶Æ®ÀÎÀç°³¹ß¿ø 2Â÷ÇÁ·ÎÁ§Æ® Leader</p>
     </div>
 </footer>
 </body>
