@@ -112,7 +112,7 @@ input[type="number"]::-webkit-inner-spin-button {
    <!-- Navigation -->
    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
       <div class="container">
-         <a class="navbar-brand" href="#">Leader</a>
+         <a class="navbar-brand" href="index_main.jsp">Leader</a>
          <button class="navbar-toggler" type="button" data-toggle="collapse"
             data-target="#navbarResponsive" aria-controls="navbarResponsive"
             aria-expanded="false" aria-label="Toggle navigation">
@@ -191,6 +191,8 @@ input[type="number"]::-webkit-inner-spin-button {
 			<div id="basic" class="raw">
 		      <br><br>
 		      <h5>어떤 매물을 찾고 계시나요?</h5><br>
+		      <div>
+		     	
 				<form action="SearchService.do" method="post">
 				
          <!-- 옵션선택 -->
@@ -204,6 +206,7 @@ input[type="number"]::-webkit-inner-spin-button {
          </span>
             <button type="submit" class="sch_smit">검색</button>
          </form>
+         </div>
 		<!-- 즐겨찾기 -->  
           <%if(info !=null) {%>
           <form action="FavoriteService.do" method="post">

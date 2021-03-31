@@ -130,12 +130,15 @@
    input[type="checkbox"]{
 	width: 25px; /*Desired width*/
 	height: 25px; /*Desired height*/
+	margin : auto;
 	}
+
 	p{
 	font-size: 16px;
 	font-weight : bold;
 	}
 </style>
+
 
 <body>
 	<!-- Navigation -->
@@ -167,6 +170,7 @@
 			<fieldset>
 				<legend>조건선택</legend>
 				<br>
+				<div class = "ck_item">
 					<label class="ck"><input type = "checkbox" name="check" value="price"> 거래금액</label><br>
 					<label class="ck"><input type = "checkbox" name="check" value="arch"> 건축년도</label><br>
 					<label class="ck"><input type = "checkbox" name="check" value="apt_size"> 평수</label><br>
@@ -176,11 +180,13 @@
 					<label class="ck"><input type = "checkbox" name="check" value="subway"> 지하철</label><br>
 					<label class="ck"><input type = "checkbox" name="check" value="movie"> 영화관</label><br>
 					<label class="ck"><input type = "checkbox" name="check" value="charge"> 전기차 충전소</label>
+
 					<br><hr>
 					<p>
 					<button type="submit" class="sch_smit" >가격예측</button>
 					<button type="reset" class="sch_smit">초기화</button>
 					</p>
+
 			</fieldset>
 		</form>
 		</div>

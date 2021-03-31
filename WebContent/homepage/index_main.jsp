@@ -94,16 +94,69 @@
 	  border-bottom: 1px solid #ccc;
 	}
 	
-	#basic, #junwall, #mat, #imdae {
+	#basic, #junwall, #mat, #imdae, .container {
 		display: none;
 }
+.img{
+	background-image: url("./maemae.jpg");
+	background-repeat: no-repeat;
+	background-size : 750px;
+	width: 100%;
+	height: 100%;
+}
+.img2_1 {
+	background-image: url("./filter.jpg");
+	background-repeat: no-repeat;
+	background-size : 700px;
+	position : relative;
+	width: 100%;
+	height: 100%;
+	left: 50%;
+	bottom : 670px;
+}
+.img2_2 {
+	background-image: url("./filter.jpg");
+	background-repeat: no-repeat;
+	background-size : 700px;
+	position : relative;
+	width: 100%;
+	height: 100%;
+	left: 50%;
+	bottom : 670px;
+}
+.img3_1 {
+	background-image: url("./pre.jpg");
+	background-repeat: no-repeat;
+	background-size : 700px;
+	position : relative;
+	width: 100%;
+	height: 100%;
+	left: 50%;
+	bottom : 1150px;
+}
+.img3_2 {
+	background-image: url("./pre.jpg");
+	background-repeat: no-repeat;
+	background-size : 700px;
+	position : relative;
+	width: 100%;
+	height: 100%;
+	left: 50%;
+	bottom : 1150px;
+}
+.search1{
+	position: absolute;
+	top:400px;
+	left : 100px;
+}
+
 </style>
 <body>
 
 	<!-- Navigation -->
 	<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
 		<div class="container">
-			<a class="navbar-brand" href="#">Leader</a>
+			<a class="navbar-brand" href="index_main.jsp">Leader</a>
 			<button class="navbar-toggler" type="button" data-toggle="collapse"
 				data-target="#navbarResponsive" aria-controls="navbarResponsive"
 				aria-expanded="false" aria-label="Toggle navigation">
@@ -149,10 +202,8 @@
 			</div>
 		</div>
 	</nav>
-	<br><br><br><br>
-	<h2><b>조건에 맞는 집을 찾으시나요?</b></h2><br>
-	
-	<img src="../img/apt.jpg">
+
+
 
 
 
@@ -164,6 +215,7 @@
 	<script src="vendor/jquery/jquery.min.js"></script>
 	<script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 	<script src="./vendor/jquery/jquery-3.6.0.min.js"></script>
+	
 	<script type="text/javascript">
 		$('#fake').click(function(){
 			alert('로그인을해주세요');
@@ -174,6 +226,19 @@
 		$('#fake2').click(function(){
 			alert('로그인을해주세요');
 		});
+		$('.img2_1').click(function(){
+			alert('로그인을 해주세요');
+		});
+		$('.img2_2').click(function(){
+			location.href = 'index_mat.jsp'
+		});
+		$('.img3_1').click(function(){
+			alert('로그인을 해주세요');
+		});
+		$('.img3_2').click(function(){
+			location.href = 'index_imdae.jsp'
+		});
+		
 	</script>
 
 </body>
