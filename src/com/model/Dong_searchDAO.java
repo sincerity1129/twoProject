@@ -17,7 +17,7 @@ public class Dong_searchDAO {
 	ArrayList<Main_filterDTO> DongSearchList = null;
 
 	
-	public void conn() { // DB ¿¬°á
+	public void conn() { // DB ï¿½ï¿½ï¿½ï¿½
 
 		
 		try {
@@ -35,7 +35,7 @@ public class Dong_searchDAO {
 
 }
 
-public void close() { // DB ¿¬°á ÇØÁ¦
+public void close() { // DB ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 
 	try {
 		if (rs != null) {
@@ -54,12 +54,12 @@ public void close() { // DB ¿¬°á ÇØÁ¦
 
 public ArrayList<Main_filterDTO> search(Dong_searchDTO dto) {
 	
-	DongSearchList = new ArrayList<Main_filterDTO>(); // ±âº» ÇÊÅÍ °Ë»ö
+	DongSearchList = new ArrayList<Main_filterDTO>(); // ï¿½âº» ï¿½ï¿½ï¿½ï¿½ ï¿½Ë»ï¿½
 	
 	conn();
 	
 	try {
-		String sql = "select * from A_maemae where Dong_name like";
+		String sql = "select * from A_maemae where Dong like";
 		psmt = conn.prepareStatement(sql+"\'%"+dto.getSearch()+"%\'");
 		rs = psmt.executeQuery();
 		

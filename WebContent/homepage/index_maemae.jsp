@@ -40,7 +40,6 @@ table {
 
 #junwall, #mat, #imdae {
 	display: none;
-	
 }
 </style>
 
@@ -73,15 +72,11 @@ table {
 
 						if (info != null) {
 							/*여긴 기본필터가 아닌 맞춤필터 시에 필요한 부분 */
-						}%> 
-						
-						
-						<%if (info != null) {%>
+						}%> <%if (info != null) {%>
 					
 					<li class="nav-item">
-						<%if (info.getId().equals("admin")) {%>
-						<a class="nav-link" href="select.jsp">회원정보 관리</a> 
-						<%}%>
+						<%if (info.getId().equals("admin")) {%> <a class="nav-link"
+						href="select.jsp">회원정보 관리</a> <%}%>
 					</li>
 					<li class="nav-item"><a class="nav-link" href="favorite.jsp">즐겨찾기</a></li>
 					<li class="nav-item"><a class="nav-link" href="mypage.jsp">마이페이지</a></li>
@@ -110,8 +105,8 @@ table {
 
 				<h1 class="my-4">매물</h1>
 				<div class="list-group">
-					<a href="" class="list-group-item" id="check1">매물</a> 
-					<a href="index_rent.jsp" class="list-group-item" id="check2">전 월세</a>
+					<a href="" class="list-group-item" id="check1">매물</a> <a
+						href="index_rent.jsp" class="list-group-item" id="check2">전 월세</a>
 				</div>
 				<h1 class="my-4">특별 필터</h1>
 				<div class="list-group">
@@ -120,16 +115,16 @@ table {
 					<a href="index_imdae.jsp" class="list-group-item" id="check4">임대</a>
 					<%}else {%>
 					<a href="" class="list-group-item" id="check4">임대</a>
-					<%} %>					
+					<%} %>
 				</div>
-				
+
 				<h1 class="my-4">가격 예측</h1>
 				<div class="list-group">
 					<%if(info != null){%>
 					<a href="price.jsp" class="list-group-item" id="check2">가격 예측</a>
 					<%}else {%>
-						<a href="" class="list-group-item" id="check2">가격 예측</a>
-						<%}%>
+					<a href="" class="list-group-item" id="check2">가격 예측</a>
+					<%}%>
 				</div>
 			</div>
 
@@ -142,27 +137,92 @@ table {
 					<form action="SearchService.do" method="post">
 						<!-- radio를 사 -->
 						아파트<input type="radio" name="table" value="apt_name" checked="checked"> 
-						동<input	type="radio" name="table" value="dong"> 
-						검색 : <input type="text" name="search"> 
+						동<input type="radio" name="table" value="dong"> 검색 : <input type="text" name="search">
 						<input type="submit" value="검색">
 					</form>
-					
-					<%if(info !=null) {%>					
-					<form action= "FavoriteService.do" method = "post">
-						<select name = "type">
-							<option value = "maemae" selected="selected">매매번호</option>
-						</select>						
-							즐겨찾기<input type ="text" name ="num">
-							<input type = "submit" value = "추가">
+
+					<%if(info !=null) {%>
+					<form action="FavoriteService.do" method="post">
+						<select name="type">
+							<option value="maemae" selected="selected">매매번호</option>
+						</select> 
+						즐겨찾기<input type="text" name="num"> 
+						<input type="submit" value="추가">
 					</form>
 					<%} %>
 
+					<% %>
 
 
 					<%DongSearchList = (ArrayList<Main_filterDTO>) session.getAttribute("DongSearchList");
 					if (DongSearchList != null) {
 						System.out.print("동 성공!!");
-						System.out.print(DongSearchList.size());%>
+						System.out.print(DongSearchList.size());
+						%>
+						
+
+					<div id="map" style="width: 80%; height: 200px;"></div>
+						<script type="text/javascript" src="https://dapi.kakao.com/v2/maps/sdk.js?appkey=a19ab035edef253fb248a91c1d82a9ff&libraries=services"></script>
+						<script>
+							
+						// 마커를 클릭하면 장소명을 표출할 인포윈도우 입니다
+						var infowindow = new kakao.maps.InfoWindow({
+							zIndex : 1
+						});
+				
+						var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
+						mapOption = {
+							center : new kakao.maps.LatLng(35.16023446394114, 126.8514006960729), // 지도의 중심좌표
+							level : 5
+						// 지도의 확대 레벨
+						};
+				
+						// 지도를 생성합니다    
+						var map = new kakao.maps.Map(mapContainer, mapOption);
+				
+						// 장소 검색 객체를 생성합니다
+						var ps = new kakao.maps.services.Places();
+						
+				
+						// 키워드로 장소를 검색합니다
+						ps.keywordSearch("광주광역시 아파트"+"<%=DongSearchList.get(0).getDong() %>", placesSearchCB);
+				
+						// 키워드 검색 완료 시 호출되는 콜백함수 입니다
+						function placesSearchCB(data, status, pagination) {
+							if (status === kakao.maps.services.Status.OK) {
+				
+								// 검색된 장소 위치를 기준으로 지도 범위를 재설정하기위해
+								// LatLngBounds 객체에 좌표를 추가합니다
+								var bounds = new kakao.maps.LatLngBounds();
+				
+								for (var i = 0; i < data.length; i++) {
+									displayMarker(data[i]);
+									bounds.extend(new kakao.maps.LatLng(data[i].y, data[i].x));
+								}
+				
+								// 검색된 장소 위치를 기준으로 지도 범위를 재설정합니다
+								map.setBounds(bounds);
+							}
+						}
+				
+						// 지도에 마커를 표시하는 함수입니다
+						function displayMarker(place) {
+				
+							// 마커를 생성하고 지도에 표시합니다
+							var marker = new kakao.maps.Marker({
+								map : map,
+								position : new kakao.maps.LatLng(place.y, place.x)
+							});
+				
+							// 마커에 클릭이벤트를 등록합니다
+							kakao.maps.event.addListener(marker, 'click', function() {
+								// 마커를 클릭하면 장소명이 인포윈도우에 표출됩니다
+								infowindow.setContent('<div style="padding:6px;font-size:11px;">' + place.place_name + '</div>');
+								infowindow.open(map, marker);
+							});
+						}
+					</script>
+
 					<table>
 						<tr>
 							<td>즐겨찾기</td>
@@ -177,8 +237,9 @@ table {
 							<td>일</td>
 							<td>평수</td>
 							<td>층</td>
-							
+
 						</tr>
+
 
 						<%for (int i = 0; i < DongSearchList.size(); i++) {%>
 						<tr>
@@ -198,11 +259,15 @@ table {
 
 						<%}%>
 					</table>
+
 					<%}%>
 
 					<%AptSearchList = (ArrayList<Main_filterDTO>) session.getAttribute("AptSearchList");
 					if (AptSearchList != null) {
 						System.out.print("아파트 성공!");%>
+
+
+
 					<table>
 						<tr>
 							<td>즐겨찾기</td>
@@ -245,13 +310,13 @@ table {
 					<h1>전 월세</h1>
 					<form action="RentSearchService.do" method="post">
 						<!-- radio를 사 -->
-						아파트<input type="radio" name="table" value="apt_name"> 
-						동<input	type="radio" name="table" value="dong"> 
-							검색 : <input type="text" name="rent_search"> 
-							<input type="submit" value="검색">
+						아파트<input type="radio" name="table" value="apt_name"> 동<input
+							type="radio" name="table" value="dong"> 검색 : <input
+							type="text" name="rent_search"> <input type="submit"
+							value="검색">
 					</form>
-					
-					
+
+
 					<!--  <img class="d-block img-fluid" src="./img/white-img.jpg" alt="First slide"> 이미지 파일 넣는 곳-->
 
 					<div id="row">
@@ -273,7 +338,7 @@ table {
 								<td>평 수</td>
 								<td>층</td>
 							</tr>
-							
+
 							<%for (int i = 0; i < RentSearchList.size(); i++) {%>
 							<tr>
 								<td><input type="checkbox" value=""></td>
@@ -307,13 +372,13 @@ table {
 							<option value="subway">지하철</option>
 							<option value="coffee">스타벅스</option>
 							<option value="movie">영화관</option>
-						</select> 동으로 검색 : <input type="text" name="mat_search"> 
-							<%if(info != null){%>
+						</select> 동으로 검색 : <input type="text" name="mat_search">
+						<%if(info != null){%>
 						<input type="submit" value="검색">
 						<%}else{%>
-							로그인하여 검색기능 잠금해제.
+						로그인하여 검색기능 잠금해제.
 						<%}%>
-						
+
 					</form>
 
 					<!--  <img class="d-block img-fluid" src="./img/white-img.jpg" alt="First slide"> 이미지 파일 넣는 곳-->
@@ -360,8 +425,7 @@ table {
 							<%if (mat_select.equals("charge")) {%>
 							<td><%=MatSearchList.get(i).getCharge()%></td>
 							<%}%>
-							<%if (mat_select.equals("subway")) {%><td>
-							<%=MatSearchList.get(i).getSubway()%></td>
+							<%if (mat_select.equals("subway")) {%><td><%=MatSearchList.get(i).getSubway()%></td>
 							<%}%>
 							<%if (mat_select.equals("coffee")) {%>
 							<td><%=MatSearchList.get(i).getStarbucks()%></td>
@@ -399,10 +463,10 @@ table {
 					<form action="ImdaeSearchService.do" method="post">
 
 						<!-- radio를 사 -->
-						구<input type="radio" name="search_type" value="region"> 
-						동<input type="radio" name="search_type" value="dong"> 
-							검색 : <input type="text" name="imdae_search"> 
-							<input type="submit" value="검색">
+						구<input type="radio" name="search_type" value="region"> 동<input
+							type="radio" name="search_type" value="dong"> 검색 : <input
+							type="text" name="imdae_search"> <input type="submit"
+							value="검색">
 					</form>
 
 
@@ -461,8 +525,8 @@ table {
 
 	</div>
 	<!-- /.container -->
-	
-	
+
+
 	<br>
 	<br>
 	<br>
@@ -483,7 +547,6 @@ table {
 	<script type="text/javascript">
 		
 	</script>
-
 </body>
 
 </html>

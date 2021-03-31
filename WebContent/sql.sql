@@ -13,7 +13,7 @@ DROP TABLE MAEMAE;
 
 
 
-/*х╦©Ьевюл╨М ╦╦╣И╠Б*/
+/*х╦О©╫О©╫О©╫О©╫О©╫л╨О©╫ О©╫О©╫О©╫О©╫О©╫*/
 CREATE TABLE A_MEMBER(
 	MEM_ID VARCHAR2(50) NOT NULL, 
 	MEM_PW VARCHAR2(50) NOT NULL,
@@ -26,10 +26,10 @@ CONSTRAINT A_MEMBER_MEM_ID_PK PRIMARY KEY(MEM_ID)
 
 SELECT * FROM A_MEMBER;
 
-/*х╦©Ьдз╣Е ╫цдЖ╫╨ ╩Щ╪╨ -> ╩Ха╕ */
-INSERT INTO A_MEMBER VALUES('abcd','123','х╚╠Ф╣©','010-1111-222','1999.01.01','╨ю╪╠╣©');
+/*х╦О©╫О©╫О©╫з╣О©╫ О©╫О©╫О©╫О©╫О©╫О©╫ О©╫О©╫О©╫О©╫ -> О©╫О©╫О©╫О©╫ */
+INSERT INTO A_MEMBER VALUES('abcd','123','х╚О©╫Ф╣©','010-1111-222','1999.01.01','О©╫О©╫О©╫О©╫О©╫О©╫');
 
-/*юЭ©Ы╪╪евюл╨М ╦╦╣И╠Б*/
+/*О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫л╨О©╫ О©╫О©╫О©╫О©╫О©╫*/
 CREATE TABLE A_RENT(
 	RENT_NUM VARCHAR2(20) NOT NULL,
 	DONG VARCHAR2(50) NOT NULL,
@@ -45,9 +45,9 @@ CREATE TABLE A_RENT(
 	CONSTRAINT A_RENT_RENT_NUM_PK PRIMARY KEY(RENT_NUM)
 );
 
-/* юЭ©Ы╪╪/╦е╦е ╫цдЖ╫╨ ╩Щ╪╨ ют╥бю╩ го╢б евюл╨Мюл ╬ф╢о╟М а╤х╦╦╕ го╢б евюл╨Мюл╠Б ╤╖╧╝©║ ╠╩юл ╫цдЖ╫╨╩Щ╪╨ю╩ гр гй©Д╟║ ╬Ь╬Н╨╦©╘╪╜ ╩Ха╕ */
+/* О©╫О©╫О©╫О©╫О©╫О©╫/О©╫е╦О©╫ О©╫О©╫О©╫О©╫О©╫О©╫ О©╫О©╫О©╫О©╫ О©╫т╥О©╫О©╫О©╫ О©╫о╢О©╫ О©╫О©╫О©╫л╨О©╫О©╫О©╫ О©╫ф╢о╟О©╫ О©╫О©╫х╦О©╫О©╫ О©╫о╢О©╫ О©╫О©╫О©╫л╨О©╫О©╫л╠О©╫ О©╫О©╫О©╫О©╫О©╫О©╫ О©╫О©╫О©╫О©╫ О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫ О©╫О©╫ О©╫й©Д╟║ О©╫О©╫О©╫Н╨╦О©╫О©╫О©╫О©╫ О©╫О©╫О©╫О©╫ */
 
-/*╦е╦еевюл╨М ╦╦╣И╠Б*/
+/*О©╫е╦О©╫О©╫О©╫О©╫л╨О©╫ О©╫О©╫О©╫О©╫О©╫*/
 CREATE TABLE A_MAEMAE(
 	MAEMAE_NUM VARCHAR2(20) NOT NULL,
 	DONG VARCHAR2(50) NOT NULL,
@@ -67,11 +67,14 @@ CREATE TABLE A_MAEMAE(
 	CONSTRAINT A_MAEMAE_MAEMAE_NUM_PK PRIMARY KEY(MAEMAE_NUM)
 );
 
+select * from A_MAEMAE;
+
+insert into A_MAEMAE values('1','К╛╦М²╔К▐≥', '100', 2200, 'Л╓▒М²╔Л∙└М▄▄М┼╦','2010', 3, 1,30,2,);
 
 ALTER TABLE MAEMAE ALTER COLUMN MAEMAE_NUM VARCHAR2(20) NOT NULL;
 
 SELECT * FROM A_MAEMAE;
-/*юс╢К╬ффдф╝ евюл╨М ╦╦╣И╠Б */
+/*О©╫с╢О©╫О©╫О©╫О©╫ф╝ О©╫О©╫О©╫л╨О©╫ О©╫О©╫О©╫О©╫О©╫ */
 CREATE TABLE IMDAE_APT(
 	IMDAE_NUM VARCHAR2(20) NOT NULL,
 	REGION VARCHAR2(30) NOT NULL,
@@ -88,21 +91,21 @@ CREATE TABLE IMDAE_APT(
 
 select * from imdae_apt;
 
-/*гп╠Ёевюл╨М ╦╦╣И╠Б*/
+/*О©╫п╠О©╫О©╫О©╫О©╫л╨О©╫ О©╫О©╫О©╫О©╫О©╫*/
 CREATE TABLE SCHOOL(
 	DONG VARCHAR2(20) NOT NULL,
 	SCHOOL_NAME VARCHAR2(50) NOT NULL,
 	SCHOOL_ADDR VARCHAR2(200) NOT NULL
 );
 
-/*╟Ь©Ьевюл╨М ╦╦╣И╠Б*/
+/*О©╫О©╫О©╫О©╫О©╫О©╫О©╫л╨О©╫ О©╫О©╫О©╫О©╫О©╫*/
 CREATE TABLE PARK(
 	DONG VARCHAR2(20) NOT NULL,
 	PARK_DIV VARCHAR2(20) NOT NULL,
 	PARK_SIZE VARCHAR2(10) NOT NULL
 );
 
-/*Ё╩╨н╫ц╪Ёевюл╨М ╦╦╣И╠Б*/
+/*О©╫О©╫О©╫н╫ц╪О©╫О©╫О©╫О©╫л╨О©╫ О©╫О©╫О©╫О©╫О©╫*/
 CREATE TABLE FACILITY(
 	DONG VARCHAR2(20) NOT NULL,
 	APT_NAME VARCHAR2(50) NOT NULL,
@@ -110,53 +113,53 @@ CREATE TABLE FACILITY(
 );
 
 
-/*╣╣╪╜╟Эевюл╨М ╦╦╣И╠Б*/
+/*О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫л╨О©╫ О©╫О©╫О©╫О©╫О©╫*/
 CREATE TABLE LIBRARY(
 	DONG VARCHAR2(20) NOT NULL,
 	LIB_NAME VARCHAR2(100) NOT NULL,
 	CLOSE VARCHAR2(500) NOT NULL
 );
 
-/*╧Ща╓╣©╨╟ ╣╣╪╜╟Э ╨р╥╞©ю╠Б*/
+/*О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫ О©╫О©╫О©╫О©╫О©╫О©╫ О©╫р╥О©╫О©╫О©╫О©╫О©╫*/
 SELECT DONG, LISTAGG(LIB_NAME, ', ') WITHIN GROUP (ORDER BY LIB_NAME) LIB_NAME
 FROM LIBRARY 
 GROUP BY DONG
 
-/*╣╣╪╜╟Э╪Ж ╪Щюз╥н ╨╦©╘аж╠Б */
+/*О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫ О©╫О©╫О©╫з╥О©╫ О©╫О©╫О©╫О©╫О©╫ж╠О©╫ */
 SELECT DONG, COUNT(*)  FROM LIBRARY GROUP BY DONG
 
-/*╦е╦е&гп╠Ёевюл╨М а╤юн*/
+/*О©╫е╦О©╫&О©╫п╠О©╫О©╫О©╫О©╫л╨О©╫ О©╫О©╫О©╫О©╫*/
 SELECT SCH.SCHOOL_NAME, SCH.SCHOOL_ADDR, MAE.DONG, MAE.APT_NAME, 
 MAE.PRICE, MAE.BUILD_YEAR,MAE.YEAR, MAE.MONTH, MAE.DAY, MAE.APT_SIZE, MAE.FLOOR	   
 FROM MAEMAE MAE, SCHOOL SCH
 WHERE MAE.DONG=SCH.DONG
-and mae.dong = 'аЖ╩Й╣©';
+and mae.dong = 'О©╫О©╫О©╫Й╣©';
 
-select * from maemae where dong = 'аЖ╩Й╣©'
+select * from maemae where dong = 'О©╫О©╫О©╫Й╣©'
 
-/*╦е╦е&╟Ь©Ьевюл╨М а╤юн*/
+/*О©╫е╦О©╫&О©╫О©╫О©╫О©╫О©╫О©╫О©╫л╨О©╫ О©╫О©╫О©╫О©╫*/
 SELECT PK.PARK_DIV, PK.PARK_SIZE, MAE.DONG, MAE.APT_NAME, 
 	   MAE.PRICE, MAE.BUILD_YEAR, MAE.YEAR, MAE.MONTH, MAE.DAY, MAE.APT_SIZE, MAE.FLOOR	   
 FROM MAEMAE MAE, PARK PK
 WHERE MAE.DONG=PK.DONG
-and mae.dong = '╪Ж©о╣©';
+and mae.dong = 'О©╫О©╫О©╫о╣О©╫';
 
-/*╦е╦е&╫ц╪Ёевюл╨М а╤юн*/
+/*О©╫е╦О©╫&О©╫ц╪О©╫О©╫О©╫О©╫л╨О©╫ О©╫О©╫О©╫О©╫*/
 SELECT FAC.FACILITY, MAE.DONG, MAE.APT_NAME, MAE.PRICE, MAE.BUILD_YEAR,
 	   MAE.YEAR, MAE.MONTH, MAE.DAY, MAE.APT_SIZE, MAE.FLOOR	   
 FROM MAEMAE MAE, FACILITY FAC
 WHERE MAE.DONG=FAC.DONG
-and mae.dong = '╪Ж©о╣©';
+and mae.dong = 'О©╫О©╫О©╫о╣О©╫';
 
-/*╦е╦е&╣╣╪╜╟Эевюл╨М а╤юн */
+/*О©╫е╦О©╫&О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫л╨О©╫ О©╫О©╫О©╫О©╫ */
 SELECT LIB.LIB_NAME, LIB.CLOSE, MAE.DONG, MAE.APT_NAME, MAE.PRICE, MAE.BUILD_YEAR,
 	   MAE.YEAR, MAE.MONTH, MAE.DAY, MAE.APT_SIZE, MAE.FLOOR	   
 FROM MAEMAE MAE, LIBRARY LIB
 WHERE MAE.DONG=LIB.DONG
-and mae.dong = '╪Ж©о╣©'
+and mae.dong = 'О©╫О©╫О©╫о╣О©╫'
 
 
-/*╦е╦е аЯ╟эцё╠Б евюл╨М*/
+/*О©╫е╦О©╫ О©╫О©╫О©╫цёО©╫О©╫ О©╫О©╫О©╫л╨О©╫*/
 CREATE TABLE MY_MAEMAE(
 	MY_MAEMAE_NUM VARCHAR2(20) NOT NULL,
 	MAEMAE_MEM_ID VARCHAR2(20) NOT NULL,
@@ -166,7 +169,7 @@ constraint MY_MAEMAE_MAEMAE_MEM_ID_FK2 foreign key(MAEMAE_MEM_ID)
 references A_MEMBER(MEM_ID)
 )
 select * from my_maemae where  MAEMAE_MEM_ID = 'smart';
-/*╦е╦е аЯ╟эцё╠Б ╠Б╢и х╝юн*/
+/*О©╫е╦О©╫ О©╫О©╫О©╫цёО©╫О©╫ О©╫О©╫О©╫ х╝О©╫О©╫*/
 INSERT INTO MY_MAEMAE VALUES(1,'smhrd3');
 
 
@@ -180,7 +183,7 @@ WHERE  MAEMAE_NUM IN (SELECT MY_MAEMAE_NUM
 					 WHERE MAEMAE_MEM_ID IN 'smart');
 	
 
-/*юЭ©Ы╪╪ аЯ╟эцё╠Б евюл╨М*/
+/*О©╫О©╫О©╫О©╫О©╫О©╫ О©╫О©╫О©╫цёО©╫О©╫ О©╫О©╫О©╫л╨О©╫*/
 CREATE TABLE MY_RENT(
 	MY_RENT_NUM VARCHAR2(20) NOT NULL,
 	RENT_MEM_ID VARCHAR2(20) NOT NULL,
@@ -190,7 +193,7 @@ constraint MY_RENT_RENT_MEM_ID_FK2 foreign key(RENT_MEM_ID)
 references A_MEMBER(MEM_ID)
 );
 
-/*юЭ©Ы╪╪ аЯ╟эцё╠Б ╠Б╢и х╝юн*/
+/*О©╫О©╫О©╫О©╫О©╫О©╫ О©╫О©╫О©╫цёО©╫О©╫ О©╫О©╫О©╫ х╝О©╫О©╫*/
 SELECT * FROM MY_MAEMAE
 
 SELECT RENT_NUM,DONG,BUILD_YEAR,DEPOSIT,LOYER,APT_NAME,
