@@ -11,7 +11,7 @@
 <%@page import="com.model.MemberDTO"%>.
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
 	pageEncoding="EUC-KR"%>
-
+ 
 <!DOCTYPE html>
 <html lang="en">
 
@@ -94,16 +94,70 @@
 	  border-bottom: 1px solid #ccc;
 	}
 	
-	#basic, #junwall, #mat, #imdae {
+	#basic, #junwall, #mat, #imdae, .container {
 		display: none;
 }
+.img{
+	background-image: url("./maemae.jpg");
+	background-repeat: no-repeat;
+	background-size : 1000px;
+	width: 100%;
+	height: 100%;
+}
+.img2_1 {
+	background-image: url("./filter.jpg");
+	background-repeat: no-repeat;
+	background-size : 880px;
+	position : relative;
+	width: 100%;
+	height: 100%;
+	left: 53%;
+	bottom : 860px;
+}
+.img2_2 {
+	background-image: url("./filter.jpg");
+	background-repeat: no-repeat;
+	background-size : 880px;
+	position : relative;
+	width: 100%;
+	height: 100%;
+	left: 53%;
+	bottom : 860px;
+}
+.img3_1 {
+	background-image: url("./pre.jpg");
+	background-repeat: no-repeat;
+	background-size : 880px;
+	position : relative;
+	
+	width: 100%;
+	height: 300px;
+	left: 53%;
+	bottom : 1430px;
+}
+.img3_2 {
+	background-image: url("./pre.jpg");
+	background-repeat: no-repeat;
+	background-size : 880px;
+	position : relative;
+	width: 100%;
+	height: 100%;
+	left: 53%;
+	bottom : 1430px;
+}
+.search1{
+	position: absolute;
+	top:500px;
+	left : 100px;
+}
+
 </style>
 <body>
 
 	<!-- Navigation -->
 	<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
 		<div class="container">
-			<a class="navbar-brand" href="#">Leader</a>
+			<a class="navbar-brand" href="index_main.jsp">Leader</a>
 			<button class="navbar-toggler" type="button" data-toggle="collapse"
 				data-target="#navbarResponsive" aria-controls="navbarResponsive"
 				aria-expanded="false" aria-label="Toggle navigation">
@@ -164,22 +218,55 @@
 				<div class="list-group">
 					<a href="index_mat.jsp" class="list-group-item" id="check3">맞춤</a>
 					<%if(info != null){%>
-					<a href="index_imdae.jsp" class="list-group-item" id="check4">임대</a>
+					<a href="index_imdae.jsp" class="list-group-item">임대</a>
 					<%}else {%>
-					<a href="" class="list-group-item" id="check4">임대</a>
+					<a href="" class="list-group-item" id= "fake1">임대</a>
 					<%}%>
 				</div>
 				<h4 class="my-4">예측</h4>
 				<div class="list-group">
 					<%if(info != null){ %>
-					<a href="price.jsp" class="list-group-item" id="check2">가격 예측</a>
+					<a href="price.jsp" class="list-group-item" >가격 예측</a>
 
 					<%}else {%>
-					<a href="" class="list-group-item" id="check2">가격 예측</a>
+					<a href="" class="list-group-item" id= "fake2">가격 예측</a>
 					<%}%>
 				</div>
 			</div>
 		</div>
+	</div>
+	
+		
+		
+			<div class = "search1">
+				<form action="SearchService.do" method="post">
+					<select name = "table">
+						<option value = "dong">동</option>
+						<option value = "apt_name">아파트</option>
+					</select>
+					<input type ="text" name = "search">
+					<input type = "submit" value = "검색">
+				</form>
+			</div>
+		<div class = "img">
+		</div>
+		
+		
+		<%if (info == null){ %>
+		<div class = "img2_1" >
+		</div>
+		<%} else {%>
+		<div class = "img2_2">
+		</div>
+		<%} %>
+		
+		<%if (info == null){ %>
+		<div class = "img3_1" >
+		</div>
+		<%} else {%>
+		<div class = "img3_2">
+		</div>
+		<%} %>
 
 
 
@@ -191,8 +278,32 @@
 	<script src="vendor/jquery/jquery.min.js"></script>
 	<script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 	<script src="./vendor/jquery/jquery-3.6.0.min.js"></script>
+	
 	<script type="text/javascript">
-		
+		$('#fake').click(function(){
+			alert('로그인을해주세요');
+		});
+		$('#fake1').click(function(){
+			alert('로그인을해주세요');
+		});
+		$('#fake2').click(function(){
+			alert('로그인을해주세요');
+		});
+		$('.img').click(function(){
+			location.href = 'index_maemae.jsp'
+		});
+		$('.img2_1').click(function(){
+			alert('로그인을 해주세요');
+		});
+		$('.img2_2').click(function(){
+			location.href = 'index_mat.jsp'
+		});
+		$('.img3_1').click(function(){
+			alert('로그인을 해주세요');
+		});
+		$('.img3_2').click(function(){
+			location.href = 'price.jsp'
+		});
 	</script>
 
 </body>

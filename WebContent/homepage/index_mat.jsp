@@ -110,7 +110,7 @@
    <!-- Navigation -->
    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
       <div class="container">
-         <a class="navbar-brand" href="#">Leader</a>
+         <a class="navbar-brand" href="index_main.jsp">Leader</a>
          <button class="navbar-toggler" type="button" data-toggle="collapse"
             data-target="#navbarResponsive" aria-controls="navbarResponsive"
             aria-expanded="false" aria-label="Toggle navigation">
@@ -173,17 +173,17 @@
             <div class="list-group">
                <a href="index_mat.jsp" class="list-group-item" id="check3">맞춤</a>
                <%if(info != null){%>
-               <a href="index_imdae.jsp" class="list-group-item" id="check4">임대</a>
+               <a href="index_imdae.jsp" class="list-group-item">임대</a>
                <%}else {%>
-               <a href="" class="list-group-item" id="check4">임대</a>
+               <a href="" class="list-group-item" id="fake1">임대</a>
                <%} %>               
             </div>
             <h4 class="my-4">예측</h4>
             <div class="list-group">
                <%if(info != null){%>
-               <a href="price.jsp" class="list-group-item" id="check2">가격 예측</a>
+               <a href="price.jsp" class="list-group-item">가격 예측</a>
                <%}else {%>
-                  <a href="" class="list-group-item" id="check2">가격 예측</a>
+                  <a href="" class="list-group-item" id="fake2">가격 예측</a>
                   <%}%>
             </div>
          </div>
@@ -310,7 +310,7 @@
 	<h5>원하는 조건을 선택하여서 조회해보세요!</h5><br>
     <form action="MatSearchService.do" method="post">
     	<select class='SelectSearch' name="mat_select">
-				<option value="crime">범죄자 수</option>
+				<option value="crime">성범죄자 수</option>
 				<option value="charge">전기차 충전소</option>
 				<option value="subway">지하철</option>
 				<option value="coffee">스타벅스</option>
@@ -451,6 +451,11 @@
 				</tr>
 				<%} %>
 			</thead>
+			<%if (SchoolList.size() == 0) {%>
+				<tr>
+					<td colspan=12>매물이 없습니다.</td>
+				</tr>
+				<%}%>
 			<tbody>
 			<% for (int i = 0; i < SchoolList.size(); i++) { %>
 			<tr>
@@ -537,6 +542,12 @@
 				</tr>
 				<%} %>
 				</thead>
+				
+				<%if (ParkList.size() == 0) {%>
+				<tr>
+					<td colspan=12>매물이 없습니다.</td>
+				</tr>
+				<%}%>
 				<tbody>
 				<% for (int i = 0; i < ParkList.size(); i++) { %>
 				<tr>
@@ -581,6 +592,12 @@
 					</tr>
 					<%} %>
 					</thead>
+					
+					<%if (LibList.size() == 0) {%>
+				<tr>
+					<td colspan=12>매물이 없습니다.</td>
+				</tr>
+				<%}%>
 					<tbody>
 					<%for (int i = 0; i < LibList.size(); i++) { %>
 					<tr>
@@ -622,8 +639,14 @@
    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
    <script src="./vendor/jquery/jquery-3.6.0.min.js"></script>
    <script type="text/javascript">
-	$("#fake").click(function(){
-		alert('로그인을 해주세요');
+   $('#fake').click(function(){
+		alert('로그인을해주세요');
+	});
+	$('#fake1').click(function(){
+		alert('로그인을해주세요');
+	});
+	$('#fake2').click(function(){
+		alert('로그인을해주세요');
 	});
    </script>
 
