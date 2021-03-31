@@ -81,8 +81,10 @@
    background-image: url("./maemae.jpg");
    background-repeat: no-repeat;
    background-size : 1000px;
+   position : relative;
    width: 100%;
    height: 100%;
+   bottom : 500px;
 }
 .img2_1 {
    background-image: url("./filter.jpg");
@@ -136,7 +138,7 @@
    <!-- Navigation -->
    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
       <div class="container">
-         <a class="navbar-brand" href="index_main.jsp">Leader</a>
+         <a class="navbar-brand" href="index_main.jsp">100다방</a>
          <button class="navbar-toggler" type="button" data-toggle="collapse"
             data-target="#navbarResponsive" aria-controls="navbarResponsive"
             aria-expanded="false" aria-label="Toggle navigation">
@@ -185,6 +187,8 @@
 
          <div class = "search1">
             <form action="SearchService.do" method="post">
+            <h3><b>100다방에 오신걸 환영합니다!</b></h3><hr>
+            <h5>관심있었던 아파트 매물시세를 알아보세요</h5><br>
             <br><br>
                <select class='SelectSearch' name = "table">
                   <option value = "dong">법정동</option>
@@ -254,7 +258,12 @@
          location.href = 'price.jsp'
       });
    </script>
-
+<footer class="py-5 bg-dark">
+    <div class="container">
+      <p class="m-0 text-center text-white">스마트인재개발원 2차프로젝트 Leader</p>
+    </div>
+    <!-- /.container -->
+ </footer>
 </body>
 
 </html>
