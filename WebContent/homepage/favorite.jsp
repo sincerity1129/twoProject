@@ -68,6 +68,7 @@
       color: white;
       border-radius: 1px;
       cursor: pointer;
+      
    }
    .SelectSearch{
       width: 120px; height: 40px;
@@ -113,6 +114,16 @@
      vertical-align: top;
      border-bottom: 1px solid #ccc;
      white-space: nowrap;
+   }
+   .sch_smit_2{
+   	width: 100px; height: 40px;
+      margin: 0; border: 0;
+      vertical-align: top;
+      background: #343A40;
+      color: white;
+      border-radius: 1px;
+      cursor: pointer;
+   	position: absolute; left: 1130px; bottom : 575px;
    }
 </style>
 
@@ -172,8 +183,12 @@
 							placeholder="삭제할 번호를 입력해주세요">
 			  </span>
 					<button type="submit" class="sch_smit">삭제</button>
-					<button type="submit" class="sch_smit" onclick="location.href='DelAllService.do' ">전체삭제</button>
 			</form>		
+			
+			
+			<form action = "DelAllService.do">
+				<button type="submit" class="sch_smit_2" >전체삭제</button>
+			</form>
 			  
 			  <div> 
 		  </div>
