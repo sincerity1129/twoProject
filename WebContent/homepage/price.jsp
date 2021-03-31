@@ -117,13 +117,6 @@
 	<!-- 가격 예측 시스템 -->
 	<h5>조건을 선택하여 아파트 가격을 예측해보세요!</h5><br>
 	<div class="cotainer">
-		<!-- Default checkbox -->
-		<div class="form-check">
-			<input class="form-check-input" type="checkbox"  value=""  id="flexCheckDefault" />
-			<label class="form-check-label" for="flexCheckDefault">Default checkbox</label>
-    	</div>
-	</div>
-	<div>
 		<form action="http://localhost:9000/train" method="post">
 		<label><input type = "checkbox" name="check" value="price"> 거래금액</label>
 		<label><input type = "checkbox" name="check" value="arch"> 건축년도</label>
