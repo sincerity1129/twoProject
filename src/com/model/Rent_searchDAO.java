@@ -67,7 +67,7 @@ public ArrayList<Rent_searchDTO> search(String input,String search) {
 		else if(search.equals("dong")) {
 			sql = "select * from A_rent where dong like";
 		}
-		psmt = conn.prepareStatement(sql+"\'%"+input+"%\'");
+		psmt = conn.prepareStatement(sql+"\'%"+input+"%\' and rownum <= 100");
 		rs = psmt.executeQuery();
 		
 		System.out.println("re.next = "+rs.next());

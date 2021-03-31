@@ -96,9 +96,17 @@
    #junwall, #mat, #imdae {
       display: none;
 }
+<<<<<<< HEAD
 	.col-lg-9{
 		display:flex;'
 	}
+=======
+
+#mat,#junwall,#imdae,#mat , .col-lg-3{
+	display : none;
+}
+
+>>>>>>> branch 'master' of https://github.com/sincerity1129/project.git
 </style>
 <body>
 <!-- Navigation -->

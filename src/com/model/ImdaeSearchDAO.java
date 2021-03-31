@@ -62,11 +62,11 @@ public class ImdaeSearchDAO {
 		
 		try {
 			if(search.equals("dong")) {
-				sql = "select * from imdae_apt where dong  like ";
+				sql = "select * from (select * from imdae_apt) where dong  like ";
 			}else if (search.equals("region")) {
-				sql = "select * from imdae_apt where region like ";	
+				sql = "select * from (select * from imdae_apt) where region like ";	
 			}
-			psmt = conn.prepareStatement(sql+"\'%"+input+"%\'");
+			psmt = conn.prepareStatement(sql+"\'%"+input+"%\' and rownum <= 100");
 			rs = psmt.executeQuery();
 
 			System.out.println("rx.next = " + rs.next());

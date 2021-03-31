@@ -321,8 +321,19 @@
 				<option value="park">공원</option>
 			</select>
 			
+			
 			<%if(info == null) {%>
-				"로그인해주세요!"
+			<span class='green_window'>
+					<input type="text" class='input_text' name="mat_search" onkeydown="enterSearch()" placeholder="동으로 검색하세요!">
+			</span>
+			<button id = "fake" class = "sch_smit">검색</button>
+			
+			<script type="text/javascript">
+			$("#fake").click(function(){
+				alert('로그인을 해주세요');
+			});
+			</script>
+				
 			<%} else {%>
 				<span class='green_window'>
 					<input type="text" class='input_text' name="mat_search" onkeydown="enterSearch()" placeholder="동으로 검색하세요!">
@@ -379,6 +390,7 @@
 					 <th>층</th>
 				</tr>
 				<%}%>
+				<%if(MatSearchList != null){ %>
 				<%if (MatSearchList.size() == 0) {%>
 				<tr>
 					<td colspan=12>매물이 없습니다.</td>
@@ -419,6 +431,7 @@
                   <%}%>
                   </tbody>
                </table>
+               <%}%>
                <%}%>
 			<!-- school -->
 			<%if (SchoolList != null) {%>
