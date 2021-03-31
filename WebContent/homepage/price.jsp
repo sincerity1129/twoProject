@@ -113,6 +113,23 @@
    .field{
    	border-style: solid;
    }
+   
+   legend{
+   	background-color:#343A40;
+   	color : #fff;
+   	padding : 3px;
+   	font-size: 30px;
+   }
+   
+   .ck{
+   	font-size: 22px;
+   	margin : auto;
+   }
+   
+   input[type="checkbox"]{
+	width: 25px; /*Desired width*/
+	height: 25px; /*Desired height*/
+	}
 </style>
 
 <body>
@@ -136,25 +153,29 @@
    
    <!-- 가격 예측 시스템 -->
    <br><br><br><br><br><br><br><br>
+   <div id="option">
 	<div class="checks">
 		<h3><b>조건을 선택하여 아파트 가격을 예측해보세요!</b></h3><hr>
+		<br><br>
 		<form action="http://localhost:9000/train" method="post">
 		<!-- 체크박스 -->
 			<fieldset>
 				<legend>조건선택</legend>
-					<label><input type = "checkbox" name="check" value="price"> 거래금액</label>
-					<label><input type = "checkbox" name="check" value="arch"> 건축년도</label>
-					<label><input type = "checkbox" name="check" value="apt_size"> 평수</label>
-					<label><input type = "checkbox" name="check" value="floor"> 층</label><br>
-					<label><input type = "checkbox" name="check" value="crime"> 범죄자수</label>
-					<label><input type = "checkbox" name="check" value="star"> 스타벅스</label>
-					<label><input type = "checkbox" name="check" value="subway"> 지하철</label>
-					<label><input type = "checkbox" name="check" value="movie"> 영화관</label>
-					<label><input type = "checkbox" name="check" value="charge"> 전기차 충전소</label>
+				<br>
+					<label class="ck"><input type = "checkbox" name="check" value="price"> 거래금액</label><br>
+					<label class="ck"><input type = "checkbox" name="check" value="arch"> 건축년도</label><br>
+					<label class="ck"><input type = "checkbox" name="check" value="apt_size"> 평수</label><br>
+					<label class="ck"><input type = "checkbox" name="check" value="floor"> 층</label><br>
+					<label class="ck"><input type = "checkbox" name="check" value="crime"> 범죄자수</label><br>
+					<label class="ck"><input type = "checkbox" name="check" value="star"> 스타벅스</label><br>
+					<label class="ck"><input type = "checkbox" name="check" value="subway"> 지하철</label><br>
+					<label class="ck"><input type = "checkbox" name="check" value="movie"> 영화관</label><br>
+					<label class="ck"><input type = "checkbox" name="check" value="charge"> 전기차 충전소</label>
 					<p><input type="submit"> <input type="reset"></p>
 			</fieldset>
 		</form>
 		</div>
+	</div>
 	
 	
 	
