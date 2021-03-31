@@ -207,6 +207,8 @@
                 즐겨찾기<input type ="text" name ="num">
                 <input type = "submit" value = "추가">
           </form>
+          
+          
           <%} %>
 			
 		<!-- 동으로 조회 -->

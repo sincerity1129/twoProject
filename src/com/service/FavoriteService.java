@@ -21,7 +21,6 @@ public class FavoriteService implements FrontCommand {
 	public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		HttpSession session = request.getSession();
-		HttpSession session2 = request.getSession();
 		
 		response.setCharacterEncoding("EUC-KR");
 		
