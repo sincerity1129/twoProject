@@ -149,37 +149,10 @@
 			</div>
 		</div>
 	</nav>
-
-	<!--사이드메뉴-->
-	<div class="container">
-		<div class="row">
-			<div class="col-lg-3">
-				<br>
-				<h4 class="my-4">매물</h4>
-				<div class="list-group">
-					<a href="index_maemae.jsp" class="list-group-item" id="check1">매매</a> 
-					<a href="index_rent.jsp" class="list-group-item" id="check2">전월세</a>
-				</div>
-				<h4 class="my-4">필터</h4>
-				<div class="list-group">
-					<a href="index_mat.jsp" class="list-group-item" id="check3">맞춤</a>
-					<%if(info != null){%>
-					<a href="index_imdae.jsp" class="list-group-item">임대</a>
-					<%}else {%>
-					<a href="" class="list-group-item" id= "fake1">임대</a>
-					<%}%>
-				</div>
-				<h4 class="my-4">예측</h4>
-				<div class="list-group">
-					<%if(info != null){ %>
-					<a href="price.jsp" class="list-group-item" >가격 예측</a>
-
-					<%}else {%>
-					<a href="" class="list-group-item" id= "fake2">가격 예측</a>
-					<%}%>
-				</div>
-			</div>
-		</div>
+	<br><br><br><br>
+	<h2><b>조건에 맞는 집을 찾으시나요?</b></h2><br>
+	
+	<img src="../img/apt.jpg">
 
 
 
