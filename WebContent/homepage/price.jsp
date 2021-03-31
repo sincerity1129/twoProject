@@ -184,10 +184,16 @@
 		</div>
 	</div>
 	
+<<<<<<< HEAD
 	<!-- 가격 예측 -->
 	<div class="col-lg-9">
 		<div id="price" class="raw">
 		<h5>조건을 선택하여 아파트 가격을 예측해보세요!</h5><br>
+=======
+	<!-- 가격 예측 시스템 -->
+	<h5>조건을 선택하여 아파트 가격을 예측해보세요!</h5><br>
+	<div class="cotainer">
+>>>>>>> branch 'master' of https://github.com/sincerity1129/project.git
 		<form action="http://localhost:9000/train" method="post">
 		<!-- 체크박스 -->
 			<fieldset>

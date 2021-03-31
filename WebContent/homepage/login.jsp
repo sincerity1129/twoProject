@@ -90,6 +90,9 @@
 	</nav>
 	<br>
 	
+	
+	<%String fail = (String)session.getAttribute("fail"); %>
+	
 	<!-- 로그인 입력창 -->
 	<main class="my-form">
 		<div class="cotainer">
@@ -117,6 +120,9 @@
 
 								<div class="col-md-6 offset-md-4">
 									<button type="submit" class="btn btn-primary" name="submit">Login</button>
+									<%if(fail != null){%>
+									<h7 style="color: tomato">아이디 또는 비밀번호를 확인해주세요.</h7>
+									<%}%>
 								</div>
 						</div>
 						</form>
@@ -125,6 +131,7 @@
 			</div>
 		</div>
 		</div>
+		
 
 	</main>
 	<script src="./js/jquery-3.6.0.min.js"></script>
