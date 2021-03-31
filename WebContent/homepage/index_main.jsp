@@ -94,9 +94,62 @@
 	  border-bottom: 1px solid #ccc;
 	}
 	
-	#basic, #junwall, #mat, #imdae {
+	#basic, #junwall, #mat, #imdae, .container {
 		display: none;
 }
+.img{
+	background-image: url("./maemae.jpg");
+	background-repeat: no-repeat;
+	background-size : 750px;
+	width: 100%;
+	height: 100%;
+}
+.img2_1 {
+	background-image: url("./filter.jpg");
+	background-repeat: no-repeat;
+	background-size : 700px;
+	position : relative;
+	width: 100%;
+	height: 100%;
+	left: 50%;
+	bottom : 670px;
+}
+.img2_2 {
+	background-image: url("./filter.jpg");
+	background-repeat: no-repeat;
+	background-size : 700px;
+	position : relative;
+	width: 100%;
+	height: 100%;
+	left: 50%;
+	bottom : 670px;
+}
+.img3_1 {
+	background-image: url("./pre.jpg");
+	background-repeat: no-repeat;
+	background-size : 700px;
+	position : relative;
+	width: 100%;
+	height: 100%;
+	left: 50%;
+	bottom : 1150px;
+}
+.img3_2 {
+	background-image: url("./pre.jpg");
+	background-repeat: no-repeat;
+	background-size : 700px;
+	position : relative;
+	width: 100%;
+	height: 100%;
+	left: 50%;
+	bottom : 1150px;
+}
+.search1{
+	position: absolute;
+	top:400px;
+	left : 100px;
+}
+
 </style>
 <body>
 
@@ -180,6 +233,40 @@
 				</div>
 			</div>
 		</div>
+	</div>
+	
+		
+		
+		<div class = "img">
+			사진 들어갈 곳
+			<div class = "search1">
+				<form action="SearchService.do">
+					<select name = "table">
+						<option value = "dong">동</option>
+						<option value = "apt_name">아파트</option>
+					</select>
+					<input type ="text" name = "">
+					<input type = "submit" value = "검색">
+				</form>
+			</div>
+		</div>
+		
+		
+		<%if (info == null){ %>
+		<div class = "img2_1" >
+		</div>
+		<%} else {%>
+		<div class = "img2_2">
+		</div>
+		<%} %>
+		
+		<%if (info == null){ %>
+		<div class = "img3_1" >
+		</div>
+		<%} else {%>
+		<div class = "img3_2">
+		</div>
+		<%} %>
 
 
 
@@ -191,6 +278,7 @@
 	<script src="vendor/jquery/jquery.min.js"></script>
 	<script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 	<script src="./vendor/jquery/jquery-3.6.0.min.js"></script>
+	
 	<script type="text/javascript">
 		$('#fake').click(function(){
 			alert('로그인을해주세요');
@@ -201,6 +289,19 @@
 		$('#fake2').click(function(){
 			alert('로그인을해주세요');
 		});
+		$('.img2_1').click(function(){
+			alert('로그인을 해주세요');
+		});
+		$('.img2_2').click(function(){
+			location.href = 'index_mat.jsp'
+		});
+		$('.img3_1').click(function(){
+			alert('로그인을 해주세요');
+		});
+		$('.img3_2').click(function(){
+			location.href = 'index_imdae.jsp'
+		});
+		
 	</script>
 
 </body>
