@@ -120,7 +120,6 @@ public int update(MemberDTO dto) { //정보수정
 public ArrayList<MemberDTO> select(){
 	list=new ArrayList<MemberDTO>();
 	conn();
-	
 	try {
 		String sql="select * from A_member";
 		psmt=conn.prepareStatement(sql);

@@ -20,19 +20,85 @@
 <meta name="author" content="">
 
 <title>광주아파트가격예측</title>
-
 <!-- Bootstrap core CSS -->
 <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-
 <!-- Custom styles for this template -->
 <link href="css/shop-homepage.css" rel="stylesheet">
 </head>
 <style type="text/css">
 .navbar-brand{
-		font-size : 30px;
-		font-weight : bold;
+      font-size : 30px;
+      font-weight : bold;
+   }
+   .my-4{
+      font-weight : bold;
+   }
+   .green_window {
+      display: inline-block;
+      width: 500px; height: 40px;
+      border: 3px solid #1b5ac2;
+      background: white;
+   }
+   .input_text {
+      width: 480; height: 20px;
+      margin: 6px 0 0 9px;
+      border: 0;
+      line-height: 20px;
+      font-size: 14px;
+      outline: none;
+      float : left;
+   }
+   .sch_smit {
+      width: 100px; height: 40px;
+      margin: 0; border: 0;
+      vertical-align: top;
+      background: #1b5ac2;
+      color: white;
+      font-weight: bold;
+      border-radius: 1px;
+      cursor: pointer;
+   }
+   .SelectSearch{
+      width: 120px; height: 40px;
+      border: 3px solid #1b5ac2;
+      background: white;
+      vertical-align: top;
+   }
+   .unit{
+      text-align: right;
+      font-size : 12px;
+   }
+	
+   table {
+     border-collapse: separate;
+     border-spacing: 1px;
+     text-align: left;
+     line-height: 1.5;
+     border-top: 1px solid #ccc;
+     margin : 20px 10px;
+     white-space: nowrap;
+   }
+   th {
+     width: 150px;
+     padding: 10px;
+     font-weight: bold;
+     vertical-align: top;
+     border-bottom: 1px solid #ccc;
+     white-space: nowrap;
+   }
+   td {
+     width: 350px;
+     padding: 10px;
+     vertical-align: top;
+     border-bottom: 1px solid #ccc;
+     white-space: nowrap;
+   }
+   #junwall, #mat, #imdae {
+      display: none;
 }
-
+	.col-lg-9{
+		display:flex;'
+	}
 </style>
 <body>
 <!-- Navigation -->
@@ -110,37 +176,35 @@
 		</div>
 	</div>
 	
-	<!-- 가격 예측 시스템 -->
-	<h5>조건을 선택하여 아파트 가격을 예측해보세요!</h5><br>
-	<div class="cotainer">
-		<!-- Default checkbox -->
-		<div class="form-check">
-			<input class="form-check-input" type="checkbox"  value=""  id="flexCheckDefault" />
-			<label class="form-check-label" for="flexCheckDefault">Default checkbox</label>
-    	</div>
-	</div>
-	<div>
+	<!-- 가격 예측 -->
+	<div class="col-lg-9">
+		<div id="price" class="raw">
+		<h5>조건을 선택하여 아파트 가격을 예측해보세요!</h5><br>
 		<form action="http://localhost:9000/train" method="post">
-		<label><input type = "checkbox" name="check" value="price"> 거래금액</label>
-		<label><input type = "checkbox" name="check" value="arch"> 건축년도</label>
-		<label><input type = "checkbox" name="check" value="apt_size"> 평수</label>
-		<label><input type = "checkbox" name="check" value="floor"> 층</label><br>
-		<label><input type = "checkbox" name="check" value="crime"> 범죄자수</label>
-		<label><input type = "checkbox" name="check" value="star"> 스타벅스</label>
-		<label><input type = "checkbox" name="check" value="subway"> 지하철</label>
-		<label><input type = "checkbox" name="check" value="movie"> 영화관</label>
-		<label><input type = "checkbox" name="check" value="charge"> 전기차 충전소</label>
-		<p><input type="submit"> <input type="reset"></p>
+		<!-- 체크박스 -->
+			<fieldset>
+				<legend>조건선택</legend>
+					<input type ="checkbox" class="btn-check" id="btn-check" autocomplete ="off">
+					<label class="btn-btn-primary" for ="btn-check">거래금액</label>
+				
+				
+				
+				
+				<label><input type = "checkbox" name="check" value="price"> 거래금액</label>
+				<label><input type = "checkbox" name="check" value="arch"> 건축년도</label>
+				<label><input type = "checkbox" name="check" value="apt_size"> 평수</label>
+				<label><input type = "checkbox" name="check" value="floor"> 층</label><br>
+				<label><input type = "checkbox" name="check" value="crime"> 범죄자수</label>
+				<label><input type = "checkbox" name="check" value="star"> 스타벅스</label>
+				<label><input type = "checkbox" name="check" value="subway"> 지하철</label>
+				<label><input type = "checkbox" name="check" value="movie"> 영화관</label>
+				<label><input type = "checkbox" name="check" value="charge"> 전기차 충전소</label>
+				<p><input type="submit"> <input type="reset"></p>
+			</fieldset>
 		</form>
+		</div>
 	</div>
-		<!-- footer 자리 맞추기 용도 -->
-<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-  <footer class="py-5 bg-dark">
-    <div class="container">
-      <p class="m-0 text-center text-white">Copyright &copy; Your Website 2020</p>
-    </div>
-    <!-- /.container -->
-  </footer>
+	
 	
 
 </body>
