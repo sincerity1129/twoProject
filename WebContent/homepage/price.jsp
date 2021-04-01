@@ -85,6 +85,7 @@
 }
 
 	 table {
+	 border: 1px solid transparent;
      border-collapse: separate;
      border-spacing: 1px;
      text-align: left;
@@ -135,8 +136,9 @@
 	}
 
 	p{
-	font-size: 16px;
+	font-size: 18px;
 	font-weight : bold;
+	text-align: center;
 	}
 </style>
 
@@ -164,15 +166,14 @@
    <br><br><br><br><br><br><br><br>
    <div id="option">
 	<div class="checks">
-		<h3><b>조건을 선택하여 아파트 가격을 예측해보세요!</b></h3><hr>
-		<br><br>
+		<h3><b>조건을 선택하여 아파트 가격을 예측해보세요!</b></h3><br>
 		<form action="http://localhost:9000/train" method="post">
 		<!-- 체크박스 -->
 			<fieldset>
 				<legend>조건선택</legend>
 				<br>
 				<div class = "ck_item">
-					<table border = "1">
+					<table>
 					<tr><td>
 					<label class="ck"><input type = "checkbox" name="check" value="price"> 거래금액</label></td></tr>
 					<tr><td>
