@@ -639,7 +639,7 @@
    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
    <script src="./vendor/jquery/jquery-3.6.0.min.js"></script>
    <script type="text/javascript">
-   $('#fake').click(function(){
+   	$('#fake').click(function(){
 		alert('로그인을해주세요');
 	});
 	$('#fake1').click(function(){

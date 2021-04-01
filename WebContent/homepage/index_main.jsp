@@ -242,7 +242,7 @@
          location.href = 'index_maemae.jsp'
       });
       $('.img2_1').click(function(){
-         alert('로그인을 해주세요');
+    	  location.href = 'index_mat.jsp'
       });
       $('.img2_2').click(function(){
          location.href = 'index_mat.jsp'
