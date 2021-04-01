@@ -89,7 +89,8 @@
      border-spacing: 1px;
      text-align: left;
      line-height: 1.5;
-     margin : 20px 10px;
+     margin-left:auto; 
+     margin-right:auto;
      white-space: nowrap;
      padding :40px;'
      border-top: 1px solid #ccc;
@@ -200,7 +201,6 @@
 		</form>
 		</div>
 	</div>
-	
 	
 	
 		
