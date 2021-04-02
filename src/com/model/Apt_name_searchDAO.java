@@ -17,7 +17,7 @@ public class Apt_name_searchDAO {
 	ArrayList<Main_filterDTO> AptSearchList = null;
 
 	
-	public void conn() { // DB ¿¬°á
+	public void conn() { // DB ï¿½ï¿½ï¿½ï¿½
 
 		
 		try {
@@ -35,7 +35,7 @@ public class Apt_name_searchDAO {
 
 }
 
-public void close() { // DB ¿¬°á ÇØÁ¦
+public void close() { // DB ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 
 	try {
 		if (rs != null) {
@@ -54,7 +54,7 @@ public void close() { // DB ¿¬°á ÇØÁ¦
 
 public ArrayList<Main_filterDTO> search(Apt_name_searchDTO dto) {
 	
-	AptSearchList = new ArrayList<Main_filterDTO>(); // ±âº» ÇÊÅÍ °Ë»ö
+	AptSearchList = new ArrayList<Main_filterDTO>(); 
 	
 	conn();
 	
@@ -82,7 +82,6 @@ public ArrayList<Main_filterDTO> search(Apt_name_searchDTO dto) {
 			
 			Mfdto = new Main_filterDTO(maemae_num,dong,price,build_year,apt_name,year,month,day,apt_size,floor);
 			AptSearchList.add(Mfdto);
-			
 			
 			
 		}

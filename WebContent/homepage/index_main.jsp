@@ -88,7 +88,7 @@
    width: 100%;
    height: 100%;
    left: 56%;
-   bottom : 888px;
+   bottom : 860px;
 }
 .img2_2 {
    background-image: url("./filter.jpg");
@@ -98,7 +98,7 @@
    width: 100%;
    height: 100%;
    left: 56%;
-   bottom : 888;
+   bottom : 860px;
 }
 .img3_1 {
    background-image: url("./pre.jpg");
@@ -108,7 +108,7 @@
    width: 100%;
    height: 300px;
    left: 56%;
-   bottom : 1500px;
+   bottom : 1450px;
 }
 .img3_2 {
    background-image: url("./pre.jpg");
@@ -118,7 +118,7 @@
    width: 100%;
    height: 300%;
    left: 56%;
-   bottom : 1500px;
+   bottom : 1450px;
 }
 .search1{
    position: absolute;
@@ -126,8 +126,8 @@
    left :150px;
 }
 .welcome{
-	position: relative;
-	left:130px;
+   position: relative;
+   left:130px;
 }
 
 </style>
@@ -178,17 +178,19 @@
                <li class="nav-item"><a class="nav-link" href="login.jsp">로그인</a></li>
                <%}%>
                </li>
+
+
             </ul>
          </div>
       </div>
    </nav>
    
-   		<br><br>
-   		<div class="welcome">
-		  <h1><b>100다방에 오신걸 환영합니다!</b></h1><hr>
-		  <h3>관심있었던 아파트 매물시세를 알아보세요</h3><br>
-		</div>
-		
+         <br><br>
+         <div class="welcome">
+        <h1><b>100다방에 오신걸 환영합니다!</b></h1><hr>
+        <h3>관심있었던 아파트 매물시세를 알아보세요</h3><br>
+      </div>
+      
       <div class = "img">
       </div>
       <div class = "search1">
@@ -200,9 +202,9 @@
             <span class='green_window'>
             <input type="text" class='input_text' name="search" onkeydown="enterSearch()"
                   placeholder="어떤 집에서 살고싶으세요?">
-         	</span>
-         	 <button type="submit" class="sch_smit">검색</button>
-         	</form>
+            </span>
+             <button type="submit" class="sch_smit">검색</button>
+            </form>
          </div>
       
       
@@ -242,7 +244,7 @@
          location.href = 'index_maemae.jsp'
       });
       $('.img2_1').click(function(){
-    	  location.href = 'index_mat.jsp'
+         location.href = 'index_mat.jsp'
       });
       $('.img2_2').click(function(){
          location.href = 'index_mat.jsp'
