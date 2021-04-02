@@ -33,7 +33,7 @@ public class LoginService implements FrontCommand {
 		if(loginDTO != null) {
 			System.out.println("로그인 성공");
 			session.setAttribute("info", loginDTO);
-			response.sendRedirect("index_main.jsp");
+			response.sendRedirect("index_mat.jsp");
 		}
 		else {
 			session.setAttribute("fail",fail);
