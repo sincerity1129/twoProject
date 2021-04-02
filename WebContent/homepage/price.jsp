@@ -85,11 +85,13 @@
 }
 
 	 table {
+	 border: 1px solid transparent;
      border-collapse: separate;
      border-spacing: 1px;
      text-align: left;
      line-height: 1.5;
-     margin : 20px 10px;
+     margin-left:auto; 
+     margin-right:auto;
      white-space: nowrap;
      padding :40px;'
      border-top: 1px solid #ccc;
@@ -134,8 +136,9 @@
 	}
 
 	p{
-	font-size: 16px;
+	font-size: 18px;
 	font-weight : bold;
+	text-align: center;
 	}
 </style>
 
@@ -163,35 +166,42 @@
    <br><br><br><br><br><br><br><br>
    <div id="option">
 	<div class="checks">
-		<h3><b>조건을 선택하여 아파트 가격을 예측해보세요!</b></h3><hr>
-		<br><br>
+		<h3><b>조건을 선택하여 아파트 가격을 예측해보세요!</b></h3><br>
 		<form action="http://localhost:9000/train" method="post">
 		<!-- 체크박스 -->
 			<fieldset>
 				<legend>조건선택</legend>
 				<br>
 				<div class = "ck_item">
-					<label class="ck"><input type = "checkbox" name="check" value="price"> 거래금액</label><br>
-					<label class="ck"><input type = "checkbox" name="check" value="arch"> 건축년도</label><br>
-					<label class="ck"><input type = "checkbox" name="check" value="apt_size"> 평수</label><br>
-					<label class="ck"><input type = "checkbox" name="check" value="floor"> 층</label><br>
-					<label class="ck"><input type = "checkbox" name="check" value="crime"> 범죄자수</label><br>
-					<label class="ck"><input type = "checkbox" name="check" value="star"> 스타벅스</label><br>
-					<label class="ck"><input type = "checkbox" name="check" value="subway"> 지하철</label><br>
-					<label class="ck"><input type = "checkbox" name="check" value="movie"> 영화관</label><br>
-					<label class="ck"><input type = "checkbox" name="check" value="charge"> 전기차 충전소</label>
-
-					<br><hr>
+					<table>
+					<tr><td>
+					<label class="ck"><input type = "checkbox" name="check" value="price"> 거래금액</label></td></tr>
+					<tr><td>
+					<label class="ck"><input type = "checkbox" name="check" value="arch"> 건축년도</label></td></tr>
+					<tr><td>
+					<label class="ck"><input type = "checkbox" name="check" value="apt_size"> 평수</label></td></tr>
+					<tr><td>
+					<label class="ck"><input type = "checkbox" name="check" value="floor"> 층</label></td></tr>
+					<tr><td>
+					<label class="ck"><input type = "checkbox" name="check" value="crime"> 범죄자수</label></td></tr>
+					<tr><td>
+					<label class="ck"><input type = "checkbox" name="check" value="star"> 스타벅스</label></td></tr>
+					<tr><td>
+					<label class="ck"><input type = "checkbox" name="check" value="subway"> 지하철</label></td></tr>
+					<tr><td>
+					<label class="ck"><input type = "checkbox" name="check" value="movie"> 영화관</label></td></tr>
+					<tr><td>
+					<label class="ck"><input type = "checkbox" name="check" value="charge"> 전기차 충전소</label></td></tr>
+					<tr><td>					
 					<p>
 					<button type="submit" class="sch_smit" >가격예측</button>
 					<button type="reset" class="sch_smit">초기화</button>
-					</p>
-
+					</p></td></tr>
+					</table>
 			</fieldset>
 		</form>
 		</div>
 	</div>
-	
 	
 	
 		

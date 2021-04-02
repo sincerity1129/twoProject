@@ -23,7 +23,8 @@ public class SearchService implements FrontCommand {
 
 		request.setCharacterEncoding("EUC-KR");
 		String search = request.getParameter("search");		
-		String table = request.getParameter("table");			
+		String table = request.getParameter("table");		
+		
 		System.out.println(search);
 	
 		

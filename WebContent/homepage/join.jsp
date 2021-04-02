@@ -76,7 +76,7 @@ body{
 	
 				<%  String check = (String)session.getAttribute("check");
 					MemberDAO dao = new MemberDAO();
-					 boolean id = dao.check(check);%>
+					 boolean id = dao.check(check); %>
 	<!-- 상단메뉴 조정 -->
 	<nav class="navbar navbar-expand-lg navbar-light navbar-laravel">
 		<div class="container">
