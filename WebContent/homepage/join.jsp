@@ -117,20 +117,7 @@ body{
 										<button type="submit" id="checkbtn" class="btn btn-default">중복확인</button>
 										<script type="text/javascript"> 
 										$(document).ready(function(){ $('#checkbtn').on('click', function(){ 
-											$.ajax({ 
-												type: 'POST', 
-												url: '/mate/checkSignup', 
-												data: { "id" : $('#id').val() 
-													}, 
-													success: function(data){ 
-														if($.trim(data) == 0){ $('#checkMsg').html('<p style="color:blue">사용가능</p>'); } 
-														else{ $('#checkMsg').html('<p style="color:red">사용불가능</p>'); 
-														} 
-													} 
-												}); //end ajax 
-											}); //end on 
-										}); </script>
-
+						
 
 										</div>								
 									<div class="col-md-6">								 										
