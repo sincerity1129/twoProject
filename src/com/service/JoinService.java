@@ -31,18 +31,18 @@ public class JoinService implements FrontCommand {
 		int cnt = dao.join(dto);
 		
 		session.setAttribute("check", id);
-		response.sendRedirect("join.jsp");
+		
 		
 		if(cnt>0) {
 			System.out.println("ȸ������ ����");
-
 			session.setAttribute("id", id);
+			response.sendRedirect("index_main.jsp");
 		}
 		else {
 			System.out.println("ȸ������ ����");
+			response.sendRedirect("join.jsp");
 			
 		}
-		response.sendRedirect("index_main.jsp");
 
 	}
 
