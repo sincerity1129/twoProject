@@ -88,7 +88,7 @@
    width: 100%;
    height: 100%;
    left: 56%;
-   bottom : 888px;
+   bottom : 860px;
 }
 .img2_2 {
    background-image: url("./filter.jpg");
@@ -98,7 +98,7 @@
    width: 100%;
    height: 100%;
    left: 56%;
-   bottom : 888;
+   bottom : 860px;
 }
 .img3_1 {
    background-image: url("./pre.jpg");
@@ -108,7 +108,7 @@
    width: 100%;
    height: 300px;
    left: 56%;
-   bottom : 1500px;
+   bottom : 1450px;
 }
 .img3_2 {
    background-image: url("./pre.jpg");
@@ -118,7 +118,7 @@
    width: 100%;
    height: 300%;
    left: 56%;
-   bottom : 1500px;
+   bottom : 1450px;
 }
 .search1{
    position: absolute;
