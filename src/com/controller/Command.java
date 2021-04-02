@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import com.service.CheckService;
 import com.service.DelAllService;
 import com.service.DelOneService;
 import com.service.FavoriteService;
@@ -60,6 +61,8 @@ public class Command extends HttpServlet {
 			command = new DelAllService();	
 		}else if(resultURI.equals("homepage/DelOneService.do")) {
 			command = new DelOneService();	
+		}else if(resultURI.equals("homepage/CheckService.do")) {
+			command = new CheckService();	
 		}
 		
 		

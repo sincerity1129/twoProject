@@ -69,13 +69,18 @@
 	}
 </style>
 <body>
+	<script src="./js/jquery-3.6.0.min.js"></script>
+	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+
 <%
 	MemberDTO loginDto = (MemberDTO)session.getAttribute("info");
 %>
 	<!-- 상단메뉴 조정 -->
 	<nav class="navbar navbar-expand-lg navbar-light navbar-laravel">
 		<div class="container">
-			<a class="navbar-brand" href="#">광주아파트예측</a> 
+			<a class="navbar-brand" href="index_main.jsp">100다방</a> 
 			<button class="navbar-toggler" type="button" data-toggle="collapse"
 				data-target="#navbarSupportedContent"
 				aria-controls="navbarSupportedContent" aria-expanded="false"
@@ -115,15 +120,48 @@
 										<%} %>
 									</div>
 								</div>
-
+								
 								<div class="form-group row">
 									<label for="email_address"
 										class="col-md-4 col-form-label text-md-right">비밀번호</label>
 									<div class="col-md-6">
-										<input type="password" id="pw" class="form-control" name="pw">
+										<input type="password" id = "pw1" class="form-control" class="form-control" name="pw" required/>
+									</div>				
+								</div>
+								
+								<div class="form-group row">
+									<label for="email_address"
+										class="col-md-4 col-form-label text-md-right">비밀번호확인</label>
+									<div class="col-md-6">
+									<input type="password" id = "pw2" class="form-control" class="form-control" name="rePw" required/>									
+									<h7 class="alert-success" id = "alert-success">비밀번호가 일치합니다.</h7>
+									<h7 class="alert-danger" id = "alert-danger">비밀번호가 일치하지 않습니다.</h7>
 									</div>
 								</div>
-
+								
+								<script type="text/javascript">
+								$(function(){
+								$("#alert-success").hide();
+								$("#alert-danger").hide();
+								$(".form-control").keyup(function(){
+									var pw1 =$("#pw1").val();
+									var pw2 =$("#pw2").val();
+									
+									if(pw1 != "" || pw2 != ""){
+										if(pw1 != pw2){
+											$("#alert-success").hide();
+											$("#alert-danger").show();
+											$("#submit").removeAttr("disabled", "disabled");
+										}else{
+											$("#alert-success").show();
+											$("#alert-danger").hide();
+											$("#submit").removeAttr("disabled");
+										}
+									}
+								});
+								});
+								</script>
+								
 								<div class="form-group row">
 									<label for="user_name"
 										class="col-md-4 col-form-label text-md-right">이름</label>
@@ -168,10 +206,7 @@
 		</div>
 
 	</main>
-	<script src="./js/jquery-3.6.0.min.js"></script>
-	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
-	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+	
 	<script>
 
 function validform() {

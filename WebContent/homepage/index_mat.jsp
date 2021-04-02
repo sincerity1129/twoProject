@@ -110,7 +110,7 @@
    <!-- Navigation -->
    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
       <div class="container">
-         <a class="navbar-brand" href="index_main.jsp">Leader</a>
+         <a class="navbar-brand" href="index_main.jsp">100다방</a>
          <button class="navbar-toggler" type="button" data-toggle="collapse"
             data-target="#navbarResponsive" aria-controls="navbarResponsive"
             aria-expanded="false" aria-label="Toggle navigation">
@@ -358,7 +358,7 @@
                   <tr>
                      <th>번호</th>
                      <%if (mat_select.equals("crime")) {%>
-                     <th>범죄자 수</th>
+                     <th>성범죄자 수</th>
                      <%}%>
                      <%if (mat_select.equals("charge")) {%>
                      <th>전기차 충전소</th>
