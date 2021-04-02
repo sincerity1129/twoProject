@@ -112,16 +112,27 @@ body{
 									<label for="full_name"
 										class="col-md-4 col-form-label text-md-right">아이디</label>									
 									<div class="col-md-4 col-form-label text-md-right">
-										<form action = "CheckService.do" method="post">	
-										<input type="text" id="id" class="form-control" name="id"></div>
+										<input type="text" id="id" class="form-control" name="id"placeholder="id를 입력하세요"/></div>
 									<div class="col-md-4 col-form-label text-md-left">																													
-										<input type="submit" id = "check" class="btn btn-primary" value = "중복 확인" onclick="javascript: form.action='CheckService.do';"/>
-										<%if(id){%>
-										<h7 class="id-danger" id = "id-danger">아이디 사용 불가</h7>										
-										<%}else{ %>
-										<h7 class="id-success" id = "id-success">아이디 사용 가능</h7>
-										<%} %>
-										</form>	</div>								
+										<button type="submit" id="checkbtn" class="btn btn-default">중복확인</button>
+										<script type="text/javascript"> 
+										$(document).ready(function(){ $('#checkbtn').on('click', function(){ 
+											$.ajax({ 
+												type: 'POST', 
+												url: '/mate/checkSignup', 
+												data: { "id" : $('#id').val() 
+													}, 
+													success: function(data){ 
+														if($.trim(data) == 0){ $('#checkMsg').html('<p style="color:blue">사용가능</p>'); } 
+														else{ $('#checkMsg').html('<p style="color:red">사용불가능</p>'); 
+														} 
+													} 
+												}); //end ajax 
+											}); //end on 
+										}); </script>
+
+
+										</div>								
 									<div class="col-md-6">								 										
 									</div>
 								</div>
