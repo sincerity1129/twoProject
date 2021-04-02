@@ -126,8 +126,8 @@
    left :150px;
 }
 .welcome{
-	position: relative;
-	left:130px;
+   position: relative;
+   left:130px;
 }
 
 </style>
@@ -183,12 +183,12 @@
       </div>
    </nav>
    
-   		<br><br>
-   		<div class="welcome">
-		  <h1><b>100다방에 오신걸 환영합니다!</b></h1><hr>
-		  <h3>관심있었던 아파트 매물시세를 알아보세요</h3><br>
-		</div>
-		
+         <br><br>
+         <div class="welcome">
+        <h1><b>100다방에 오신걸 환영합니다!</b></h1><hr>
+        <h3>관심있었던 아파트 매물시세를 알아보세요</h3><br>
+      </div>
+      
       <div class = "img">
       </div>
       <div class = "search1">
@@ -200,9 +200,9 @@
             <span class='green_window'>
             <input type="text" class='input_text' name="search" onkeydown="enterSearch()"
                   placeholder="어떤 집에서 살고싶으세요?">
-         	</span>
-         	 <button type="submit" class="sch_smit">검색</button>
-         	</form>
+            </span>
+             <button type="submit" class="sch_smit">검색</button>
+            </form>
          </div>
       
       
@@ -242,7 +242,7 @@
          location.href = 'index_maemae.jsp'
       });
       $('.img2_1').click(function(){
-    	  location.href = 'index_mat.jsp'
+         location.href = 'index_mat.jsp'
       });
       $('.img2_2').click(function(){
          location.href = 'index_mat.jsp'

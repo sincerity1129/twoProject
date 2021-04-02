@@ -167,7 +167,7 @@
    <div id="option">
 	<div class="checks">
 		<h3><b>조건을 선택하여 아파트 가격을 예측해보세요!</b></h3><br>
-		<form action="http://localhost:9000/train" method="post">
+		<form action="http://121.147.185.66:9000/train" method="post">
 		<!-- 체크박스 -->
 			<fieldset>
 				<legend>조건선택</legend>

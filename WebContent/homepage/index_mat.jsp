@@ -451,11 +451,6 @@
 				</tr>
 				<%} %>
 			</thead>
-			<%if (SchoolList.size() == 0) {%>
-				<tr>
-					<td colspan=12>매물이 없습니다.</td>
-				</tr>
-				<%}%>
 			<tbody>
 			<% for (int i = 0; i < SchoolList.size(); i++) { %>
 			<tr>
@@ -542,12 +537,6 @@
 				</tr>
 				<%} %>
 				</thead>
-				
-				<%if (ParkList.size() == 0) {%>
-				<tr>
-					<td colspan=12>매물이 없습니다.</td>
-				</tr>
-				<%}%>
 				<tbody>
 				<% for (int i = 0; i < ParkList.size(); i++) { %>
 				<tr>
@@ -592,12 +581,6 @@
 					</tr>
 					<%} %>
 					</thead>
-					
-					<%if (LibList.size() == 0) {%>
-				<tr>
-					<td colspan=12>매물이 없습니다.</td>
-				</tr>
-				<%}%>
 					<tbody>
 					<%for (int i = 0; i < LibList.size(); i++) { %>
 					<tr>
