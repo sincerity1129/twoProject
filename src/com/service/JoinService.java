@@ -16,7 +16,7 @@ public class JoinService implements FrontCommand {
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		
+		HttpSession session = request.getSession();
 		request.setCharacterEncoding("EUC-KR");
 
 		String id = request.getParameter("id");
@@ -30,13 +30,16 @@ public class JoinService implements FrontCommand {
 		MemberDAO dao = new MemberDAO();
 		int cnt = dao.join(dto);
 		
+		session.setAttribute("check", id);
+		response.sendRedirect("join.jsp");
+		
 		if(cnt>0) {
-			System.out.println("È¸¿ø°¡ÀÔ ¼º°ø");
-			HttpSession session = request.getSession();
+			System.out.println("È¸ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½");
+
 			session.setAttribute("id", id);
 		}
 		else {
-			System.out.println("È¸¿ø°¡ÀÔ ½ÇÆÐ");
+			System.out.println("È¸ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½");
 			
 		}
 		response.sendRedirect("index_main.jsp");

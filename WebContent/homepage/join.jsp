@@ -77,6 +77,7 @@ body{
 				<%  String check = (String)session.getAttribute("check");
 					MemberDAO dao = new MemberDAO();
 					 boolean id = dao.check(check); %>
+					 
 	<!-- 상단메뉴 조정 -->
 	<nav class="navbar navbar-expand-lg navbar-light navbar-laravel">
 		<div class="container">
@@ -112,16 +113,18 @@ body{
 									<label for="full_name"
 										class="col-md-4 col-form-label text-md-right">아이디</label>									
 									<div class="col-md-4 col-form-label text-md-right">
-										<form action = "CheckService.do" method="post">	
 										<input type="text" id="id" class="form-control" name="id"></div>
-									<div class="col-md-4 col-form-label text-md-left">																													
+									<div class="col-md-4 col-form-label text-md-left">
+																																						
 										<input type="submit" id = "check" class="btn btn-primary" value = "중복 확인" onclick="javascript: form.action='CheckService.do';"/>
+										
 										<%if(id){%>
 										<h7 class="id-danger" id = "id-danger">아이디 사용 불가</h7>										
 										<%}else{ %>
 										<h7 class="id-success" id = "id-success">아이디 사용 가능</h7>
 										<%} %>
-										</form>	</div>								
+										
+										</div>								
 									<div class="col-md-6">								 										
 									</div>
 								</div>
@@ -138,6 +141,7 @@ body{
 									<label for="email_address"
 										class="col-md-4 col-form-label text-md-right">비밀번호확인</label>
 									<div class="col-md-6">
+									
 									<input type="password" id = "pw2" class="form-control" class="form-control" name="rePw" required/>									
 									<h7 class="alert-success" id = "alert-success">비밀번호가 일치합니다.</h7>
 									<h7 class="alert-danger" id = "alert-danger">비밀번호가 일치하지 않습니다.</h7>
@@ -155,12 +159,10 @@ body{
 									if(pw1 != "" || pw2 != ""){
 										if(pw1 != pw2){
 											$("#alert-success").hide();
-											$("#alert-danger").show();
-											$("#submit").removeAttr("disabled", "disabled");
+											$("#alert-danger").show();								
 										}else{
 											$("#alert-success").show();
-											$("#alert-danger").hide();
-											$("#submit").removeAttr("disabled");
+											$("#alert-danger").hide();											
 										}
 									}
 								});
