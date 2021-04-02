@@ -109,12 +109,12 @@ body{
 						<div class="card-header">회원가입</div>
 						<div class="card-body">
 							<form name="my-form" onsubmit="return validform()" action="JoinService.do" method="post">
+								
 								<div class="form-group row">
 									<label for="full_name"
 										class="col-md-4 col-form-label text-md-right">아이디</label>									
-									<div class="col-md-4 col-form-label text-md-right">	
-										<input type="text" id="id" class="form-control" name="id"></div>								 										
-
+									<div class="col-md-6">
+										<input type="text" id="id" class="form-control" name="id">								 										
 									</div>
 								</div>
 
